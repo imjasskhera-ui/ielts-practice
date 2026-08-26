@@ -7,13 +7,21 @@
 <title>Teen IELTS - Reading Practice</title>
 
 <style>
+    #timer {
+    position: sticky;
+    top: 10px;
+    z-index: 1000;
+    background: white;
+    padding: 12px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
     body {
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
-        margin: 0;
-        background: #f4f7fb;
-        color: #222;
-    }
+        <div id="timer">⏱️ Time Remaining: 60:00</div>
 
     .container {
         max-width: 900px;

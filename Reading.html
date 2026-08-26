@@ -25,6 +25,40 @@
 }
     body {
         
+<script>
+let timeLeft = 60 * 60;
+
+const timer = setInterval(function () {
+
+    let minutes = Math.floor(timeLeft / 60);
+    let seconds = timeLeft % 60;
+
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    document.getElementById("timer").textContent =
+        "⏱️ Time Remaining: " + minutes + ":" + seconds;
+
+    if (timeLeft <= 300) {
+        document.getElementById("timer").style.background = "#fff3cd";
+    }
+
+    if (timeLeft <= 60) {
+        document.getElementById("timer").textContent =
+            "⚠️ FINAL MINUTE: " + minutes + ":" + seconds;
+    }
+
+    if (timeLeft <= 0) {
+        clearInterval(timer);
+        alert("⏰ Time is up! Your test will be submitted.");
+        checkAnswers();
+        return;
+    }
+
+    timeLeft--;
+
+}, 1000);
+</script>
+        
     .container {
         max-width: 900px;
         margin: auto;

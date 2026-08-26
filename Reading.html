@@ -131,6 +131,19 @@
         }
     }
 </style>
+#timer {
+    position: sticky;
+    top: 10px;
+    z-index: 1000;
+    background: white;
+    padding: 12px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
 </head>
 
 <body>
@@ -505,5 +518,39 @@ function checkAnswers() {
 </script>
 
 </body>
+    <div id="timer">⏱️ Time Remaining: 60:00</div>
 </html>
-```
+```<script>
+let timeLeft = 60 * 60;
+
+const timer = setInterval(function() {
+
+    let minutes = Math.floor(timeLeft / 60);
+    let seconds = timeLeft % 60;
+
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    document.getElementById("timer").textContent =
+        "⏱️ Time Remaining: " + minutes + ":" + seconds;
+
+    if (timeLeft <= 300) {
+        document.getElementById("timer").style.fontSize = "24px";
+    }
+
+    if (timeLeft <= 60) {
+        document.getElementById("timer").textContent =
+            "⚠️ FINAL MINUTE: " + minutes + ":" + seconds;
+    }
+
+    if (timeLeft <= 0) {
+        clearInterval(timer);
+
+        alert("⏰ Time is up! Your answers will now be submitted.");
+
+        checkAnswers();
+    }
+
+    timeLeft--;
+
+}, 1000);
+</script>

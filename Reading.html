@@ -1,63 +1,509 @@
+```html
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teen IELTS - Reading Practice</title>
 
-    <title>Teen IELTS - Reading Practice</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        background: #f4f7fb;
+        color: #222;
+    }
 
+    .container {
+        max-width: 900px;
+        margin: auto;
+        padding: 25px;
+    }
+
+    header {
+        background: #17365d;
+        color: white;
+        padding: 25px;
+        border-radius: 12px;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .passage {
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        margin-bottom: 25px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .question {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    .question h3 {
+        margin-top: 0;
+    }
+
+    label {
+        display: block;
+        margin: 8px 0;
+        cursor: pointer;
+    }
+
+    input[type="text"] {
+        padding: 10px;
+        width: 90%;
+        max-width: 400px;
+        border: 1px solid #aaa;
+        border-radius: 6px;
+        font-size: 16px;
+    }
+
+    select {
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 6px;
+    }
+
+    button {
+        padding: 14px 25px;
+        border: none;
+        border-radius: 8px;
+        font-size: 17px;
+        cursor: pointer;
+        margin: 10px 5px 20px 0;
+    }
+
+    #submitBtn {
+        background: #17365d;
+        color: white;
+    }
+
+    #tryAgainBtn {
+        background: #555;
+        color: white;
+        display: none;
+    }
+
+    #result {
+        display: none;
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .correct {
+        background: #e8f5e9;
+        border-left: 5px solid #2e7d32;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+    .incorrect {
+        background: #ffebee;
+        border-left: 5px solid #c62828;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+    .answers {
+        display: none;
+        margin-top: 25px;
+        text-align: left;
+    }
+
+    @media (max-width: 600px) {
+        .container {
+            padding: 12px;
+        }
+
+        .passage,
+        .question {
+            padding: 16px;
+        }
+    }
+</style>
 </head>
 
 <body>
 
-<h1>Teen IELTS Practice</h1>
+<div class="container">
 
-<h2>📖 IELTS Reading Practice</h2>
+<header>
+    <h1>Teen IELTS Practice</h1>
+    <h2>📖 Reading Practice</h2>
+    <p>20 Questions</p>
+</header>
 
-<p>Read the passage and answer the questions.</p>
+<div class="passage">
 
-<h3>Passage: The Benefits of Learning a New Language</h3>
+<h2>Reading Passage</h2>
+
+<h3>The Benefits of Learning a New Language</h3>
 
 <p>
-
 Learning a new language can provide many benefits. It can improve communication,
-
 help people understand different cultures, and create new opportunities for
-
-education and employment. Regular practice is important because language skills
-
-improve gradually over time.
-
+education and employment. In today's increasingly connected world, the ability
+to speak more than one language can be a valuable skill.
 </p>
 
-<h3>Questions</h3>
+<p>
+One important benefit of learning another language is improved communication.
+People who speak several languages can communicate with a wider range of people.
+This can be particularly useful when travelling or working with people from
+different countries.
+</p>
 
-<p><b>1. What can learning a new language improve?</b></p>
+<p>
+Learning a language can also help people understand other cultures. Language
+and culture are closely connected, and studying another language can introduce
+learners to new traditions, customs, ideas, and ways of thinking. This can
+help develop respect and understanding between people.
+</p>
 
-<p>A. Communication</p>
+<p>
+Another advantage is that learning a language can create educational and
+employment opportunities. Some universities offer programmes for students who
+speak more than one language. Employers may also value workers who can
+communicate with international customers and colleagues.
+</p>
 
-<p>B. Weather</p>
+<p>
+Regular practice is essential. Language skills usually improve gradually,
+rather than immediately. Reading, writing, listening, and speaking regularly
+can help learners remember new vocabulary and become more confident.
+Technology can also support language learning. Educational websites, mobile
+applications, videos, and online conversations provide opportunities to
+practise outside the classroom.
+</p>
 
-<p>C. Transportation</p>
+<p>
+Although learning a language can sometimes be difficult, patience and regular
+practice can make the process easier. Making mistakes is a normal part of
+learning, and learners can improve by identifying their mistakes and trying
+again.
+</p>
 
-<p>D. Cooking</p>
+</div>
 
-<p><b>2. What is important for improving language skills?</b></p>
+<h2>Questions 1–5: Multiple Choice</h2>
 
-<p>A. Sleeping</p>
+<div class="question">
+<h3>1. What is one benefit of learning a new language?</h3>
+<label><input type="radio" name="q1" value="A"> A. Improved communication</label>
+<label><input type="radio" name="q1" value="B"> B. Better weather</label>
+<label><input type="radio" name="q1" value="C"> C. Faster transportation</label>
+<label><input type="radio" name="q1" value="D"> D. More free time</label>
+</div>
 
-<p>B. Regular practice</p>
+<div class="question">
+<h3>2. Why can speaking several languages be useful when travelling?</h3>
+<label><input type="radio" name="q2" value="A"> A. It makes flights cheaper</label>
+<label><input type="radio" name="q2" value="B"> B. It allows people to communicate with more people</label>
+<label><input type="radio" name="q2" value="C"> C. It guarantees good weather</label>
+<label><input type="radio" name="q2" value="D"> D. It removes the need for maps</label>
+</div>
 
-<p>C. Travelling</p>
+<div class="question">
+<h3>3. What can studying another language help people understand?</h3>
+<label><input type="radio" name="q3" value="A"> A. Different cultures</label>
+<label><input type="radio" name="q3" value="B"> B. Weather forecasts</label>
+<label><input type="radio" name="q3" value="C"> C. Traffic systems</label>
+<label><input type="radio" name="q3" value="D"> D. Sports rules</label>
+</div>
 
-<p>D. Watching television</p>
+<div class="question">
+<h3>4. What may employers value?</h3>
+<label><input type="radio" name="q4" value="A"> A. Workers who never travel</label>
+<label><input type="radio" name="q4" value="B"> B. Workers who speak more than one language</label>
+<label><input type="radio" name="q4" value="C"> C. Workers who avoid technology</label>
+<label><input type="radio" name="q4" value="D"> D. Workers who only work alone</label>
+</div>
 
-<h3>Answers</h3>
+<div class="question">
+<h3>5. According to the passage, how do language skills usually improve?</h3>
+<label><input type="radio" name="q5" value="A"> A. Immediately</label>
+<label><input type="radio" name="q5" value="B"> B. Without practice</label>
+<label><input type="radio" name="q5" value="C"> C. Gradually</label>
+<label><input type="radio" name="q5" value="D"> D. Only through travel</label>
+</div>
+
+<h2>Questions 6–10: True / False / Not Given</h2>
+
+<div class="question">
+<h3>6. Learning a new language can create employment opportunities.</h3>
+<select id="q6">
+<option value="">Choose an answer</option>
+<option value="TRUE">TRUE</option>
+<option value="FALSE">FALSE</option>
+<option value="NG">NOT GIVEN</option>
+</select>
+</div>
+
+<div class="question">
+<h3>7. Everyone who learns another language becomes fluent within one month.</h3>
+<select id="q7">
+<option value="">Choose an answer</option>
+<option value="TRUE">TRUE</option>
+<option value="FALSE">FALSE</option>
+<option value="NG">NOT GIVEN</option>
+</select>
+</div>
+
+<div class="question">
+<h3>8. Language and culture are closely connected.</h3>
+<select id="q8">
+<option value="">Choose an answer</option>
+<option value="TRUE">TRUE</option>
+<option value="FALSE">FALSE</option>
+<option value="NG">NOT GIVEN</option>
+</select>
+</div>
+
+<div class="question">
+<h3>9. Technology can provide opportunities to practise a language.</h3>
+<select id="q9">
+<option value="">Choose an answer</option>
+<option value="TRUE">TRUE</option>
+<option value="FALSE">FALSE</option>
+<option value="NG">NOT GIVEN</option>
+</select>
+</div>
+
+<div class="question">
+<h3>10. Learning a language is always easy for everyone.</h3>
+<select id="q10">
+<option value="">Choose an answer</option>
+<option value="TRUE">TRUE</option>
+<option value="FALSE">FALSE</option>
+<option value="NG">NOT GIVEN</option>
+</select>
+</div>
+
+<h2>Questions 11–15: Complete the Sentences</h2>
+
+<div class="question">
+<h3>11. Learning another language can improve __________.</h3>
+<input type="text" id="q11">
+</div>
+
+<div class="question">
+<h3>12. Language and __________ are closely connected.</h3>
+<input type="text" id="q12">
+</div>
+
+<div class="question">
+<h3>13. Employers may value workers who can communicate with international customers and __________.</h3>
+<input type="text" id="q13">
+</div>
+
+<div class="question">
+<h3>14. Regular practice can help learners remember new __________.</h3>
+<input type="text" id="q14">
+</div>
+
+<div class="question">
+<h3>15. Making __________ is a normal part of learning.</h3>
+<input type="text" id="q15">
+</div>
+
+<h2>Questions 16–20: Multiple Choice</h2>
+
+<div class="question">
+<h3>16. Which four skills are mentioned in the passage?</h3>
+<label><input type="radio" name="q16" value="A"> A. Reading, writing, listening and speaking</label>
+<label><input type="radio" name="q16" value="B"> B. Running, swimming, reading and drawing</label>
+<label><input type="radio" name="q16" value="C"> C. Driving, cooking, writing and singing</label>
+<label><input type="radio" name="q16" value="D"> D. Speaking, dancing, running and cooking</label>
+</div>
+
+<div class="question">
+<h3>17. Which technology is mentioned as useful for language learning?</h3>
+<label><input type="radio" name="q17" value="A"> A. Mobile applications</label>
+<label><input type="radio" name="q17" value="B"> B. Washing machines</label>
+<label><input type="radio" name="q17" value="C"> C. Traffic lights</label>
+<label><input type="radio" name="q17" value="D"> D. Calculators</label>
+</div>
+
+<div class="question">
+<h3>18. What can learning about another culture help develop?</h3>
+<label><input type="radio" name="q18" value="A"> A. Respect and understanding</label>
+<label><input type="radio" name="q18" value="B"> B. Faster reading</label>
+<label><input type="radio" name="q18" value="C"> C. Better weather</label>
+<label><input type="radio" name="q18" value="D"> D. Physical strength</label>
+</div>
+
+<div class="question">
+<h3>19. What should learners do when they make mistakes?</h3>
+<label><input type="radio" name="q19" value="A"> A. Stop learning</label>
+<label><input type="radio" name="q19" value="B"> B. Ignore them</label>
+<label><input type="radio" name="q19" value="C"> C. Identify them and try again</label>
+<label><input type="radio" name="q19" value="D"> D. Avoid speaking</label>
+</div>
+
+<div class="question">
+<h3>20. What is the main idea of the passage?</h3>
+<label><input type="radio" name="q20" value="A"> A. Learning languages has benefits but requires regular practice</label>
+<label><input type="radio" name="q20" value="B"> B. Travelling is the only way to learn languages</label>
+<label><input type="radio" name="q20" value="C"> C. Technology has replaced language teachers</label>
+<label><input type="radio" name="q20" value="D"> D. Learning languages is impossible for young people</label>
+</div>
+
+<button id="submitBtn" onclick="checkAnswers()">Submit Answers</button>
+<button id="tryAgainBtn" onclick="location.reload()">Try Again</button>
+
+<div id="result">
+
+<h2>📊 Your Result</h2>
+
+<h3 id="score"></h3>
+<h3 id="band"></h3>
+
+<div class="answers" id="answers">
+
+<h2>Correct Answers</h2>
 
 <p>1. A — Communication</p>
+<p>2. B — Communicate with more people</p>
+<p>3. A — Different cultures</p>
+<p>4. B — Workers who speak more than one language</p>
+<p>5. C — Gradually</p>
+<p>6. TRUE</p>
+<p>7. NOT GIVEN</p>
+<p>8. TRUE</p>
+<p>9. TRUE</p>
+<p>10. FALSE</p>
+<p>11. communication</p>
+<p>12. culture</p>
+<p>13. colleagues</p>
+<p>14. vocabulary</p>
+<p>15. mistakes</p>
+<p>16. A — Reading, writing, listening and speaking</p>
+<p>17. A — Mobile applications</p>
+<p>18. A — Respect and understanding</p>
+<p>19. C — Identify them and try again</p>
+<p>20. A — Learning languages has benefits but requires regular practice</p>
 
-<p>2. B — Regular practice</p>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function checkAnswers() {
+
+    const answers = {
+        q1: "A",
+        q2: "B",
+        q3: "A",
+        q4: "B",
+        q5: "C",
+        q6: "TRUE",
+        q7: "NG",
+        q8: "TRUE",
+        q9: "TRUE",
+        q10: "FALSE",
+        q11: "communication",
+        q12: "culture",
+        q13: "colleagues",
+        q14: "vocabulary",
+        q15: "mistakes",
+        q16: "A",
+        q17: "A",
+        q18: "A",
+        q19: "C",
+        q20: "A"
+    };
+
+    let score = 0;
+
+    for (let i = 1; i <= 10; i++) {
+        const selected = document.querySelector('input[name="q' + i + '"]:checked');
+
+        if (selected && selected.value === answers["q" + i]) {
+            score++;
+        }
+    }
+
+    for (let i = 6; i <= 10; i++) {
+        const selected = document.getElementById("q" + i).value;
+
+        if (selected === answers["q" + i]) {
+            score++;
+        }
+    }
+
+    for (let i = 11; i <= 15; i++) {
+
+        const userAnswer = document
+            .getElementById("q" + i)
+            .value
+            .trim()
+            .toLowerCase();
+
+        if (userAnswer === answers["q" + i]) {
+            score++;
+        }
+    }
+
+    for (let i = 16; i <= 20; i++) {
+
+        const selected = document.querySelector('input[name="q' + i + '"]:checked');
+
+        if (selected && selected.value === answers["q" + i]) {
+            score++;
+        }
+    }
+
+    let band;
+
+    if (score >= 19) {
+        band = "Band 9.0";
+    } else if (score >= 17) {
+        band = "Band 8.0";
+    } else if (score >= 15) {
+        band = "Band 7.0";
+    } else if (score >= 13) {
+        band = "Band 6.0";
+    } else if (score >= 11) {
+        band = "Band 5.0";
+    } else if (score >= 9) {
+        band = "Band 4.0";
+    } else {
+        band = "Below Band 4.0";
+    }
+
+    document.getElementById("score").textContent =
+        "Score: " + score + " / 20";
+
+    document.getElementById("band").textContent =
+        "Estimated IELTS Reading Band: " + band;
+
+    document.getElementById("result").style.display = "block";
+    document.getElementById("answers").style.display = "block";
+
+    document.getElementById("submitBtn").style.display = "none";
+    document.getElementById("tryAgainBtn").style.display = "inline-block";
+
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+    });
+}
+
+</script>
 
 </body>
-
 </html>
+```

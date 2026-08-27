@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>IELTS Academic Mock Test</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #222;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 25px;
+}
+
+header {
+    background: #17365d;
+    color: white;
+    padding: 35px 20px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+header h1 {
+    margin: 0 0 10px;
+}
+
+.section {
+    background: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.section h2 {
+    color: #17365d;
+}
+
+.test-btn {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    margin: 15px auto;
+    padding: 18px;
+    border: none;
+    border-radius: 10px;
+    background: #17365d;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.test-btn:hover {
+    background: #0f2744;
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #555;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.info {
+    line-height: 1.7;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #777;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+    <h1>🎓 IELTS Academic</h1>
+    <p>Full Academic IELTS Mock Test</p>
+</header>
+
+<div class="section">
+
+    <h2>📋 Test Structure</h2>
+
+    <div class="info">
+
+        <p>🎧 <strong>Listening:</strong> 40 questions — approximately 30 minutes</p>
+
+        <p>📖 <strong>Reading:</strong> 40 questions — 60 minutes</p>
+
+        <p>✍️ <strong>Writing:</strong> 2 tasks — 60 minutes</p>
+
+        <p>🗣️ <strong>Speaking:</strong> 3 parts — 11–14 minutes</p>
+
+    </div>
+
+</div>
+
+<div class="section">
+
+    <h2>🎧 Listening</h2>
+
+    <p>
+        4 sections and 40 questions.
+    </p>
+
+    <button class="test-btn" onclick="startListening()">
+        Start Listening Test
+    </button>
+
+</div>
+
+<div class="section">
+
+    <h2>📖 Reading</h2>
+
+    <p>
+        3 passages and 40 questions.
+    </p>
+
+    <button class="test-btn" onclick="startReading()">
+        Start Reading Test
+    </button>
+
+</div>
+
+<div class="section">
+
+    <h2>✍️ Writing</h2>
+
+    <p>
+        Task 1: Academic report
+    </p>
+
+    <p>
+        Task 2: Essay
+    </p>
+
+    <button class="test-btn" onclick="startWriting()">
+        Start Writing Test
+    </button>
+
+</div>
+
+<div class="section">
+
+    <h2>🗣️ Speaking</h2>
+
+    <p>
+        Part 1: Introduction and interview
+    </p>
+
+    <p>
+        Part 2: Individual long turn
+    </p>
+
+    <p>
+        Part 3: Discussion
+    </p>
+
+    <button class="test-btn" onclick="startSpeaking()">
+        Start Speaking Test
+    </button>
+
+</div>
+
+<div class="section">
+
+    <h2>🏠 Return Home</h2>
+
+    <a href="index.html" class="back-btn">
+        ← Back to Home
+    </a>
+
+</div>
+
+<footer>
+    Teen IELTS Practice
+</footer>
+
+</div>
+
+<script>
+
+function startListening() {
+    alert("Listening test will be added next.");
+}
+
+function startReading() {
+    window.location.href = "Reading.html";
+}
+
+function startWriting() {
+    alert("Writing test will be added next.");
+}
+
+function startSpeaking() {
+    alert("Speaking test will be added next.");
+}
+
+</script>
+
+</body>
+</html>

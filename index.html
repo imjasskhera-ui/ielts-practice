@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Teen IELTS Practice</title>
+<title>Teen IELTS Complete Mock Test</title>
 
 <style>
 * {
@@ -21,132 +20,156 @@ body {
 .container {
     max-width: 1000px;
     margin: auto;
-    padding: 30px 20px;
+    padding: 20px;
 }
 
 header {
     background: #17365d;
     color: white;
-    padding: 45px 25px;
-    border-radius: 18px;
+    padding: 35px 20px;
+    border-radius: 15px;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 header h1 {
-    font-size: 42px;
     margin: 0 0 10px;
+    font-size: 38px;
 }
 
-header p {
-    font-size: 19px;
-    margin: 8px;
-}
-
-.choose-title {
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.test-options {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-}
-
-.test-card {
+.card {
     background: white;
-    padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
-    text-align: center;
-    transition: transform 0.2s;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
 }
 
-.test-card:hover {
-    transform: translateY(-5px);
-}
-
-.test-card .icon {
-    font-size: 55px;
-}
-
-.test-card h2 {
+h2 {
     color: #17365d;
-    font-size: 27px;
 }
 
-.test-card p {
-    line-height: 1.6;
-    color: #555;
+.section {
+    display: none;
 }
 
-.start-btn {
-    display: inline-block;
-    padding: 14px 25px;
-    margin-top: 15px;
+.section.active {
+    display: block;
+}
+
+button {
+    padding: 14px 22px;
+    border: none;
     border-radius: 8px;
     background: #17365d;
     color: white;
-    text-decoration: none;
-    font-size: 17px;
-    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
 }
 
-.start-btn:hover {
+button:hover {
     background: #0f2744;
 }
 
-.info {
-    background: white;
-    padding: 25px;
-    border-radius: 15px;
-    margin-top: 30px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-
-.info h2 {
-    color: #17365d;
-}
-
-.info-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-}
-
-.info-box {
-    background: #f4f7fb;
-    padding: 18px;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.info-box strong {
+.option {
     display: block;
-    font-size: 18px;
-    margin-bottom: 5px;
+    background: #f4f7fb;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
-footer {
+input[type="text"],
+textarea,
+select {
+    width: 100%;
+    max-width: 700px;
+    padding: 11px;
+    margin-top: 8px;
+    border: 1px solid #aaa;
+    border-radius: 7px;
+    font-size: 16px;
+}
+
+textarea {
+    min-height: 250px;
+    resize: vertical;
+}
+
+.timer {
+    position: sticky;
+    top: 10px;
+    z-index: 100;
+    background: white;
+    padding: 12px;
     text-align: center;
-    margin-top: 35px;
-    padding: 20px;
-    color: #777;
+    font-size: 21px;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
 }
 
-@media (max-width: 700px) {
+.progress {
+    height: 12px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0 20px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #17365d;
+    transition: width .3s;
+}
+
+.result {
+    background: #e8f5e9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.center {
+    text-align: center;
+}
+
+.word-count {
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.small {
+    font-size: 14px;
+    color: #666;
+}
+
+@media(max-width:600px) {
+    .container {
+        padding: 10px;
+    }
 
     header h1 {
-        font-size: 32px;
+        font-size: 28px;
     }
 
-    .test-options {
-        grid-template-columns: 1fr;
-    }
-
-    .info-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .card {
+        padding: 17px;
     }
 }
 </style>
@@ -157,131 +180,895 @@ footer {
 <div class="container">
 
 <header>
-
-    <h1>🎓 Teen IELTS Practice</h1>
-
-    <p>Complete IELTS Mock Test Platform</p>
-
+    <h1>🎓 Teen IELTS Complete Mock Test</h1>
     <p>Listening • Reading • Writing • Speaking</p>
-
 </header>
 
+<!-- HOME -->
 
-<h2 class="choose-title">
-    Choose Your IELTS Test
-</h2>
+<div id="home" class="section active">
+
+<div class="card center">
+
+<h2>Choose Your Test</h2>
+
+<p>Select the IELTS version you want to practise.</p>
+
+<button onclick="startTest('Academic')">
+🎓 IELTS Academic
+</button>
+
+<button onclick="startTest('General')">
+🌍 IELTS General Training
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>📋 Full Test Structure</h2>
+
+<p>🎧 Listening — 40 questions</p>
+<p>📖 Reading — 40 questions</p>
+<p>✍️ Writing — 2 tasks</p>
+<p>🗣️ Speaking — 3 parts</p>
+
+</div>
+
+</div>
 
 
-<div class="test-options">
+<!-- MENU -->
+
+<div id="menu" class="section">
+
+<div class="card center">
+
+<h2 id="testTitle"></h2>
+
+<p>Choose a section.</p>
+
+<button onclick="showSection('listening')">
+🎧 Listening
+</button>
+
+<button onclick="showSection('reading')">
+📖 Reading
+</button>
+
+<button onclick="showSection('writing')">
+✍️ Writing
+</button>
+
+<button onclick="showSection('speaking')">
+🗣️ Speaking
+</button>
+
+<br>
+
+<button onclick="showSection('home')">
+🏠 Home
+</button>
+
+</div>
+
+</div>
 
 
-    <!-- ACADEMIC -->
+<!-- LISTENING -->
 
-    <div class="test-card">
+<div id="listening" class="section">
 
-        <div class="icon">🎓</div>
+<div class="timer" id="listeningTimer">
+⏱️ Listening Time: 30:00
+</div>
 
-        <h2>IELTS Academic</h2>
+<div class="card">
+
+<h2>🎧 IELTS Listening</h2>
+
+<p>
+40 questions • Approximately 30 minutes
+</p>
+
+<p>
+<strong>Practice instructions:</strong>
+Read each question carefully and select the best answer.
+</p>
+
+<div class="progress">
+<div id="listeningProgress" class="progress-fill"></div>
+</div>
+
+</div>
+
+<div id="listeningQuestions"></div>
+
+<div class="card center">
+
+<button onclick="submitListening()">
+Submit Listening Test
+</button>
+
+<button onclick="showSection('menu')">
+Back to Sections
+</button>
+
+<div id="listeningResult"></div>
+
+</div>
+
+</div>
+
+
+<!-- READING -->
+
+<div id="reading" class="section">
+
+<div class="timer" id="readingTimer">
+⏱️ Reading Time: 60:00
+</div>
+
+<div class="card">
+
+<h2>📖 IELTS Reading</h2>
+
+<p>
+40 questions • 60 minutes
+</p>
+
+<h3>Passage: Learning a New Language</h3>
+
+<p>
+Learning a new language can provide many benefits. It can improve
+communication, help people understand different cultures, and create
+new opportunities for education and employment.
+</p>
+
+<p>
+People who speak several languages can communicate with a wider range
+of people. This can be particularly useful when travelling or working
+with people from different countries.
+</p>
+
+<p>
+Learning a language can also help people understand traditions,
+customs, ideas and different ways of thinking. This can encourage
+respect and understanding between people.
+</p>
+
+<p>
+Regular practice is essential. Reading, writing, listening and speaking
+regularly can help learners remember vocabulary and become more
+confident.
+</p>
+
+<p>
+Technology can also support language learning. Educational websites,
+mobile applications, videos and online conversations provide
+opportunities to practise outside the classroom.
+</p>
+
+</div>
+
+<div class="progress">
+<div id="readingProgress" class="progress-fill"></div>
+</div>
+
+<div id="readingQuestions"></div>
+
+<div class="card center">
+
+<button onclick="submitReading()">
+Submit Reading Test
+</button>
+
+<button onclick="showSection('menu')">
+Back to Sections
+</button>
+
+<div id="readingResult"></div>
+
+</div>
+
+</div>
+
+
+<!-- WRITING -->
+
+<div id="writing" class="section">
+
+<div class="timer" id="writingTimer">
+⏱️ Writing Time: 60:00
+</div>
+
+<div class="card">
+
+<h2>✍️ IELTS Writing</h2>
+
+<h3>Task 1</h3>
+
+<p>
+Spend about 20 minutes on this task.
+</p>
+
+<p>
+<strong>
+Describe the advantages and disadvantages of learning a new language.
+</strong>
+</p>
+
+<textarea id="writing1"
+oninput="countWords('writing1','count1')"></textarea>
+
+<div class="word-count">
+Word count: <span id="count1">0</span>
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Task 2</h3>
+
+<p>
+Spend about 40 minutes on this task.
+</p>
+
+<p>
+<strong>
+Some people believe that young people should learn another language
+at school. Others believe students should focus only on their first
+language. Discuss both views and give your own opinion.
+</strong>
+</p>
+
+<textarea id="writing2"
+oninput="countWords('writing2','count2')"></textarea>
+
+<div class="word-count">
+Word count: <span id="count2">0</span>
+</div>
+
+</div>
+
+<div class="card center">
+
+<button onclick="submitWriting()">
+Submit Writing
+</button>
+
+<button onclick="showSection('menu')">
+Back to Sections
+</button>
+
+<div id="writingResult"></div>
+
+</div>
+
+</div>
+
+
+<!-- SPEAKING -->
+
+<div id="speaking" class="section">
+
+<div class="timer" id="speakingTimer">
+⏱️ Speaking Practice
+</div>
+
+<div class="card">
+
+<h2>🗣️ IELTS Speaking</h2>
+
+<h3>Part 1 — Introduction</h3>
+
+<p>Answer these questions aloud.</p>
+
+<p>1. What is your name?</p>
+<p>2. Where do you live?</p>
+<p>3. What do you like about your school?</p>
+<p>4. What do you do in your free time?</p>
+<p>5. Do you enjoy learning English?</p>
+
+</div>
+
+<div class="card">
+
+<h3>Part 2 — Individual Long Turn</h3>
+
+<p>
+<strong>
+Describe a skill you would like to learn.
+</strong>
+</p>
+
+<p>You should say:</p>
+
+<ul>
+<li>What the skill is</li>
+<li>Why you want to learn it</li>
+<li>How you would learn it</li>
+<li>And explain why it would be useful</li>
+</ul>
+
+<p>
+Speak for 1–2 minutes.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Part 3 — Discussion</h3>
+
+<p>1. Why do people learn new skills?</p>
+<p>2. Should schools teach more practical skills?</p>
+<p>3. How has technology changed learning?</p>
+<p>4. Is online learning better than classroom learning?</p>
+<p>5. What skills will be important in the future?</p>
+
+</div>
+
+<div class="card center">
+
+<button onclick="finishSpeaking()">
+Finish Speaking Test
+</button>
+
+<button onclick="showSection('menu')">
+Back to Sections
+</button>
+
+<div id="speakingResult"></div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<script>
+
+/* =========================
+   GENERAL SETTINGS
+========================= */
+
+let currentTest = "";
+
+function startTest(type) {
+
+    currentTest = type;
+
+    document.getElementById("testTitle").textContent =
+        "🎓 " + type + " IELTS Mock Test";
+
+    showSection("menu");
+}
+
+
+function showSection(id) {
+
+    document.querySelectorAll(".section").forEach(function(section) {
+        section.classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+/* =========================
+   LISTENING QUESTIONS
+========================= */
+
+const listeningAnswers = {
+
+q1:"A",
+q2:"B",
+q3:"C",
+q4:"A",
+q5:"B",
+q6:"C",
+q7:"A",
+q8:"B",
+q9:"C",
+q10:"A",
+q11:"B",
+q12:"C",
+q13:"A",
+q14:"B",
+q15:"C",
+q16:"A",
+q17:"B",
+q18:"C",
+q19:"A",
+q20:"B",
+q21:"C",
+q22:"A",
+q23:"B",
+q24:"C",
+q25:"A",
+q26:"B",
+q27:"C",
+q28:"A",
+q29:"B",
+q30:"C",
+q31:"A",
+q32:"B",
+q33:"C",
+q34:"A",
+q35:"B",
+q36:"C",
+q37:"A",
+q38:"B",
+q39:"C",
+q40:"A"
+
+};
+
+
+function createListeningQuestions() {
+
+    const container =
+        document.getElementById("listeningQuestions");
+
+    let html = "";
+
+    for(let i=1;i<=40;i++) {
+
+        let correct = listeningAnswers["q"+i];
+
+        let optionB =
+            correct === "B" ? "Correct option" : "Option B";
+
+        html += `
+        <div class="card">
+
+        <h3>Question ${i}</h3>
 
         <p>
-            Designed for students planning to study at
-            universities, colleges and other educational
-            institutions.
+        Listen carefully and choose the best answer.
         </p>
 
-        <p>
-            <strong>Listening • Reading • Writing • Speaking</strong>
-        </p>
+        <label class="option">
+        <input type="radio"
+        name="lq${i}"
+        value="A"
+        onchange="updateListeningProgress()">
+        A. Option A
+        </label>
 
-        <a href="academic.html" class="start-btn">
-            Start Academic Test →
-        </a>
+        <label class="option">
+        <input type="radio"
+        name="lq${i}"
+        value="B"
+        onchange="updateListeningProgress()">
+        B. ${optionB}
+        </label>
+
+        <label class="option">
+        <input type="radio"
+        name="lq${i}"
+        value="C"
+        onchange="updateListeningProgress()">
+        C. Option C
+        </label>
+
+        </div>
+        `;
+    }
+
+    container.innerHTML = html;
+}
+
+
+function updateListeningProgress() {
+
+    let completed = 0;
+
+    for(let i=1;i<=40;i++) {
+
+        if(document.querySelector(
+            'input[name="lq'+i+'"]:checked'
+        )) {
+            completed++;
+        }
+    }
+
+    document.getElementById("listeningProgress").style.width =
+        (completed/40*100)+"%";
+}
+
+
+function submitListening() {
+
+    let score = 0;
+
+    for(let i=1;i<=40;i++) {
+
+        const selected =
+            document.querySelector(
+                'input[name="lq'+i+'"]:checked'
+            );
+
+        if(selected &&
+           selected.value === listeningAnswers["q"+i]) {
+
+            score++;
+        }
+    }
+
+    document.getElementById("listeningResult").innerHTML = `
+    <div class="result">
+    <h2>🎧 Listening Result</h2>
+    <h3>Score: ${score} / 40</h3>
+    <p>Your Listening test has been submitted.</p>
+    </div>
+    `;
+}
+
+
+/* =========================
+   READING QUESTIONS
+========================= */
+
+const readingAnswers = {
+
+q1:"A",
+q2:"B",
+q3:"A",
+q4:"B",
+q5:"C",
+q6:"TRUE",
+q7:"FALSE",
+q8:"TRUE",
+q9:"TRUE",
+q10:"FALSE",
+q11:"communication",
+q12:"culture",
+q13:"colleagues",
+q14:"vocabulary",
+q15:"mistakes",
+q16:"A",
+q17:"A",
+q18:"A",
+q19:"C",
+q20:"A",
+q21:"B",
+q22:"A",
+q23:"C",
+q24:"B",
+q25:"A",
+q26:"C",
+q27:"B",
+q28:"A",
+q29:"C",
+q30:"B",
+q31:"A",
+q32:"C",
+q33:"B",
+q34:"A",
+q35:"C",
+q36:"B",
+q37:"A",
+q38:"C",
+q39:"B",
+q40:"A"
+
+};
+
+
+function createReadingQuestions() {
+
+    const container =
+        document.getElementById("readingQuestions");
+
+    let html = "";
+
+    for(let i=1;i<=40;i++) {
+
+        if(i <= 5 || i >= 16) {
+
+            html += `
+            <div class="card">
+
+            <h3>${i}. Choose the correct answer.</h3>
+
+            <label class="option">
+            <input type="radio"
+            name="rq${i}"
+            value="A"
+            onchange="updateReadingProgress()">
+            A. First option
+            </label>
+
+            <label class="option">
+            <input type="radio"
+            name="rq${i}"
+            value="B"
+            onchange="updateReadingProgress()">
+            B. Second option
+            </label>
+
+            <label class="option">
+            <input type="radio"
+            name="rq${i}"
+            value="C"
+            onchange="updateReadingProgress()">
+            C. Third option
+            </label>
+
+            </div>
+            `;
+
+        } else if(i <= 10) {
+
+            html += `
+            <div class="card">
+
+            <h3>${i}. True / False / Not Given</h3>
+
+            <select id="rq${i}"
+            onchange="updateReadingProgress()">
+
+            <option value="">Choose an answer</option>
+            <option value="TRUE">TRUE</option>
+            <option value="FALSE">FALSE</option>
+            <option value="NG">NOT GIVEN</option>
+
+            </select>
+
+            </div>
+            `;
+
+        } else {
+
+            html += `
+            <div class="card">
+
+            <h3>${i}. Complete the answer.</h3>
+
+            <input
+            type="text"
+            id="rq${i}"
+            oninput="updateReadingProgress()"
+            placeholder="Type your answer">
+
+            </div>
+            `;
+        }
+    }
+
+    container.innerHTML = html;
+}
+
+
+function updateReadingProgress() {
+
+    let completed = 0;
+
+    for(let i=1;i<=40;i++) {
+
+        let element =
+            document.getElementById("rq"+i);
+
+        if(!element) {
+
+            const selected =
+                document.querySelector(
+                    'input[name="rq'+i+'"]:checked'
+                );
+
+            if(selected) completed++;
+
+        } else if(element.value.trim() !== "") {
+
+            completed++;
+        }
+    }
+
+    document.getElementById("readingProgress").style.width =
+        (completed/40*100)+"%";
+}
+
+
+function submitReading() {
+
+    let score = 0;
+
+    for(let i=1;i<=40;i++) {
+
+        const correct =
+            readingAnswers["q"+i];
+
+        let userAnswer = "";
+
+        const element =
+            document.getElementById("rq"+i);
+
+        if(element) {
+
+            userAnswer =
+                element.value.trim().toLowerCase();
+
+        } else {
+
+            const selected =
+                document.querySelector(
+                    'input[name="rq'+i+'"]:checked'
+                );
+
+            if(selected) {
+                userAnswer = selected.value;
+            }
+        }
+
+        if(userAnswer === correct) {
+            score++;
+        }
+    }
+
+    document.getElementById("readingResult").innerHTML = `
+    <div class="result">
+    <h2>📖 Reading Result</h2>
+    <h3>Score: ${score} / 40</h3>
+    <p>Your Reading test has been submitted.</p>
+    </div>
+    `;
+}
+
+
+/* =========================
+   WRITING
+========================= */
+
+function countWords(inputId, outputId) {
+
+    const text =
+        document.getElementById(inputId).value.trim();
+
+    if(text === "") {
+
+        document.getElementById(outputId).textContent = "0";
+        return;
+    }
+
+    const words =
+        text.split(/\s+/).length;
+
+    document.getElementById(outputId).textContent =
+        words;
+}
+
+
+function submitWriting() {
+
+    const words1 =
+        document.getElementById("writing1")
+        .value.trim()
+        .split(/\s+/)
+        .filter(Boolean).length;
+
+    const words2 =
+        document.getElementById("writing2")
+        .value.trim()
+        .split(/\s+/)
+        .filter(Boolean).length;
+
+    document.getElementById("writingResult").innerHTML = `
+    <div class="result">
+
+    <h2>✍️ Writing Submitted</h2>
+
+    <p>Task 1: ${words1} words</p>
+
+    <p>Task 2: ${words2} words</p>
+
+    <p>
+    Writing requires human/examiner-style assessment.
+    </p>
 
     </div>
+    `;
+}
 
 
-    <!-- GENERAL TRAINING -->
+/* =========================
+   SPEAKING
+========================= */
 
-    <div class="test-card">
+function finishSpeaking() {
 
-        <div class="icon">🌍</div>
+    document.getElementById("speakingResult").innerHTML = `
+    <div class="result">
 
-        <h2>IELTS General Training</h2>
+    <h2>🗣️ Speaking Complete</h2>
 
-        <p>
-            Designed for people planning to work, train,
-            live or immigrate in an English-speaking
-            environment.
-        </p>
+    <p>
+    Speaking practice completed.
+    </p>
 
-        <p>
-            <strong>Listening • Reading • Writing • Speaking</strong>
-        </p>
-
-        <a href="general.html" class="start-btn">
-            Start General Training →
-        </a>
-
-    </div>
-
-</div>
-
-
-<div class="info">
-
-    <h2>📋 Full IELTS Test</h2>
-
-    <div class="info-grid">
-
-        <div class="info-box">
-            <strong>🎧 Listening</strong>
-            40 Questions
-        </div>
-
-        <div class="info-box">
-            <strong>📖 Reading</strong>
-            40 Questions
-        </div>
-
-        <div class="info-box">
-            <strong>✍️ Writing</strong>
-            2 Tasks
-        </div>
-
-        <div class="info-box">
-            <strong>🗣️ Speaking</strong>
-            3 Parts
-        </div>
+    <p>
+    In a real IELTS test, an examiner assesses
+    fluency, vocabulary, grammar and pronunciation.
+    </p>
 
     </div>
-
-</div>
-
-
-<div class="info">
-
-    <h2>⏱️ IELTS Timing</h2>
-
-    <p>🎧 Listening — approximately 30 minutes</p>
-
-    <p>📖 Reading — 60 minutes</p>
-
-    <p>✍️ Writing — 60 minutes</p>
-
-    <p>🗣️ Speaking — 11–14 minutes</p>
-
-</div>
+    `;
+}
 
 
-<footer>
+/* =========================
+   TIMERS
+========================= */
 
-    <p>Teen IELTS Practice</p>
+function createTimer(elementId, minutes) {
 
-    <p>Practice • Improve • Succeed 🚀</p>
+    let secondsLeft = minutes * 60;
 
-</footer>
+    const interval = setInterval(function() {
 
-</div>
+        const element =
+            document.getElementById(elementId);
+
+        if(!element) {
+            clearInterval(interval);
+            return;
+        }
+
+        let minutesLeft =
+            Math.floor(secondsLeft / 60);
+
+        let seconds =
+            secondsLeft % 60;
+
+        seconds =
+            seconds < 10
+            ? "0"+seconds
+            : seconds;
+
+        element.textContent =
+            "⏱️ Time Remaining: "
+            + minutesLeft
+            + ":"
+            + seconds;
+
+        if(secondsLeft <= 0) {
+
+            clearInterval(interval);
+
+            alert("⏰ Time is up!");
+
+        }
+
+        secondsLeft--;
+
+    },1000);
+}
+
+
+/* =========================
+   START EVERYTHING
+========================= */
+
+createListeningQuestions();
+
+createReadingQuestions();
+
+createTimer("listeningTimer",30);
+
+createTimer("readingTimer",60);
+
+createTimer("writingTimer",60);
+
+</script>
 
 </body>
 </html>

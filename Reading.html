@@ -7,174 +7,29 @@
 <title>Teen IELTS - Reading Practice</title>
 
 <style>
-    #timer {
-    position: sticky;
-    top: 10px;
-    z-index: 1000;
-    background: white;
-    padding: 12px;
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    background: #f4f7fb;
+    color: #222;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 25px;
+}
+
+header {
+    background: #17365d;
+    color: white;
+    padding: 25px;
+    border-radius: 12px;
     text-align: center;
-    font-size: 22px;
-    font-weight: bold;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    margin-bottom: 25px;
 }
-    #timer {
-   
-}
-    body {
-        
-<script>
-let timeLeft = 60 * 60;
 
-const timer = setInterval(function () {
-
-    let minutes = Math.floor(timeLeft / 60);
-    let seconds = timeLeft % 60;
-
-    seconds = seconds < 10 ? "0" + seconds : seconds;
-
-    document.getElementById("timer").textContent =
-        "⏱️ Time Remaining: " + minutes + ":" + seconds;
-
-    if (timeLeft <= 300) {
-        document.getElementById("timer").style.background = "#fff3cd";
-    }
-
-    if (timeLeft <= 60) {
-        document.getElementById("timer").textContent =
-            "⚠️ FINAL MINUTE: " + minutes + ":" + seconds;
-    }
-
-    if (timeLeft <= 0) {
-        clearInterval(timer);
-        alert("⏰ Time is up! Your test will be submitted.");
-        checkAnswers();
-        return;
-    }
-
-    timeLeft--;
-
-}, 1000);
-</script>
-        
-    .container {
-        max-width: 900px;
-        margin: auto;
-        padding: 25px;
-    }
-
-    header {
-        background: #17365d;
-        color: white;
-        padding: 25px;
-        border-radius: 12px;
-        text-align: center;
-        margin-bottom: 25px;
-    }
-
-    .passage {
-        background: white;
-        padding: 25px;
-        border-radius: 12px;
-        margin-bottom: 25px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
-
-    .question {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        margin-bottom: 15px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-    }
-
-    .question h3 {
-        margin-top: 0;
-    }
-
-    label {
-        display: block;
-        margin: 8px 0;
-        cursor: pointer;
-    }
-
-    input[type="text"] {
-        padding: 10px;
-        width: 90%;
-        max-width: 400px;
-        border: 1px solid #aaa;
-        border-radius: 6px;
-        font-size: 16px;
-    }
-
-    select {
-        padding: 10px;
-        font-size: 16px;
-        border-radius: 6px;
-    }
-
-    button {
-        padding: 14px 25px;
-        border: none;
-        border-radius: 8px;
-        font-size: 17px;
-        cursor: pointer;
-        margin: 10px 5px 20px 0;
-    }
-
-    #submitBtn {
-        background: #17365d;
-        color: white;
-    }
-
-    #tryAgainBtn {
-        background: #555;
-        color: white;
-        display: none;
-    }
-
-    #result {
-        display: none;
-        background: white;
-        padding: 25px;
-        border-radius: 12px;
-        margin-top: 20px;
-        text-align: center;
-    }
-
-    .correct {
-        background: #e8f5e9;
-        border-left: 5px solid #2e7d32;
-        padding: 10px;
-        margin-top: 10px;
-    }
-
-    .incorrect {
-        background: #ffebee;
-        border-left: 5px solid #c62828;
-        padding: 10px;
-        margin-top: 10px;
-    }
-
-    .answers {
-        display: none;
-        margin-top: 25px;
-        text-align: left;
-    }
-
-    @media (max-width: 600px) {
-        .container {
-            padding: 12px;
-        }
-
-        .passage,
-        .question {
-            padding: 16px;
-        }
-    }
-</style>
 #timer {
     position: sticky;
     top: 10px;
@@ -188,11 +43,97 @@ const timer = setInterval(function () {
     margin-bottom: 20px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
+
+.passage {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.question {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.question h3 {
+    margin-top: 0;
+}
+
+label {
+    display: block;
+    margin: 8px 0;
+    cursor: pointer;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 90%;
+    max-width: 400px;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+select {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+}
+
+button {
+    padding: 14px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    cursor: pointer;
+    margin: 10px 5px 20px 0;
+}
+
+#submitBtn {
+    background: #17365d;
+    color: white;
+}
+
+#tryAgainBtn {
+    background: #555;
+    color: white;
+    display: none;
+}
+
+#result {
+    display: none;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.answers {
+    display: none;
+    margin-top: 25px;
+    text-align: left;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 12px;
+    }
+
+    .passage,
+    .question {
+        padding: 16px;
+    }
+}
+</style>
 </head>
 
 <body>
-    ```html #timer { position: sticky; top: 10px; z-index: 1000; background: white; padding: 12px; text-align: center; font-size: 22px; font-weight: bold; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
-
 
 <div class="container">
 
@@ -201,6 +142,8 @@ const timer = setInterval(function () {
     <h2>📖 Reading Practice</h2>
     <p>20 Questions</p>
 </header>
+
+<div id="timer">⏱️ Time Remaining: 60:00</div>
 
 <div class="passage">
 
@@ -421,16 +364,12 @@ again.
 <button id="tryAgainBtn" onclick="location.reload()">Try Again</button>
 
 <div id="result">
-
 <h2>📊 Your Result</h2>
-
 <h3 id="score"></h3>
 <h3 id="band"></h3>
 
 <div class="answers" id="answers">
-
 <h2>Correct Answers</h2>
-
 <p>1. A — Communication</p>
 <p>2. B — Communicate with more people</p>
 <p>3. A — Different cultures</p>
@@ -451,44 +390,43 @@ again.
 <p>18. A — Respect and understanding</p>
 <p>19. C — Identify them and try again</p>
 <p>20. A — Learning languages has benefits but requires regular practice</p>
-
 </div>
-
 </div>
 
 </div>
 
 <script>
 
-function checkAnswers() {
+const answers = {
+    q1: "A",
+    q2: "B",
+    q3: "A",
+    q4: "B",
+    q5: "C",
+    q6: "TRUE",
+    q7: "NG",
+    q8: "TRUE",
+    q9: "TRUE",
+    q10: "FALSE",
+    q11: "communication",
+    q12: "culture",
+    q13: "colleagues",
+    q14: "vocabulary",
+    q15: "mistakes",
+    q16: "A",
+    q17: "A",
+    q18: "A",
+    q19: "C",
+    q20: "A"
+};
 
-    const answers = {
-        q1: "A",
-        q2: "B",
-        q3: "A",
-        q4: "B",
-        q5: "C",
-        q6: "TRUE",
-        q7: "NG",
-        q8: "TRUE",
-        q9: "TRUE",
-        q10: "FALSE",
-        q11: "communication",
-        q12: "culture",
-        q13: "colleagues",
-        q14: "vocabulary",
-        q15: "mistakes",
-        q16: "A",
-        q17: "A",
-        q18: "A",
-        q19: "C",
-        q20: "A"
-    };
+function checkAnswers() {
 
     let score = 0;
 
-    for (let i = 1; i <= 10; i++) {
-        const selected = document.querySelector('input[name="q' + i + '"]:checked');
+    for (let i = 1; i <= 5; i++) {
+        const selected =
+            document.querySelector('input[name="q' + i + '"]:checked');
 
         if (selected && selected.value === answers["q" + i]) {
             score++;
@@ -496,7 +434,8 @@ function checkAnswers() {
     }
 
     for (let i = 6; i <= 10; i++) {
-        const selected = document.getElementById("q" + i).value;
+        const selected =
+            document.getElementById("q" + i).value;
 
         if (selected === answers["q" + i]) {
             score++;
@@ -504,9 +443,8 @@ function checkAnswers() {
     }
 
     for (let i = 11; i <= 15; i++) {
-
-        const userAnswer = document
-            .getElementById("q" + i)
+        const userAnswer =
+            document.getElementById("q" + i)
             .value
             .trim()
             .toLowerCase();
@@ -517,8 +455,8 @@ function checkAnswers() {
     }
 
     for (let i = 16; i <= 20; i++) {
-
-        const selected = document.querySelector('input[name="q' + i + '"]:checked');
+        const selected =
+            document.querySelector('input[name="q' + i + '"]:checked');
 
         if (selected && selected.value === answers["q" + i]) {
             score++;
@@ -561,15 +499,12 @@ function checkAnswers() {
     });
 }
 
-</script>
 
-</body>
-    <div id="timer">⏱️ Time Remaining: 60:00</div>
-</html>
-```<script>
+/* 60-MINUTE TIMER */
+
 let timeLeft = 60 * 60;
 
-const timer = setInterval(function() {
+const countdown = setInterval(function() {
 
     let minutes = Math.floor(timeLeft / 60);
     let seconds = timeLeft % 60;
@@ -580,7 +515,7 @@ const timer = setInterval(function() {
         "⏱️ Time Remaining: " + minutes + ":" + seconds;
 
     if (timeLeft <= 300) {
-        document.getElementById("timer").style.fontSize = "24px";
+        document.getElementById("timer").style.background = "#fff3cd";
     }
 
     if (timeLeft <= 60) {
@@ -589,13 +524,22 @@ const timer = setInterval(function() {
     }
 
     if (timeLeft <= 0) {
-        clearInterval(timer);
+
+        clearInterval(countdown);
 
         alert("⏰ Time is up! Your answers will now be submitted.");
 
         checkAnswers();
+
+        return;
     }
 
     timeLeft--;
 
 }, 1000);
+
+</script>
+
+</body>
+</html>
+```

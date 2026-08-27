@@ -1,13 +1,51 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Teen IELTS - Reading Practice</title>
 
- #progressContainer {
-    #progressContainer {
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    background: #f4f7fb;
+    color: #222;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+header {
+    background: #17365d;
+    color: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#timer {
+    position: sticky;
+    top: 10px;
+    z-index: 1000;
+    background: white;
+    padding: 12px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+#progressContainer {
     background: white;
     padding: 15px;
     border-radius: 10px;
@@ -23,7 +61,7 @@
 
 #progressBar {
     width: 100%;
-    height: 12px;
+    height: 14px;
     background: #e0e0e0;
     border-radius: 10px;
     overflow: hidden;
@@ -34,43 +72,6 @@
     height: 100%;
     background: #17365d;
     transition: width 0.3s ease;
-}
-}        <style>
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    background: #f4f7fb;
-    color: #222;
-}
-
-.container {
-    max-width: 900px;
-    margin: auto;
-    padding: 25px;
-}
-
-header {
-    background: #17365d;
-    color: white;
-    padding: 25px;
-    border-radius: 12px;
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-#timer {
-    position: sticky;
-    top: 10px;
-    z-index: 1000;
-    background: white;
-    padding: 12px;
-    text-align: center;
-    font-size: 22px;
-    font-weight: bold;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
 .passage {
@@ -102,7 +103,7 @@ label {
 input[type="text"] {
     padding: 10px;
     width: 90%;
-    max-width: 400px;
+    max-width: 450px;
     border: 1px solid #aaa;
     border-radius: 6px;
     font-size: 16px;
@@ -149,7 +150,38 @@ button {
     text-align: left;
 }
 
+.correct {
+    background: #e8f5e9;
+    border-left: 5px solid #2e7d32;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.incorrect {
+    background: #ffebee;
+    border-left: 5px solid #c62828;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.section-title {
+    background: #17365d;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+.instruction {
+    background: #fff8e1;
+    padding: 15px;
+    border-left: 5px solid #f9a825;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
 @media (max-width: 600px) {
+
     .container {
         padding: 12px;
     }
@@ -158,7 +190,9 @@ button {
     .question {
         padding: 16px;
     }
+
 }
+
 </style>
 </head>
 
@@ -168,116 +202,142 @@ button {
 
 <header>
     <h1>Teen IELTS Practice</h1>
-    <h2>📖 Reading Practice</h2>
-    <p>20 Questions</p>
+    <h2>📖 IELTS Reading Practice</h2>
+    <p>40 Questions • 60 Minutes</p>
 </header>
 
-<div id="timer">⏱️ Time Remaining: 60:00</div>
-    <div id="progressContainer">
-    <div id="progressText">Question Progress: 0 / 20</div>
+<div id="timer">
+    ⏱️ Time Remaining: 60:00
+</div>
+
+<div id="progressContainer">
+
+    <div id="progressText">
+        Question Progress: 0 / 40
+    </div>
+
     <div id="progressBar">
         <div id="progressFill"></div>
     </div>
+
+</div>
+
+
+<!-- ================= PASSAGE 1 ================= -->
+
+<div class="section-title">
+    <h2>Passage 1</h2>
 </div>
 
 <div class="passage">
 
-<h2>Reading Passage</h2>
-
-<h3>The Benefits of Learning a New Language</h3>
+<h2>Learning a New Language</h2>
 
 <p>
-Learning a new language can provide many benefits. It can improve communication,
-help people understand different cultures, and create new opportunities for
-education and employment. In today's increasingly connected world, the ability
-to speak more than one language can be a valuable skill.
+Learning a new language can provide many benefits. In an increasingly
+connected world, people communicate with others from different countries
+more frequently than ever before. Learning another language can therefore
+help people communicate more effectively and understand different cultures.
 </p>
 
 <p>
-One important benefit of learning another language is improved communication.
-People who speak several languages can communicate with a wider range of people.
-This can be particularly useful when travelling or working with people from
-different countries.
+One major advantage of language learning is improved communication.
+People who speak several languages can communicate with a wider range of
+people. This can be particularly useful when travelling, studying abroad,
+or working with international colleagues.
 </p>
 
 <p>
-Learning a language can also help people understand other cultures. Language
-and culture are closely connected, and studying another language can introduce
-learners to new traditions, customs, ideas, and ways of thinking. This can
-help develop respect and understanding between people.
+Language is also closely connected to culture. By learning another language,
+students can discover traditions, customs, ideas and ways of thinking that
+may be different from their own. This can encourage greater respect and
+understanding between people.
 </p>
 
 <p>
-Another advantage is that learning a language can create educational and
-employment opportunities. Some universities offer programmes for students who
-speak more than one language. Employers may also value workers who can
-communicate with international customers and colleagues.
+Another benefit is the possibility of educational and employment
+opportunities. Some universities offer programmes for students who have
+language skills. Employers may also value workers who can communicate with
+international customers and colleagues.
 </p>
 
 <p>
-Regular practice is essential. Language skills usually improve gradually,
-rather than immediately. Reading, writing, listening, and speaking regularly
-can help learners remember new vocabulary and become more confident.
-Technology can also support language learning. Educational websites, mobile
-applications, videos, and online conversations provide opportunities to
-practise outside the classroom.
+However, learning a language requires patience. Language skills usually
+develop gradually rather than immediately. Regular reading, writing,
+listening and speaking can help learners remember vocabulary and become
+more confident.
 </p>
 
 <p>
-Although learning a language can sometimes be difficult, patience and regular
-practice can make the process easier. Making mistakes is a normal part of
-learning, and learners can improve by identifying their mistakes and trying
-again.
+Technology can also support language learning. Educational websites,
+mobile applications, videos and online conversations give learners
+opportunities to practise outside the classroom.
+</p>
+
+<p>
+Making mistakes is a normal part of learning. Instead of becoming
+discouraged, learners can identify their mistakes, learn from them and
+try again.
 </p>
 
 </div>
 
-<h2>Questions 1–5: Multiple Choice</h2>
+<div class="instruction">
+<strong>Questions 1–5:</strong> Choose the correct letter A, B, C or D.
+</div>
 
 <div class="question">
-<h3>1. What is one benefit of learning a new language?</h3>
+<h3>1. What is one major benefit of learning another language?</h3>
+
 <label><input type="radio" name="q1" value="A"> A. Improved communication</label>
 <label><input type="radio" name="q1" value="B"> B. Better weather</label>
-<label><input type="radio" name="q1" value="C"> C. Faster transportation</label>
+<label><input type="radio" name="q1" value="C"> C. Faster transport</label>
 <label><input type="radio" name="q1" value="D"> D. More free time</label>
 </div>
 
 <div class="question">
-<h3>2. Why can speaking several languages be useful when travelling?</h3>
-<label><input type="radio" name="q2" value="A"> A. It makes flights cheaper</label>
-<label><input type="radio" name="q2" value="B"> B. It allows people to communicate with more people</label>
-<label><input type="radio" name="q2" value="C"> C. It guarantees good weather</label>
-<label><input type="radio" name="q2" value="D"> D. It removes the need for maps</label>
+<h3>2. When can speaking several languages be particularly useful?</h3>
+
+<label><input type="radio" name="q2" value="A"> A. When sleeping</label>
+<label><input type="radio" name="q2" value="B"> B. When travelling or working internationally</label>
+<label><input type="radio" name="q2" value="C"> C. When watching television</label>
+<label><input type="radio" name="q2" value="D"> D. When playing sports</label>
 </div>
 
 <div class="question">
-<h3>3. What can studying another language help people understand?</h3>
+<h3>3. What can language learning help students understand?</h3>
+
 <label><input type="radio" name="q3" value="A"> A. Different cultures</label>
-<label><input type="radio" name="q3" value="B"> B. Weather forecasts</label>
-<label><input type="radio" name="q3" value="C"> C. Traffic systems</label>
-<label><input type="radio" name="q3" value="D"> D. Sports rules</label>
+<label><input type="radio" name="q3" value="B"> B. Traffic systems</label>
+<label><input type="radio" name="q3" value="C"> C. Weather patterns</label>
+<label><input type="radio" name="q3" value="D"> D. Building designs</label>
 </div>
 
 <div class="question">
 <h3>4. What may employers value?</h3>
-<label><input type="radio" name="q4" value="A"> A. Workers who never travel</label>
-<label><input type="radio" name="q4" value="B"> B. Workers who speak more than one language</label>
-<label><input type="radio" name="q4" value="C"> C. Workers who avoid technology</label>
-<label><input type="radio" name="q4" value="D"> D. Workers who only work alone</label>
+
+<label><input type="radio" name="q4" value="A"> A. International communication skills</label>
+<label><input type="radio" name="q4" value="B"> B. People who avoid technology</label>
+<label><input type="radio" name="q4" value="C"> C. People who never travel</label>
+<label><input type="radio" name="q4" value="D"> D. People who only work alone</label>
 </div>
 
 <div class="question">
-<h3>5. According to the passage, how do language skills usually improve?</h3>
+<h3>5. How do language skills usually develop?</h3>
+
 <label><input type="radio" name="q5" value="A"> A. Immediately</label>
 <label><input type="radio" name="q5" value="B"> B. Without practice</label>
 <label><input type="radio" name="q5" value="C"> C. Gradually</label>
 <label><input type="radio" name="q5" value="D"> D. Only through travel</label>
 </div>
 
-<h2>Questions 6–10: True / False / Not Given</h2>
+
+<div class="instruction">
+<strong>Questions 6–9:</strong> Choose TRUE, FALSE or NOT GIVEN.
+</div>
 
 <div class="question">
-<h3>6. Learning a new language can create employment opportunities.</h3>
+<h3>6. Language and culture are closely connected.</h3>
 <select id="q6">
 <option value="">Choose an answer</option>
 <option value="TRUE">TRUE</option>
@@ -287,7 +347,7 @@ again.
 </div>
 
 <div class="question">
-<h3>7. Everyone who learns another language becomes fluent within one month.</h3>
+<h3>7. Everyone becomes fluent in a new language within one month.</h3>
 <select id="q7">
 <option value="">Choose an answer</option>
 <option value="TRUE">TRUE</option>
@@ -297,7 +357,7 @@ again.
 </div>
 
 <div class="question">
-<h3>8. Language and culture are closely connected.</h3>
+<h3>8. Technology can provide opportunities to practise a language.</h3>
 <select id="q8">
 <option value="">Choose an answer</option>
 <option value="TRUE">TRUE</option>
@@ -307,7 +367,7 @@ again.
 </div>
 
 <div class="question">
-<h3>9. Technology can provide opportunities to practise a language.</h3>
+<h3>9. Making mistakes is described as a normal part of learning.</h3>
 <select id="q9">
 <option value="">Choose an answer</option>
 <option value="TRUE">TRUE</option>
@@ -316,9 +376,352 @@ again.
 </select>
 </div>
 
+
+<div class="instruction">
+<strong>Questions 10–13:</strong> Complete the sentences using ONE WORD.
+</div>
+
 <div class="question">
-<h3>10. Learning a language is always easy for everyone.</h3>
-<select id="q10">
+<h3>10. Language skills usually develop __________.</h3>
+<input type="text" id="q10">
+</div>
+
+<div class="question">
+<h3>11. Regular practice can help learners remember __________.</h3>
+<input type="text" id="q11">
+</div>
+
+<div class="question">
+<h3>12. Employers may value workers who communicate with international __________.</h3>
+<input type="text" id="q12">
+</div>
+
+<div class="question">
+<h3>13. Learners can identify their mistakes and try __________.</h3>
+<input type="text" id="q13">
+</div>
+
+
+<!-- ================= PASSAGE 2 ================= -->
+
+<div class="section-title">
+    <h2>Passage 2</h2>
+</div>
+
+<div class="passage">
+
+<h2>The Changing World of Urban Parks</h2>
+
+<p>
+Urban parks have existed in many cities for centuries, but their purpose
+has changed considerably. In the past, parks were often designed mainly
+as attractive spaces where residents could escape crowded streets.
+Today, many city planners see parks as important parts of healthy and
+sustainable urban communities.
+</p>
+
+<p>
+Modern parks can provide opportunities for exercise. Walking paths,
+sports fields and outdoor fitness equipment encourage residents to become
+more physically active. Regular physical activity can contribute to
+better health and wellbeing.
+</p>
+
+<p>
+Parks can also provide environmental benefits. Trees and other plants can
+help reduce the effects of heat in cities. Vegetation can provide shade
+and can also contribute to cleaner air. Some modern parks include areas
+designed to collect rainwater and reduce flooding.
+</p>
+
+<p>
+Another important function is social. Parks provide places where people
+can meet friends, attend community events or simply spend time outdoors.
+Well-designed public spaces can encourage interaction between people who
+might otherwise have little opportunity to meet.
+</p>
+
+<p>
+However, creating and maintaining parks can be expensive. Cities must pay
+for landscaping, equipment, cleaning and repairs. Some planners therefore
+argue that park projects should be designed according to local needs and
+available resources.
+</p>
+
+<p>
+Technology is increasingly being used in park management. Sensors can
+monitor environmental conditions, while digital systems can help cities
+understand how different areas are being used. Such information can help
+planners make better decisions about future improvements.
+</p>
+
+</div>
+
+<div class="instruction">
+<strong>Questions 14–18:</strong> Choose the correct heading for each paragraph.
+
+<p>
+<strong>Headings:</strong>
+</p>
+
+<p>A. The social role of parks</p>
+<p>B. Problems with park funding</p>
+<p>C. Environmental advantages</p>
+<p>D. The historical development of parks</p>
+<p>E. The use of technology</p>
+<p>F. Opportunities for exercise</p>
+
+</div>
+
+<div class="question">
+<h3>14. Paragraph 1</h3>
+<select id="q14">
+<option value="">Choose a heading</option>
+<option value="A">A. The social role of parks</option>
+<option value="B">B. Problems with park funding</option>
+<option value="C">C. Environmental advantages</option>
+<option value="D">D. The historical development of parks</option>
+<option value="E">E. The use of technology</option>
+<option value="F">F. Opportunities for exercise</option>
+</select>
+</div>
+
+<div class="question">
+<h3>15. Paragraph 2</h3>
+<select id="q15">
+<option value="">Choose a heading</option>
+<option value="A">A. The social role of parks</option>
+<option value="B">B. Problems with park funding</option>
+<option value="C">C. Environmental advantages</option>
+<option value="D">D. The historical development of parks</option>
+<option value="E">E. The use of technology</option>
+<option value="F">F. Opportunities for exercise</option>
+</select>
+</div>
+
+<div class="question">
+<h3>16. Paragraph 3</h3>
+<select id="q16">
+<option value="">Choose a heading</option>
+<option value="A">A. The social role of parks</option>
+<option value="B">B. Problems with park funding</option>
+<option value="C">C. Environmental advantages</option>
+<option value="D">D. The historical development of parks</option>
+<option value="E">E. The use of technology</option>
+<option value="F">F. Opportunities for exercise</option>
+</select>
+</div>
+
+<div class="question">
+<h3>17. Paragraph 4</h3>
+<select id="q17">
+<option value="">Choose a heading</option>
+<option value="A">A. The social role of parks</option>
+<option value="B">B. Problems with park funding</option>
+<option value="C">C. Environmental advantages</option>
+<option value="D">D. The historical development of parks</option>
+<option value="E">E. The use of technology</option>
+<option value="F">F. Opportunities for exercise</option>
+</select>
+</div>
+
+<div class="question">
+<h3>18. Paragraph 5</h3>
+<select id="q18">
+<option value="">Choose a heading</option>
+<option value="A">A. The social role of parks</option>
+<option value="B">B. Problems with park funding</option>
+<option value="C">C. Environmental advantages</option>
+<option value="D">D. The historical development of parks</option>
+<option value="E">E. The use of technology</option>
+<option value="F">F. Opportunities for exercise</option>
+</select>
+</div>
+
+
+<div class="instruction">
+<strong>Questions 19–22:</strong> Choose the correct letter A, B, C or D.
+</div>
+
+<div class="question">
+<h3>19. Why are parks important for exercise?</h3>
+
+<label><input type="radio" name="q19" value="A"> A. They contain offices</label>
+<label><input type="radio" name="q19" value="B"> B. They provide exercise facilities</label>
+<label><input type="radio" name="q19" value="C"> C. They reduce public transport</label>
+<label><input type="radio" name="q19" value="D"> D. They replace schools</label>
+</div>
+
+<div class="question">
+<h3>20. How can trees help cities?</h3>
+
+<label><input type="radio" name="q20" value="A"> A. By increasing traffic</label>
+<label><input type="radio" name="q20" value="B"> B. By providing shade and environmental benefits</label>
+<label><input type="radio" name="q20" value="C"> C. By creating more buildings</label>
+<label><input type="radio" name="q20" value="D"> D. By increasing noise</label>
+</div>
+
+<div class="question">
+<h3>21. What is one social function of parks?</h3>
+
+<label><input type="radio" name="q21" value="A"> A. They provide places for people to meet</label>
+<label><input type="radio" name="q21" value="B"> B. They prevent communication</label>
+<label><input type="radio" name="q21" value="C"> C. They replace hospitals</label>
+<label><input type="radio" name="q21" value="D"> D. They eliminate community events</label>
+</div>
+
+<div class="question">
+<h3>22. Why can maintaining parks be difficult?</h3>
+
+<label><input type="radio" name="q22" value="A"> A. Parks cannot contain trees</label>
+<label><input type="radio" name="q22" value="B"> B. Cities cannot use technology</label>
+<label><input type="radio" name="q22" value="C"> C. Maintenance can be expensive</label>
+<label><input type="radio" name="q22" value="D"> D. Residents dislike parks</label>
+</div>
+
+
+<div class="instruction">
+<strong>Questions 23–26:</strong> Complete the sentences using ONE WORD.
+</div>
+
+<div class="question">
+<h3>23. Walking paths and sports fields encourage residents to become more physically __________.</h3>
+<input type="text" id="q23">
+</div>
+
+<div class="question">
+<h3>24. Trees can provide __________ in urban areas.</h3>
+<input type="text" id="q24">
+</div>
+
+<div class="question">
+<h3>25. Parks can provide places for community __________.</h3>
+<input type="text" id="q25">
+</div>
+
+<div class="question">
+<h3>26. Sensors can monitor environmental __________.</h3>
+<input type="text" id="q26">
+</div>
+
+
+<!-- ================= PASSAGE 3 ================= -->
+
+<div class="section-title">
+    <h2>Passage 3</h2>
+</div>
+
+<div class="passage">
+
+<h2>How Young People Learn</h2>
+
+<p>
+Learning is not limited to classrooms. Young people learn through
+experiences at home, at school, online and in their communities. Modern
+research into learning has increasingly focused on how students can become
+active participants rather than simply receiving information.
+</p>
+
+<p>
+One important factor is motivation. Students who understand why a subject
+is useful may be more willing to spend time learning it. Clear goals can
+also help students monitor their own progress.
+</p>
+
+<p>
+Another factor is the learning environment. A quiet and organised space
+can make concentration easier, while opportunities to discuss ideas with
+others can help learners understand difficult concepts from different
+perspectives.
+</p>
+
+<p>
+Technology has changed the way many students study. Online courses,
+educational videos and interactive exercises can allow students to practise
+at their own pace. However, technology is most effective when it supports
+good learning habits rather than simply replacing them.
+</p>
+
+<p>
+Memory is also affected by repetition. Reviewing information at different
+times can help students remember it for longer. Researchers often describe
+this as spaced practice. Short, regular study sessions may therefore be
+more useful than attempting to learn everything in one long session.
+</p>
+
+<p>
+Mistakes are another important part of learning. When students receive
+useful feedback, they can understand what went wrong and make changes.
+Avoiding all mistakes is unrealistic, and treating errors as opportunities
+to improve can encourage persistence.
+</p>
+
+<p>
+Finally, sleep and breaks should not be ignored. Students who study for
+long periods without rest may find it difficult to maintain concentration.
+A balanced routine can therefore support both learning and general
+wellbeing.
+</p>
+
+</div>
+
+<div class="instruction">
+<strong>Questions 27–31:</strong> Choose the correct letter A, B, C or D.
+</div>
+
+<div class="question">
+<h3>27. What is the passage mainly about?</h3>
+
+<label><input type="radio" name="q27" value="A"> A. Factors that can support effective learning</label>
+<label><input type="radio" name="q27" value="B"> B. The history of universities</label>
+<label><input type="radio" name="q27" value="C"> C. Problems with school buildings</label>
+<label><input type="radio" name="q27" value="D"> D. The cost of educational technology</label>
+</div>
+
+<div class="question">
+<h3>28. Why can clear goals be useful?</h3>
+
+<label><input type="radio" name="q28" value="A"> A. They eliminate homework</label>
+<label><input type="radio" name="q28" value="B"> B. They help students monitor progress</label>
+<label><input type="radio" name="q28" value="C"> C. They prevent students from asking questions</label>
+<label><input type="radio" name="q28" value="D"> D. They replace teachers</label>
+</div>
+
+<div class="question">
+<h3>29. What can discussions with other people provide?</h3>
+
+<label><input type="radio" name="q29" value="A"> A. Different perspectives</label>
+<label><input type="radio" name="q29" value="B"> B. Longer school holidays</label>
+<label><input type="radio" name="q29" value="C"> C. Better weather</label>
+<label><input type="radio" name="q29" value="D"> D. More homework</label>
+</div>
+
+<div class="question">
+<h3>30. How can technology be useful?</h3>
+
+<label><input type="radio" name="q30" value="A"> A. It can allow students to practise at their own pace</label>
+<label><input type="radio" name="q30" value="B"> B. It removes the need for learning</label>
+<label><input type="radio" name="q30" value="C"> C. It guarantees high grades</label>
+<label><input type="radio" name="q30" value="D"> D. It prevents mistakes</label>
+</div>
+
+<div class="question">
+<h3>31. What is spaced practice?</h3>
+
+<label><input type="radio" name="q31" value="A"> A. Studying only once</label>
+<label><input type="radio" name="q31" value="B"> B. Reviewing information at different times</label>
+<label><input type="radio" name="q31" value="C"> C. Studying without breaks</label>
+<label><input type="radio" name="q31" value="D"> D. Avoiding difficult subjects</label>
+</div>
+
+
+<div class="instruction">
+<strong>Questions 32–36:</strong> Choose TRUE, FALSE or NOT GIVEN.
+</div>
+
+<div class="question">
+<h3>32. Learning only happens in classrooms.</h3>
+<select id="q32">
 <option value="">Choose an answer</option>
 <option value="TRUE">TRUE</option>
 <option value="FALSE">FALSE</option>
@@ -326,291 +729,665 @@ again.
 </select>
 </div>
 
-<h2>Questions 11–15: Complete the Sentences</h2>
-
 <div class="question">
-<h3>11. Learning another language can improve __________.</h3>
-<input type="text" id="q11">
+<h3>33. Motivation can influence students' willingness to learn.</h3>
+<select id="q33">
+<option value="">Choose an answer</option>
+<option value="TRUE">TRUE</option>
+<option value="FALSE">FALSE</option>
+<option value="NG">NOT GIVEN</option>
+</select>
 </div>
 
 <div class="question">
-<h3>12. Language and __________ are closely connected.</h3>
-<input type="text" id="q12">
+<h3>34. Technology is always better than traditional learning methods.</h3>
+<select id="q34">
+<option value="">Choose an answer</option>
+<option value="TRUE">TRUE</option>
+<option value="FALSE">FALSE</option>
+<option value="NG">NOT GIVEN</option>
+</select>
 </div>
 
 <div class="question">
-<h3>13. Employers may value workers who can communicate with international customers and __________.</h3>
-<input type="text" id="q13">
+<h3>35. Short regular study sessions can be useful.</h3>
+<select id="q35">
+<option value="">Choose an answer</option>
+<option value="TRUE">TRUE</option>
+<option value="FALSE">FALSE</option>
+<option value="NG">NOT GIVEN</option>
+</select>
 </div>
 
 <div class="question">
-<h3>14. Regular practice can help learners remember new __________.</h3>
-<input type="text" id="q14">
+<h3>36. The passage says students should never make mistakes.</h3>
+<select id="q36">
+<option value="">Choose an answer</option>
+<option value="TRUE">TRUE</option>
+<option value="FALSE">FALSE</option>
+<option value="NG">NOT GIVEN</option>
+</select>
+</div>
+
+
+<div class="instruction">
+<strong>Questions 37–40:</strong> Complete the sentences using ONE WORD.
 </div>
 
 <div class="question">
-<h3>15. Making __________ is a normal part of learning.</h3>
-<input type="text" id="q15">
-</div>
-
-<h2>Questions 16–20: Multiple Choice</h2>
-
-<div class="question">
-<h3>16. Which four skills are mentioned in the passage?</h3>
-<label><input type="radio" name="q16" value="A"> A. Reading, writing, listening and speaking</label>
-<label><input type="radio" name="q16" value="B"> B. Running, swimming, reading and drawing</label>
-<label><input type="radio" name="q16" value="C"> C. Driving, cooking, writing and singing</label>
-<label><input type="radio" name="q16" value="D"> D. Speaking, dancing, running and cooking</label>
+<h3>37. A quiet and organised space can make __________ easier.</h3>
+<input type="text" id="q37">
 </div>
 
 <div class="question">
-<h3>17. Which technology is mentioned as useful for language learning?</h3>
-<label><input type="radio" name="q17" value="A"> A. Mobile applications</label>
-<label><input type="radio" name="q17" value="B"> B. Washing machines</label>
-<label><input type="radio" name="q17" value="C"> C. Traffic lights</label>
-<label><input type="radio" name="q17" value="D"> D. Calculators</label>
+<h3>38. Reviewing information can help students remember it for __________.</h3>
+<input type="text" id="q38">
 </div>
 
 <div class="question">
-<h3>18. What can learning about another culture help develop?</h3>
-<label><input type="radio" name="q18" value="A"> A. Respect and understanding</label>
-<label><input type="radio" name="q18" value="B"> B. Faster reading</label>
-<label><input type="radio" name="q18" value="C"> C. Better weather</label>
-<label><input type="radio" name="q18" value="D"> D. Physical strength</label>
+<h3>39. Useful __________ can help students understand what went wrong.</h3>
+<input type="text" id="q39">
 </div>
 
 <div class="question">
-<h3>19. What should learners do when they make mistakes?</h3>
-<label><input type="radio" name="q19" value="A"> A. Stop learning</label>
-<label><input type="radio" name="q19" value="B"> B. Ignore them</label>
-<label><input type="radio" name="q19" value="C"> C. Identify them and try again</label>
-<label><input type="radio" name="q19" value="D"> D. Avoid speaking</label>
+<h3>40. A balanced routine can support learning and general __________.</h3>
+<input type="text" id="q40">
 </div>
 
-<div class="question">
-<h3>20. What is the main idea of the passage?</h3>
-<label><input type="radio" name="q20" value="A"> A. Learning languages has benefits but requires regular practice</label>
-<label><input type="radio" name="q20" value="B"> B. Travelling is the only way to learn languages</label>
-<label><input type="radio" name="q20" value="C"> C. Technology has replaced language teachers</label>
-<label><input type="radio" name="q20" value="D"> D. Learning languages is impossible for young people</label>
-</div>
 
-<button id="submitBtn" onclick="checkAnswers()">Submit Answers</button>
-<button id="tryAgainBtn" onclick="location.reload()">Try Again</button>
+<button id="submitBtn" onclick="checkAnswers()">
+    Submit Answers
+</button>
+
+<button id="tryAgainBtn" onclick="location.reload()">
+    Try Again
+</button>
+
 
 <div id="result">
-<h2>📊 Your Result</h2>
+
+<h2>📊 Your Reading Result</h2>
+
 <h3 id="score"></h3>
+
+<h3 id="percentage"></h3>
+
 <h3 id="band"></h3>
 
+<p>
+<strong>Practice estimate only.</strong>
+This is not an official IELTS score.
+</p>
+
 <div class="answers" id="answers">
+
 <h2>Correct Answers</h2>
-<p>1. A — Communication</p>
-<p>2. B — Communicate with more people</p>
+
+<p>1. A — Improved communication</p>
+<p>2. B — When travelling or working internationally</p>
 <p>3. A — Different cultures</p>
-<p>4. B — Workers who speak more than one language</p>
+<p>4. A — International communication skills</p>
 <p>5. C — Gradually</p>
+
 <p>6. TRUE</p>
 <p>7. NOT GIVEN</p>
 <p>8. TRUE</p>
 <p>9. TRUE</p>
-<p>10. FALSE</p>
-<p>11. communication</p>
-<p>12. culture</p>
-<p>13. colleagues</p>
-<p>14. vocabulary</p>
-<p>15. mistakes</p>
-<p>16. A — Reading, writing, listening and speaking</p>
-<p>17. A — Mobile applications</p>
-<p>18. A — Respect and understanding</p>
-<p>19. C — Identify them and try again</p>
-<p>20. A — Learning languages has benefits but requires regular practice</p>
-</div>
+
+<p>10. gradually</p>
+<p>11. vocabulary</p>
+<p>12. customers</p>
+<p>13. again</p>
+
+<p>14. D — The historical development of parks</p>
+<p>15. F — Opportunities for exercise</p>
+<p>16. C — Environmental advantages</p>
+<p>17. A — The social role of parks</p>
+<p>18. B — Problems with park funding</p>
+
+<p>19. B — They provide exercise facilities</p>
+<p>20. B — By providing shade and environmental benefits</p>
+<p>21. A — They provide places for people to meet</p>
+<p>22. C — Maintenance can be expensive</p>
+
+<p>23. active</p>
+<p>24. shade</p>
+<p>25. events</p>
+<p>26. conditions</p>
+
+<p>27. A — Factors that can support effective learning</p>
+<p>28. B — They help students monitor progress</p>
+<p>29. A — Different perspectives</p>
+<p>30. A — It can allow students to practise at their own pace</p>
+<p>31. B — Reviewing information at different times</p>
+
+<p>32. FALSE</p>
+<p>33. TRUE</p>
+<p>34. NOT GIVEN</p>
+<p>35. TRUE</p>
+<p>36. FALSE</p>
+
+<p>37. concentration</p>
+<p>38. longer</p>
+<p>39. feedback</p>
+<p>40. wellbeing</p>
+
 </div>
 
 </div>
+
+</div>
+
 
 <script>
 
 const answers = {
+
     q1: "A",
     q2: "B",
     q3: "A",
-    q4: "B",
+    q4: "A",
     q5: "C",
+
     q6: "TRUE",
     q7: "NG",
     q8: "TRUE",
     q9: "TRUE",
-    q10: "FALSE",
-    q11: "communication",
-    q12: "culture",
-    q13: "colleagues",
-    q14: "vocabulary",
-    q15: "mistakes",
-    q16: "A",
+
+    q10: "gradually",
+    q11: "vocabulary",
+    q12: "customers",
+    q13: "again",
+
+    q14: "D",
+    q15: "F",
+    q16: "C",
     q17: "A",
-    q18: "A",
-    q19: "C",
-    q20: "A"
+    q18: "B",
+
+    q19: "B",
+    q20: "B",
+    q21: "A",
+    q22: "C",
+
+    q23: "active",
+    q24: "shade",
+    q25: "events",
+    q26: "conditions",
+
+    q27: "A",
+    q28: "B",
+    q29: "A",
+    q30: "A",
+    q31: "B",
+
+    q32: "FALSE",
+    q33: "TRUE",
+    q34: "NG",
+    q35: "TRUE",
+    q36: "FALSE",
+
+    q37: "concentration",
+    q38: "longer",
+    q39: "feedback",
+    q40: "wellbeing"
 };
+
 
 function checkAnswers() {
 
     let score = 0;
 
-    for (let i = 1; i <= 5; i++) {
-        const selected =
-            document.querySelector('input[name="q' + i + '"]:checked');
 
-        if (selected && selected.value === answers["q" + i]) {
+    /* Questions 1–5 */
+
+    for (let i = 1; i <= 5; i++) {
+
+        const selected =
+            document.querySelector(
+                'input[name="q' + i + '"]:checked'
+            );
+
+        if (
+            selected &&
+            selected.value === answers["q" + i]
+        ) {
             score++;
         }
     }
 
-    for (let i = 6; i <= 10; i++) {
+
+    /* Questions 6–9 */
+
+    for (let i = 6; i <= 9; i++) {
+
         const selected =
             document.getElementById("q" + i).value;
 
-        if (selected === answers["q" + i]) {
+        if (
+            selected === answers["q" + i]
+        ) {
             score++;
         }
     }
 
-    for (let i = 11; i <= 15; i++) {
+
+    /* Questions 10–13 */
+
+    for (let i = 10; i <= 13; i++) {
+
         const userAnswer =
             document.getElementById("q" + i)
             .value
             .trim()
             .toLowerCase();
 
-        if (userAnswer === answers["q" + i]) {
+        if (
+            userAnswer === answers["q" + i]
+        ) {
             score++;
         }
     }
 
-    for (let i = 16; i <= 20; i++) {
+
+    /* Questions 14–18 */
+
+    for (let i = 14; i <= 18; i++) {
+
         const selected =
-            document.querySelector('input[name="q' + i + '"]:checked');
+            document.getElementById("q" + i).value;
 
-        if (selected && selected.value === answers["q" + i]) {
+        if (
+            selected === answers["q" + i]
+        ) {
             score++;
         }
     }
+
+
+    /* Questions 19–22 */
+
+    for (let i = 19; i <= 22; i++) {
+
+        const selected =
+            document.querySelector(
+                'input[name="q' + i + '"]:checked'
+            );
+
+        if (
+            selected &&
+            selected.value === answers["q" + i]
+        ) {
+            score++;
+        }
+    }
+
+
+    /* Questions 23–26 */
+
+    for (let i = 23; i <= 26; i++) {
+
+        const userAnswer =
+            document.getElementById("q" + i)
+            .value
+            .trim()
+            .toLowerCase();
+
+        if (
+            userAnswer === answers["q" + i]
+        ) {
+            score++;
+        }
+    }
+
+
+    /* Questions 27–31 */
+
+    for (let i = 27; i <= 31; i++) {
+
+        const selected =
+            document.querySelector(
+                'input[name="q' + i + '"]:checked'
+            );
+
+        if (
+            selected &&
+            selected.value === answers["q" + i]
+        ) {
+            score++;
+        }
+    }
+
+
+    /* Questions 32–36 */
+
+    for (let i = 32; i <= 36; i++) {
+
+        const selected =
+            document.getElementById("q" + i).value;
+
+        if (
+            selected === answers["q" + i]
+        ) {
+            score++;
+        }
+    }
+
+
+    /* Questions 37–40 */
+
+    for (let i = 37; i <= 40; i++) {
+
+        const userAnswer =
+            document.getElementById("q" + i)
+            .value
+            .trim()
+            .toLowerCase();
+
+        if (
+            userAnswer === answers["q" + i]
+        ) {
+            score++;
+        }
+    }
+
+
+    /* Percentage */
+
+    const percentage =
+        Math.round((score / 40) * 100);
+
+
+    /* Practice band estimate */
 
     let band;
 
-    if (score >= 19) {
-        band = "Band 9.0";
-    } else if (score >= 17) {
-        band = "Band 8.0";
+    if (score >= 39) {
+        band = "9.0";
+    } else if (score >= 37) {
+        band = "8.5";
+    } else if (score >= 35) {
+        band = "8.0";
+    } else if (score >= 33) {
+        band = "7.5";
+    } else if (score >= 30) {
+        band = "7.0";
+    } else if (score >= 27) {
+        band = "6.5";
+    } else if (score >= 23) {
+        band = "6.0";
+    } else if (score >= 19) {
+        band = "5.5";
     } else if (score >= 15) {
-        band = "Band 7.0";
+        band = "5.0";
     } else if (score >= 13) {
-        band = "Band 6.0";
-    } else if (score >= 11) {
-        band = "Band 5.0";
-    } else if (score >= 9) {
-        band = "Band 4.0";
+        band = "4.5";
+    } else if (score >= 10) {
+        band = "4.0";
     } else {
-        band = "Below Band 4.0";
+        band = "Below 4.0";
     }
 
+
     document.getElementById("score").textContent =
-        "Score: " + score + " / 20";
+        "Reading Score: " + score + " / 40";
+
+
+    document.getElementById("percentage").textContent =
+        "Percentage: " + percentage + "%";
+
 
     document.getElementById("band").textContent =
-        "Estimated IELTS Reading Band: " + band;
+        "Estimated Practice Band: " + band;
 
-    document.getElementById("result").style.display = "block";
-    document.getElementById("answers").style.display = "block";
 
-    document.getElementById("submitBtn").style.display = "none";
-    document.getElementById("tryAgainBtn").style.display = "inline-block";
+    document.getElementById("result").style.display =
+        "block";
+
+    document.getElementById("answers").style.display =
+        "block";
+
+    document.getElementById("submitBtn").style.display =
+        "none";
+
+    document.getElementById("tryAgainBtn").style.display =
+        "inline-block";
+
+
+    clearInterval(countdown);
+
 
     window.scrollTo({
         top: document.body.scrollHeight,
         behavior: "smooth"
     });
+
 }
 
 
-/* 60-MINUTE TIMER */
+/* ================= TIMER ================= */
 
 let timeLeft = 60 * 60;
 
 const countdown = setInterval(function() {
 
-    let minutes = Math.floor(timeLeft / 60);
-    let seconds = timeLeft % 60;
+    let minutes =
+        Math.floor(timeLeft / 60);
 
-    seconds = seconds < 10 ? "0" + seconds : seconds;
+    let seconds =
+        timeLeft % 60;
+
+    seconds =
+        seconds < 10
+        ? "0" + seconds
+        : seconds;
+
 
     document.getElementById("timer").textContent =
-        "⏱️ Time Remaining: " + minutes + ":" + seconds;
+        "⏱️ Time Remaining: " +
+        minutes +
+        ":" +
+        seconds;
+
 
     if (timeLeft <= 300) {
-        document.getElementById("timer").style.background = "#fff3cd";
+
+        document.getElementById("timer")
+        .style.background = "#fff3cd";
+
     }
 
+
     if (timeLeft <= 60) {
+
         document.getElementById("timer").textContent =
-            "⚠️ FINAL MINUTE: " + minutes + ":" + seconds;
+            "⚠️ FINAL MINUTE: " +
+            minutes +
+            ":" +
+            seconds;
+
     }
+
 
     if (timeLeft <= 0) {
 
         clearInterval(countdown);
 
-        alert("⏰ Time is up! Your answers will now be submitted.");
+        alert(
+            "⏰ Time is up! Your answers will now be submitted."
+        );
 
         checkAnswers();
 
         return;
+
     }
+
 
     timeLeft--;
 
 }, 1000);
 
- function updateProgress() {
+
+/* ================= PROGRESS ================= */
+
+function updateProgress() {
 
     let completed = 0;
 
+
+    /* 1–5 */
+
     for (let i = 1; i <= 5; i++) {
-        if (document.querySelector('input[name="q' + i + '"]:checked')) {
+
+        if (
+            document.querySelector(
+                'input[name="q' + i + '"]:checked'
+            )
+        ) {
             completed++;
         }
+
     }
 
-    for (let i = 6; i <= 10; i++) {
-        if (document.getElementById("q" + i).value !== "") {
+
+    /* 6–9 */
+
+    for (let i = 6; i <= 9; i++) {
+
+        if (
+            document.getElementById("q" + i).value !== ""
+        ) {
             completed++;
         }
+
     }
 
-    for (let i = 11; i <= 15; i++) {
-        if (document.getElementById("q" + i).value.trim() !== "") {
+
+    /* 10–13 */
+
+    for (let i = 10; i <= 13; i++) {
+
+        if (
+            document.getElementById("q" + i)
+            .value
+            .trim() !== ""
+        ) {
             completed++;
         }
+
     }
 
-    for (let i = 16; i <= 20; i++) {
-        if (document.querySelector('input[name="q' + i + '"]:checked')) {
+
+    /* 14–18 */
+
+    for (let i = 14; i <= 18; i++) {
+
+        if (
+            document.getElementById("q" + i).value !== ""
+        ) {
             completed++;
         }
+
     }
+
+
+    /* 19–22 */
+
+    for (let i = 19; i <= 22; i++) {
+
+        if (
+            document.querySelector(
+                'input[name="q' + i + '"]:checked'
+            )
+        ) {
+            completed++;
+        }
+
+    }
+
+
+    /* 23–26 */
+
+    for (let i = 23; i <= 26; i++) {
+
+        if (
+            document.getElementById("q" + i)
+            .value
+            .trim() !== ""
+        ) {
+            completed++;
+        }
+
+    }
+
+
+    /* 27–31 */
+
+    for (let i = 27; i <= 31; i++) {
+
+        if (
+            document.querySelector(
+                'input[name="q' + i + '"]:checked'
+            )
+        ) {
+            completed++;
+        }
+
+    }
+
+
+    /* 32–36 */
+
+    for (let i = 32; i <= 36; i++) {
+
+        if (
+            document.getElementById("q" + i).value !== ""
+        ) {
+            completed++;
+        }
+
+    }
+
+
+    /* 37–40 */
+
+    for (let i = 37; i <= 40; i++) {
+
+        if (
+            document.getElementById("q" + i)
+            .value
+            .trim() !== ""
+        ) {
+            completed++;
+        }
+
+    }
+
 
     document.getElementById("progressText").textContent =
-        "Question Progress: " + completed + " / 20";
+        "Question Progress: " +
+        completed +
+        " / 40";
+
 
     document.getElementById("progressFill").style.width =
-        (completed / 20 * 100) + "%";
+        (completed / 40 * 100) + "%";
+
 }
 
-document.addEventListener("change", updateProgress);
-document.addEventListener("input", updateProgress);               </script>
+
+document.addEventListener(
+    "change",
+    updateProgress
+);
+
+document.addEventListener(
+    "input",
+    updateProgress
+);
+
+</script>
 
 </body>
 </html>
-```

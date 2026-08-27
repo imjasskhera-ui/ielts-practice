@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>IELTS Listening Test</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    margin: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 25px;
+}
+
+header {
+    background: #17365d;
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.section {
+    background: white;
+    padding: 25px;
+    margin-top: 20px;
+    border-radius: 12px;
+}
+
+button {
+    padding: 14px 25px;
+    background: #17365d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+input {
+    padding: 10px;
+    width: 250px;
+    font-size: 16px;
+}
+
+select {
+    padding: 10px;
+    font-size: 16px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+    <h1>🎧 IELTS Listening Test</h1>
+    <p>40 Questions</p>
+    <p>Approximately 30 minutes</p>
+</header>
+
+<div class="section">
+
+<h2>Instructions</h2>
+
+<p>Listen to the recording and answer the questions.</p>
+
+<p><strong>For now, this practice test uses written questions.</strong></p>
+
+</div>
+
+<div class="section">
+
+<h2>Questions 1–10</h2>
+
+<p><strong>1. What is the student's name?</strong></p>
+<input type="text" id="q1">
+
+<p><strong>2. What course does the student want to join?</strong></p>
+<select id="q2">
+<option value="">Choose an answer</option>
+<option value="A">English</option>
+<option value="B">History</option>
+<option value="C">Science</option>
+</select>
+
+<p><strong>3. What day does the course begin?</strong></p>
+<input type="text" id="q3">
+
+<p><strong>4. How long is the course?</strong></p>
+<input type="text" id="q4">
+
+<p><strong>5. Where is the classroom?</strong></p>
+<input type="text" id="q5">
+
+<p><strong>6. What time does the class start?</strong></p>
+<input type="text" id="q6">
+
+<p><strong>7. How many students are in the class?</strong></p>
+<input type="text" id="q7">
+
+<p><strong>8. What book do students need?</strong></p>
+<input type="text" id="q8">
+
+<p><strong>9. How much does the course cost?</strong></p>
+<input type="text" id="q9">
+
+<p><strong>10. Who is the teacher?</strong></p>
+<input type="text" id="q10">
+
+</div>
+
+<div class="section">
+
+<h2>Questions 11–40</h2>
+
+<p>More listening questions will appear here as we build the full test.</p>
+
+</div>
+
+<div class="section">
+
+<button onclick="submitTest()">Submit Listening Test</button>
+
+<p id="result"></p>
+
+</div>
+
+</div>
+
+<script>
+
+function submitTest() {
+
+    document.getElementById("result").textContent =
+        "Listening test submitted!";
+
+}
+
+</script>
+
+</body>
+</html>

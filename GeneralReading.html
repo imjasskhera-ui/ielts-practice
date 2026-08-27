@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>IELTS General Training - Reading</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #222;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+header {
+    background: #17365d;
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#timer {
+    position: sticky;
+    top: 10px;
+    z-index: 1000;
+    background: white;
+    padding: 14px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+#progressContainer {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+#progressText {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#progressBar {
+    width: 100%;
+    height: 12px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#progressFill {
+    width: 0%;
+    height: 100%;
+    background: #17365d;
+    transition: width 0.3s;
+}
+
+.passage,
+.question {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 7px rgba(0,0,0,0.08);
+}
+
+.question h3 {
+    margin-top: 0;
+}
+
+label {
+    display: block;
+    margin: 9px 0;
+    cursor: pointer;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 90%;
+    max-width: 450px;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+select {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+}
+
+button {
+    padding: 14px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    cursor: pointer;
+    margin: 10px 5px 20px 0;
+}
+
+#submitBtn {
+    background: #17365d;
+    color: white;
+}
+
+#tryAgainBtn {
+    background: #555;
+    color: white;
+    display: none;
+}
+
+#result {
+    display: none;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.answers {
+    display: none;
+    text-align: left;
+    margin-top: 25px;
+}
+
+@media(max-width:600px) {
+    .container {
+        padding: 10px;
+    }
+
+    .passage,
+    .question {
+        padding: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+    <h1>🌍 IELTS General Training</h1>
+    <h2>📖 Reading Test</h2>
+    <p>40 Questions • 60 Minutes</p>
+</header>
+
+<div id="timer">
+    ⏱️ Time Remaining: 60:00
+</div>
+
+<div id="progressContainer">
+    <div id="progressText">
+        Question Progress: 0 / 40
+    </div>
+
+    <div id="progressBar">
+        <div id="progressFill"></div>
+    </div>
+</div>
+
+<!-- SECTION 1 -->
+
+<h2>Section 1</h2>
+
+<div class="passage">
+
+<h2>Community Library Information</h2>
+
+<p>
+The Riverside Community Library provides a range of services for local
+residents. The library is open from Monday to Saturday and offers books,
+magazines, newspapers and access to computers.
+</p>
+
+<p>
+Library members can borrow up to six books at a time. Books can normally be
+kept for three weeks. Members may renew books if another reader has not
+reserved them.
+</p>
+
+<p>
+The library also provides free internet access. Computers are available on
+a first-come, first-served basis. Each computer session lasts for one hour.
+</p>
+
+<p>
+Children's activities are held every Saturday morning. These include reading
+groups, storytelling and educational games.
+</p>
+
+</div>
+
+<h3>Questions 1–5: Multiple Choice</h3>
+
+<div class="question">
+<h3>1. How many books can a member borrow?</h3>
+<label><input type="radio" name="q1" value="A"> A. Three</label>
+<label><input type="radio" name="q1" value="B"> B. Four</label>
+<label><input type="radio" name="q1" value="C"> C. Six</label>
+<label><input type="radio" name="q1" value="D"> D. Ten</label>
+</div>
+
+<div class="question">
+<h3>2. How long can books normally be kept?</h3>
+<label><input type="radio" name="q2" value="A"> A. One week</label>
+<label><input type="radio" name="q2" value="B"> B. Two weeks</label>
+<label><input type="radio" name="q2" value="C"> C. Three weeks</label>
+<label><input type="radio" name="q2" value="D"> D. Four weeks</label>
+</div>
+
+<div class="question">
+<h3>3. When can a book be renewed?</h3>
+<label><input type="radio" name="q3" value="A"> A. Always</label>
+<label><input type="radio" name="q3" value="B"> B. When another reader has not reserved it</label>
+<label><input type="radio" name="q3" value="C"> C. Only on Saturdays</label>
+<label><input type="radio" name="q3" value="D"> D. Only once</label>
+</div>
+
+<div class="question">
+<h3>4. How long is each computer session?</h3>
+<label><input type="radio" name="q4" value="A"> A. Thirty minutes</label>
+<label><input type="radio" name="q4" value="B"> B. Forty-five minutes</label>
+<label><input type="radio" name="q4" value="C"> C. One hour</label>
+<label><input type="radio" name="q4" value="D"> D. Two hours</label>
+</div>
+
+<div class="question">
+<h3>5. When are children's activities held?</h3>
+<label><input type="radio" name="q5" value="A"> A. Monday morning</label>
+<label><input type="radio" name="q5" value="B"> B. Friday evening</label>
+<label><input type="radio" name="q5" value="C"> C. Saturday morning</label>
+<label><input type="radio" name="q5" value="D"> D. Sunday afternoon</label>
+</div>
+
+<h3>Questions 6–10: True / False / Not Given</h3>
+
+<div class="question">
+<h3>6. The library provides newspapers.</h3>
+<select id="q6">
+<option value="">Choose an answer</option>
+<option value="TRUE">TRUE</option>
+<option value="FALSE">FALSE</option>
+<option value="NG">NOT GIVEN</option>
+</select>
+</div>
+
+<div class="question">
+<h3>7. Computers must be booked one week in advance.</h3>
+<select id="q7">
+<option value="">Choose an answer</option>
+<option value="TRUE">TRUE</option>
+<option value="FALSE">FALSE</option>
+<option value="NG">NOT GIVEN</option>
+</select>
+</div>
+
+<div class="question">
+<h3>8. Children can participate in storytelling.</h3>
+<select id="q8">
+<option value="">Choose an answer</option>
+<option value="TRUE">TRUE</option>
+<option value="FALSE">FALSE</option>
+<option value="NG">NOT GIVEN</option>
+</select>
+</div>
+
+<div class="question">
+<h3>9. The library is open every Sunday.</h3>
+<select id="q9">
+<option value="">Choose an answer</option>
+<option value="TRUE">TRUE</option>
+<option value="FALSE">FALSE</option>
+<option value="NG">NOT GIVEN</option>
+</select>
+</div>
+
+<div class="question">
+<h3>10. Internet access is free.</h3>
+<select id="q10">
+<option value="">Choose an answer</option>
+<option value="TRUE">TRUE</option>
+<option value="FALSE">FALSE</option>
+<option value="NG">NOT GIVEN</option>
+</select>
+</div>
+
+<!-- SECTION 2 -->
+
+<h2>Section 2</h2>
+
+<div class="passage">
+
+<h2>Workplace Training</h2>
+
+<p>
+Many companies provide training programmes to help employees develop new
+skills. Training may include communication, computer skills, customer
+service and workplace safety.
+</p>
+
+<p>
+New employees often receive an introduction during their first week.
+This may include information about company policies, working hours and
+health and safety procedures.
+</p>
+
+<p>
+Some organisations provide online training. Employees can complete these
+courses at a convenient time, although certain courses must be completed
+before an employee can begin particular duties.
+</p>
+
+<p>
+Training can benefit both employees and employers. Employees may become
+more confident and improve their skills, while employers may benefit from
+better performance and fewer workplace mistakes.
+</p>
+
+</div>
+
+<h3>Questions 11–15: Complete the Sentences</h3>
+
+<div class="question">
+<h3>11. Training may include computer __________.</h3>
+<input type="text" id="q11">
+</div>
+
+<div class="question">
+<h3>12. New employees often receive an __________ during their first week.</h3>
+<input type="text" id="q12">
+</div>
+
+<div class="question">
+<h3>13. Employees may complete online courses at a __________ time.</h3>
+<input type="text" id="q13">
+</div>
+
+<div class="question">
+<h3>14. Training can help employees become more __________.</h3>
+<input type="text" id="q14">
+</div>
+
+<div class="question">
+<h3>15. Employers may benefit from fewer workplace __________.</h3>
+<input type="text" id="q15">
+</div>
+
+<h3>Questions 16–20: Multiple Choice</h3>
+
+<div class="question">
+<h3>16. Which topic may be included in workplace training?</h3>
+<label><input type="radio" name="q16" value="A"> A. Workplace safety</label>
+<label><input type="radio" name="q16" value="B"> B. Holiday planning</label>
+<label><input type="radio" name="q16" value="C"> C. Cooking</label>
+<label><input type="radio" name="q16" value="D"> D. Gardening</label>
+</div>
+
+<div class="question">
+<h3>17. When do new employees often receive an introduction?</h3>
+<label><input type="radio" name="q17" value="A"> A. Before applying</label>
+<label><input type="radio" name="q17" value="B"> B. During their first week</label>
+<label><input type="radio" name="q17" value="C"> C. After five years</label>
+<label><input type="radio" name="q17" value="D"> D. After leaving the company</label>
+</div>
+
+<div class="question">
+<h3>18. Why can some online courses be required before certain duties?</h3>
+<label><input type="radio" name="q18" value="A"> A. They are entertaining</label>
+<label><input type="radio" name="q18" value="B"> B. They may contain necessary information</label>
+<label><input type="radio" name="q18" value="C"> C. They are shorter</label>
+<label><input type="radio" name="q18" value="D"> D. They are optional</label>
+</div>
+
+<div class="question">
+<h3>19. What may employees gain from training?</h3>
+<label><input type="radio" name="q19" value="A"> A. More confidence</label>
+<label><input type="radio" name="q19" value="B"> B. More holidays</label>
+<label><input type="radio" name="q19" value="C"> C. Free transport</label>
+<label><input type="radio" name="q19" value="D"> D. Higher taxes</label>
+</div>
+
+<div class="question">
+<h3>20. What may employers gain from training?</h3>
+<label><input type="radio" name="q20" value="A"> A. More workplace mistakes</label>
+<label><input type="radio" name="q20" value="B"> B. Better performance</label>
+<label><input type="radio" name="q20" value="C"> C. Fewer employees</label>
+<label><input type="radio" name="q20" value="D"> D. Longer holidays</label>
+</div>
+
+<!-- SECTION 3 -->
+
+<h2>Section 3</h2>
+
+<div class="passage">
+
+<h2>Learning and Modern Work</h2>
+
+<p>
+The modern workplace is changing rapidly. New technologies have changed
+how people communicate, organise information and complete daily tasks.
+Workers increasingly need to update their skills throughout their careers.
+</p>
+
+<p>
+Learning does not always take place in a traditional classroom. People can
+learn through online courses, professional workshops, books, podcasts and
+practical experience. This variety allows workers to choose methods that
+fit their schedules and learning styles.
+</p>
+
+<p>
+Employers can also support continuing education by providing training,
+allowing employees time to study and paying for selected courses. Such
+support may improve motivation and help employees feel valued.
+</p>
+
+<p>
+However, successful learning requires commitment. People need to set
+realistic goals, practise regularly and review what they have learned.
+Simply attending a course does not guarantee that new knowledge will be
+remembered.
+</p>
+
+</div>
+
+<h3>Questions 21–30: True / False / Not Given</h3>
+
+<div class="question">
+<h3>21. Technology has changed the modern workplace.</h3>
+<select id="q21">
+<option value="">Choose an answer</option>
+<option value="TRUE">TRUE</option>
+<option value="FALSE">FALSE</option>
+<option value="NG">NOT GIVEN</option>
+</select>
+</div>
+
+<div class="question">
+<h3>22. Workers may need to update their skills during their careers.</h3>
+<select id="q22">
+<option value="">Choose an answer</option>
+<option value="TRUE">TRUE</option>
+<option value="FALSE">FALSE</option>
+<option value="NG">NOT GIVEN</option>
+</select>
+</div>
+
+<div class="question">
+<h3>23. All learning must happen in a classroom.</h3>
+<select id="q23">
+<option value="">Choose an answer</option>
+<option value="TRUE">TRUE</option>
+<option value="FALSE">FALSE</option>
+<option value="NG">NOT GIVEN</option>
+</select>
+</div>
+
+<div class="question">
+<h3>24. Podcasts can be used for learning.</h3>
+<select id="q24">
+<option value="">Choose an answer</option>
+<option value="TRUE">TRUE</option>
+<option value="FALSE">FALSE</option>
+<option value="NG">NOT GIVEN</option>
+</select>
+</div>
+
+<div class="question">
+<h3>25. Employers can support continuing education.</h3>
+<select id="q25">
+<option value="">Choose an answer</option>
+<option value="TRUE">TRUE</option>
+<option value="FALSE">FALSE</option>
+<option value="NG">NOT GIVEN</option>
+</select>
+</div>
+
+<div class="question">
+<h3>26. Every employer pays for all courses.</h3>
+<select id="q26">
+<option value="">Choose an answer</option>
+<option value="TRUE">TRUE</option>
+<option value="FALSE">FALSE</option>
+<option value="NG">NOT GIVEN</option>
+</select>
+</div>
+
+<div class="question">
+<h3>27. Employer support may improve motivation.</h3>
+<select id="q27">
+<option value="">Choose an answer</option>
+<option value="TRUE">TRUE</option>
+<option value="FALSE">FALSE</option>
+<option value="NG">NOT GIVEN</option>
+</select>
+</div>
+
+<div class="question">
+<h3>28. Successful learning requires commitment.</h3>
+<select id="q28">
+<option value="">Choose an answer</option>
+<option value="TRUE">TRUE</option>
+<option value="FALSE">FALSE</option>
+<option value="NG">NOT GIVEN</option>
+</select>
+</div>
+
+<div class="question">
+<h3>29. Regular practice is unnecessary.</h3>
+<select id="q29">
+<option value="">Choose an answer</option>
+<option value="TRUE">TRUE</option>
+<option value="FALSE">FALSE</option>
+<option value="NG">NOT GIVEN</option>
+</select>
+</div>
+
+<div class="question">
+<h3>30. Attending a course guarantees that knowledge will be remembered.</h3>
+<select id="q30">
+<option value="">Choose an answer</option>
+<option value="TRUE">TRUE</option>
+<option value="FALSE">FALSE</option>
+<option value="NG">NOT GIVEN</option>
+</select>
+</div>
+
+<h3>Questions 31–40: Multiple Choice</h3>
+
+<div class="question">
+<h3>31. What has changed how people communicate?</h3>
+<label><input type="radio" name="q31" value="A"> A. New technologies</label>
+<label><input type="radio" name="q31" value="B"> B. Weather</label>
+<label><input type="radio" name="q31" value="C"> C. Transport</label>
+<label><input type="radio" name="q31" value="D"> D. Sports</label>
+</div>
+
+<div class="question">
+<h3>32. Which is NOT mentioned as a way of learning?</h3>
+<label><input type="radio" name="q32" value="A"> A. Online courses</label>
+<label><input type="radio" name="q32" value="B"> B. Professional workshops</label>
+<label><input type="radio" name="q32" value="C"> C. Practical experience</label>
+<label><input type="radio" name="q32" value="D"> D. Swimming lessons</label>
+</div>
+
+<div class="question">
+<h3>33. Why can different learning methods be useful?</h3>
+<label><input type="radio" name="q33" value="A"> A. They fit different schedules and learning styles</label>
+<label><input type="radio" name="q33" value="B"> B. They eliminate all work</label>
+<label><input type="radio" name="q33" value="C"> C. They are always free</label>
+<label><input type="radio" name="q33" value="D"> D. They require no effort</label>
+</div>
+
+<div class="question">
+<h3>34. What can employers provide?</h3>
+<label><input type="radio" name="q34" value="A"> A. Training</label>
+<label><input type="radio" name="q34" value="B"> B. Holidays only</label>
+<label><input type="radio" name="q34" value="C"> C. Houses</label>
+<label><input type="radio" name="q34" value="D"> D. Cars</label>
+</div>
+
+<div class="question">
+<h3>35. What may make employees feel valued?</h3>
+<label><input type="radio" name="q35" value="A"> A. Employer support</label>
+<label><input type="radio" name="q35" value="B"> B. Longer meetings</label>
+<label><input type="radio" name="q35" value="C"> C. More paperwork</label>
+<label><input type="radio" name="q35" value="D"> D. Less training</label>
+</div>
+
+<div class="question">
+<h3>36. What should learners set?</h3>
+<label><input type="radio" name="q36" value="A"> A. Realistic goals</label>
+<label><input type="radio" name="q36" value="B"> B. Expensive holidays</label>
+<label><input type="radio" name="q36" value="C"> C. Impossible targets</label>
+<label><input type="radio" name="q36" value="D"> D. Shorter careers</label>
+</div>
+
+<div class="question">
+<h3>37. What should learners do regularly?</h3>
+<label><input type="radio" name="q37" value="A"> A. Practise</label>
+<label><input type="radio" name="q37" value="B"> B. Travel</label>
+<label><input type="radio" name="q37" value="C"> C. Sleep</label>
+<label><input type="radio" name="q37" value="D"> D. Shop</label>
+</div>
+
+<div class="question">
+<h3>38. What should learners review?</h3>
+<label><input type="radio" name="q38" value="A"> A. What they have learned</label>
+<label><input type="radio" name="q38" value="B"> B. Company profits</label>
+<label><input type="radio" name="q38" value="C"> C. Weather reports</label>
+<label><input type="radio" name="q38" value="D"> D. Travel plans</label>
+</div>
+
+<div class="question">
+<h3>39. What does attending a course NOT guarantee?</h3>
+<label><input type="radio" name="q39" value="A"> A. That knowledge will be remembered</label>
+<label><input type="radio" name="q39" value="B"> B. That people will attend</label>
+<label><input type="radio" name="q39" value="C"> C. That workers will travel</label>
+<label><input type="radio" name="q39" value="D"> D. That employers will pay</label>
+</div>
+
+<div class="question">
+<h3>40. What is the main idea?</h3>
+<label><input type="radio" name="q40" value="A"> A. Continuing learning is important in modern work</label>
+<label><input type="radio" name="q40" value="B"> B. Classrooms are the only way to learn</label>
+<label><input type="radio" name="q40" value="C"> C. Technology makes learning unnecessary</label>
+<label><input type="radio" name="q40" value="D"> D. Employees should never change their skills</label>
+</div>
+
+<button id="submitBtn" onclick="checkAnswers()">
+Submit Answers
+</button>
+
+<button id="tryAgainBtn" onclick="location.reload()">
+Try Again
+</button>
+
+<div id="result">
+
+<h2>📊 Your Result</h2>
+
+<h3 id="score"></h3>
+<h3 id="band"></h3>
+
+<div class="answers" id="answers">
+
+<h2>Correct Answers</h2>
+
+<p>1. C</p>
+<p>2. C</p>
+<p>3. B</p>
+<p>4. C</p>
+<p>5. C</p>
+<p>6. TRUE</p>
+<p>7. NOT GIVEN</p>
+<p>8. TRUE</p>
+<p>9. NOT GIVEN</p>
+<p>10. TRUE</p>
+<p>11. skills</p>
+<p>12. introduction</p>
+<p>13. convenient</p>
+<p>14. confident</p>
+<p>15. mistakes</p>
+<p>16. A</p>
+<p>17. B</p>
+<p>18. B</p>
+<p>19. A</p>
+<p>20. B</p>
+<p>21. TRUE</p>
+<p>22. TRUE</p>
+<p>23. FALSE</p>
+<p>24. TRUE</p>
+<p>25. TRUE</p>
+<p>26. FALSE</p>
+<p>27. TRUE</p>
+<p>28. TRUE</p>
+<p>29. FALSE</p>
+<p>30. FALSE</p>
+<p>31. A</p>
+<p>32. D</p>
+<p>33. A</p>
+<p>34. A</p>
+<p>35. A</p>
+<p>36. A</p>
+<p>37. A</p>
+<p>38. A</p>
+<p>39. A</p>
+<p>40. A</p>
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+const answers = {
+q1:"C", q2:"C", q3:"B", q4:"C", q5:"C",
+q6:"TRUE", q7:"NG", q8:"TRUE", q9:"NG", q10:"TRUE",
+q11:"skills", q12:"introduction", q13:"convenient",
+q14:"confident", q15:"mistakes",
+q16:"A", q17:"B", q18:"B", q19:"A", q20:"B",
+q21:"TRUE", q22:"TRUE", q23:"FALSE", q24:"TRUE",
+q25:"TRUE", q26:"FALSE", q27:"TRUE", q28:"TRUE",
+q29:"FALSE", q30:"FALSE",
+q31:"A", q32:"D", q33:"A", q34:"A", q35:"A",
+q36:"A", q37:"A", q38:"A", q39:"A", q40:"A"
+};
+
+function checkAnswers() {
+
+    let score = 0;
+
+    for (let i = 1; i <= 5; i++) {
+        const selected =
+        document.querySelector(
+        'input[name="q' + i + '"]:checked'
+        );
+
+        if (selected &&
+            selected.value === answers["q" + i]) {
+            score++;
+        }
+    }
+
+    for (let i = 6; i <= 10; i++) {
+        const selected =
+        document.getElementById("q" + i).value;
+
+        if (selected === answers["q" + i]) {
+            score++;
+        }
+    }
+
+    for (let i = 11; i <= 15; i++) {
+
+        const userAnswer =
+        document.getElementById("q" + i)
+        .value
+        .trim()
+        .toLowerCase();
+
+        if (userAnswer === answers["q" + i]) {
+            score++;
+        }
+    }
+
+    for (let i = 16; i <= 20; i++) {
+
+        const selected =
+        document.querySelector(
+        'input[name="q' + i + '"]:checked'
+        );
+
+        if (selected &&
+            selected.value === answers["q" + i]) {
+            score++;
+        }
+    }
+
+    for (let i = 21; i <= 30; i++) {
+
+        const selected =
+        document.getElementById("q" + i).value;
+
+        if (selected === answers["q" + i]) {
+            score++;
+        }
+    }
+
+    for (let i = 31; i <= 40; i++) {
+
+        const selected =
+        document.querySelector(
+        'input[name="q' + i + '"]:checked'
+        );
+
+        if (selected &&
+            selected.value === answers["q" + i]) {
+            score++;
+        }
+    }
+
+    let band;
+
+    if (score >= 39) band = "Band 9.0";
+    else if (score >= 37) band = "Band 8.5";
+    else if (score >= 35) band = "Band 8.0";
+    else if (score >= 33) band = "Band 7.5";
+    else if (score >= 30) band = "Band 7.0";
+    else if (score >= 27) band = "Band 6.5";
+    else if (score >= 23) band = "Band 6.0";
+    else if (score >= 19) band = "Band 5.5";
+    else if (score >= 15) band = "Band 5.0";
+    else if (score >= 13) band = "Band 4.5";
+    else if (score >= 10) band = "Band 4.0";
+    else band = "Below Band 4.0";
+
+    document.getElementById("score").textContent =
+    "Score: " + score + " / 40";
+
+    document.getElementById("band").textContent =
+    "Estimated IELTS Reading Band: " + band;
+
+    document.getElementById("result").style.display = "block";
+    document.getElementById("answers").style.display = "block";
+
+    document.getElementById("submitBtn").style.display = "none";
+    document.getElementById("tryAgainBtn").style.display = "inline-block";
+
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+    });
+}
+
+
+/* TIMER */
+
+let timeLeft = 60 * 60;
+
+const countdown = setInterval(function() {
+
+    let minutes = Math.floor(timeLeft / 60);
+    let seconds = timeLeft % 60;
+
+    seconds =
+    seconds < 10 ? "0" + seconds : seconds;
+
+    document.getElementById("timer").textContent =
+    "⏱️ Time Remaining: " +
+    minutes + ":" + seconds;
+
+    if (timeLeft <= 300) {
+        document.getElementById("timer").style.background =
+        "#fff3cd";
+    }
+
+    if (timeLeft <= 60) {
+        document.getElementById("timer").textContent =
+        "⚠️ FINAL MINUTE: " +
+        minutes + ":" + seconds;
+    }
+
+    if (timeLeft <= 0) {
+
+        clearInterval(countdown);
+
+        alert(
+        "⏰ Time is up! Your answers will now be submitted."
+        );
+
+        checkAnswers();
+
+        return;
+    }
+
+    timeLeft--;
+
+}, 1000);
+
+
+/* PROGRESS */
+
+function updateProgress() {
+
+    let completed = 0;
+
+    for (let i = 1; i <= 5; i++) {
+        if (document.querySelector(
+            'input[name="q' + i + '"]:checked'
+        )) {
+            completed++;
+        }
+    }
+
+    for (let i = 6; i <= 10; i++) {
+        if (document.getElementById("q" + i).value !== "") {
+            completed++;
+        }
+    }
+
+    for (let i = 11; i <= 15; i++) {
+        if (document.getElementById("q" + i).value.trim() !== "") {
+            completed++;
+        }
+    }
+
+    for (let i = 16; i <= 20; i++) {
+        if (document.querySelector(
+            'input[name="q' + i + '"]:checked'
+        )) {
+            completed++;
+        }
+    }
+
+    for (let i = 21; i <= 30; i++) {
+        if (document.getElementById("q" + i).value !== "") {
+            completed++;
+        }
+    }
+
+    for (let i = 31; i <= 40; i++) {
+        if (document.querySelector(
+            'input[name="q' + i + '"]:checked'
+        )) {
+            completed++;
+        }
+    }
+
+    document.getElementById("progressText").textContent =
+    "Question Progress: " + completed + " / 40";
+
+    document.getElementById("progressFill").style.width =
+    (completed / 40 * 100) + "%";
+}
+
+document.addEventListener("change", updateProgress);
+document.addEventListener("input", updateProgress);
+
+</script>
+
+</body>
+</html>

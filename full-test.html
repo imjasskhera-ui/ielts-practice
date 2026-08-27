@@ -1,1142 +1,595 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Teen IELTS - Complete Mock Test</title>
+<title>Teen IELTS | Full Practice Test</title>
 
 <style>
-* {
-    box-sizing: border-box;
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f4f7fb;
+    color:#222;
+    line-height:1.6;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f7fb;
-    color: #222;
-    line-height: 1.6;
+.container{
+    width:min(1000px,94%);
+    margin:auto;
 }
 
-.container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 15px;
+header{
+    background:#17365d;
+    color:white;
+    padding:30px 20px;
+    text-align:center;
+    border-radius:0 0 18px 18px;
 }
 
-header {
-    background: #17365d;
-    color: white;
-    padding: 30px 20px;
-    border-radius: 15px;
-    text-align: center;
-    margin-bottom: 20px;
+header h1{
+    margin:0;
+    font-size:34px;
 }
 
-header h1 {
-    margin: 0 0 8px;
+header p{
+    margin:6px 0 0;
 }
 
-.section {
-    background: white;
-    padding: 22px;
-    margin-bottom: 20px;
-    border-radius: 14px;
-    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+.card{
+    background:white;
+    padding:22px;
+    margin:20px 0;
+    border-radius:15px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
 }
 
-.section-title {
-    color: #17365d;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
+.instructions{
+    background:#eef5ff;
+    border-left:5px solid #17365d;
+    padding:15px;
+    border-radius:8px;
 }
 
-.timer {
-    position: sticky;
-    top: 8px;
-    z-index: 1000;
-    background: white;
-    border: 2px solid #17365d;
-    padding: 12px;
-    text-align: center;
-    font-size: 21px;
-    font-weight: bold;
-    border-radius: 10px;
-    margin-bottom: 15px;
+.timer{
+    position:sticky;
+    top:8px;
+    z-index:50;
+    background:white;
+    border:2px solid #17365d;
+    padding:12px;
+    border-radius:10px;
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+    margin:15px 0;
 }
 
-.progress-box {
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 15px;
+.timer.warning{
+    border-color:#d97706;
+    background:#fff7ed;
 }
 
-.progress-text {
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 8px;
+.timer.danger{
+    border-color:#b91c1c;
+    background:#fef2f2;
+    color:#b91c1c;
 }
 
-.progress-bar {
-    width: 100%;
-    height: 12px;
-    background: #ddd;
-    border-radius: 10px;
-    overflow: hidden;
+.nav{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:15px 0;
 }
 
-.progress-fill {
-    width: 0%;
-    height: 100%;
-    background: #17365d;
-    transition: width .3s;
+.nav button{
+    flex:1;
+    min-width:120px;
 }
 
-.instructions {
-    background: #eef4fb;
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 20px;
+button{
+    border:0;
+    border-radius:9px;
+    padding:13px 18px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-.question {
-    background: #fafafa;
-    border: 1px solid #ddd;
-    padding: 17px;
-    border-radius: 10px;
-    margin-bottom: 15px;
+.primary{
+    background:#17365d;
+    color:white;
 }
 
-.question h3 {
-    margin-top: 0;
+.secondary{
+    background:#64748b;
+    color:white;
 }
 
-label {
-    display: block;
-    margin: 9px 0;
-    cursor: pointer;
+.danger{
+    background:#b91c1c;
+    color:white;
 }
 
-input[type="radio"] {
-    margin-right: 8px;
+.success{
+    background:#166534;
+    color:white;
 }
 
-input[type="text"],
+button:hover{
+    opacity:.9;
+}
+
+.section{
+    display:none;
+}
+
+.section.active{
+    display:block;
+}
+
+.question{
+    background:#fafafa;
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:16px;
+    margin:15px 0;
+}
+
+.question h3{
+    margin-top:0;
+}
+
+label{
+    display:block;
+    margin:9px 0;
+    cursor:pointer;
+}
+
+input[type=text],
 textarea,
-select {
-    width: 100%;
-    max-width: 650px;
-    padding: 12px;
-    border: 1px solid #aaa;
-    border-radius: 7px;
-    font-size: 16px;
+select{
+    width:100%;
+    max-width:700px;
+    padding:11px;
+    border:1px solid #aaa;
+    border-radius:7px;
+    font-size:16px;
 }
 
-textarea {
-    min-height: 250px;
-    resize: vertical;
+textarea{
+    min-height:230px;
+    resize:vertical;
 }
 
-.word-count {
-    font-weight: bold;
-    margin-top: 8px;
+.audio-box{
+    background:#f1f5f9;
+    border-radius:12px;
+    padding:20px;
+    text-align:center;
+    margin:20px 0;
 }
 
-.audio-box {
-    background: #eef4fb;
-    padding: 20px;
-    border-radius: 12px;
-    text-align: center;
-    margin: 20px 0;
-    border: 2px solid #d5e2f0;
+.audio-box button{
+    margin:5px;
 }
 
-.audio-box audio {
-    width: 100%;
-    max-width: 700px;
-    margin: 15px auto;
+.progress{
+    height:12px;
+    background:#ddd;
+    border-radius:20px;
+    overflow:hidden;
 }
 
-.audio-note {
-    font-size: 14px;
-    color: #555;
+.progress-bar{
+    width:0;
+    height:100%;
+    background:#17365d;
+    transition:.3s;
 }
 
-button {
-    padding: 13px 22px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    margin: 7px 5px 7px 0;
+.word-count{
+    font-weight:bold;
+    margin-top:7px;
 }
 
-.primary-btn {
-    background: #17365d;
-    color: white;
+.result-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
 }
 
-.secondary-btn {
-    background: #666;
-    color: white;
+.result{
+    background:#eef5ff;
+    padding:20px;
+    border-radius:12px;
+    text-align:center;
 }
 
-.danger-btn {
-    background: #b3261e;
-    color: white;
+.result strong{
+    display:block;
+    font-size:32px;
+    color:#17365d;
 }
 
-.big-start {
-    background: #17365d;
-    color: white;
-    font-size: 21px;
-    padding: 17px 30px;
+.big-score{
+    font-size:48px!important;
 }
 
-.section-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-    margin-bottom: 20px;
+.hidden{
+    display:none!important;
 }
 
-.nav-btn {
-    background: #e8eef5;
-    color: #17365d;
-    padding: 10px 14px;
-    border-radius: 7px;
-    border: 1px solid #ccd6e2;
+footer{
+    text-align:center;
+    padding:30px;
+    color:#64748b;
 }
 
-.nav-btn.active {
-    background: #17365d;
-    color: white;
-}
-
-.test-section {
-    display: none;
-}
-
-.test-section.active {
-    display: block;
-}
-
-#results {
-    display: none;
-}
-
-.result-card {
-    background: #eef4fb;
-    padding: 25px;
-    border-radius: 12px;
-    text-align: center;
-}
-
-.score-number {
-    font-size: 38px;
-    font-weight: bold;
-    color: #17365d;
-}
-
-.band {
-    font-size: 25px;
-    font-weight: bold;
-    color: #17365d;
-}
-
-.speaking-card {
-    background: #fafafa;
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
-footer {
-    text-align: center;
-    color: #777;
-    padding: 25px;
-}
-
-@media (max-width: 600px) {
-
-    .container {
-        padding: 8px;
-    }
-
-    .section {
-        padding: 15px;
-    }
-
-    header {
-        padding: 25px 15px;
-    }
-
-    header h1 {
-        font-size: 27px;
-    }
-
-    header h2 {
-        font-size: 20px;
-    }
-
-    .timer {
-        font-size: 18px;
-    }
-
-    button {
-        width: 100%;
-        margin-right: 0;
-    }
-
-    .section-nav button {
-        width: auto;
-    }
-
-    input[type="text"],
-    textarea,
-    select {
-        max-width: 100%;
-        font-size: 16px;
-    }
-
-    .question {
-        padding: 14px;
-    }
+@media(max-width:650px){
+    header h1{font-size:27px}
+    .card{padding:15px}
+    .result-grid{grid-template-columns:1fr}
+    button{width:100%;margin:4px 0}
+    .nav button{min-width:100%}
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-
 <header>
-    <h1>🎓 Teen IELTS</h1>
-    <h2>Complete IELTS Mock Test</h2>
-    <p>Listening • Reading • Writing • Speaking</p>
+    <div class="container">
+        <h1>🎓 Teen IELTS</h1>
+        <p>Complete IELTS-Style Practice Test</p>
+        <small>Listening • Reading • Writing • Speaking</small>
+    </div>
 </header>
+
+<div class="container">
 
 <!-- START -->
 
-<div id="startScreen" class="section" style="text-align:center;">
+<div id="startScreen" class="card">
 
-    <h2>🚀 Full IELTS Mock Test</h2>
-
-    <p>Complete all four sections of the practice test.</p>
-
-    <p>🎧 Listening — 40 questions</p>
-    <p>📖 Reading — 40 questions</p>
-    <p>✍️ Writing — 2 tasks</p>
-    <p>🗣️ Speaking — 3 parts</p>
+    <h2>🚀 Full Practice Test</h2>
 
     <div class="instructions">
-        <strong>Important:</strong>
-        Listening and Reading are scored automatically.
-        Writing and Speaking require human assessment.
+        <p><strong>This is an original Teen IELTS practice test.</strong></p>
+        <p>
+            It is designed to help students practise the four IELTS-style
+            skills: Listening, Reading, Writing and Speaking.
+        </p>
     </div>
 
-    <button class="big-start" onclick="startTest()">
+    <h3>Test sections</h3>
+
+    <ul>
+        <li>🎧 Listening — 40 questions</li>
+        <li>📖 Reading — 40 questions</li>
+        <li>✍️ Writing — 2 tasks</li>
+        <li>🗣️ Speaking — 3 parts</li>
+    </ul>
+
+    <h3>Practice timing</h3>
+
+    <ul>
+        <li>Listening — 30 minutes</li>
+        <li>Reading — 60 minutes</li>
+        <li>Writing — 60 minutes</li>
+        <li>Speaking — separate practice</li>
+    </ul>
+
+    <button class="primary" onclick="startTest()">
         🚀 START FULL TEST
-    </button>
-
-    <br>
-
-    <button class="secondary-btn" onclick="location.href='index.html'">
-        ← Back Home
     </button>
 
 </div>
 
 <!-- TEST -->
 
-<div id="testArea" style="display:none;">
+<div id="testArea" class="hidden">
 
     <div id="timer" class="timer">
-        ⏱️ Listening Time: 30:00
+        ⏱️ 30:00
     </div>
 
-    <div class="progress-box">
+    <div class="card">
 
-        <div id="progressText" class="progress-text">
-            Progress: 0 / 80 questions
+        <div id="progressText">
+            Progress: 0 / 80 objective questions
         </div>
 
-        <div class="progress-bar">
-            <div id="progressFill" class="progress-fill"></div>
+        <div class="progress">
+            <div id="progressBar" class="progress-bar"></div>
         </div>
 
     </div>
 
-    <div class="section-nav">
-
-        <button class="nav-btn active"
-                onclick="showSection('listening')">
+    <div class="nav">
+        <button class="primary" onclick="showSection('listening')">
             🎧 Listening
         </button>
 
-        <button class="nav-btn"
-                onclick="showSection('reading')">
+        <button class="secondary" onclick="showSection('reading')">
             📖 Reading
         </button>
 
-        <button class="nav-btn"
-                onclick="showSection('writing')">
+        <button class="secondary" onclick="showSection('writing')">
             ✍️ Writing
         </button>
 
-        <button class="nav-btn"
-                onclick="showSection('speaking')">
+        <button class="secondary" onclick="showSection('speaking')">
             🗣️ Speaking
         </button>
-
     </div>
+
 
 <!-- LISTENING -->
 
-<div id="listening" class="test-section active">
+<section id="listening" class="section active">
 
-<div class="section">
+<div class="card">
 
-<h2 class="section-title">🎧 Listening Test</h2>
+<h2>🎧 Listening</h2>
 
 <div class="instructions">
-    <p>You will hear one recording containing four parts.</p>
-    <p>Answer Questions 1–40.</p>
-    <p><strong>Do not start the audio until you are ready.</strong></p>
-</div>
+<p>
+This original listening practice contains 40 questions.
+Press <strong>Play Listening</strong> and listen carefully.
+</p>
 
-<!-- MP3 PLAYER -->
+<p>
+For a more realistic practice, do not look at the transcript while
+answering.
+</p>
+</div>
 
 <div class="audio-box">
 
-    <h3>🎧 Listening Recording</h3>
+<h3>🔊 Built-in Listening Audio</h3>
 
-    <p>
-        Press Play to start the Listening recording.
-    </p>
+<button class="primary" onclick="playListening()">
+▶ Play Listening
+</button>
 
-    <audio id="listeningAudio"
-           controls
-           preload="metadata">
+<button class="secondary" onclick="pauseListening()">
+⏸ Pause
+</button>
 
-        <source src="listening.mp3"
-                type="audio/mpeg">
+<button class="danger" onclick="stopListening()">
+⏹ Stop
+</button>
 
-        Your browser does not support audio playback.
-
-    </audio>
-
-    <p class="audio-note">
-        Audio file required:
-        <strong>listening.mp3</strong>
-    </p>
+<p id="audioStatus">
+Ready to play.
+</p>
 
 </div>
 
 <h3>Part 1 — Questions 1–10</h3>
 
-<div class="question">
-<h3>1. What is the student's name?</h3>
-<input type="text" id="l1">
-</div>
+<script>
+const listeningQuestions = [
+["1. What is the student's first name?","Maya"],
+["2. What city does Maya live in?","Edmonton"],
+["3. What course is she interested in?","English"],
+["4. What day does the course begin?","Monday"],
+["5. What time does the class begin?","4 pm"],
+["6. How many weeks is the course?","8"],
+["7. Which room is used?","12"],
+["8. What must students bring?","notebook"],
+["9. What is the course fee?","80"],
+["10. Who should students contact?","Ms Brown"]
+];
+</script>
 
-<div class="question">
-<h3>2. Where does the student live?</h3>
-<input type="text" id="l2">
-</div>
-
-<div class="question">
-<h3>3. What course is the student taking?</h3>
-<input type="text" id="l3">
-</div>
-
-<div class="question">
-<h3>4. What day does the course begin?</h3>
-<input type="text" id="l4">
-</div>
-
-<div class="question">
-<h3>5. What time does the course start?</h3>
-<input type="text" id="l5">
-</div>
-
-<div class="question">
-<h3>6. How long is the course?</h3>
-<input type="text" id="l6">
-</div>
-
-<div class="question">
-<h3>7. Which room is the course in?</h3>
-<input type="text" id="l7">
-</div>
-
-<div class="question">
-<h3>8. What equipment does the student need?</h3>
-<input type="text" id="l8">
-</div>
-
-<div class="question">
-<h3>9. How much does the course cost?</h3>
-<input type="text" id="l9">
-</div>
-
-<div class="question">
-<h3>10. Who should the student contact?</h3>
-<input type="text" id="l10">
-</div>
+<div id="listeningPart1"></div>
 
 <h3>Part 2 — Questions 11–20</h3>
 
-<div class="question">
-<h3>11. What is the main purpose of the talk?</h3>
-<label><input type="radio" name="l11" value="A"> A. Explain a new building</label>
-<label><input type="radio" name="l11" value="B"> B. Explain a community programme</label>
-<label><input type="radio" name="l11" value="C"> C. Explain a school timetable</label>
-<label><input type="radio" name="l11" value="D"> D. Explain a sports event</label>
-</div>
-
-<div class="question">
-<h3>12. Where is the information centre?</h3>
-<label><input type="radio" name="l12" value="A"> A. Near the entrance</label>
-<label><input type="radio" name="l12" value="B"> B. Near the library</label>
-<label><input type="radio" name="l12" value="C"> C. Near the café</label>
-<label><input type="radio" name="l12" value="D"> D. Near the parking area</label>
-</div>
-
-<div class="question">
-<h3>13. When does the programme begin?</h3>
-<label><input type="radio" name="l13" value="A"> A. Monday</label>
-<label><input type="radio" name="l13" value="B"> B. Tuesday</label>
-<label><input type="radio" name="l13" value="C"> C. Wednesday</label>
-<label><input type="radio" name="l13" value="D"> D. Thursday</label>
-</div>
-
-<div class="question">
-<h3>14. Who can join the programme?</h3>
-<label><input type="radio" name="l14" value="A"> A. Children only</label>
-<label><input type="radio" name="l14" value="B"> B. Adults only</label>
-<label><input type="radio" name="l14" value="C"> C. All local residents</label>
-<label><input type="radio" name="l14" value="D"> D. University students only</label>
-</div>
-
-<div class="question">
-<h3>15. What is free?</h3>
-<label><input type="radio" name="l15" value="A"> A. Membership</label>
-<label><input type="radio" name="l15" value="B"> B. Food</label>
-<label><input type="radio" name="l15" value="C"> C. Transport</label>
-<label><input type="radio" name="l15" value="D"> D. Books</label>
-</div>
-
-<div class="question">
-<h3>16. Where can visitors park?</h3>
-<label><input type="radio" name="l16" value="A"> A. Behind the building</label>
-<label><input type="radio" name="l16" value="B"> B. On the main street</label>
-<label><input type="radio" name="l16" value="C"> C. Beside the library</label>
-<label><input type="radio" name="l16" value="D"> D. At the school</label>
-</div>
-
-<div class="question">
-<h3>17. What should visitors bring?</h3>
-<label><input type="radio" name="l17" value="A"> A. Identification</label>
-<label><input type="radio" name="l17" value="B"> B. Food</label>
-<label><input type="radio" name="l17" value="C"> C. Sports equipment</label>
-<label><input type="radio" name="l17" value="D"> D. Money</label>
-</div>
-
-<div class="question">
-<h3>18. How often is the programme held?</h3>
-<label><input type="radio" name="l18" value="A"> A. Every day</label>
-<label><input type="radio" name="l18" value="B"> B. Every week</label>
-<label><input type="radio" name="l18" value="C"> C. Every month</label>
-<label><input type="radio" name="l18" value="D"> D. Twice a year</label>
-</div>
-
-<div class="question">
-<h3>19. Who organizes the programme?</h3>
-<label><input type="radio" name="l19" value="A"> A. The city council</label>
-<label><input type="radio" name="l19" value="B"> B. The university</label>
-<label><input type="radio" name="l19" value="C"> C. A private company</label>
-<label><input type="radio" name="l19" value="D"> D. A local school</label>
-</div>
-
-<div class="question">
-<h3>20. What should people do first?</h3>
-<label><input type="radio" name="l20" value="A"> A. Register online</label>
-<label><input type="radio" name="l20" value="B"> B. Call the office</label>
-<label><input type="radio" name="l20" value="C"> C. Visit the library</label>
-<label><input type="radio" name="l20" value="D"> D. Send an email</label>
-</div>
+<div id="listeningPart2"></div>
 
 <h3>Part 3 — Questions 21–30</h3>
 
-<div class="question">
-<h3>21. What is the students' project about?</h3>
-<input type="text" id="l21">
-</div>
-
-<div class="question">
-<h3>22. What problem did they find?</h3>
-<input type="text" id="l22">
-</div>
-
-<div class="question">
-<h3>23. Which source did they use?</h3>
-<input type="text" id="l23">
-</div>
-
-<div class="question">
-<h3>24. Who did they interview?</h3>
-<input type="text" id="l24">
-</div>
-
-<div class="question">
-<h3>25. What information was most useful?</h3>
-<input type="text" id="l25">
-</div>
-
-<div class="question">
-<h3>26. When is the project due?</h3>
-<input type="text" id="l26">
-</div>
-
-<div class="question">
-<h3>27. How long will the presentation be?</h3>
-<input type="text" id="l27">
-</div>
-
-<div class="question">
-<h3>28. What visual aid will they use?</h3>
-<input type="text" id="l28">
-</div>
-
-<div class="question">
-<h3>29. Who will give the introduction?</h3>
-<input type="text" id="l29">
-</div>
-
-<div class="question">
-<h3>30. Where will they practise?</h3>
-<input type="text" id="l30">
-</div>
+<div id="listeningPart3"></div>
 
 <h3>Part 4 — Questions 31–40</h3>
 
-<div class="question">
-<h3>31. What is the lecture mainly about?</h3>
-<input type="text" id="l31">
-</div>
+<div id="listeningPart4"></div>
 
-<div class="question">
-<h3>32. What is one important cause?</h3>
-<input type="text" id="l32">
-</div>
-
-<div class="question">
-<h3>33. What example does the speaker give?</h3>
-<input type="text" id="l33">
-</div>
-
-<div class="question">
-<h3>34. What happens first?</h3>
-<input type="text" id="l34">
-</div>
-
-<div class="question">
-<h3>35. What happens later?</h3>
-<input type="text" id="l35">
-</div>
-
-<div class="question">
-<h3>36. What solution is suggested?</h3>
-<input type="text" id="l36">
-</div>
-
-<div class="question">
-<h3>37. What difficulty is mentioned?</h3>
-<input type="text" id="l37">
-</div>
-
-<div class="question">
-<h3>38. What research is needed?</h3>
-<input type="text" id="l38">
-</div>
-
-<div class="question">
-<h3>39. What is the speaker's conclusion?</h3>
-<input type="text" id="l39">
-</div>
-
-<div class="question">
-<h3>40. What should students remember?</h3>
-<input type="text" id="l40">
-</div>
-
-<button class="primary-btn" onclick="showSection('reading')">
+<button class="primary" onclick="showSection('reading')">
 Continue to Reading →
 </button>
 
 </div>
-</div>
+</section>
+
 
 <!-- READING -->
 
-<div id="reading" class="test-section">
+<section id="reading" class="section">
 
-<div class="section">
+<div class="card">
 
-<h2 class="section-title">📖 Reading Test</h2>
+<h2>📖 Reading</h2>
 
 <div class="instructions">
-    <p>Read the passages and answer Questions 1–40.</p>
+<p>
+Read each passage and answer Questions 1–40.
+</p>
 </div>
 
-<h3>Passage 1: Learning in the Digital Age</h3>
+<h3>Passage 1 — Learning With Technology</h3>
 
 <p>
-Digital technology has changed the way students learn.
-Online resources allow learners to access information quickly
-and study at times that are convenient for them. Educational
-videos, interactive exercises and digital libraries can provide
-additional support outside the classroom.
+Technology has become an important part of modern education.
+Students can use computers and mobile devices to access information,
+watch educational videos and complete interactive activities.
+These resources can make learning more flexible because students
+can study at different times and in different places.
 </p>
 
 <p>
-However, technology does not automatically guarantee successful
-learning. Students still need concentration, organization and
-regular practice. Too many distractions can make it difficult
-to focus on important information.
+However, technology is not a replacement for concentration and
+regular practice. Notifications, games and social media can distract
+students from their work. Successful learners therefore need to
+manage their time and decide when technology should be used for study.
 </p>
 
 <p>
-Teachers continue to play an important role. They can explain
-difficult ideas, provide feedback and encourage students when
-learning becomes challenging.
+Teachers also remain important. They can explain difficult ideas,
+give feedback and help students develop confidence.
 </p>
 
 <h3>Questions 1–5</h3>
 
-<div class="question">
-<h3>1. What has digital technology changed?</h3>
-<label><input type="radio" name="r1" value="A"> A. The way students learn</label>
-<label><input type="radio" name="r1" value="B"> B. The weather</label>
-<label><input type="radio" name="r1" value="C"> C. School buildings</label>
-<label><input type="radio" name="r1" value="D"> D. Transport</label>
-</div>
-
-<div class="question">
-<h3>2. What can students access quickly?</h3>
-<label><input type="radio" name="r2" value="A"> A. Information</label>
-<label><input type="radio" name="r2" value="B"> B. Food</label>
-<label><input type="radio" name="r2" value="C"> C. Transport</label>
-<label><input type="radio" name="r2" value="D"> D. Sports equipment</label>
-</div>
-
-<div class="question">
-<h3>3. What can make concentration difficult?</h3>
-<label><input type="radio" name="r3" value="A"> A. Teachers</label>
-<label><input type="radio" name="r3" value="B"> B. Distractions</label>
-<label><input type="radio" name="r3" value="C"> C. Libraries</label>
-<label><input type="radio" name="r3" value="D"> D. Practice</label>
-</div>
-
-<div class="question">
-<h3>4. What can teachers provide?</h3>
-<label><input type="radio" name="r4" value="A"> A. Feedback</label>
-<label><input type="radio" name="r4" value="B"> B. Flights</label>
-<label><input type="radio" name="r4" value="C"> C. Accommodation</label>
-<label><input type="radio" name="r4" value="D"> D. Money</label>
-</div>
-
-<div class="question">
-<h3>5. What does successful learning require?</h3>
-<label><input type="radio" name="r5" value="A"> A. No practice</label>
-<label><input type="radio" name="r5" value="B"> B. Concentration and organization</label>
-<label><input type="radio" name="r5" value="C"> C. Only technology</label>
-<label><input type="radio" name="r5" value="D"> D. No teachers</label>
-</div>
+<div id="readingQuestions1"></div>
 
 <h3>Questions 6–10 — True / False / Not Given</h3>
 
-<div class="question">
-<h3>6. Online resources can be used outside the classroom.</h3>
-<select id="r6">
-<option value="">Choose an answer</option>
-<option value="TRUE">TRUE</option>
-<option value="FALSE">FALSE</option>
-<option value="NG">NOT GIVEN</option>
-</select>
-</div>
+<div id="readingQuestions2"></div>
 
-<div class="question">
-<h3>7. Technology guarantees successful learning for every student.</h3>
-<select id="r7">
-<option value="">Choose an answer</option>
-<option value="TRUE">TRUE</option>
-<option value="FALSE">FALSE</option>
-<option value="NG">NOT GIVEN</option>
-</select>
-</div>
-
-<div class="question">
-<h3>8. Teachers can provide feedback.</h3>
-<select id="r8">
-<option value="">Choose an answer</option>
-<option value="TRUE">TRUE</option>
-<option value="FALSE">FALSE</option>
-<option value="NG">NOT GIVEN</option>
-</select>
-</div>
-
-<div class="question">
-<h3>9. Digital libraries are mentioned.</h3>
-<select id="r9">
-<option value="">Choose an answer</option>
-<option value="TRUE">TRUE</option>
-<option value="FALSE">FALSE</option>
-<option value="NG">NOT GIVEN</option>
-</select>
-</div>
-
-<div class="question">
-<h3>10. All students prefer studying online.</h3>
-<select id="r10">
-<option value="">Choose an answer</option>
-<option value="TRUE">TRUE</option>
-<option value="FALSE">FALSE</option>
-<option value="NG">NOT GIVEN</option>
-</select>
-</div>
-
-<h3>Questions 11–15</h3>
-
-<div class="question">
-<h3>11. Online resources allow learners to access ______ quickly.</h3>
-<input type="text" id="r11">
-</div>
-
-<div class="question">
-<h3>12. Educational ______ can provide additional support.</h3>
-<input type="text" id="r12">
-</div>
-
-<div class="question">
-<h3>13. Students need regular ______.</h3>
-<input type="text" id="r13">
-</div>
-
-<div class="question">
-<h3>14. Too many ______ can make it difficult to focus.</h3>
-<input type="text" id="r14">
-</div>
-
-<div class="question">
-<h3>15. Teachers can encourage students when learning becomes ______.</h3>
-<input type="text" id="r15">
-</div>
-
-<h3>Passage 2: Healthy School Communities</h3>
+<h3>Passage 2 — Healthy School Life</h3>
 
 <p>
-Schools can influence the health and wellbeing of young people.
-Regular physical activity, nutritious food and sufficient sleep
-can help students maintain energy and concentration during the
-school day.
+A healthy school environment can support students' physical and
+mental wellbeing. Regular physical activity can improve energy and
+concentration, while healthy food provides nutrients needed by the
+body.
 </p>
 
 <p>
-Many schools provide opportunities for physical activity through
-sports teams, walking programmes and outdoor activities. These
-programmes can also help students develop teamwork and confidence.
+Schools can encourage healthy habits by providing sports activities,
+walking programmes and information about balanced meals. Students
+can also benefit from learning about sleep because insufficient sleep
+can make concentration more difficult.
 </p>
 
 <p>
-Healthy eating is another important part of school life. Schools
-may provide information about balanced meals and encourage
-students to choose nutritious foods.
+Healthy habits are not created by schools alone. Families and students
+also have an important role in making everyday choices.
 </p>
 
-<h3>Questions 16–20</h3>
+<h3>Questions 11–20</h3>
 
-<div class="question">
-<h3>16. What can regular physical activity help students maintain?</h3>
-<label><input type="radio" name="r16" value="A"> A. Energy and concentration</label>
-<label><input type="radio" name="r16" value="B"> B. Money</label>
-<label><input type="radio" name="r16" value="C"> C. Travel plans</label>
-<label><input type="radio" name="r16" value="D"> D. Computer skills</label>
-</div>
+<div id="readingQuestions3"></div>
 
-<div class="question">
-<h3>17. Which activity is mentioned?</h3>
-<label><input type="radio" name="r17" value="A"> A. Walking programmes</label>
-<label><input type="radio" name="r17" value="B"> B. Driving lessons</label>
-<label><input type="radio" name="r17" value="C"> C. Cooking competitions</label>
-<label><input type="radio" name="r17" value="D"> D. Music concerts</label>
-</div>
-
-<div class="question">
-<h3>18. What can physical activities develop?</h3>
-<label><input type="radio" name="r18" value="A"> A. Teamwork and confidence</label>
-<label><input type="radio" name="r18" value="B"> B. Driving skills</label>
-<label><input type="radio" name="r18" value="C"> C. Cooking skills</label>
-<label><input type="radio" name="r18" value="D"> D. Computer programming</label>
-</div>
-
-<div class="question">
-<h3>19. What may schools provide information about?</h3>
-<label><input type="radio" name="r19" value="A"> A. Balanced meals</label>
-<label><input type="radio" name="r19" value="B"> B. Airplanes</label>
-<label><input type="radio" name="r19" value="C"> C. Cars</label>
-<label><input type="radio" name="r19" value="D"> D. Holidays</label>
-</div>
-
-<div class="question">
-<h3>20. What is the passage mainly about?</h3>
-<label><input type="radio" name="r20" value="A"> A. Health and wellbeing at school</label>
-<label><input type="radio" name="r20" value="B"> B. School transport</label>
-<label><input type="radio" name="r20" value="C"> C. School technology</label>
-<label><input type="radio" name="r20" value="D"> D. School holidays</label>
-</div>
-
-<h3>Questions 21–25 — True / False / Not Given</h3>
-
-<div class="question">
-<h3>21. Schools can influence young people's wellbeing.</h3>
-<select id="r21">
-<option value="">Choose an answer</option>
-<option value="TRUE">TRUE</option>
-<option value="FALSE">FALSE</option>
-<option value="NG">NOT GIVEN</option>
-</select>
-</div>
-
-<div class="question">
-<h3>22. Every school has a swimming pool.</h3>
-<select id="r22">
-<option value="">Choose an answer</option>
-<option value="TRUE">TRUE</option>
-<option value="FALSE">FALSE</option>
-<option value="NG">NOT GIVEN</option>
-</select>
-</div>
-
-<div class="question">
-<h3>23. Outdoor activities are mentioned.</h3>
-<select id="r23">
-<option value="">Choose an answer</option>
-<option value="TRUE">TRUE</option>
-<option value="FALSE">FALSE</option>
-<option value="NG">NOT GIVEN</option>
-</select>
-</div>
-
-<div class="question">
-<h3>24. Healthy eating is important in school life.</h3>
-<select id="r24">
-<option value="">Choose an answer</option>
-<option value="TRUE">TRUE</option>
-<option value="FALSE">FALSE</option>
-<option value="NG">NOT GIVEN</option>
-</select>
-</div>
-
-<div class="question">
-<h3>25. Schools require every student to eat the same food.</h3>
-<select id="r25">
-<option value="">Choose an answer</option>
-<option value="TRUE">TRUE</option>
-<option value="FALSE">FALSE</option>
-<option value="NG">NOT GIVEN</option>
-</select>
-</div>
-
-<h3>Passage 3: The Future of Work</h3>
+<h3>Passage 3 — Future Skills</h3>
 
 <p>
-The world of work is changing as technology develops. Many jobs
-now require workers to use digital tools and communicate with
-people in different locations.
+The world of work is changing quickly as technology develops.
+Many workers now use digital tools and communicate with people in
+different locations.
 </p>
 
 <p>
-Employers increasingly value skills such as communication,
-problem solving, teamwork and adaptability. Workers may need to
-continue learning throughout their careers because new technologies
-can change the tasks they perform.
+Employers increasingly value communication, teamwork, creativity,
+problem solving and adaptability. Workers may need to continue
+learning throughout their careers because technology can change
+the tasks they perform.
 </p>
 
 <p>
-Education can help young people prepare for this changing
-environment. However, technical knowledge is not the only
-important factor. Creativity, communication and the ability
-to work with others remain valuable.
+Young people can prepare for the future by developing both technical
+knowledge and personal skills. Education can provide opportunities
+to practise these abilities in realistic situations.
 </p>
 
-<h3>Questions 26–30</h3>
+<h3>Questions 21–30</h3>
 
-<div class="question">
-<h3>26. Why is the world of work changing?</h3>
-<label><input type="radio" name="r26" value="A"> A. Technology is developing</label>
-<label><input type="radio" name="r26" value="B"> B. Schools are closing</label>
-<label><input type="radio" name="r26" value="C"> C. Travel is decreasing</label>
-<label><input type="radio" name="r26" value="D"> D. Food is changing</label>
-</div>
+<div id="readingQuestions4"></div>
 
-<div class="question">
-<h3>27. Which skill is mentioned?</h3>
-<label><input type="radio" name="r27" value="A"> A. Problem solving</label>
-<label><input type="radio" name="r27" value="B"> B. Swimming</label>
-<label><input type="radio" name="r27" value="C"> C. Driving</label>
-<label><input type="radio" name="r27" value="D"> D. Painting</label>
-</div>
+<h3>Questions 31–40</h3>
 
-<div class="question">
-<h3>28. Why may workers need to continue learning?</h3>
-<label><input type="radio" name="r28" value="A"> A. Technologies can change</label>
-<label><input type="radio" name="r28" value="B"> B. Schools require it</label>
-<label><input type="radio" name="r28" value="C"> C. Travel requires it</label>
-<label><input type="radio" name="r28" value="D"> D. Employers stop working</label>
-</div>
+<div id="readingQuestions5"></div>
 
-<div class="question">
-<h3>29. What remains valuable?</h3>
-<label><input type="radio" name="r29" value="A"> A. Creativity and communication</label>
-<label><input type="radio" name="r29" value="B"> B. Only technical knowledge</label>
-<label><input type="radio" name="r29" value="C"> C. Physical strength</label>
-<label><input type="radio" name="r29" value="D"> D. Driving ability</label>
-</div>
-
-<div class="question">
-<h3>30. What can education help young people do?</h3>
-<label><input type="radio" name="r30" value="A"> A. Prepare for a changing work environment</label>
-<label><input type="radio" name="r30" value="B"> B. Avoid all technology</label>
-<label><input type="radio" name="r30" value="C"> C. Avoid communication</label>
-<label><input type="radio" name="r30" value="D"> D. Stop learning</label>
-</div>
-
-<h3>Questions 31–35</h3>
-
-<div class="question">
-<h3>31. Workers may need to use digital ______.</h3>
-<input type="text" id="r31">
-</div>
-
-<div class="question">
-<h3>32. Employers value teamwork and ______.</h3>
-<input type="text" id="r32">
-</div>
-
-<div class="question">
-<h3>33. Workers may need to continue ______.</h3>
-<input type="text" id="r33">
-</div>
-
-<div class="question">
-<h3>34. New technologies can change the ______ workers perform.</h3>
-<input type="text" id="r34">
-</div>
-
-<div class="question">
-<h3>35. Technical knowledge is not the only important ______.</h3>
-<input type="text" id="r35">
-</div>
-
-<h3>Questions 36–40</h3>
-
-<div class="question">
-<h3>36. What is one reason communication is important?</h3>
-<label><input type="radio" name="r36" value="A"> A. People may work in different locations</label>
-<label><input type="radio" name="r36" value="B"> B. Everyone works alone</label>
-<label><input type="radio" name="r36" value="C"> C. Technology is disappearing</label>
-<label><input type="radio" name="r36" value="D"> D. Schools are changing location</label>
-</div>
-
-<div class="question">
-<h3>37. What can employers increasingly value?</h3>
-<label><input type="radio" name="r37" value="A"> A. Adaptability</label>
-<label><input type="radio" name="r37" value="B"> B. Silence</label>
-<label><input type="radio" name="r37" value="C"> C. Avoiding teamwork</label>
-<label><input type="radio" name="r37" value="D"> D. Avoiding technology</label>
-</div>
-
-<div class="question">
-<h3>38. What can change workers' tasks?</h3>
-<label><input type="radio" name="r38" value="A"> A. New technologies</label>
-<label><input type="radio" name="r38" value="B"> B. Weather</label>
-<label><input type="radio" name="r38" value="C"> C. Holidays</label>
-<label><input type="radio" name="r38" value="D"> D. Sports</label>
-</div>
-
-<div class="question">
-<h3>39. What is NOT presented as an important factor?</h3>
-<label><input type="radio" name="r39" value="A"> A. Creativity</label>
-<label><input type="radio" name="r39" value="B"> B. Communication</label>
-<label><input type="radio" name="r39" value="C"> C. Working with others</label>
-<label><input type="radio" name="r39" value="D"> D. Physical strength</label>
-</div>
-
-<div class="question">
-<h3>40. What is the main idea?</h3>
-<label><input type="radio" name="r40" value="A"> A. Future workers need technical and personal skills</label>
-<label><input type="radio" name="r40" value="B"> B. Technology will eliminate all jobs</label>
-<label><input type="radio" name="r40" value="C"> C. Education is no longer important</label>
-<label><input type="radio" name="r40" value="D"> D. Communication is unnecessary</label>
-</div>
-
-<button class="primary-btn" onclick="showSection('writing')">
+<button class="primary" onclick="showSection('writing')">
 Continue to Writing →
 </button>
 
 </div>
-</div>
+</section>
+
 
 <!-- WRITING -->
 
-<div id="writing" class="test-section">
+<section id="writing" class="section">
 
-<div class="section">
+<div class="card">
 
-<h2 class="section-title">✍️ Writing Test</h2>
+<h2>✍️ Writing</h2>
 
 <div class="instructions">
-<p><strong>Task 1:</strong> Write at least 150 words.</p>
-<p><strong>Task 2:</strong> Write at least 250 words.</p>
+<p>
+Writing Task 1: minimum recommended length — 150 words.
+</p>
+<p>
+Writing Task 2: minimum recommended length — 250 words.
+</p>
 </div>
 
 <div class="question">
 
-<h3>Writing Task 1</h3>
+<h3>Task 1</h3>
 
 <p>
-The table below shows the amount of time teenagers spend on
-different activities during a typical week.
+The table below shows the number of hours teenagers spend on
+different activities during an average week.
 </p>
 
+<table border="1" cellpadding="8" style="width:100%;border-collapse:collapse">
+<tr>
+<th>Activity</th>
+<th>Hours</th>
+</tr>
+<tr>
+<td>School study</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Homework</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Sports</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Entertainment</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Reading</td>
+<td>4</td>
+</tr>
+</table>
+
 <p>
-Write a report for a teacher describing the information shown.
-Select and compare the main features.
+Write a report describing the main features and make comparisons
+where relevant.
 </p>
 
 <textarea id="writing1"
-oninput="updateWordCount('writing1','count1')"></textarea>
+oninput="wordCount('writing1','count1')"></textarea>
 
-<div id="count1" class="word-count">
-Words: 0
-</div>
+<div id="count1" class="word-count">Words: 0</div>
 
 </div>
 
 <div class="question">
 
-<h3>Writing Task 2</h3>
+<h3>Task 2</h3>
 
 <p>
-Some people believe that students should spend more time learning
-practical skills at school, while others believe traditional
-academic subjects are more important.
+Some people believe schools should spend more time teaching practical
+life skills, while others believe academic subjects should remain the
+main priority.
 </p>
 
 <p>
@@ -1144,674 +597,914 @@ Discuss both views and give your own opinion.
 </p>
 
 <textarea id="writing2"
-oninput="updateWordCount('writing2','count2')"></textarea>
+oninput="wordCount('writing2','count2')"></textarea>
 
-<div id="count2" class="word-count">
-Words: 0
-</div>
+<div id="count2" class="word-count">Words: 0</div>
 
 </div>
 
-<button class="primary-btn" onclick="showSection('speaking')">
+<button class="primary" onclick="showSection('speaking')">
 Continue to Speaking →
 </button>
 
 </div>
-</div>
+</section>
+
 
 <!-- SPEAKING -->
 
-<div id="speaking" class="test-section">
+<section id="speaking" class="section">
 
-<div class="section">
+<div class="card">
 
-<h2 class="section-title">🗣️ Speaking Test</h2>
+<h2>🗣️ Speaking</h2>
 
 <div class="instructions">
-<p>Speak your answers aloud.</p>
-<p>You can use your phone or computer's recording software.</p>
+<p>
+Record yourself using your phone or computer if you want to practise
+speaking. Speaking is not automatically band-scored by this website.
+</p>
 </div>
 
-<div class="speaking-card">
+<div class="question">
 
 <h3>Part 1 — Introduction and Interview</h3>
 
-<p>1. What is your full name?</p>
-<p>2. Where are you from?</p>
-<p>3. Do you enjoy studying English?</p>
-<p>4. What do you usually do after school?</p>
-<p>5. What is your favourite subject?</p>
-<p>6. Do you like reading?</p>
-<p>7. What kind of music do you enjoy?</p>
-<p>8. What would you like to do in the future?</p>
+<ol>
+<li>What is your full name?</li>
+<li>Where do you live?</li>
+<li>What do you enjoy about school?</li>
+<li>What is your favourite subject?</li>
+<li>Do you enjoy reading?</li>
+<li>What do you usually do after school?</li>
+<li>What kind of music do you like?</li>
+<li>What would you like to do in the future?</li>
+</ol>
 
 </div>
 
-<div class="speaking-card">
+<div class="question">
 
-<h3>Part 2 — Individual Long Turn</h3>
+<h3>Part 2 — Long Turn</h3>
 
 <p>
 Describe a skill you would like to learn.
 </p>
 
+<p>You should say:</p>
+
 <ul>
 <li>what the skill is</li>
 <li>why you want to learn it</li>
 <li>how you would learn it</li>
-<li>why it would be useful</li>
+<li>and explain why it would be useful</li>
 </ul>
 
-<p>Speak for 1–2 minutes.</p>
+<p>
+Speak for 1–2 minutes.
+</p>
 
 </div>
 
-<div class="speaking-card">
+<div class="question">
 
 <h3>Part 3 — Discussion</h3>
 
-<p>1. Why are practical skills important for young people?</p>
-<p>2. Should schools teach more life skills?</p>
-<p>3. How has technology changed the way people learn?</p>
-<p>4. Will online learning become more important?</p>
-<p>5. What skills will young people need for future jobs?</p>
+<ol>
+<li>Why are practical skills important?</li>
+<li>Should schools teach more life skills?</li>
+<li>How has technology changed education?</li>
+<li>What skills will young people need in future jobs?</li>
+<li>Will online learning become more important?</li>
+</ol>
 
 </div>
 
-<button class="danger-btn" onclick="finishTest()">
-📊 FINISH TEST & SEE RESULTS
+<button class="danger" onclick="finishTest()">
+📊 FINISH TEST
 </button>
 
 </div>
-</div>
+</section>
 
 </div>
+
 
 <!-- RESULTS -->
 
-<div id="results" class="section">
+<div id="results" class="hidden">
 
-<div class="result-card">
+<div class="card">
 
-<h2>🎉 Test Complete!</h2>
+<h2>🎉 Your Results</h2>
 
-<p>🎧 Listening Score</p>
-<div id="listeningScore" class="score-number">
-0 / 40
+<div class="result-grid">
+
+<div class="result">
+Listening
+<strong id="finalListening">0 / 40</strong>
 </div>
 
-<p>📖 Reading Score</p>
-<div id="readingScore" class="score-number">
-0 / 40
+<div class="result">
+Reading
+<strong id="finalReading">0 / 40</strong>
 </div>
 
-<p>📊 Overall Objective Score</p>
-<div id="totalScore" class="score-number">
-0 / 80
+<div class="result">
+Objective Total
+<strong id="finalTotal">0 / 80</strong>
 </div>
 
-<p>Estimated IELTS-style Bands</p>
-
-<div id="band" class="band">
-—
+<div class="result">
+Estimated Band
+<strong id="finalBand" class="big-score">—</strong>
 </div>
 
+</div>
+
+<br>
+
+<div class="instructions">
 <p>
-Writing and Speaking are not automatically included in the
-objective score because they require assessment of language,
-grammar, vocabulary, coherence and pronunciation.
+<strong>Important:</strong> The displayed band is an estimate for
+practice purposes. Official IELTS scores are awarded through official
+IELTS assessment procedures.
 </p>
 
-<button class="primary-btn" onclick="location.reload()">
+<p>
+Writing and Speaking require assessment using appropriate criteria,
+so this website does not claim to automatically award official scores
+for those sections.
+</p>
+</div>
+
+<button class="primary" onclick="location.reload()">
 🔄 Take Test Again
 </button>
 
-<button class="secondary-btn" onclick="location.href='index.html'">
-🏠 Back Home
-</button>
+</div>
 
 </div>
+
 </div>
 
 <footer>
-Teen IELTS Practice • Practice • Improve • Succeed 🚀
+Teen IELTS © 2026 • Original IELTS-style practice
 </footer>
+
 
 <script>
 
-/* =========================
-   ANSWERS
-========================= */
+/* ==========================================================
+   LISTENING QUESTIONS
+========================================================== */
 
-const listeningAnswers = {
+const listeningData = [
 
-l1: "Alex Brown",
-l2: "24 King Street",
-l3: "English communication course",
-l4: "Monday",
-l5: "9:30",
-l6: "six weeks",
-l7: "12",
-l8: "notebook and pen",
-l9: "150",
-l10: "course administrator",
+/* 1-10 */
 
-l11: "B",
-l12: "A",
-l13: "C",
-l14: "C",
-l15: "A",
-l16: "A",
-l17: "A",
-l18: "B",
-l19: "A",
-l20: "A",
+{q:1,text:"What is the student's first name?",answer:"maya",type:"text"},
+{q:2,text:"What city does Maya live in?",answer:"edmonton",type:"text"},
+{q:3,text:"What course is she interested in?",answer:"english",type:"text"},
+{q:4,text:"What day does the course begin?",answer:"monday",type:"text"},
+{q:5,text:"What time does the class begin?",answer:"4 pm",type:"text"},
+{q:6,text:"How many weeks is the course?",answer:"8",type:"text"},
+{q:7,text:"Which room is used?",answer:"12",type:"text"},
+{q:8,text:"What must students bring?",answer:"notebook",type:"text"},
+{q:9,text:"What is the course fee?",answer:"80",type:"text"},
+{q:10,text:"Who should students contact?",answer:"ms brown",type:"text"},
 
-l21: "recycling",
-l22: "students did not recycle enough",
-l23: "school website",
-l24: "environmental coordinator",
-l25: "student recycling habits",
-l26: "Friday",
-l27: "10 minutes",
-l28: "PowerPoint",
-l29: "Sarah",
-l30: "school library",
+/* 11-20 */
 
-l31: "climate change",
-l32: "greenhouse gases",
-l33: "global temperatures",
-l34: "greenhouse gases increase",
-l35: "temperatures rise",
-l36: "reduce carbon emissions",
-l37: "changing energy systems can be expensive",
-l38: "clean energy",
-l39: "action is needed",
-l40: "individual and community actions"
+{q:11,text:"What is the main purpose of the community talk?",answer:"B",type:"mc",options:["A. Explain a sports event","B. Explain a community programme","C. Explain a school trip","D. Explain a library rule"]},
+{q:12,text:"Where is the information desk?",answer:"A",type:"mc",options:["A. Near the entrance","B. Near the café","C. Near the library","D. Near the parking area"]},
+{q:13,text:"When does the programme begin?",answer:"C",type:"mc",options:["A. Monday","B. Tuesday","C. Wednesday","D. Friday"]},
+{q:14,text:"Who can join?",answer:"C",type:"mc",options:["A. Teachers only","B. University students","C. Local residents","D. Visitors only"]},
+{q:15,text:"What is free?",answer:"A",type:"mc",options:["A. Membership","B. Food","C. Transport","D. Books"]},
+{q:16,text:"Where can visitors park?",answer:"A",type:"mc",options:["A. Behind the building","B. On the main road","C. Beside the library","D. At the school"]},
+{q:17,text:"What should visitors bring?",answer:"A",type:"mc",options:["A. Identification","B. Food","C. Sports equipment","D. A laptop"]},
+{q:18,text:"How often is the programme held?",answer:"B",type:"mc",options:["A. Every day","B. Every week","C. Every month","D. Twice a year"]},
+{q:19,text:"Who organizes the programme?",answer:"A",type:"mc",options:["A. The city council","B. A university","C. A private company","D. A school"]},
+{q:20,text:"What should people do first?",answer:"A",type:"mc",options:["A. Register online","B. Call the office","C. Visit the library","D. Send a letter"]},
 
-};
+/* 21-30 */
 
-const readingAnswers = {
+{q:21,text:"What is the students' project about?",answer:"recycling",type:"text"},
+{q:22,text:"What problem did they find?",answer:"plastic",type:"text"},
+{q:23,text:"Which source did they use?",answer:"library",type:"text"},
+{q:24,text:"Who did they interview?",answer:"teacher",type:"text"},
+{q:25,text:"What information was most useful?",answer:"statistics",type:"text"},
+{q:26,text:"When is the project due?",answer:"friday",type:"text"},
+{q:27,text:"How long will the presentation be?",answer:"10 minutes",type:"text"},
+{q:28,text:"What visual aid will they use?",answer:"poster",type:"text"},
+{q:29,text:"Who will give the introduction?",answer:"sam",type:"text"},
+{q:30,text:"Where will they practise?",answer:"library",type:"text"},
 
-r1:"A",
-r2:"A",
-r3:"B",
-r4:"A",
-r5:"B",
+/* 31-40 */
 
-r6:"TRUE",
-r7:"FALSE",
-r8:"TRUE",
-r9:"TRUE",
-r10:"NG",
+{q:31,text:"What is the lecture mainly about?",answer:"climate",type:"text"},
+{q:32,text:"What is one important cause?",answer:"transport",type:"text"},
+{q:33,text:"What example does the speaker give?",answer:"traffic",type:"text"},
+{q:34,text:"What happens first?",answer:"temperature rises",type:"text"},
+{q:35,text:"What happens later?",answer:"ice melts",type:"text"},
+{q:36,text:"What solution is suggested?",answer:"public transport",type:"text"},
+{q:37,text:"What difficulty is mentioned?",answer:"cost",type:"text"},
+{q:38,text:"What research is needed?",answer:"long term research",type:"text"},
+{q:39,text:"What is the speaker's conclusion?",answer:"action is needed",type:"text"},
+{q:40,text:"What should students remember?",answer:"small actions matter",type:"text"}
 
-r11:"information",
-r12:"videos",
-r13:"practice",
-r14:"distractions",
-r15:"challenging",
+];
 
-r16:"A",
-r17:"A",
-r18:"A",
-r19:"A",
-r20:"A",
 
-r21:"TRUE",
-r22:"NG",
-r23:"TRUE",
-r24:"TRUE",
-r25:"NG",
+/* ==========================================================
+   READING QUESTIONS
+========================================================== */
 
-r26:"A",
-r27:"A",
-r28:"A",
-r29:"A",
-r30:"A",
+const readingData = [
 
-r31:"tools",
-r32:"adaptability",
-r33:"learning",
-r34:"tasks",
-r35:"factor",
+{q:1,text:"What has technology become in education?",answer:"A",type:"mc",options:["A. An important part","B. A replacement for teachers","C. A type of sport","D. A school building"]},
+{q:2,text:"What can students access?",answer:"A",type:"mc",options:["A. Information","B. Transport","C. Food","D. Money"]},
+{q:3,text:"What can distract students?",answer:"B",type:"mc",options:["A. Teachers","B. Notifications","C. Books","D. Feedback"]},
+{q:4,text:"What do teachers provide?",answer:"A",type:"mc",options:["A. Feedback","B. Transport","C. Accommodation","D. Sports"]},
+{q:5,text:"What do successful learners need?",answer:"B",type:"mc",options:["A. No practice","B. Time management","C. No technology","D. No teachers"]},
 
-r36:"A",
-r37:"A",
-r38:"A",
-r39:"D",
-r40:"A"
+{q:6,text:"Students can study at different times.",answer:"TRUE",type:"tf"},
+{q:7,text:"Technology always guarantees successful learning.",answer:"FALSE",type:"tf"},
+{q:8,text:"Teachers can give feedback.",answer:"TRUE",type:"tf"},
+{q:9,text:"Social media can distract students.",answer:"TRUE",type:"tf"},
+{q:10,text:"All students prefer computers.",answer:"NG",type:"tf"},
 
-};
+{q:11,text:"What can physical activity improve?",answer:"A",type:"mc",options:["A. Energy and concentration","B. Travel","C. Money","D. Driving"]},
+{q:12,text:"What do healthy foods provide?",answer:"B",type:"mc",options:["A. Entertainment","B. Nutrients","C. Transport","D. Homework"]},
+{q:13,text:"What can schools provide?",answer:"A",type:"mc",options:["A. Sports activities","B. Cars","C. Flights","D. Jobs"]},
+{q:14,text:"What can insufficient sleep make difficult?",answer:"C",type:"mc",options:["A. Cooking","B. Running","C. Concentration","D. Travelling"]},
+{q:15,text:"Who also has an important role in healthy habits?",answer:"D",type:"mc",options:["A. Tourists","B. Drivers","C. Companies","D. Families and students"]},
+{q:16,text:"Schools can encourage healthy habits.",answer:"TRUE",type:"tf"},
+{q:17,text:"Every school has a swimming pool.",answer:"NG",type:"tf"},
+{q:18,text:"Walking programmes are mentioned.",answer:"TRUE",type:"tf"},
+{q:19,text:"Healthy food provides nutrients.",answer:"TRUE",type:"tf"},
+{q:20,text:"Students are solely responsible for healthy habits.",answer:"FALSE",type:"tf"},
 
-/* =========================
-   TIMER
-========================= */
+{q:21,text:"Why is the world of work changing?",answer:"A",type:"mc",options:["A. Technology is developing","B. Schools are closing","C. Travel is disappearing","D. Food is changing"]},
+{q:22,text:"Which skill is mentioned?",answer:"A",type:"mc",options:["A. Communication","B. Swimming","C. Driving","D. Cooking"]},
+{q:23,text:"Why may workers need continued learning?",answer:"A",type:"mc",options:["A. Technology can change","B. Schools demand it","C. Travel requires it","D. Jobs disappear immediately"]},
+{q:24,text:"What is increasingly valued by employers?",answer:"B",type:"mc",options:["A. Silence","B. Adaptability","C. Avoiding teamwork","D. Avoiding technology"]},
+{q:25,text:"What should young people develop?",answer:"C",type:"mc",options:["A. Only physical strength","B. Only technical skills","C. Technical and personal skills","D. Only artistic skills"]},
+{q:26,text:"Workers may use digital tools.",answer:"TRUE",type:"tf"},
+{q:27,text:"Technology can change work tasks.",answer:"TRUE",type:"tf"},
+{q:28,text:"Creativity is mentioned as valuable.",answer:"TRUE",type:"tf"},
+{q:29,text:"Employers dislike teamwork.",answer:"FALSE",type:"tf"},
+{q:30,text:"Education can help prepare young people.",answer:"TRUE",type:"tf"},
 
-let sectionTime = 30 * 60;
-let timerInterval = null;
-let currentSection = "listening";
+{q:31,text:"Workers use digital ______.",answer:"tools",type:"text"},
+{q:32,text:"Employers value ______.",answer:"teamwork",type:"text"},
+{q:33,text:"Workers may need to continue ______.",answer:"learning",type:"text"},
+{q:34,text:"Technology can change work ______.",answer:"tasks",type:"text"},
+{q:35,text:"Young people need technical ______.",answer:"knowledge",type:"text"},
 
-function startTest() {
+{q:36,text:"Which skill helps people work with others?",answer:"A",type:"mc",options:["A. Communication","B. Silence","C. Isolation","D. Avoidance"]},
+{q:37,text:"Which quality helps workers respond to change?",answer:"A",type:"mc",options:["A. Adaptability","B. Laziness","C. Silence","D. Avoidance"]},
+{q:38,text:"What can technology change?",answer:"A",type:"mc",options:["A. Tasks","B. Weather","C. Holidays","D. Sports"]},
+{q:39,text:"Which is NOT presented as valuable?",answer:"D",type:"mc",options:["A. Creativity","B. Communication","C. Teamwork","D. Physical strength"]},
+{q:40,text:"What is the main idea?",answer:"A",type:"mc",options:["A. Future workers need different types of skills","B. Technology will eliminate all work","C. Education is unnecessary","D. Communication is unimportant"]}
 
-    document.getElementById("startScreen").style.display = "none";
-    document.getElementById("testArea").style.display = "block";
+];
 
-    startSectionTimer();
-    updateProgress();
 
+/* ==========================================================
+   RENDER QUESTIONS
+========================================================== */
+
+function renderListening(){
+
+    const groups=[
+        document.getElementById("listeningPart1"),
+        document.getElementById("listeningPart2"),
+        document.getElementById("listeningPart3"),
+        document.getElementById("listeningPart4")
+    ];
+
+    listeningData.forEach((item,index)=>{
+
+        const div=document.createElement("div");
+        div.className="question";
+
+        let html=`<h3>${item.q}. ${item.text}</h3>`;
+
+        if(item.type==="text"){
+
+            html+=`
+            <input
+                type="text"
+                id="l${item.q}"
+                autocomplete="off"
+                oninput="updateProgress()"
+            >`;
+
+        }else{
+
+            item.options.forEach(option=>{
+
+                const value=option.charAt(0);
+
+                html+=`
+                <label>
+                    <input
+                        type="radio"
+                        name="l${item.q}"
+                        value="${value}"
+                        onchange="updateProgress()"
+                    >
+                    ${option}
+                </label>`;
+
+            });
+
+        }
+
+        div.innerHTML=html;
+
+        if(index<10)
+            groups[0].appendChild(div);
+        else if(index<20)
+            groups[1].appendChild(div);
+        else if(index<30)
+            groups[2].appendChild(div);
+        else
+            groups[3].appendChild(div);
+
+    });
 }
 
-function startSectionTimer() {
+
+function renderReading(){
+
+    const groups=[
+        document.getElementById("readingQuestions1"),
+        document.getElementById("readingQuestions2"),
+        document.getElementById("readingQuestions3"),
+        document.getElementById("readingQuestions4"),
+        document.getElementById("readingQuestions5")
+    ];
+
+    readingData.forEach((item,index)=>{
+
+        const div=document.createElement("div");
+        div.className="question";
+
+        let html=`<h3>${item.q}. ${item.text}</h3>`;
+
+        if(item.type==="mc"){
+
+            item.options.forEach(option=>{
+
+                const value=option.charAt(0);
+
+                html+=`
+                <label>
+                    <input
+                        type="radio"
+                        name="r${item.q}"
+                        value="${value}"
+                        onchange="updateProgress()"
+                    >
+                    ${option}
+                </label>`;
+
+            });
+
+        }else if(item.type==="tf"){
+
+            html+=`
+            <select id="r${item.q}" onchange="updateProgress()">
+                <option value="">Choose answer</option>
+                <option value="TRUE">TRUE</option>
+                <option value="FALSE">FALSE</option>
+                <option value="NG">NOT GIVEN</option>
+            </select>`;
+
+        }else{
+
+            html+=`
+            <input
+                type="text"
+                id="r${item.q}"
+                autocomplete="off"
+                oninput="updateProgress()"
+            >`;
+
+        }
+
+        div.innerHTML=html;
+
+        if(index<5)
+            groups[0].appendChild(div);
+        else if(index<10)
+            groups[1].appendChild(div);
+        else if(index<20)
+            groups[2].appendChild(div);
+        else if(index<30)
+            groups[3].appendChild(div);
+        else
+            groups[4].appendChild(div);
+
+    });
+}
+
+
+/* ==========================================================
+   SPEECH SYNTHESIS LISTENING
+========================================================== */
+
+const listeningScript = `
+Hello Maya. Welcome to the English course information desk.
+
+Your first name is Maya and you live in Edmonton. You are interested
+in the English course. The course begins on Monday and the class starts
+at four pm.
+
+The course lasts eight weeks and classes take place in room twelve.
+Students should bring a notebook to every class.
+
+The course fee is eighty dollars. If you have any questions, please
+contact Ms Brown.
+
+Now we will talk about a community programme.
+
+The main purpose of this talk is to explain a community programme.
+The information desk is near the entrance.
+
+The programme begins on Wednesday and local residents can join.
+Membership is free.
+
+Visitors can park behind the building. They should bring identification.
+The programme is held every week and is organized by the city council.
+
+The first thing people should do is register online.
+
+Now we will listen to two students discussing a project.
+
+Their project is about recycling. They discovered that plastic was
+an important problem.
+
+They used information from the library and interviewed a teacher.
+The most useful information was statistics.
+
+The project is due on Friday. Their presentation will be ten minutes
+long. They will use a poster.
+
+Sam will give the introduction. They will practise in the library.
+
+Finally, we will hear a short lecture about climate change.
+
+The lecture is mainly about climate change. One important cause is
+transport.
+
+The speaker gives traffic as an example. First, temperature rises.
+Later, ice melts.
+
+One suggested solution is greater use of public transport.
+The speaker also mentions the difficulty of cost.
+
+More long-term research is needed.
+
+The conclusion is that action is needed. Students should remember
+that small actions matter.
+`;
+
+
+let speechUtterance=null;
+
+function playListening(){
+
+    if(!("speechSynthesis" in window)){
+
+        document.getElementById("audioStatus").textContent=
+        "Your browser does not support built-in speech audio.";
+
+        return;
+    }
+
+    speechSynthesis.cancel();
+
+    speechUtterance=
+        new SpeechSynthesisUtterance(listeningScript);
+
+    speechUtterance.rate=.88;
+    speechUtterance.pitch=1;
+
+    speechUtterance.onstart=function(){
+        document.getElementById("audioStatus").textContent=
+        "🔊 Listening is playing...";
+    };
+
+    speechUtterance.onend=function(){
+        document.getElementById("audioStatus").textContent=
+        "✅ Listening finished.";
+    };
+
+    speechSynthesis.speak(speechUtterance);
+}
+
+function pauseListening(){
+
+    if("speechSynthesis" in window){
+
+        speechSynthesis.pause();
+
+        document.getElementById("audioStatus").textContent=
+        "⏸ Listening paused.";
+    }
+}
+
+function stopListening(){
+
+    if("speechSynthesis" in window){
+
+        speechSynthesis.cancel();
+
+        document.getElementById("audioStatus").textContent=
+        "⏹ Listening stopped.";
+    }
+}
+
+
+/* ==========================================================
+   TEST TIMER
+========================================================== */
+
+let currentSection="listening";
+let timerInterval=null;
+let timeLeft=30*60;
+
+function startTest(){
+
+    document.getElementById("startScreen").classList.add("hidden");
+    document.getElementById("testArea").classList.remove("hidden");
+
+    startTimer();
+    updateProgress();
+}
+
+function startTimer(){
 
     clearInterval(timerInterval);
 
-    sectionTime =
-        currentSection === "listening"
-        ? 30 * 60
-        : 60 * 60;
-
-    updateTimer();
-
-    timerInterval = setInterval(function() {
-
-        sectionTime--;
+    timerInterval=setInterval(()=>{
 
         updateTimer();
 
-        if(sectionTime <= 0) {
+        if(timeLeft<=0){
 
             clearInterval(timerInterval);
 
-            if(currentSection === "listening") {
+            alert(
+                "⏰ This section's time has finished. " +
+                "The section will be submitted."
+            );
 
-                alert(
-                    "⏰ Listening time is finished. Moving to Reading."
-                );
-
-                showSection("reading");
-
-            } else if(currentSection === "reading") {
-
-                alert(
-                    "⏰ Reading time is finished."
-                );
-
-                showSection("writing");
-
-            }
+            nextTimedSection();
 
         }
+
+        timeLeft--;
 
     },1000);
 }
 
-function updateTimer() {
+function updateTimer(){
 
-    let minutes =
-        Math.floor(sectionTime / 60);
+    const minutes=Math.floor(timeLeft/60);
+    const seconds=timeLeft%60;
 
-    let seconds =
-        sectionTime % 60;
+    const display=
+        String(minutes).padStart(2,"0")+
+        ":"+
+        String(seconds).padStart(2,"0");
 
-    seconds =
-        seconds < 10
-        ? "0" + seconds
-        : seconds;
+    const timer=document.getElementById("timer");
 
-    document.getElementById("timer")
-        .textContent =
-        "⏱️ " +
-        currentSection.charAt(0).toUpperCase() +
-        currentSection.slice(1) +
-        " Time: " +
-        minutes +
-        ":" +
-        seconds;
+    timer.textContent="⏱️ "+display;
 
+    timer.classList.remove("warning","danger");
+
+    if(timeLeft<=300)
+        timer.classList.add("warning");
+
+    if(timeLeft<=60)
+        timer.classList.add("danger");
 }
 
-/* =========================
-   NAVIGATION
-========================= */
 
-function showSection(sectionName) {
+/* ==========================================================
+   SECTION NAVIGATION
+========================================================== */
 
-    document.querySelectorAll(".test-section")
-        .forEach(function(section) {
+function showSection(name){
 
+    document.querySelectorAll(".section")
+        .forEach(section=>{
             section.classList.remove("active");
-
         });
 
-    document.getElementById(sectionName)
+    document.getElementById(name)
         .classList.add("active");
 
-    currentSection = sectionName;
+    currentSection=name;
 
-    document.querySelectorAll(".nav-btn")
-        .forEach(function(button) {
+    if(name==="listening"){
+        setTimer(30);
+    }
 
-            button.classList.remove("active");
+    if(name==="reading"){
+        setTimer(60);
+    }
 
-        });
+    if(name==="writing"){
+        setTimer(60);
+    }
 
-    document.querySelectorAll(".nav-btn")
-        .forEach(function(button) {
-
-        if(
-            button.textContent
-                .toLowerCase()
-                .includes(sectionName)
-        ) {
-            button.classList.add("active");
-        }
-
-    });
-
-    if(
-        sectionName === "listening" ||
-        sectionName === "reading"
-    ) {
-
-        startSectionTimer();
-
-    } else {
-
+    if(name==="speaking"){
         clearInterval(timerInterval);
-
-        document.getElementById("timer")
-            .textContent =
-            "⏱️ " +
-            sectionName.charAt(0).toUpperCase() +
-            sectionName.slice(1) +
-            " Section";
-
+        document.getElementById("timer").textContent=
+        "🗣️ Speaking Practice";
     }
 
     window.scrollTo({
         top:0,
         behavior:"smooth"
     });
-
 }
 
-/* =========================
+function setTimer(minutes){
+
+    clearInterval(timerInterval);
+
+    timeLeft=minutes*60;
+
+    startTimer();
+}
+
+function nextTimedSection(){
+
+    if(currentSection==="listening"){
+
+        showSection("reading");
+
+    }else if(currentSection==="reading"){
+
+        showSection("writing");
+
+    }else if(currentSection==="writing"){
+
+        showSection("speaking");
+
+    }else{
+
+        finishTest();
+
+    }
+}
+
+
+/* ==========================================================
    PROGRESS
-========================= */
+========================================================== */
 
-function updateProgress() {
+function updateProgress(){
 
-    let completed = 0;
+    let completed=0;
 
-    for(let i=1;i<=40;i++) {
+    for(let i=1;i<=40;i++){
 
-        const radio =
-            document.querySelector(
-                'input[name="l'+i+'"]:checked'
-            );
+        const radio=document.querySelector(
+            `input[name="l${i}"]:checked`
+        );
 
-        const field =
-            document.getElementById("l"+i);
+        const text=document.getElementById("l"+i);
 
         if(
             radio ||
-            (field && field.value.trim() !== "")
-        ) {
+            (text && text.value.trim()!=="")
+        ){
             completed++;
         }
-
     }
 
-    for(let i=1;i<=40;i++) {
+    for(let i=1;i<=40;i++){
 
-        const radio =
-            document.querySelector(
-                'input[name="r'+i+'"]:checked'
-            );
+        const radio=document.querySelector(
+            `input[name="r${i}"]:checked`
+        );
 
-        const field =
-            document.getElementById("r"+i);
+        const field=document.getElementById("r"+i);
 
         if(
             radio ||
-            (field && field.value !== "")
-        ) {
+            (field && field.value.trim()!=="")
+        ){
             completed++;
         }
-
     }
 
-    document.getElementById("progressText")
-        .textContent =
-        "Progress: " +
-        completed +
-        " / 80 questions";
+    document.getElementById("progressText").textContent=
+        "Progress: "+completed+" / 80 objective questions";
 
-    document.getElementById("progressFill")
-        .style.width =
-        (completed / 80 * 100) + "%";
-
+    document.getElementById("progressBar").style.width=
+        (completed/80*100)+"%";
 }
 
-document.addEventListener(
-    "change",
-    updateProgress
-);
 
-document.addEventListener(
-    "input",
-    updateProgress
-);
+/* ==========================================================
+   ANSWER NORMALIZATION
+========================================================== */
 
-/* =========================
-   NORMALIZE
-========================= */
-
-function normalizeAnswer(value) {
+function normalizeAnswer(value){
 
     return value
         .toLowerCase()
         .trim()
         .replace(/[.,!?]/g,"")
         .replace(/\s+/g," ");
-
 }
 
-/* =========================
-   LISTENING SCORE
-========================= */
 
-function checkListening() {
+/* ==========================================================
+   LISTENING SCORING
+========================================================== */
 
-    let score = 0;
+function checkListening(){
 
-    for(let i=1;i<=40;i++) {
+    let score=0;
 
-        const key = "l"+i;
+    listeningData.forEach(item=>{
 
-        let answer = "";
+        let user="";
 
-        const radio =
-            document.querySelector(
-                'input[name="'+key+'"]:checked'
+        if(item.type==="mc"){
+
+            const selected=document.querySelector(
+                `input[name="l${item.q}"]:checked`
             );
 
-        const field =
-            document.getElementById(key);
+            if(selected)
+                user=selected.value;
 
-        if(radio) {
+        }else{
 
-            answer = radio.value;
+            const input=document.getElementById("l"+item.q);
 
-        } else if(field) {
-
-            answer = field.value;
-
+            if(input)
+                user=input.value;
         }
-
-        const correct =
-            listeningAnswers[key];
 
         if(
-            normalizeAnswer(answer) ===
-            normalizeAnswer(correct)
-        ) {
-
+            normalizeAnswer(user)===
+            normalizeAnswer(item.answer)
+        ){
             score++;
-
         }
 
-    }
+    });
 
     return score;
-
 }
 
-/* =========================
-   READING SCORE
-========================= */
 
-function checkReading() {
+/* ==========================================================
+   READING SCORING
+========================================================== */
 
-    let score = 0;
+function checkReading(){
 
-    for(let i=1;i<=40;i++) {
+    let score=0;
 
-        const key = "r"+i;
+    readingData.forEach(item=>{
 
-        let answer = "";
+        let user="";
 
-        const radio =
-            document.querySelector(
-                'input[name="'+key+'"]:checked'
+        if(item.type==="mc"){
+
+            const selected=document.querySelector(
+                `input[name="r${item.q}"]:checked`
             );
 
-        const field =
-            document.getElementById(key);
+            if(selected)
+                user=selected.value;
 
-        if(radio) {
+        }else{
 
-            answer = radio.value;
+            const input=document.getElementById("r"+item.q);
 
-        } else if(field) {
-
-            answer = field.value;
-
+            if(input)
+                user=input.value;
         }
-
-        const correct =
-            readingAnswers[key];
 
         if(
-            normalizeAnswer(answer) ===
-            normalizeAnswer(correct)
-        ) {
-
+            normalizeAnswer(user)===
+            normalizeAnswer(item.answer)
+        ){
             score++;
-
         }
 
-    }
+    });
 
     return score;
-
 }
 
-/* =========================
-   BAND
-========================= */
 
-function getBand(score) {
+/* ==========================================================
+   IELTS-STYLE BAND ESTIMATE
+========================================================== */
 
-    if(score >= 39) return "Band 9.0";
-    if(score >= 37) return "Band 8.5";
-    if(score >= 35) return "Band 8.0";
-    if(score >= 33) return "Band 7.5";
-    if(score >= 30) return "Band 7.0";
-    if(score >= 27) return "Band 6.5";
-    if(score >= 23) return "Band 6.0";
-    if(score >= 19) return "Band 5.5";
-    if(score >= 15) return "Band 5.0";
-    if(score >= 13) return "Band 4.5";
-    if(score >= 10) return "Band 4.0";
+function getBand(score){
 
-    return "Below Band 4.0";
-
+    if(score>=39) return "9.0";
+    if(score>=37) return "8.5";
+    if(score>=35) return "8.0";
+    if(score>=33) return "7.5";
+    if(score>=30) return "7.0";
+    if(score>=27) return "6.5";
+    if(score>=23) return "6.0";
+    if(score>=19) return "5.5";
+    if(score>=15) return "5.0";
+    if(score>=13) return "4.5";
+    if(score>=10) return "4.0";
+    return "Below 4.0";
 }
 
-/* =========================
+
+/* ==========================================================
    WORD COUNT
-========================= */
+========================================================== */
 
-function updateWordCount(textId,countId) {
+function wordCount(id,countId){
 
-    const text =
-        document.getElementById(textId)
-            .value
-            .trim();
+    const text=document.getElementById(id).value.trim();
 
-    const count =
-        text === ""
-        ? 0
-        : text.split(/\s+/).length;
+    const count=
+        text==="" ? 0 : text.split(/\s+/).length;
 
-    document.getElementById(countId)
-        .textContent =
-        "Words: " + count;
-
+    document.getElementById(countId).textContent=
+        "Words: "+count;
 }
 
-/* =========================
-   FINISH
-========================= */
 
-function finishTest() {
+/* ==========================================================
+   FINISH
+========================================================== */
+
+function finishTest(){
 
     clearInterval(timerInterval);
+    stopListening();
 
-    const listeningScore =
-        checkListening();
-
-    const readingScore =
-        checkReading();
-
-    const total =
-        listeningScore +
-        readingScore;
+    const listening=checkListening();
+    const reading=checkReading();
+    const total=listening+reading;
 
     document.getElementById("testArea")
-        .style.display = "none";
+        .classList.add("hidden");
 
     document.getElementById("results")
-        .style.display = "block";
+        .classList.remove("hidden");
 
-    document.getElementById("listeningScore")
-        .textContent =
-        listeningScore + " / 40";
+    document.getElementById("finalListening")
+        .textContent=listening+" / 40";
 
-    document.getElementById("readingScore")
-        .textContent =
-        readingScore + " / 40";
+    document.getElementById("finalReading")
+        .textContent=reading+" / 40";
 
-    document.getElementById("totalScore")
-        .textContent =
-        total + " / 80";
+    document.getElementById("finalTotal")
+        .textContent=total+" / 80";
 
-    document.getElementById("band")
-        .innerHTML =
-        "🎧 Listening: " +
-        getBand(listeningScore) +
-        "<br>📖 Reading: " +
-        getBand(readingScore);
+    /*
+       We display separate estimated bands for the objective
+       skills rather than pretending that 80 questions are one
+       official IELTS band score.
+    */
+
+    document.getElementById("finalBand")
+        .textContent=
+        "L "+getBand(listening)+
+        " / R "+getBand(reading);
 
     window.scrollTo({
         top:0,
         behavior:"smooth"
     });
-
 }
+
+
+/* ==========================================================
+   INITIALIZE
+========================================================== */
+
+renderListening();
+renderReading();
 
 </script>
 
 </body>
 </html>
+```

@@ -1,178 +1,172 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Teen IELTS Complete Mock Test</title>
 
 <style>
-* {
-    box-sizing: border-box;
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f4f7fb;
+    color:#222;
+    line-height:1.6;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f7fb;
-    color: #222;
-    line-height: 1.6;
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:20px;
 }
 
-.container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 20px;
+header{
+    background:#17365d;
+    color:white;
+    padding:35px 20px;
+    border-radius:15px;
+    text-align:center;
+    margin-bottom:20px;
 }
 
-header {
-    background: #17365d;
-    color: white;
-    padding: 35px 20px;
-    border-radius: 15px;
-    text-align: center;
-    margin-bottom: 20px;
+header h1{margin:0 0 10px}
+
+.card{
+    background:white;
+    padding:25px;
+    margin-bottom:20px;
+    border-radius:14px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
 }
 
-header h1 {
-    margin: 0 0 10px;
+.screen{display:none}
+.screen.active{display:block}
+
+button{
+    border:0;
+    border-radius:8px;
+    padding:14px 22px;
+    background:#17365d;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    margin:5px;
 }
 
-.card {
-    background: white;
-    padding: 25px;
-    margin-bottom: 20px;
-    border-radius: 14px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+button:hover{background:#0f2744}
+
+.secondary{background:#555}
+
+.audio-box{
+    text-align:center;
+    background:#eef4fb;
+    padding:25px;
+    border-radius:12px;
+    margin-bottom:25px;
 }
 
-button {
-    border: none;
-    border-radius: 8px;
-    padding: 14px 22px;
-    background: #17365d;
-    color: white;
-    font-size: 17px;
-    font-weight: bold;
-    cursor: pointer;
-    margin: 5px;
+.audio-status{
+    font-weight:bold;
+    margin:15px 0;
 }
 
-button:hover {
-    background: #0f2744;
+.timer{
+    position:sticky;
+    top:10px;
+    z-index:10;
+    background:#fff3cd;
+    padding:13px;
+    border-radius:10px;
+    text-align:center;
+    font-size:21px;
+    font-weight:bold;
+    margin-bottom:20px;
 }
 
-.secondary {
-    background: #555;
+.progress{
+    width:100%;
+    height:12px;
+    background:#ddd;
+    border-radius:10px;
+    overflow:hidden;
 }
 
-.screen {
-    display: none;
+.progress-fill{
+    width:0%;
+    height:100%;
+    background:#17365d;
 }
 
-.screen.active {
-    display: block;
+.question{
+    margin-bottom:25px;
 }
 
-.timer {
-    position: sticky;
-    top: 10px;
-    z-index: 10;
-    background: #fff3cd;
-    padding: 13px;
-    border-radius: 10px;
-    text-align: center;
-    font-size: 21px;
-    font-weight: bold;
-    margin-bottom: 20px;
+.option{
+    display:block;
+    background:#f5f7fa;
+    padding:10px;
+    margin:7px 0;
+    border-radius:7px;
+    cursor:pointer;
 }
 
-.progress {
-    width: 100%;
-    height: 12px;
-    background: #ddd;
-    border-radius: 10px;
-    overflow: hidden;
+.option:hover{
+    background:#e8edf4;
 }
 
-.progress-fill {
-    width: 0%;
-    height: 100%;
-    background: #17365d;
+input[type=text],
+textarea,
+select{
+    width:100%;
+    padding:12px;
+    border:1px solid #aaa;
+    border-radius:7px;
+    font-size:16px;
 }
 
-.question {
-    margin-bottom: 25px;
+textarea{
+    min-height:250px;
 }
 
-.option {
-    display: block;
-    background: #f5f7fa;
-    padding: 10px;
-    margin: 7px 0;
-    border-radius: 7px;
-    cursor: pointer;
+.passage{
+    background:#fafafa;
+    border-left:5px solid #17365d;
+    padding:20px;
 }
 
-.option:hover {
-    background: #e8edf4;
+.nav{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
 }
 
-input[type="text"],
-textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #aaa;
-    border-radius: 7px;
-    font-size: 16px;
+.result{
+    text-align:center;
 }
 
-textarea {
-    min-height: 250px;
+.big-score{
+    font-size:28px;
+    font-weight:bold;
+    color:#17365d;
 }
 
-.nav {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10px;
+.home-link{
+    display:inline-block;
+    margin-top:15px;
+    padding:12px 20px;
+    background:#555;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
 }
 
-.passage {
-    background: #fafafa;
-    border-left: 5px solid #17365d;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
-.result {
-    text-align: center;
-}
-
-.big-score {
-    font-size: 30px;
-    font-weight: bold;
-    color: #17365d;
-}
-
-.home-link {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 12px 20px;
-    background: #555;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-}
-
-@media(max-width:600px) {
-    .container {
-        padding: 12px;
-    }
-
-    .card {
-        padding: 17px;
-    }
+@media(max-width:600px){
+    .container{padding:12px}
+    .card{padding:17px}
 }
 </style>
 </head>
@@ -181,70 +175,84 @@ textarea {
 
 <div class="container">
 
-<!-- ================= HOME ================= -->
+<!-- HOME -->
 
 <div id="home" class="screen active">
 
 <header>
-    <h1>🎓 Teen IELTS</h1>
-    <h2>Complete IELTS Mock Test</h2>
-    <p>Listening • Reading • Writing • Speaking</p>
+<h1>🎓 Teen IELTS</h1>
+<h2>Complete IELTS Mock Test</h2>
+<p>Listening • Reading • Writing • Speaking</p>
 </header>
 
 <div class="card">
 
-    <h2>📋 Full IELTS Test</h2>
+<h2>📋 Full IELTS Test</h2>
 
-    <p>
-        This is a complete IELTS practice test.
-    </p>
+<p>🎧 Listening — 40 Questions</p>
+<p>📖 Reading — 40 Questions</p>
+<p>✍️ Writing — 2 Tasks</p>
+<p>🗣️ Speaking — 3 Parts</p>
 
-    <p>🎧 Listening — 40 Questions</p>
-    <p>📖 Reading — 40 Questions</p>
-    <p>✍️ Writing — 2 Tasks</p>
-    <p>🗣️ Speaking — 3 Parts</p>
+<button onclick="startTest()">
+🚀 START COMPLETE TEST
+</button>
 
-    <button onclick="startTest()">
-        🚀 START COMPLETE TEST
-    </button>
+<br>
 
-    <a href="index.html" class="home-link">
-        ← Back to Home
-    </a>
+<a href="index.html" class="home-link">
+← Back to Home
+</a>
 
 </div>
 
 </div>
 
 
-<!-- ================= LISTENING ================= -->
+<!-- LISTENING -->
 
 <div id="listening" class="screen">
 
 <header>
-    <h1>🎧 IELTS Listening</h1>
-    <p>40 Questions</p>
+<h1>🎧 IELTS Listening</h1>
+<p>40 Questions — approximately 30 minutes</p>
 </header>
 
 <div class="timer" id="listeningTimer">
-    ⏱️ Listening Time: 30:00
+⏱️ Listening Time: 30:00
 </div>
 
 <div class="card">
 
-    <h2>Listening Test</h2>
+<h2>🎧 Listening Audio</h2>
 
-    <p>
-        Read each question and select the best answer.
-    </p>
+<div class="audio-box">
 
-    <div class="progress">
-        <div id="listeningProgress" class="progress-fill"></div>
-    </div>
+<p>
+Click the button below to hear the listening passage.
+</p>
 
-    <p id="listeningProgressText">
-        0 / 40 answered
-    </p>
+<button onclick="playListening()">
+▶️ Play Listening Audio
+</button>
+
+<button class="secondary" onclick="stopListening()">
+⏹️ Stop Audio
+</button>
+
+<div class="audio-status" id="audioStatus">
+Audio is ready.
+</div>
+
+</div>
+
+<div class="progress">
+<div id="listeningProgress" class="progress-fill"></div>
+</div>
+
+<p id="listeningProgressText">
+0 / 40 answered
+</p>
 
 </div>
 
@@ -252,43 +260,41 @@ textarea {
 
 <div class="card nav">
 
-    <button class="secondary" onclick="goHome()">
-        🏠 Home
-    </button>
+<button class="secondary" onclick="goHome()">
+🏠 Home
+</button>
 
-    <button onclick="finishListening()">
-        Continue to Reading →
-    </button>
-
-</div>
+<button onclick="finishListening()">
+Continue to Reading →
+</button>
 
 </div>
 
+</div>
 
-<!-- ================= READING ================= -->
+
+<!-- READING -->
 
 <div id="reading" class="screen">
 
 <header>
-    <h1>📖 IELTS Reading</h1>
-    <p>40 Questions</p>
+<h1>📖 IELTS Reading</h1>
+<p>40 Questions — 60 minutes</p>
 </header>
 
 <div class="timer" id="readingTimer">
-    ⏱️ Reading Time: 60:00
+⏱️ Reading Time: 60:00
 </div>
 
 <div class="card">
 
-    <h2>Reading Test</h2>
+<div class="progress">
+<div id="readingProgress" class="progress-fill"></div>
+</div>
 
-    <div class="progress">
-        <div id="readingProgress" class="progress-fill"></div>
-    </div>
-
-    <p id="readingProgressText">
-        0 / 40 answered
-    </p>
+<p id="readingProgressText">
+0 / 40 answered
+</p>
 
 </div>
 
@@ -323,6 +329,11 @@ Technology can also provide opportunities to practise outside the
 classroom.
 </p>
 
+<p>
+Although learning a language can sometimes be difficult, patience and
+regular practice can make the process easier.
+</p>
+
 </div>
 
 </div>
@@ -344,16 +355,13 @@ Continue to Writing →
 </div>
 
 
-<!-- ================= WRITING ================= -->
+<!-- WRITING -->
 
 <div id="writing" class="screen">
 
 <header>
-
 <h1>✍️ IELTS Writing</h1>
-
 <p>2 Tasks — 60 Minutes</p>
-
 </header>
 
 <div class="timer" id="writingTimer">
@@ -372,8 +380,10 @@ comparisons where relevant.
 
 <p><strong>Write at least 150 words.</strong></p>
 
-<textarea id="writingTask1"
-placeholder="Write your Task 1 answer here..."></textarea>
+<textarea
+id="writingTask1"
+placeholder="Write your Task 1 answer here..."
+></textarea>
 
 </div>
 
@@ -389,8 +399,10 @@ Discuss both views and give your own opinion.
 
 <p><strong>Write at least 250 words.</strong></p>
 
-<textarea id="writingTask2"
-placeholder="Write your Task 2 essay here..."></textarea>
+<textarea
+id="writingTask2"
+placeholder="Write your Task 2 essay here..."
+></textarea>
 
 </div>
 
@@ -409,32 +421,23 @@ Continue to Speaking →
 </div>
 
 
-<!-- ================= SPEAKING ================= -->
+<!-- SPEAKING -->
 
 <div id="speaking" class="screen">
 
 <header>
-
 <h1>🗣️ IELTS Speaking</h1>
-
 <p>3 Parts</p>
-
 </header>
 
 <div class="card">
 
 <h2>Part 1 — Introduction and Interview</h2>
 
-<p>Answer these questions naturally.</p>
-
 <p>1. What do you enjoy doing in your free time?</p>
-
 <p>2. Tell me about your school.</p>
-
 <p>3. What is your favourite subject?</p>
-
 <p>4. Do you prefer studying alone or with friends?</p>
-
 <p>5. What kind of music do you like?</p>
 
 </div>
@@ -444,19 +447,16 @@ Continue to Speaking →
 <h2>Part 2 — Individual Long Turn</h2>
 
 <p>
-You have one minute to prepare and should speak for
-one to two minutes.
+You have one minute to prepare and should speak for one to two minutes.
 </p>
 
 <h3>Describe a skill you would like to learn.</h3>
-
-<p>You should say:</p>
 
 <ul>
 <li>what the skill is</li>
 <li>why you want to learn it</li>
 <li>how you would learn it</li>
-<li>and explain how it could help you</li>
+<li>how it could help you</li>
 </ul>
 
 </div>
@@ -465,14 +465,9 @@ one to two minutes.
 
 <h2>Part 3 — Discussion</h2>
 
-<p>Discuss these questions:</p>
-
 <p>1. Why are practical skills important for young people?</p>
-
 <p>2. Should schools teach more technology?</p>
-
 <p>3. How might education change in the future?</p>
-
 <p>4. What makes a good teacher?</p>
 
 </div>
@@ -483,10 +478,7 @@ one to two minutes.
 
 <select id="speakingBand">
 
-<option value="">
-Choose your estimated Speaking band
-</option>
-
+<option value="">Choose your estimated band</option>
 <option value="4.0">4.0</option>
 <option value="5.0">5.0</option>
 <option value="6.0">6.0</option>
@@ -513,16 +505,13 @@ Choose your estimated Speaking band
 </div>
 
 
-<!-- ================= RESULTS ================= -->
+<!-- RESULTS -->
 
 <div id="results" class="screen">
 
 <header>
-
 <h1>🏆 Test Complete!</h1>
-
 <p>Teen IELTS Mock Test Results</p>
-
 </header>
 
 <div class="card result">
@@ -530,22 +519,19 @@ Choose your estimated Speaking band
 <h2>📊 Your Results</h2>
 
 <p class="big-score" id="finalListening"></p>
-
 <p id="finalListeningBand"></p>
 
 <p class="big-score" id="finalReading"></p>
-
 <p id="finalReadingBand"></p>
 
 <p id="writingResult"></p>
-
 <p id="speakingResult"></p>
 
 <hr>
 
 <p>
-Writing and Speaking require human assessment for a realistic
-IELTS score.
+Writing and Speaking should be assessed by a teacher for an official-style
+band estimate.
 </p>
 
 <button onclick="location.reload()">
@@ -565,12 +551,11 @@ IELTS score.
 
 <script>
 
-/* =========================================
-   TEST DATA
-========================================= */
+/* =========================
+   ANSWERS
+========================= */
 
 const listeningAnswers = [
-
 "A","B","A","C","B",
 "C","A","B","C","A",
 "B","C","A","B","C",
@@ -579,11 +564,9 @@ const listeningAnswers = [
 "B","C","A","B","C",
 "A","B","C","A","B",
 "C","A","B","C","A"
-
 ];
 
 const readingAnswers = [
-
 "A","C","B","A","D",
 "B","C","A","D","B",
 "A","C","D","A","B",
@@ -592,13 +575,180 @@ const readingAnswers = [
 "B","A","D","C","B",
 "A","C","D","B","A",
 "C","B","D","A","C"
-
 ];
 
 
-/* =========================================
+/* =========================
+   LISTENING SCRIPT
+========================= */
+
+const listeningScript = `
+Welcome to the Teen IELTS Listening Practice Test.
+
+This listening test contains four sections.
+
+Section One.
+
+You are going to hear a conversation between a student and a school
+activities coordinator.
+
+The student is asking about activities available after school.
+
+The coordinator explains that students can join several clubs.
+There is a language club, a sports club, an art club and a music club.
+
+The language club meets on Monday afternoon.
+The sports club meets on Tuesday.
+The art club meets on Wednesday.
+The music club meets on Thursday.
+
+The student says that the language club sounds interesting because
+she wants to improve her communication skills.
+
+The coordinator explains that students can practise speaking with
+other students and can also learn about different cultures.
+
+Section Two.
+
+The speaker now talks about learning a new language.
+
+Learning another language can improve communication.
+It can also help people understand different cultures.
+
+Language and culture are closely connected.
+
+Students should practise regularly.
+Reading, writing, listening and speaking are all important.
+
+Technology can also help.
+Students can use educational websites, mobile applications,
+videos and online conversations.
+
+Section Three.
+
+Two students are discussing their school project.
+
+They decide to research how teenagers use technology for learning.
+
+They agree that technology can be useful, but they also think
+students need teachers and regular practice.
+
+They decide to interview students at their school.
+
+Their teacher tells them that the project should be completed
+by Friday afternoon.
+
+Section Four.
+
+The final speaker discusses the importance of patience.
+
+Learning a language does not usually happen immediately.
+
+Learners may make mistakes.
+
+Making mistakes is a normal part of learning.
+
+Students should identify their mistakes and try again.
+
+Regular practice can help learners become more confident.
+
+This is the end of the listening practice.
+`;
+
+
+/* =========================
+   START
+========================= */
+
+function startTest(){
+
+    showScreen("listening");
+
+    createListeningQuestions();
+
+    startListeningTimer();
+
+}
+
+
+/* =========================
+   SCREEN
+========================= */
+
+function showScreen(id){
+
+    document.querySelectorAll(".screen").forEach(function(screen){
+        screen.classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
+
+    window.scrollTo(0,0);
+
+}
+
+
+/* =========================
+   BROWSER AUDIO
+========================= */
+
+let speechUtterance = null;
+
+function playListening(){
+
+    if(!("speechSynthesis" in window)){
+
+        document.getElementById("audioStatus").textContent =
+        "Your browser does not support speech audio.";
+
+        return;
+    }
+
+    speechSynthesis.cancel();
+
+    speechUtterance =
+        new SpeechSynthesisUtterance(listeningScript);
+
+    speechUtterance.rate = 0.85;
+    speechUtterance.pitch = 1;
+    speechUtterance.volume = 1;
+
+    speechUtterance.onstart = function(){
+
+        document.getElementById("audioStatus").textContent =
+        "🔊 Listening audio is playing...";
+
+    };
+
+    speechUtterance.onend = function(){
+
+        document.getElementById("audioStatus").textContent =
+        "✅ Listening audio finished.";
+
+    };
+
+    speechSynthesis.speak(speechUtterance);
+
+}
+
+
+function stopListening(){
+
+    if("speechSynthesis" in window){
+
+        speechSynthesis.cancel();
+
+    }
+
+    document.getElementById("audioStatus").textContent =
+    "⏹️ Audio stopped.";
+
+}
+
+
+/* =========================
    LISTENING QUESTIONS
-========================================= */
+========================= */
 
 const listeningQuestions = [
 
@@ -608,56 +758,218 @@ const listeningQuestions = [
 "What may employers value?",
 "How do language skills usually improve?",
 
-"What should the student bring?",
-"Which activity does the speaker recommend?",
-"Where will the group meet?",
-"What time does the train leave?",
-"How long does the course last?",
+"Which day does the language club meet?",
+"Which club meets on Tuesday?",
+"Which club meets on Wednesday?",
+"Which club meets on Thursday?",
+"Why does the student like the language club?",
 
-"When is the library closed?",
-"Why does the student choose biology?",
-"How many rooms does the hotel have?",
-"What time is the appointment?",
-"What type of ticket does the man want?",
+"What can students practise?",
+"What can students learn about?",
+"What should students do regularly?",
+"Which four skills are important?",
+"What can technology provide?",
 
-"Where is the lecture?",
-"Until what time is breakfast served?",
-"How much does the jacket cost?",
-"How long does the trip take?",
-"When does registration end?",
+"What are the students researching?",
+"Who will they interview?",
+"When should the project be completed?",
+"What does the teacher recommend?",
+"What is the main topic?",
 
-"Which activity is mentioned first?",
-"What does the student borrow?",
-"Where will they meet?",
-"Which colour does she choose?",
-"What is the main problem?",
+"Why is patience important?",
+"Do language skills usually improve immediately?",
+"What is a normal part of learning?",
+"What should learners identify?",
+"What should learners do after mistakes?",
 
-"How many students joined?",
-"What does the speaker suggest?",
-"When is the deadline?",
-"Which room is reserved?",
-"What is included?",
+"How can regular practice help?",
+"Why can technology be useful?",
+"What can online conversations provide?",
+"What can mobile applications support?",
+"What can videos provide?",
 
-"What does the student study?",
-"How does she travel?",
-"What is the price?",
-"What should visitors bring?",
-"Where is the office?",
+"Why is communication important?",
+"Why is culture important?",
+"What can employers value?",
+"Why should students practise?",
+"What can learners become?",
 
-"What time does the film start?",
-"What does the teacher praise?",
-"Which subject is optional?",
-"What will they do next?",
-"What is the talk about?"
-
+"What is the main message?",
+"What should students do regularly?",
+"What can mistakes teach learners?",
+"What can technology support?",
+"What is the best way to improve?"
 ];
 
 
-/* =========================================
-   READING QUESTIONS
-========================================= */
+/* =========================
+   CREATE LISTENING
+========================= */
 
-const readingQuestions = [
+function createListeningQuestions(){
+
+    const container =
+    document.getElementById("listeningQuestions");
+
+    container.innerHTML="";
+
+    listeningQuestions.forEach(function(question,index){
+
+        let html =
+        '<div class="card question">';
+
+        html +=
+        "<h3>"+(index+1)+". "+question+"</h3>";
+
+        const options=[
+            "A. First option",
+            "B. Second option",
+            "C. Third option",
+            "D. Fourth option"
+        ];
+
+        options.forEach(function(option,j){
+
+            let letter=String.fromCharCode(65+j);
+
+            html +=
+            '<label class="option">'+
+            '<input type="radio" name="l'+index+
+            '" value="'+letter+
+            '" onchange="updateListeningProgress()">'+
+            " "+option+
+            "</label>";
+
+        });
+
+        html+="</div>";
+
+        container.innerHTML+=html;
+
+    });
+
+}
+
+
+/* =========================
+   LISTENING PROGRESS
+========================= */
+
+function updateListeningProgress(){
+
+    let count=0;
+
+    for(let i=0;i<40;i++){
+
+        if(document.querySelector(
+            'input[name="l'+i+'"]:checked'
+        )){
+            count++;
+        }
+
+    }
+
+    document.getElementById(
+        "listeningProgressText"
+    ).textContent =
+    count+" / 40 answered";
+
+    document.getElementById(
+        "listeningProgress"
+    ).style.width =
+    (count/40*100)+"%";
+
+}
+
+
+/* =========================
+   LISTENING TIMER
+========================= */
+
+let listeningSeconds=1800;
+let listeningInterval;
+
+function startListeningTimer(){
+
+    clearInterval(listeningInterval);
+
+    listeningInterval=setInterval(function(){
+
+        listeningSeconds--;
+
+        let minutes=Math.floor(listeningSeconds/60);
+        let seconds=listeningSeconds%60;
+
+        document.getElementById(
+            "listeningTimer"
+        ).textContent =
+        "⏱️ Listening Time: "+
+        minutes+":"+
+        String(seconds).padStart(2,"0");
+
+        if(listeningSeconds<=0){
+
+            clearInterval(listeningInterval);
+
+            finishListening();
+
+        }
+
+    },1000);
+
+}
+
+
+/* =========================
+   LISTENING SCORE
+========================= */
+
+let listeningScore=0;
+
+function calculateListeningScore(){
+
+    listeningScore=0;
+
+    for(let i=0;i<40;i++){
+
+        let selected=document.querySelector(
+            'input[name="l'+i+'"]:checked'
+        );
+
+        if(selected &&
+           selected.value===listeningAnswers[i]){
+
+            listeningScore++;
+
+        }
+
+    }
+
+}
+
+
+function finishListening(){
+
+    stopListening();
+
+    clearInterval(listeningInterval);
+
+    calculateListeningScore();
+
+    createReadingQuestions();
+
+    showScreen("reading");
+
+    startReadingTimer();
+
+}
+
+
+/* =========================
+   READING
+========================= */
+
+const readingQuestions=[
 
 "Which benefit of language learning is mentioned?",
 "How do language skills usually improve?",
@@ -710,339 +1022,60 @@ const readingQuestions = [
 ];
 
 
-/* =========================================
-   OPTIONS
-========================================= */
+function createReadingQuestions(){
 
-const optionSets = [
+    const container=
+    document.getElementById("readingQuestions");
 
-["Improved communication","Better weather","Faster transportation","More free time"],
-["It allows communication with more people","It makes flights free","It guarantees good weather","It removes maps"],
-["Different cultures","Weather forecasts","Traffic systems","Sports rules"],
-["Workers who speak more than one language","Workers who never travel","Workers who avoid technology","Workers who work alone"],
-["Gradually","Immediately","Without practice","Only through travel"]
+    container.innerHTML="";
 
-];
+    readingQuestions.forEach(function(question,index){
 
+        let html=
+        '<div class="card question">';
 
-/* =========================================
-   START TEST
-========================================= */
+        html+="<h3>"+(index+1)+". "+question+"</h3>";
 
-function startTest() {
-
-    showScreen("listening");
-
-    createListeningQuestions();
-
-    startListeningTimer();
-
-}
-
-
-/* =========================================
-   SCREEN
-========================================= */
-
-function showScreen(id) {
-
-    document.querySelectorAll(".screen").forEach(function(screen) {
-
-        screen.classList.remove("active");
-
-    });
-
-    document.getElementById(id).classList.add("active");
-
-    window.scrollTo(0,0);
-
-}
-
-
-/* =========================================
-   LISTENING QUESTIONS
-========================================= */
-
-function createListeningQuestions() {
-
-    const container =
-        document.getElementById("listeningQuestions");
-
-    container.innerHTML = "";
-
-    listeningQuestions.forEach(function(question,index) {
-
-        let html = "";
-
-        html += '<div class="card question">';
-
-        html += "<h3>" +
-            (index + 1) +
-            ". " +
-            question +
-            "</h3>";
-
-        let options;
-
-        if(index < 5) {
-
-            options = optionSets[index];
-
-        } else {
-
-            options = [
-
-                "A. First option",
-                "B. Second option",
-                "C. Third option",
-                "D. Fourth option"
-
-            ];
-
-        }
-
-        options.forEach(function(option,j) {
-
-            let letter =
-                String.fromCharCode(65+j);
-
-            html +=
-                '<label class="option">' +
-                '<input type="radio" name="l' +
-                index +
-                '" value="' +
-                letter +
-                '" onchange="updateListeningProgress()">' +
-                " " +
-                letter +
-                ". " +
-                option +
-                "</label>";
-
-        });
-
-        html += "</div>";
-
-        container.innerHTML += html;
-
-    });
-
-}
-
-
-/* =========================================
-   LISTENING PROGRESS
-========================================= */
-
-function updateListeningProgress() {
-
-    let count = 0;
-
-    for(let i=0;i<40;i++) {
-
-        if(
-            document.querySelector(
-                'input[name="l'+i+'"]:checked'
-            )
-        ) {
-
-            count++;
-
-        }
-
-    }
-
-    document.getElementById(
-        "listeningProgressText"
-    ).textContent =
-        count + " / 40 answered";
-
-    document.getElementById(
-        "listeningProgress"
-    ).style.width =
-        (count/40*100) + "%";
-
-}
-
-
-/* =========================================
-   LISTENING TIMER
-========================================= */
-
-let listeningSeconds = 1800;
-
-let listeningInterval;
-
-function startListeningTimer() {
-
-    clearInterval(listeningInterval);
-
-    listeningInterval =
-        setInterval(function() {
-
-            listeningSeconds--;
-
-            updateListeningTimer();
-
-            if(listeningSeconds <= 0) {
-
-                clearInterval(listeningInterval);
-
-                finishListening();
-
-            }
-
-        },1000);
-
-}
-
-
-function updateListeningTimer() {
-
-    let minutes =
-        Math.floor(listeningSeconds/60);
-
-    let seconds =
-        listeningSeconds%60;
-
-    document.getElementById(
-        "listeningTimer"
-    ).textContent =
-        "⏱️ Listening Time: " +
-        minutes +
-        ":" +
-        String(seconds).padStart(2,"0");
-
-}
-
-
-/* =========================================
-   FINISH LISTENING
-========================================= */
-
-function finishListening() {
-
-    clearInterval(listeningInterval);
-
-    calculateListeningScore();
-
-    createReadingQuestions();
-
-    showScreen("reading");
-
-    startReadingTimer();
-
-}
-
-
-/* =========================================
-   LISTENING SCORE
-========================================= */
-
-let listeningScore = 0;
-
-function calculateListeningScore() {
-
-    listeningScore = 0;
-
-    for(let i=0;i<40;i++) {
-
-        let selected =
-            document.querySelector(
-                'input[name="l'+i+'"]:checked'
-            );
-
-        if(selected &&
-           selected.value === listeningAnswers[i]) {
-
-            listeningScore++;
-
-        }
-
-    }
-
-}
-
-
-/* =========================================
-   READING QUESTIONS
-========================================= */
-
-function createReadingQuestions() {
-
-    const container =
-        document.getElementById(
-            "readingQuestions"
-        );
-
-    container.innerHTML = "";
-
-    readingQuestions.forEach(function(question,index) {
-
-        let html =
-            '<div class="card question">';
-
-        html +=
-            "<h3>" +
-            (index+1) +
-            ". " +
-            question +
-            "</h3>";
-
-        const options = [
-
+        const options=[
             "A. First option",
             "B. Second option",
             "C. Third option",
             "D. Fourth option"
-
         ];
 
-        options.forEach(function(option,j) {
+        options.forEach(function(option,j){
 
-            let letter =
-                String.fromCharCode(65+j);
+            let letter=String.fromCharCode(65+j);
 
-            html +=
-                '<label class="option">' +
-                '<input type="radio" name="r' +
-                index +
-                '" value="' +
-                letter +
-                '" onchange="updateReadingProgress()">' +
-                " " +
-                option +
-                "</label>";
+            html+=
+            '<label class="option">'+
+            '<input type="radio" name="r'+index+
+            '" value="'+letter+
+            '" onchange="updateReadingProgress()">'+
+            " "+option+
+            "</label>";
 
         });
 
-        html += "</div>";
+        html+="</div>";
 
-        container.innerHTML += html;
+        container.innerHTML+=html;
 
     });
 
 }
 
 
-/* =========================================
-   READING PROGRESS
-========================================= */
+function updateReadingProgress(){
 
-function updateReadingProgress() {
+    let count=0;
 
-    let count = 0;
+    for(let i=0;i<40;i++){
 
-    for(let i=0;i<40;i++) {
-
-        if(
-            document.querySelector(
-                'input[name="r'+i+'"]:checked'
-            )
-        ) {
-
+        if(document.querySelector(
+            'input[name="r'+i+'"]:checked'
+        )){
             count++;
-
         }
 
     }
@@ -1050,81 +1083,66 @@ function updateReadingProgress() {
     document.getElementById(
         "readingProgressText"
     ).textContent =
-        count + " / 40 answered";
+    count+" / 40 answered";
 
     document.getElementById(
         "readingProgress"
     ).style.width =
-        (count/40*100) + "%";
+    (count/40*100)+"%";
 
 }
 
 
-/* =========================================
-   READING TIMER
-========================================= */
-
-let readingSeconds = 3600;
-
+let readingSeconds=3600;
 let readingInterval;
 
-function startReadingTimer() {
+function startReadingTimer(){
 
     clearInterval(readingInterval);
 
-    readingInterval =
-        setInterval(function() {
+    readingInterval=setInterval(function(){
 
-            readingSeconds--;
+        readingSeconds--;
 
-            let minutes =
-                Math.floor(readingSeconds/60);
+        let minutes=Math.floor(readingSeconds/60);
+        let seconds=readingSeconds%60;
 
-            let seconds =
-                readingSeconds%60;
+        document.getElementById(
+            "readingTimer"
+        ).textContent=
+        "⏱️ Reading Time: "+
+        minutes+":"+
+        String(seconds).padStart(2,"0");
 
-            document.getElementById(
-                "readingTimer"
-            ).textContent =
-                "⏱️ Reading Time: " +
-                minutes +
-                ":" +
-                String(seconds).padStart(2,"0");
+        if(readingSeconds<=0){
 
-            if(readingSeconds <= 0) {
+            clearInterval(readingInterval);
 
-                clearInterval(readingInterval);
+            finishReading();
 
-                finishReading();
+        }
 
-            }
-
-        },1000);
+    },1000);
 
 }
 
 
-/* =========================================
-   FINISH READING
-========================================= */
+let readingScore=0;
 
-let readingScore = 0;
-
-function finishReading() {
+function finishReading(){
 
     clearInterval(readingInterval);
 
-    readingScore = 0;
+    readingScore=0;
 
-    for(let i=0;i<40;i++) {
+    for(let i=0;i<40;i++){
 
-        let selected =
-            document.querySelector(
-                'input[name="r'+i+'"]:checked'
-            );
+        let selected=document.querySelector(
+            'input[name="r'+i+'"]:checked'
+        );
 
         if(selected &&
-           selected.value === readingAnswers[i]) {
+           selected.value===readingAnswers[i]){
 
             readingScore++;
 
@@ -1139,55 +1157,45 @@ function finishReading() {
 }
 
 
-/* =========================================
-   WRITING TIMER
-========================================= */
+/* =========================
+   WRITING
+========================= */
 
-let writingSeconds = 3600;
-
+let writingSeconds=3600;
 let writingInterval;
 
-function startWritingTimer() {
+function startWritingTimer(){
 
     clearInterval(writingInterval);
 
-    writingInterval =
-        setInterval(function() {
+    writingInterval=setInterval(function(){
 
-            writingSeconds--;
+        writingSeconds--;
 
-            let minutes =
-                Math.floor(writingSeconds/60);
+        let minutes=Math.floor(writingSeconds/60);
+        let seconds=writingSeconds%60;
 
-            let seconds =
-                writingSeconds%60;
+        document.getElementById(
+            "writingTimer"
+        ).textContent=
+        "⏱️ Writing Time: "+
+        minutes+":"+
+        String(seconds).padStart(2,"0");
 
-            document.getElementById(
-                "writingTimer"
-            ).textContent =
-                "⏱️ Writing Time: " +
-                minutes +
-                ":" +
-                String(seconds).padStart(2,"0");
+        if(writingSeconds<=0){
 
-            if(writingSeconds <= 0) {
+            clearInterval(writingInterval);
 
-                clearInterval(writingInterval);
+            finishWriting();
 
-                finishWriting();
+        }
 
-            }
-
-        },1000);
+    },1000);
 
 }
 
 
-/* =========================================
-   FINISH WRITING
-========================================= */
-
-function finishWriting() {
+function finishWriting(){
 
     clearInterval(writingInterval);
 
@@ -1196,89 +1204,89 @@ function finishWriting() {
 }
 
 
-/* =========================================
+/* =========================
    RESULTS
-========================================= */
+========================= */
 
-function showResults() {
+function showResults(){
 
-    const speakingBand =
-        document.getElementById(
-            "speakingBand"
-        ).value;
+    let speakingBand=
+    document.getElementById("speakingBand").value;
 
     document.getElementById(
         "finalListening"
-    ).textContent =
-        "Listening: " +
-        listeningScore +
-        " / 40";
+    ).textContent=
+    "Listening: "+
+    listeningScore+
+    " / 40";
 
     document.getElementById(
         "finalListeningBand"
-    ).textContent =
-        "Estimated Listening Band: " +
-        calculateBand(listeningScore);
+    ).textContent=
+    "Estimated Listening Band: "+
+    calculateBand(listeningScore);
 
     document.getElementById(
         "finalReading"
-    ).textContent =
-        "Reading: " +
-        readingScore +
-        " / 40";
+    ).textContent=
+    "Reading: "+
+    readingScore+
+    " / 40";
 
     document.getElementById(
         "finalReadingBand"
-    ).textContent =
-        "Estimated Reading Band: " +
-        calculateBand(readingScore);
+    ).textContent=
+    "Estimated Reading Band: "+
+    calculateBand(readingScore);
 
     document.getElementById(
         "writingResult"
-    ).textContent =
-        "✍️ Writing: Completed — human assessment recommended.";
+    ).textContent=
+    "✍️ Writing: Completed.";
 
     document.getElementById(
         "speakingResult"
-    ).textContent =
-        "🗣️ Speaking: " +
-        (speakingBand ?
-        "Self-rated Band " + speakingBand :
-        "Not self-rated.");
+    ).textContent=
+    "🗣️ Speaking: "+
+    (speakingBand?
+    "Self-rated Band "+speakingBand:
+    "Not self-rated.");
 
     showScreen("results");
 
 }
 
 
-/* =========================================
+/* =========================
    BAND
-========================================= */
+========================= */
 
-function calculateBand(score) {
+function calculateBand(score){
 
-    if(score >= 39) return "9.0";
-    if(score >= 37) return "8.5";
-    if(score >= 35) return "8.0";
-    if(score >= 32) return "7.5";
-    if(score >= 30) return "7.0";
-    if(score >= 27) return "6.5";
-    if(score >= 23) return "6.0";
-    if(score >= 19) return "5.5";
-    if(score >= 15) return "5.0";
-    if(score >= 13) return "4.5";
-    if(score >= 10) return "4.0";
+    if(score>=39)return"9.0";
+    if(score>=37)return"8.5";
+    if(score>=35)return"8.0";
+    if(score>=32)return"7.5";
+    if(score>=30)return"7.0";
+    if(score>=27)return"6.5";
+    if(score>=23)return"6.0";
+    if(score>=19)return"5.5";
+    if(score>=15)return"5.0";
+    if(score>=13)return"4.5";
+    if(score>=10)return"4.0";
 
-    return "Below 4.0";
+    return"Below 4.0";
 
 }
 
 
-/* =========================================
+/* =========================
    HOME
-========================================= */
+========================= */
 
-function goHome() {
+function goHome(){
+
+    stopListening();
 
     clearInterval(listeningInterval);
     clearInterval(readingInterval);
@@ -1292,3 +1300,4 @@ function goHome() {
 
 </body>
 </html>
+```

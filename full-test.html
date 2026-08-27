@@ -1117,7 +1117,39 @@ function pauseListening(){
     }
 }
 
-function stopListening(){
+function finishTest(){
+
+    clearInterval(timerInterval);
+
+    const listening=checkListening();
+    const reading=checkReading();
+    const total=listening+reading;
+
+    document.getElementById("testArea")
+        .classList.add("hidden");
+
+    document.getElementById("results")
+        .classList.remove("hidden");
+
+    document.getElementById("finalListening")
+        .textContent=listening+" / 40";
+
+    document.getElementById("finalReading")
+        .textContent=reading+" / 40";
+
+    document.getElementById("finalTotal")
+        .textContent=total+" / 80";
+
+    document.getElementById("finalBand")
+        .textContent=
+        "L "+getBand(listening)+
+        " / R "+getBand(reading);
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
 
     if("speechSynthesis" in window){
 

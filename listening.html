@@ -4,56 +4,307 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>IELTS Listening Test</title>
+<title>Teen IELTS Complete Practice Centre</title>
 
 <style>
-body {
-    font-family: Arial, sans-serif;
-    background: #f4f7fb;
-    margin: 0;
+
+*{
+    box-sizing:border-box;
 }
 
-.container {
-    max-width: 900px;
-    margin: auto;
-    padding: 25px;
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f4f7fb;
+    color:#222;
+    line-height:1.6;
 }
 
-header {
-    background: #17365d;
-    color: white;
-    padding: 30px;
-    border-radius: 15px;
-    text-align: center;
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
 }
 
-.section {
-    background: white;
-    padding: 25px;
-    margin-top: 20px;
-    border-radius: 12px;
+header{
+    background:#17365d;
+    color:white;
+    padding:35px 20px;
+    border-radius:16px;
+    text-align:center;
+    margin-bottom:20px;
 }
 
-button {
-    padding: 14px 25px;
-    background: #17365d;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 17px;
-    cursor: pointer;
+header h1{
+    margin:0;
+    font-size:38px;
 }
 
-input {
-    padding: 10px;
-    width: 250px;
-    font-size: 16px;
+header p{
+    margin:8px 0 0;
 }
 
-select {
-    padding: 10px;
-    font-size: 16px;
+.card{
+    background:white;
+    padding:25px;
+    margin-bottom:20px;
+    border-radius:14px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
 }
+
+.section{
+    display:none;
+}
+
+.section.active{
+    display:block;
+}
+
+h2{
+    color:#17365d;
+}
+
+h3{
+    color:#234f7d;
+}
+
+button{
+    padding:13px 20px;
+    border:none;
+    border-radius:8px;
+    background:#17365d;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    margin:5px;
+}
+
+button:hover{
+    background:#0f2744;
+}
+
+button.secondary{
+    background:#607d9b;
+}
+
+button.success{
+    background:#2e7d32;
+}
+
+button.danger{
+    background:#b71c1c;
+}
+
+button.warning{
+    background:#c77700;
+}
+
+.option{
+    display:block;
+    background:#f4f7fb;
+    padding:13px;
+    margin:8px 0;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.option:hover{
+    background:#e6edf6;
+}
+
+input[type="text"],
+textarea,
+select{
+    width:100%;
+    max-width:800px;
+    padding:12px;
+    margin-top:8px;
+    border:1px solid #aaa;
+    border-radius:7px;
+    font-size:16px;
+}
+
+textarea{
+    min-height:280px;
+    resize:vertical;
+}
+
+.timer{
+    position:sticky;
+    top:10px;
+    z-index:100;
+    background:white;
+    padding:12px;
+    text-align:center;
+    font-size:21px;
+    font-weight:bold;
+    border-radius:10px;
+    margin-bottom:20px;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+
+.progress{
+    height:12px;
+    background:#ddd;
+    border-radius:10px;
+    overflow:hidden;
+    margin:15px 0 20px;
+}
+
+.progress-fill{
+    height:100%;
+    width:0%;
+    background:#17365d;
+    transition:width .3s;
+}
+
+.result{
+    background:#e8f5e9;
+    padding:20px;
+    border-radius:10px;
+    margin-top:20px;
+}
+
+.center{
+    text-align:center;
+}
+
+.small{
+    font-size:14px;
+    color:#666;
+}
+
+.badge{
+    display:inline-block;
+    padding:6px 12px;
+    border-radius:20px;
+    background:#e8eef6;
+    margin:3px;
+    font-size:14px;
+}
+
+.reading-passage{
+    background:#fffdf5;
+    border-left:5px solid #17365d;
+    padding:25px;
+    border-radius:8px;
+    margin:20px 0;
+}
+
+.reading-passage p{
+    margin-bottom:18px;
+}
+
+.listening-script{
+    background:#f5f9ff;
+    border-left:5px solid #17365d;
+    padding:20px;
+    border-radius:8px;
+    margin:20px 0;
+}
+
+.audio-panel{
+    background:#eef4fb;
+    padding:20px;
+    border-radius:12px;
+    margin:20px 0;
+}
+
+.audio-status{
+    font-weight:bold;
+    font-size:18px;
+    margin-bottom:10px;
+}
+
+.controls{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:5px;
+}
+
+.controls label{
+    font-weight:bold;
+}
+
+.range{
+    width:180px;
+}
+
+.word-count{
+    font-weight:bold;
+    margin-top:8px;
+}
+
+.question-card{
+    border-left:4px solid #17365d;
+}
+
+.answer-review{
+    margin-top:10px;
+    padding:10px;
+    border-radius:8px;
+}
+
+.correct{
+    background:#dff2df;
+}
+
+.incorrect{
+    background:#ffe0e0;
+}
+
+.hidden{
+    display:none;
+}
+
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+}
+
+.menu-button{
+    min-height:110px;
+    font-size:18px;
+}
+
+.topic-card{
+    background:#f8fafc;
+    padding:18px;
+    border-radius:10px;
+    margin:10px 0;
+}
+
+@media(max-width:600px){
+
+    .container{
+        padding:10px;
+    }
+
+    header h1{
+        font-size:28px;
+    }
+
+    .card{
+        padding:17px;
+    }
+
+    button{
+        width:100%;
+        margin:5px 0;
+    }
+
+    .controls{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .range{
+        width:100%;
+    }
+}
+
 </style>
 </head>
 
@@ -62,88 +313,2146 @@ select {
 <div class="container">
 
 <header>
-    <h1>🎧 IELTS Listening Test</h1>
-    <p>40 Questions</p>
-    <p>Approximately 30 minutes</p>
+
+<h1>🎓 Teen IELTS Complete Practice Centre</h1>
+
+<p>
+Listening • Reading • Writing • Speaking • Grammar • Vocabulary • Idioms
+</p>
+
 </header>
 
-<div class="section">
 
-<h2>Instructions</h2>
+<!-- ================= HOME ================= -->
 
-<p>Listen to the recording and answer the questions.</p>
+<div id="home" class="section active">
 
-<p><strong>For now, this practice test uses written questions.</strong></p>
+<div class="card center">
+
+<h2>Welcome to IELTS Practice</h2>
+
+<p>
+Choose your IELTS version and practise each skill independently.
+</p>
+
+<button onclick="startTest('Academic')">
+🎓 IELTS Academic
+</button>
+
+<button onclick="startTest('General Training')">
+🌍 IELTS General Training
+</button>
 
 </div>
 
-<div class="section">
 
-<h2>Questions 1–10</h2>
+<div class="card">
 
-<p><strong>1. What is the student's name?</strong></p>
-<input type="text" id="q1">
+<h2>📋 Complete Practice Centre</h2>
 
-<p><strong>2. What course does the student want to join?</strong></p>
-<select id="q2">
-<option value="">Choose an answer</option>
-<option value="A">English</option>
-<option value="B">History</option>
-<option value="C">Science</option>
+<div class="menu-grid">
+
+<button class="menu-button" onclick="showSection('listening')">
+🎧<br>Listening
+</button>
+
+<button class="menu-button" onclick="showSection('reading')">
+📖<br>Reading
+</button>
+
+<button class="menu-button" onclick="showSection('writing')">
+✍️<br>Writing
+</button>
+
+<button class="menu-button" onclick="showSection('speaking')">
+🗣️<br>Speaking
+</button>
+
+<button class="menu-button" onclick="showSection('grammar')">
+📘<br>Grammar
+</button>
+
+<button class="menu-button" onclick="showSection('vocabulary')">
+📚<br>Vocabulary
+</button>
+
+<button class="menu-button" onclick="showSection('idioms')">
+💬<br>Idioms
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ================= MENU ================= -->
+
+<div id="menu" class="section">
+
+<div class="card center">
+
+<h2 id="testTitle">IELTS Practice</h2>
+
+<p>Select what you want to practise.</p>
+
+<div class="menu-grid">
+
+<button class="menu-button" onclick="showSection('listening')">
+🎧<br>Listening
+</button>
+
+<button class="menu-button" onclick="showSection('reading')">
+📖<br>Reading
+</button>
+
+<button class="menu-button" onclick="showSection('writing')">
+✍️<br>Writing
+</button>
+
+<button class="menu-button" onclick="showSection('speaking')">
+🗣️<br>Speaking
+</button>
+
+<button class="menu-button" onclick="showSection('grammar')">
+📘<br>Grammar
+</button>
+
+<button class="menu-button" onclick="showSection('vocabulary')">
+📚<br>Vocabulary
+</button>
+
+<button class="menu-button" onclick="showSection('idioms')">
+💬<br>Idioms
+</button>
+
+</div>
+
+<br>
+
+<button onclick="showSection('home')">
+🏠 Home
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ================= LISTENING ================= -->
+
+<div id="listening" class="section">
+
+<div class="timer" id="listeningTimer">
+⏱️ Listening Time: 30:00
+</div>
+
+
+<div class="card">
+
+<h2>🎧 IELTS Listening Practice</h2>
+
+<p>
+The Listening test contains four parts. Read the questions before
+the recording starts.
+</p>
+
+<div class="badge">40 Questions</div>
+<div class="badge">4 Parts</div>
+<div class="badge">Question Preview Time</div>
+<div class="badge">Audio Controls</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>🎧 Part 1 — Student Accommodation</h2>
+
+<p>
+<strong>Question-reading time:</strong>
+You have 20 seconds to read the questions before the recording begins.
+</p>
+
+<div class="audio-panel">
+
+<div class="audio-status" id="audioStatus">
+⏳ Press Start Part 1
+</div>
+
+<div class="controls">
+
+<button onclick="startListeningPart()">
+▶️ Start
+</button>
+
+<button onclick="pauseSpeech()">
+⏸️ Pause
+</button>
+
+<button onclick="resumeSpeech()">
+▶️ Resume
+</button>
+
+<button onclick="restartSpeech()">
+🔄 Restart
+</button>
+
+<button onclick="stopSpeech()">
+⏹️ Stop
+</button>
+
+<label>
+Speed:
+<select id="speechRate" onchange="changeSpeechRate()">
+<option value="0.75">0.75×</option>
+<option value="1" selected>1× IELTS</option>
+<option value="1.25">1.25×</option>
+<option value="1.5">1.5×</option>
+</select>
+</label>
+
+<label>
+Volume:
+<input
+id="speechVolume"
+class="range"
+type="range"
+min="0"
+max="1"
+step="0.1"
+value="1"
+>
+</label>
+
+</div>
+
+</div>
+
+<div class="listening-script">
+
+<h3>🎙️ Listening Script</h3>
+
+<p>
+Good morning. My name is Sarah, and I am calling about student
+accommodation. I am starting a course at the college next month,
+and I would like to ask about the rooms that are available.
+</p>
+
+<p>
+The accommodation office has several types of rooms. The most popular
+option is a single room in a shared apartment. Each apartment has a
+shared kitchen and living area. Students also have access to a
+laundry room on the ground floor.
+</p>
+
+<p>
+The rent for a single room is 185 dollars per week. This includes
+electricity, heating and internet access. Students need to bring
+their own towels, but bedding is provided.
+</p>
+
+<p>
+The accommodation is about fifteen minutes from the college by bus.
+There is also a supermarket nearby, which is convenient for students
+who want to prepare their own meals.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="progress">
+
+<div id="listeningProgress" class="progress-fill"></div>
+
+</div>
+
+
+<div id="listeningQuestions"></div>
+
+
+<div class="card center">
+
+<button class="success" onclick="submitListening()">
+✅ Submit Listening
+</button>
+
+<button onclick="showSection('menu')">
+⬅ Back to Sections
+</button>
+
+<div id="listeningResult"></div>
+
+</div>
+
+</div>
+
+
+<!-- ================= READING ================= -->
+
+<div id="reading" class="section">
+
+<div class="timer" id="readingTimer">
+⏱️ Reading Time: 60:00
+</div>
+
+<div class="card">
+
+<h2>📖 IELTS Reading Practice</h2>
+
+<p>
+Choose a complete reading practice test below. Each test contains
+a proper passage followed by questions.
+</p>
+
+<select id="readingTestSelect" onchange="loadReadingTest()">
+
+<option value="0">
+Reading Test 1 — Learning a New Language
+</option>
+
+<option value="1">
+Reading Test 2 — Technology and Teenagers
+</option>
+
+<option value="2">
+Reading Test 3 — The Future of Cities
+</option>
+
 </select>
 
-<p><strong>3. What day does the course begin?</strong></p>
-<input type="text" id="q3">
+</div>
 
-<p><strong>4. How long is the course?</strong></p>
-<input type="text" id="q4">
 
-<p><strong>5. Where is the classroom?</strong></p>
-<input type="text" id="q5">
+<div id="readingPassage"></div>
 
-<p><strong>6. What time does the class start?</strong></p>
-<input type="text" id="q6">
+<div class="progress">
 
-<p><strong>7. How many students are in the class?</strong></p>
-<input type="text" id="q7">
-
-<p><strong>8. What book do students need?</strong></p>
-<input type="text" id="q8">
-
-<p><strong>9. How much does the course cost?</strong></p>
-<input type="text" id="q9">
-
-<p><strong>10. Who is the teacher?</strong></p>
-<input type="text" id="q10">
+<div id="readingProgress" class="progress-fill"></div>
 
 </div>
 
-<div class="section">
+<div id="readingQuestions"></div>
 
-<h2>Questions 11–40</h2>
+<div class="card center">
 
-<p>More listening questions will appear here as we build the full test.</p>
+<button class="success" onclick="submitReading()">
+✅ Submit Reading
+</button>
 
-</div>
+<button onclick="showSection('menu')">
+⬅ Back to Sections
+</button>
 
-<div class="section">
-
-<button onclick="submitTest()">Submit Listening Test</button>
-
-<p id="result"></p>
+<div id="readingResult"></div>
 
 </div>
 
 </div>
+
+
+<!-- ================= WRITING ================= -->
+
+<div id="writing" class="section">
+
+<div class="timer" id="writingTimer">
+⏱️ Writing Time: 60:00
+</div>
+
+<div class="card">
+
+<h2>✍️ IELTS Writing</h2>
+
+<p>
+Complete both tasks. Use the word counters to monitor your writing.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>Task 1</h3>
+
+<p>
+<strong>Academic:</strong>
+The chart below shows the amount of time teenagers spend on different
+activities during a typical week. Summarise the information by
+selecting and reporting the main features, and make comparisons where
+relevant.
+</p>
+
+<p>
+<strong>General Training alternative:</strong>
+You recently stayed at a hotel and were unhappy with the service.
+Write a letter to the hotel manager. Explain what happened and say
+what you would like the manager to do.
+</p>
+
+<textarea
+id="writing1"
+oninput="countWords('writing1','count1')"
+placeholder="Write your Task 1 answer here..."
+></textarea>
+
+<div class="word-count">
+Word count: <span id="count1">0</span>
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>Task 2</h3>
+
+<p>
+Some people believe that young people should spend more time learning
+practical skills at school. Others believe traditional academic
+subjects are more important.
+</p>
+
+<p>
+<strong>
+Discuss both views and give your own opinion.
+</strong>
+</p>
+
+<textarea
+id="writing2"
+oninput="countWords('writing2','count2')"
+placeholder="Write your Task 2 essay here..."
+></textarea>
+
+<div class="word-count">
+Word count: <span id="count2">0</span>
+</div>
+
+</div>
+
+
+<div class="card center">
+
+<button class="success" onclick="submitWriting()">
+✅ Submit Writing
+</button>
+
+<button onclick="showSection('menu')">
+⬅ Back to Sections
+</button>
+
+<div id="writingResult"></div>
+
+</div>
+
+</div>
+
+
+<!-- ================= SPEAKING ================= -->
+
+<div id="speaking" class="section">
+
+<div class="card">
+
+<h2>🗣️ IELTS Speaking Practice</h2>
+
+</div>
+
+
+<div class="card">
+
+<h3>Part 1 — Introduction and Interview</h3>
+
+<p>Answer naturally and give more than one-word answers.</p>
+
+<ol>
+
+<li>What is your full name?</li>
+
+<li>Where do you live?</li>
+
+<li>What do you like about your hometown?</li>
+
+<li>Are you a student?</li>
+
+<li>What is your favourite school subject?</li>
+
+<li>What do you usually do after school?</li>
+
+<li>Do you enjoy learning English?</li>
+
+<li>What kind of music do you like?</li>
+
+<li>How often do you use the internet?</li>
+
+<li>Do you prefer studying alone or with friends?</li>
+
+</ol>
+
+</div>
+
+
+<div class="card">
+
+<h3>Part 2 — Individual Long Turn</h3>
+
+<p>
+<strong>
+Describe a skill you would like to learn.
+</strong>
+</p>
+
+<p>You should say:</p>
+
+<ul>
+
+<li>what the skill is</li>
+
+<li>why you want to learn it</li>
+
+<li>how you would learn it</li>
+
+<li>and explain why the skill would be useful to you</li>
+
+</ul>
+
+<p>
+You should speak for 1–2 minutes.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>Part 3 — Discussion</h3>
+
+<ol>
+
+<li>Why do people learn new skills?</li>
+
+<li>Should schools teach more practical skills?</li>
+
+<li>How has technology changed education?</li>
+
+<li>Do young people learn differently from older people?</li>
+
+<li>Will artificial intelligence change education?</li>
+
+<li>What skills will be important in the future?</li>
+
+</ol>
+
+</div>
+
+
+<div class="card center">
+
+<button class="success" onclick="finishSpeaking()">
+✅ Finish Speaking
+</button>
+
+<button onclick="showSection('menu')">
+⬅ Back to Sections
+</button>
+
+<div id="speakingResult"></div>
+
+</div>
+
+</div>
+
+
+<!-- ================= GRAMMAR ================= -->
+
+<div id="grammar" class="section">
+
+<div class="card">
+
+<h2>📘 IELTS Grammar Practice</h2>
+
+<p>
+Choose the correct answer.
+</p>
+
+</div>
+
+<div id="grammarQuestions"></div>
+
+<div class="card center">
+
+<button class="success" onclick="submitGrammar()">
+✅ Check Grammar
+</button>
+
+<button onclick="showSection('menu')">
+⬅ Back
+</button>
+
+<div id="grammarResult"></div>
+
+</div>
+
+</div>
+
+
+<!-- ================= VOCABULARY ================= -->
+
+<div id="vocabulary" class="section">
+
+<div class="card">
+
+<h2>📚 IELTS Vocabulary Practice</h2>
+
+<p>
+Build vocabulary for education, technology, environment, society and
+everyday IELTS topics.
+</p>
+
+</div>
+
+<div id="vocabularyQuestions"></div>
+
+<div class="card center">
+
+<button class="success" onclick="submitVocabulary()">
+✅ Check Vocabulary
+</button>
+
+<button onclick="showSection('menu')">
+⬅ Back
+</button>
+
+<div id="vocabularyResult"></div>
+
+</div>
+
+</div>
+
+
+<!-- ================= IDIOMS ================= -->
+
+<div id="idioms" class="section">
+
+<div class="card">
+
+<h2>💬 IELTS Idioms & Useful Expressions</h2>
+
+<div class="topic-card">
+
+<strong>1. A piece of cake</strong>
+
+<p>
+Meaning: Something that is very easy.
+</p>
+
+<p>
+Example: The grammar exercise was a piece of cake.
+</p>
+
+</div>
+
+<div class="topic-card">
+
+<strong>2. Once in a blue moon</strong>
+
+<p>
+Meaning: Very rarely.
+</p>
+
+<p>
+Example: I eat fast food once in a blue moon.
+</p>
+
+</div>
+
+<div class="topic-card">
+
+<strong>3. Break the ice</strong>
+
+<p>
+Meaning: Start a friendly conversation and make people feel
+comfortable.
+</p>
+
+<p>
+Example: The teacher told a joke to break the ice.
+</p>
+
+</div>
+
+<div class="topic-card">
+
+<strong>4. Hit the books</strong>
+
+<p>
+Meaning: Start studying seriously.
+</p>
+
+<p>
+Example: I need to hit the books before my IELTS exam.
+</p>
+
+</div>
+
+<div class="topic-card">
+
+<strong>5. In the long run</strong>
+
+<p>
+Meaning: Over a long period of time.
+</p>
+
+<p>
+Example: Learning another language is useful in the long run.
+</p>
+
+</div>
+
+<div class="topic-card">
+
+<strong>6. Broaden your horizons</strong>
+
+<p>
+Meaning: Increase your knowledge and experience.
+</p>
+
+<p>
+Example: Travelling can broaden your horizons.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>⭐ Better IELTS Expressions</h2>
+
+<p><strong>Instead of:</strong> very important</p>
+<p><strong>Use:</strong> highly significant / extremely important</p>
+
+<p><strong>Instead of:</strong> very good</p>
+<p><strong>Use:</strong> highly beneficial / extremely effective</p>
+
+<p><strong>Instead of:</strong> a lot of</p>
+<p><strong>Use:</strong> a considerable amount of / a wide range of</p>
+
+<p><strong>Instead of:</strong> I think</p>
+<p><strong>Use:</strong> In my view / From my perspective</p>
+
+</div>
+
+
+<div class="card center">
+
+<button onclick="showSection('menu')">
+⬅ Back to Sections
+</button>
+
+</div>
+
+</div>
+
+
+</div>
+
 
 <script>
 
-function submitTest() {
+/* =====================================================
+   GENERAL
+===================================================== */
 
-    document.getElementById("result").textContent =
-        "Listening test submitted!";
+let currentTest = "Academic";
+
+function startTest(type){
+
+    currentTest = type;
+
+    document.getElementById("testTitle").textContent =
+        "🎓 " + type + " IELTS Practice";
+
+    showSection("menu");
+}
+
+
+function showSection(id){
+
+    document.querySelectorAll(".section").forEach(function(section){
+
+        section.classList.remove("active");
+
+    });
+
+    const target = document.getElementById(id);
+
+    if(target){
+        target.classList.add("active");
+    }
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+    if(id === "reading"){
+        loadReadingTest();
+    }
 
 }
+
+
+/* =====================================================
+   LISTENING
+===================================================== */
+
+const listeningQuestions = [
+
+{
+    q:"What type of accommodation is most popular?",
+    options:[
+        "A single room in a shared apartment",
+        "A private house",
+        "A hotel room"
+    ],
+    answer:0
+},
+
+{
+    q:"How much does a single room cost per week?",
+    options:[
+        "$150",
+        "$185",
+        "$215"
+    ],
+    answer:1
+},
+
+{
+    q:"What is included in the rent?",
+    options:[
+        "Food",
+        "Towels",
+        "Internet"
+    ],
+    answer:2
+},
+
+{
+    q:"What does the student need to bring?",
+    options:[
+        "Bedding",
+        "Towels",
+        "A desk"
+    ],
+    answer:1
+},
+
+{
+    q:"How far is the accommodation from the college by bus?",
+    options:[
+        "About 10 minutes",
+        "About 15 minutes",
+        "About 30 minutes"
+    ],
+    answer:1
+}
+
+];
+
+
+function createListeningQuestions(){
+
+    const container =
+        document.getElementById("listeningQuestions");
+
+    let html = "";
+
+    listeningQuestions.forEach(function(item,index){
+
+        html += `
+
+        <div class="card question-card">
+
+        <h3>Question ${index+1}</h3>
+
+        <p>${item.q}</p>
+
+        ${item.options.map(function(option,i){
+
+            return `
+
+            <label class="option">
+
+            <input
+            type="radio"
+            name="listen${index}"
+            value="${i}"
+            onchange="updateListeningProgress()"
+            >
+
+            ${option}
+
+            </label>
+
+            `;
+
+        }).join("")}
+
+        </div>
+
+        `;
+
+    });
+
+    container.innerHTML = html;
+}
+
+
+function updateListeningProgress(){
+
+    let completed = 0;
+
+    listeningQuestions.forEach(function(item,index){
+
+        if(document.querySelector(
+            'input[name="listen'+index+'"]:checked'
+        )){
+            completed++;
+        }
+
+    });
+
+    document.getElementById("listeningProgress").style.width =
+        (completed/listeningQuestions.length*100)+"%";
+}
+
+
+/* =====================================================
+   FEMALE VOICE LISTENING
+===================================================== */
+
+let speechText = `
+Good morning. My name is Sarah, and I am calling about student
+accommodation. I am starting a course at the college next month,
+and I would like to ask about the rooms that are available.
+
+The accommodation office has several types of rooms. The most popular
+option is a single room in a shared apartment. Each apartment has a
+shared kitchen and living area. Students also have access to a
+laundry room on the ground floor.
+
+The rent for a single room is 185 dollars per week. This includes
+electricity, heating and internet access. Students need to bring
+their own towels, but bedding is provided.
+
+The accommodation is about fifteen minutes from the college by bus.
+There is also a supermarket nearby, which is convenient for students
+who want to prepare their own meals.
+`;
+
+let speechUtterance = null;
+let speechRate = 1;
+
+
+function getFemaleEnglishVoice(){
+
+    const voices = speechSynthesis.getVoices();
+
+    const femaleKeywords = [
+        "female",
+        "woman",
+        "samantha",
+        "zira",
+        "susan",
+        "karen",
+        "hazel",
+        "google uk english female",
+        "google us english female"
+    ];
+
+    let voice =
+        voices.find(function(v){
+
+            const name =
+                v.name.toLowerCase();
+
+            return (
+                name.includes("english") &&
+                femaleKeywords.some(function(keyword){
+                    return name.includes(keyword);
+                })
+            );
+
+        });
+
+    if(!voice){
+
+        voice =
+            voices.find(function(v){
+                return v.lang.toLowerCase().startsWith("en");
+            });
+
+    }
+
+    return voice;
+}
+
+
+speechSynthesis.onvoiceschanged = function(){
+
+    getFemaleEnglishVoice();
+
+};
+
+
+function startListeningPart(){
+
+    stopSpeech();
+
+    document.getElementById("audioStatus").textContent =
+        "⏳ Read the questions. Audio starts in 20 seconds...";
+
+    let remaining = 20;
+
+    const countdown =
+        setInterval(function(){
+
+            remaining--;
+
+            document.getElementById("audioStatus").textContent =
+                "⏳ Question reading time: "
+                + remaining
+                + " seconds";
+
+            if(remaining <= 0){
+
+                clearInterval(countdown);
+
+                speakListening();
+
+            }
+
+        },1000);
+
+}
+
+
+function speakListening(){
+
+    speechSynthesis.cancel();
+
+    speechUtterance =
+        new SpeechSynthesisUtterance(speechText);
+
+    const voice =
+        getFemaleEnglishVoice();
+
+    if(voice){
+        speechUtterance.voice = voice;
+    }
+
+    speechUtterance.lang = "en-US";
+
+    speechUtterance.rate =
+        parseFloat(
+            document.getElementById("speechRate").value
+        );
+
+    speechUtterance.volume =
+        parseFloat(
+            document.getElementById("speechVolume").value
+        );
+
+    speechUtterance.pitch = 1.05;
+
+    speechUtterance.onstart = function(){
+
+        document.getElementById("audioStatus").textContent =
+            "🎧 Listening is playing...";
+
+    };
+
+    speechUtterance.onend = function(){
+
+        document.getElementById("audioStatus").textContent =
+            "✅ Listening recording finished.";
+
+    };
+
+    speechUtterance.onerror = function(){
+
+        document.getElementById("audioStatus").textContent =
+            "⚠️ Your browser could not play the voice.";
+
+    };
+
+    speechSynthesis.speak(speechUtterance);
+
+}
+
+
+function pauseSpeech(){
+
+    if(speechSynthesis.speaking){
+
+        speechSynthesis.pause();
+
+        document.getElementById("audioStatus").textContent =
+            "⏸️ Audio paused.";
+
+    }
+
+}
+
+
+function resumeSpeech(){
+
+    if(speechSynthesis.paused){
+
+        speechSynthesis.resume();
+
+        document.getElementById("audioStatus").textContent =
+            "▶️ Audio resumed.";
+
+    }
+
+}
+
+
+function restartSpeech(){
+
+    speakListening();
+
+}
+
+
+function stopSpeech(){
+
+    speechSynthesis.cancel();
+
+    document.getElementById("audioStatus").textContent =
+        "⏹️ Audio stopped.";
+
+}
+
+
+function changeSpeechRate(){
+
+    if(speechSynthesis.speaking){
+
+        speakListening();
+
+    }
+
+}
+
+
+document.getElementById("speechVolume")
+.addEventListener("input",function(){
+
+    if(speechUtterance){
+
+        speechUtterance.volume =
+            parseFloat(this.value);
+
+    }
+
+});
+
+
+function submitListening(){
+
+    let score = 0;
+
+    listeningQuestions.forEach(function(item,index){
+
+        const selected =
+            document.querySelector(
+                'input[name="listen'+index+'"]:checked'
+            );
+
+        if(
+            selected &&
+            parseInt(selected.value) === item.answer
+        ){
+            score++;
+        }
+
+    });
+
+    document.getElementById("listeningResult").innerHTML = `
+
+    <div class="result">
+
+    <h2>🎧 Listening Result</h2>
+
+    <h3>${score} / ${listeningQuestions.length}</h3>
+
+    <p>
+    Your listening practice has been completed.
+    </p>
+
+    </div>
+
+    `;
+
+}
+
+
+/* =====================================================
+   READING TESTS
+===================================================== */
+
+const readingTests = [
+
+{
+
+title:"Learning a New Language",
+
+passage:`
+
+<h2>Learning a New Language</h2>
+
+<p>
+Learning a new language can provide many benefits. It can improve
+communication, help people understand different cultures, and create
+new opportunities for education and employment. Although learning a
+language requires time and patience, regular practice can make the
+process easier and more enjoyable.
+</p>
+
+<p>
+People who speak several languages can communicate with a wider range
+of people. This can be particularly useful when travelling or working
+with people from different countries. A second language may also give
+young people more choices when they apply for universities or jobs.
+</p>
+
+<p>
+Language is closely connected to culture. When students learn another
+language, they often discover traditions, customs, humour and different
+ways of thinking. Understanding these differences can encourage respect
+and reduce misunderstandings between people from different backgrounds.
+</p>
+
+<p>
+Regular practice is essential. Reading books, writing short texts,
+listening to conversations and speaking with other learners can all
+help students develop confidence. Vocabulary is especially important
+because learners need a growing collection of words to express ideas
+clearly.
+</p>
+
+<p>
+Technology has also changed the way people learn languages.
+Educational websites, mobile applications, videos and online
+conversations allow learners to practise outside the classroom.
+However, technology is most effective when learners use it regularly
+and combine it with other forms of practice.
+</p>
+
+<p>
+Making mistakes is a normal part of learning. Instead of becoming
+discouraged, students should identify their mistakes, understand why
+they occurred and try again. Patience and consistent practice are often
+more important than trying to become fluent immediately.
+</p>
+`,
+
+questions:[
+
+["What is one benefit of learning a language?","A","B","C","A"],
+["Language can be useful when travelling because it helps people...","communicate with more people","avoid all problems","travel for free","A"],
+["Language is closely connected to...","culture","weather","sport","A"],
+["What may employers value?","workers who can communicate with international customers","workers who never speak","workers who avoid technology","A"],
+["How do language skills improve?","Immediately","Gradually","Without practice","B"],
+["Learning another language can create employment opportunities.","TRUE","FALSE","NOT GIVEN","TRUE"],
+["Everyone can become fluent in one month.","TRUE","FALSE","NOT GIVEN","FALSE"],
+["Technology can support language learning.","TRUE","FALSE","NOT GIVEN","TRUE"],
+["Making mistakes is a normal part of learning.","TRUE","FALSE","NOT GIVEN","TRUE"],
+["Learning a language always requires no effort.","TRUE","FALSE","NOT GIVEN","FALSE"],
+["Learning another language can improve ________.","communication","communication","communication","communication"],
+["Language and ________ are closely connected.","culture","culture","culture","culture"],
+["Regular practice helps learners remember new ________.","vocabulary","vocabulary","vocabulary","vocabulary"],
+["Students should identify their ________ and try again.","mistakes","mistakes","mistakes","mistakes"],
+["Technology can provide opportunities to practise outside the ________.","classroom","classroom","classroom","classroom"]
+
+]
+
+},
+
+{
+
+title:"Technology and Teenagers",
+
+passage:`
+
+<h2>Technology and Teenagers</h2>
+
+<p>
+Technology has become an important part of teenage life. Smartphones,
+computers and tablets allow young people to communicate, study,
+create content and access information within seconds. These tools
+can be particularly useful for education when they are used carefully.
+</p>
+
+<p>
+Online learning platforms provide students with access to videos,
+practice exercises and educational materials. A student who does not
+understand a topic in class can often find another explanation online.
+This gives learners more control over the speed and style of their
+study.
+</p>
+
+<p>
+However, technology also has disadvantages. Social media and online
+entertainment can distract students from homework. Spending too much
+time looking at screens may also reduce the amount of time teenagers
+spend exercising, sleeping or communicating face-to-face with family
+members.
+</p>
+
+<p>
+For this reason, experts often recommend balance rather than avoiding
+technology completely. Young people can benefit from setting limits,
+turning off unnecessary notifications and creating periods during the
+day when they do not use their devices.
+</p>
+
+<p>
+Technology is therefore neither completely good nor completely bad.
+Its effects depend largely on how people use it. When students use
+digital tools with clear goals, technology can support learning and
+creativity.
+</p>
+`,
+
+questions:[
+
+["What can smartphones help teenagers do?","Study and communicate","Only sleep","Avoid school","A"],
+["Online platforms can provide...","educational materials","free houses","school uniforms","A"],
+["What can distract students?","Social media","Reading books","Exercise","A"],
+["Experts recommend...","complete avoidance","balance","using screens all night","B"],
+["Technology can support learning when used...","carefully","without limits","only at night","A"],
+["Online learning can give students more control over study.","TRUE","FALSE","NOT GIVEN","TRUE"],
+["Technology has no disadvantages.","TRUE","FALSE","NOT GIVEN","FALSE"],
+["Too much screen time may reduce exercise.","TRUE","FALSE","NOT GIVEN","TRUE"],
+["Students should never use digital tools.","TRUE","FALSE","NOT GIVEN","FALSE"],
+["Clear goals can make technology useful.","TRUE","FALSE","NOT GIVEN","TRUE"],
+["Online platforms provide educational ________.","materials","materials","materials","materials"],
+["Social media can become a ________.","distraction","distraction","distraction","distraction"],
+["Young people can set ________ on device use.","limits","limits","limits","limits"],
+["Technology can support learning and ________.","creativity","creativity","creativity","creativity"],
+["Experts recommend a healthy ________.","balance","balance","balance","balance"]
+
+]
+
+},
+
+{
+
+title:"The Future of Cities",
+
+passage:`
+
+<h2>The Future of Cities</h2>
+
+<p>
+Cities around the world are growing. More people are moving to urban
+areas because cities often provide employment, education, healthcare
+and entertainment. As populations increase, however, city planners
+must find ways to make urban life comfortable and sustainable.
+</p>
+
+<p>
+One important challenge is transportation. Large numbers of cars can
+create traffic congestion and air pollution. Some cities are therefore
+investing in public transportation, cycling routes and pedestrian
+areas. These changes can reduce dependence on private cars.
+</p>
+
+<p>
+Green spaces are also important. Parks and gardens provide places for
+people to relax and exercise. Trees can provide shade and help improve
+air quality. In addition, green areas can make crowded neighbourhoods
+more pleasant.
+</p>
+
+<p>
+Technology may also influence the future of cities. Smart systems can
+help control traffic lights, monitor energy use and provide information
+to residents. However, technology alone cannot solve every urban
+problem. Successful cities also require good planning and cooperation
+between governments and communities.
+</p>
+
+<p>
+The cities of the future will probably need to balance economic growth,
+environmental protection and quality of life. This will require
+long-term planning and the participation of local residents.
+</p>
+`,
+
+questions:[
+
+["Why do people move to cities?","For employment and services","Only for parks","To avoid education","A"],
+["What can large numbers of cars cause?","Traffic and pollution","More parks","Less traffic","A"],
+["What can reduce dependence on private cars?","Public transportation","More highways","Larger parking lots","A"],
+["Why are green spaces important?","They provide places to relax","They increase pollution","They remove schools","A"],
+["Technology can help cities manage...","traffic and energy","only sports","school exams","A"],
+["Cities need to consider quality of life.","TRUE","FALSE","NOT GIVEN","TRUE"],
+["Cars never cause pollution.","TRUE","FALSE","NOT GIVEN","FALSE"],
+["Green spaces can provide shade.","TRUE","FALSE","NOT GIVEN","TRUE"],
+["Technology can solve every urban problem.","TRUE","FALSE","NOT GIVEN","FALSE"],
+["Community cooperation is important.","TRUE","FALSE","NOT GIVEN","TRUE"],
+["Cities are experiencing population ________.","growth","growth","growth","growth"],
+["Cars can create traffic ________.","congestion","congestion","congestion","congestion"],
+["Parks provide places to relax and ________.","exercise","exercise","exercise","exercise"],
+["Smart systems can monitor energy ________.","use","use","use","use"],
+["Future cities require long-term ________.","planning","planning","planning","planning"]
+
+]
+
+}
+
+];
+
+
+function loadReadingTest(){
+
+    const index =
+        parseInt(
+            document.getElementById("readingTestSelect").value
+        );
+
+    const test =
+        readingTests[index];
+
+    document.getElementById("readingPassage").innerHTML = `
+
+    <div class="card reading-passage">
+
+    ${test.passage}
+
+    </div>
+
+    `;
+
+    createReadingQuestions(test.questions);
+
+}
+
+
+function createReadingQuestions(questions){
+
+    const container =
+        document.getElementById("readingQuestions");
+
+    let html = "";
+
+    questions.forEach(function(q,index){
+
+        if(index < 5){
+
+            html += `
+
+            <div class="card question-card">
+
+            <h3>Question ${index+1}</h3>
+
+            <p>${q[0]}</p>
+
+            <label class="option">
+            <input type="radio"
+            name="read${index}"
+            value="A"
+            onchange="updateReadingProgress()">
+            A. ${q[1]}
+            </label>
+
+            <label class="option">
+            <input type="radio"
+            name="read${index}"
+            value="B"
+            onchange="updateReadingProgress()">
+            B. ${q[2]}
+            </label>
+
+            <label class="option">
+            <input type="radio"
+            name="read${index}"
+            value="C"
+            onchange="updateReadingProgress()">
+            C. ${q[3]}
+            </label>
+
+            </div>
+
+            `;
+
+        }else if(index < 10){
+
+            html += `
+
+            <div class="card question-card">
+
+            <h3>Question ${index+1}</h3>
+
+            <p>${q[0]}</p>
+
+            <select
+            id="read${index}"
+            onchange="updateReadingProgress()">
+
+            <option value="">Choose an answer</option>
+
+            <option value="TRUE">TRUE</option>
+            <option value="FALSE">FALSE</option>
+            <option value="NOT GIVEN">NOT GIVEN</option>
+
+            </select>
+
+            </div>
+
+            `;
+
+        }else{
+
+            html += `
+
+            <div class="card question-card">
+
+            <h3>Question ${index+1}</h3>
+
+            <p>${q[0]}</p>
+
+            <input
+            type="text"
+            id="read${index}"
+            placeholder="Type your answer"
+            oninput="updateReadingProgress()"
+            >
+
+            </div>
+
+            `;
+
+        }
+
+    });
+
+    container.innerHTML = html;
+
+}
+
+
+function updateReadingProgress(){
+
+    const questions =
+        readingTests[
+            parseInt(
+                document.getElementById("readingTestSelect").value
+            )
+        ].questions;
+
+    let completed = 0;
+
+    questions.forEach(function(q,index){
+
+        const textElement =
+            document.getElementById("read"+index);
+
+        if(textElement){
+
+            if(textElement.value.trim() !== ""){
+                completed++;
+            }
+
+        }else{
+
+            if(document.querySelector(
+                'input[name="read'+index+'"]:checked'
+            )){
+                completed++;
+            }
+
+        }
+
+    });
+
+    document.getElementById("readingProgress").style.width =
+        (completed/questions.length*100)+"%";
+
+}
+
+
+function submitReading(){
+
+    const test =
+        readingTests[
+            parseInt(
+                document.getElementById("readingTestSelect").value
+            )
+        ];
+
+    let score = 0;
+
+    test.questions.forEach(function(q,index){
+
+        let answer = "";
+
+        const element =
+            document.getElementById("read"+index);
+
+        if(element){
+
+            answer =
+                element.value
+                .trim()
+                .toLowerCase();
+
+        }else{
+
+            const selected =
+                document.querySelector(
+                    'input[name="read'+index+'"]:checked'
+                );
+
+            if(selected){
+                answer =
+                    selected.value.toLowerCase();
+            }
+
+        }
+
+        if(answer === q[4].toLowerCase()){
+            score++;
+        }
+
+    });
+
+    document.getElementById("readingResult").innerHTML = `
+
+    <div class="result">
+
+    <h2>📖 Reading Result</h2>
+
+    <h3>${score} / ${test.questions.length}</h3>
+
+    <p>
+    Test: ${test.title}
+    </p>
+
+    </div>
+
+    `;
+
+}
+
+
+/* =====================================================
+   WRITING
+===================================================== */
+
+function countWords(inputId,outputId){
+
+    const text =
+        document.getElementById(inputId).value.trim();
+
+    const count =
+        text === ""
+        ? 0
+        : text.split(/\s+/).length;
+
+    document.getElementById(outputId).textContent =
+        count;
+
+}
+
+
+function submitWriting(){
+
+    const words1 =
+        document.getElementById("writing1")
+        .value.trim()
+        .split(/\s+/)
+        .filter(Boolean)
+        .length;
+
+    const words2 =
+        document.getElementById("writing2")
+        .value.trim()
+        .split(/\s+/)
+        .filter(Boolean)
+        .length;
+
+    document.getElementById("writingResult").innerHTML = `
+
+    <div class="result">
+
+    <h2>✍️ Writing Submitted</h2>
+
+    <p>Task 1: ${words1} words</p>
+
+    <p>Task 2: ${words2} words</p>
+
+    <p>
+    For realistic IELTS practice, writing should be assessed for
+    Task Achievement/Task Response, Coherence and Cohesion,
+    Lexical Resource, and Grammatical Range and Accuracy.
+    </p>
+
+    </div>
+
+    `;
+
+}
+
+
+/* =====================================================
+   SPEAKING
+===================================================== */
+
+function finishSpeaking(){
+
+    document.getElementById("speakingResult").innerHTML = `
+
+    <div class="result">
+
+    <h2>🗣️ Speaking Practice Complete</h2>
+
+    <p>
+    In IELTS Speaking, performance is assessed using:
+    </p>
+
+    <ul>
+
+    <li>Fluency and Coherence</li>
+
+    <li>Lexical Resource</li>
+
+    <li>Grammatical Range and Accuracy</li>
+
+    <li>Pronunciation</li>
+
+    </ul>
+
+    </div>
+
+    `;
+
+}
+
+
+/* =====================================================
+   GRAMMAR
+===================================================== */
+
+const grammarQuestions = [
+
+[
+"She ______ to school every day.",
+"go",
+"goes",
+"going",
+"B"
+],
+
+[
+"If I had more time, I ______ another language.",
+"learn",
+"will learn",
+"would learn",
+"C"
+],
+
+[
+"They have lived here ______ 2020.",
+"since",
+"for",
+"from",
+"A"
+],
+
+[
+"He is interested ______ learning English.",
+"on",
+"in",
+"at",
+"B"
+],
+
+[
+"By next year, I ______ my IELTS preparation.",
+"will complete",
+"completed",
+"complete",
+"A"
+],
+
+[
+"Neither John nor his friends ______ available.",
+"is",
+"are",
+"be",
+"B"
+],
+
+[
+"She speaks English ______ than her brother.",
+"more fluently",
+"more fluent",
+"most fluent",
+"A"
+],
+
+[
+"I wish I ______ more confident when speaking.",
+"am",
+"were",
+"will be",
+"B"
+]
+
+];
+
+
+function createGrammarQuestions(){
+
+    const container =
+        document.getElementById("grammarQuestions");
+
+    let html = "";
+
+    grammarQuestions.forEach(function(q,index){
+
+        html += `
+
+        <div class="card">
+
+        <h3>Question ${index+1}</h3>
+
+        <p>${q[0]}</p>
+
+        <label class="option">
+        <input type="radio"
+        name="grammar${index}"
+        value="A">
+        A. ${q[1]}
+        </label>
+
+        <label class="option">
+        <input type="radio"
+        name="grammar${index}"
+        value="B">
+        B. ${q[2]}
+        </label>
+
+        <label class="option">
+        <input type="radio"
+        name="grammar${index}"
+        value="C">
+        C. ${q[3]}
+        </label>
+
+        </div>
+
+        `;
+
+    });
+
+    container.innerHTML = html;
+
+}
+
+
+function submitGrammar(){
+
+    let score = 0;
+
+    grammarQuestions.forEach(function(q,index){
+
+        const selected =
+            document.querySelector(
+                'input[name="grammar'+index+'"]:checked'
+            );
+
+        if(selected && selected.value === q[4]){
+            score++;
+        }
+
+    });
+
+    document.getElementById("grammarResult").innerHTML = `
+
+    <div class="result">
+
+    <h2>📘 Grammar Result</h2>
+
+    <h3>${score} / ${grammarQuestions.length}</h3>
+
+    </div>
+
+    `;
+
+}
+
+
+/* =====================================================
+   VOCABULARY
+===================================================== */
+
+const vocabularyQuestions = [
+
+[
+"The word 'significant' is closest in meaning to:",
+"important",
+"tiny",
+"ordinary",
+"A"
+],
+
+[
+"Something 'beneficial' is:",
+"useful",
+"harmful",
+"expensive",
+"A"
+],
+
+[
+"'Contribute' means:",
+"to help cause something",
+"to destroy something",
+"to avoid something",
+"A"
+],
+
+[
+"'Rapid' means:",
+"slow",
+"quick",
+"weak",
+"B"
+],
+
+[
+"'Approximately' means:",
+"exactly",
+"never",
+"about",
+"C"
+],
+
+[
+"'Encourage' means:",
+"to support",
+"to prevent",
+"to confuse",
+"A"
+],
+
+[
+"'Reliable' means:",
+"able to be trusted",
+"very expensive",
+"extremely large",
+"A"
+],
+
+[
+"'Challenge' means:",
+"a difficult task",
+"a holiday",
+"a reward",
+"A"
+]
+
+];
+
+
+function createVocabularyQuestions(){
+
+    const container =
+        document.getElementById("vocabularyQuestions");
+
+    let html = "";
+
+    vocabularyQuestions.forEach(function(q,index){
+
+        html += `
+
+        <div class="card">
+
+        <h3>Question ${index+1}</h3>
+
+        <p>${q[0]}</p>
+
+        <label class="option">
+        <input
+        type="radio"
+        name="vocab${index}"
+        value="A">
+        A. ${q[1]}
+        </label>
+
+        <label class="option">
+        <input
+        type="radio"
+        name="vocab${index}"
+        value="B">
+        B. ${q[2]}
+        </label>
+
+        <label class="option">
+        <input
+        type="radio"
+        name="vocab${index}"
+        value="C">
+        C. ${q[3]}
+        </label>
+
+        </div>
+
+        `;
+
+    });
+
+    container.innerHTML = html;
+
+}
+
+
+function submitVocabulary(){
+
+    let score = 0;
+
+    vocabularyQuestions.forEach(function(q,index){
+
+        const selected =
+            document.querySelector(
+                'input[name="vocab'+index+'"]:checked'
+            );
+
+        if(selected && selected.value === q[4]){
+            score++;
+        }
+
+    });
+
+    document.getElementById("vocabularyResult").innerHTML = `
+
+    <div class="result">
+
+    <h2>📚 Vocabulary Result</h2>
+
+    <h3>${score} / ${vocabularyQuestions.length}</h3>
+
+    </div>
+
+    `;
+
+}
+
+
+/* =====================================================
+   TIMERS
+===================================================== */
+
+let timers = {};
+
+
+function createTimer(elementId,minutes){
+
+    let secondsLeft =
+        minutes * 60;
+
+    if(timers[elementId]){
+        clearInterval(timers[elementId]);
+    }
+
+    timers[elementId] =
+        setInterval(function(){
+
+            const element =
+                document.getElementById(elementId);
+
+            if(!element){
+
+                clearInterval(
+                    timers[elementId]
+                );
+
+                return;
+
+            }
+
+            const mins =
+                Math.floor(secondsLeft / 60);
+
+            const secs =
+                secondsLeft % 60;
+
+            element.textContent =
+                "⏱️ Time Remaining: "
+                + mins
+                + ":"
+                + String(secs).padStart(2,"0");
+
+            if(secondsLeft <= 0){
+
+                clearInterval(
+                    timers[elementId]
+                );
+
+                element.textContent =
+                    "⏰ Time is up!";
+
+                alert(
+                    "⏰ Your practice time is finished."
+                );
+
+            }
+
+            secondsLeft--;
+
+        },1000);
+
+}
+
+
+/* =====================================================
+   START
+===================================================== */
+
+createListeningQuestions();
+
+loadReadingTest();
+
+createGrammarQuestions();
+
+createVocabularyQuestions();
+
+createTimer(
+    "listeningTimer",
+    30
+);
+
+createTimer(
+    "readingTimer",
+    60
+);
+
+createTimer(
+    "writingTimer",
+    60
+);
 
 </script>
 

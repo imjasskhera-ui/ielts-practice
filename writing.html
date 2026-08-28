@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Teen IELTS Writing Practice</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #222;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+
+header {
+    background: #17365d;
+    color: white;
+    padding: 35px 20px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0 0 10px;
+    font-size: 36px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+h2 {
+    color: #17365d;
+}
+
+h3 {
+    color: #17365d;
+}
+
+select,
+textarea,
+button {
+    font-size: 16px;
+}
+
+select {
+    width: 100%;
+    max-width: 600px;
+    padding: 13px;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    margin-top: 8px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 320px;
+    padding: 15px;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    resize: vertical;
+}
+
+button {
+    padding: 13px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #17365d;
+    color: white;
+    cursor: pointer;
+    margin: 5px;
+}
+
+button:hover {
+    background: #0f2744;
+}
+
+.timer {
+    position: sticky;
+    top: 10px;
+    z-index: 100;
+    background: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+}
+
+.timer.warning {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.timer.danger {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.progress {
+    height: 12px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 15px 0;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #17365d;
+    transition: width .3s;
+}
+
+.word-count {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.warning {
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.success {
+    color: green;
+}
+
+.error {
+    color: #c62828;
+}
+
+.task-box {
+    background: #f4f7fb;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+.tip {
+    background: #fff8e1;
+    padding: 15px;
+    border-left: 5px solid #f0ad00;
+    border-radius: 6px;
+    margin: 15px 0;
+}
+
+.criteria {
+    background: #eef5ff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.result {
+    background: #e8f5e9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.center {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.info {
+    color: #666;
+    font-size: 14px;
+}
+
+.topic-badge {
+    display: inline-block;
+    background: #17365d;
+    color: white;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+ul,
+ol {
+    line-height: 1.7;
+}
+
+@media(max-width:600px) {
+
+    .container {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    .card {
+        padding: 17px;
+    }
+
+    textarea {
+        min-height: 260px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+
+<h1>✍️ Teen IELTS Writing Practice</h1>
+
+<p>
+Academic • General Training • Task 1 • Task 2
+</p>
+
+</header>
+
+
+<!-- TEST SELECTION -->
+
+<div class="card">
+
+<h2>📚 Choose Your Writing Test</h2>
+
+<label>
+<strong>Test Type</strong>
+</label>
+
+<select id="testType" onchange="changeTestType()">
+
+<option value="academic1">
+🎓 Academic Writing Task 1
+</option>
+
+<option value="general1">
+🌍 General Training Writing Task 1
+</option>
+
+<option value="task2">
+📝 Writing Task 2
+</option>
+
+</select>
+
+
+<br><br>
+
+<label>
+<strong>Choose Practice Test</strong>
+</label>
+
+<select id="testNumber" onchange="loadTest()">
+</select>
+
+</div>
+
+
+<!-- TIMER -->
+
+<div class="timer" id="timer">
+
+⏱️ Writing Time: 60:00
+
+</div>
+
+
+<!-- PROGRESS -->
+
+<div class="card">
+
+<h3>📈 Writing Progress</h3>
+
+<div class="progress">
+
+<div id="progressFill" class="progress-fill"></div>
+
+</div>
+
+<p id="progressText">
+Start writing your answer.
+</p>
+
+</div>
+
+
+<!-- TASK -->
+
+<div id="taskArea"></div>
+
+
+<!-- ANSWER -->
+
+<div class="card">
+
+<h2>✍️ Your Answer</h2>
+
+<textarea
+id="answerBox"
+placeholder="Write your answer here..."
+oninput="updateWriting()"></textarea>
+
+<div class="word-count">
+
+Word count:
+<span id="wordCount">0</span>
+
+</div>
+
+<div id="wordWarning" class="warning"></div>
+
+</div>
+
+
+<!-- HELP -->
+
+<div class="card">
+
+<h2>💡 Useful Writing Language</h2>
+
+<p>
+<strong>Introducing ideas:</strong>
+Firstly, To begin with, One important point is that...
+</p>
+
+<p>
+<strong>Adding ideas:</strong>
+Furthermore, Moreover, In addition, Another important point is...
+</p>
+
+<p>
+<strong>Contrasting:</strong>
+However, On the other hand, In contrast, Whereas...
+</p>
+
+<p>
+<strong>Giving examples:</strong>
+For example, For instance, Such as...
+</p>
+
+<p>
+<strong>Results:</strong>
+Therefore, As a result, Consequently, Thus...
+</p>
+
+<p>
+<strong>Conclusion:</strong>
+In conclusion, To conclude, Overall, In my opinion...
+</p>
+
+</div>
+
+
+<!-- CHECKLIST -->
+
+<div class="card criteria">
+
+<h2>🎯 IELTS Writing Self-Check</h2>
+
+<ul>
+
+<li>Did I answer every part of the question?</li>
+
+<li>Did I organise my ideas into clear paragraphs?</li>
+
+<li>Did I use linking words naturally?</li>
+
+<li>Did I use a range of vocabulary?</li>
+
+<li>Did I avoid repeating the same words?</li>
+
+<li>Did I use different grammatical structures?</li>
+
+<li>Did I check spelling and punctuation?</li>
+
+<li>Did I write enough words?</li>
+
+</ul>
+
+</div>
+
+
+<!-- BUTTONS -->
+
+<div class="card center">
+
+<button onclick="submitWriting()">
+✅ Submit Practice
+</button>
+
+<button onclick="clearAnswer()">
+🔄 Clear Answer
+</button>
+
+<button onclick="newTest()">
+🎲 New Practice Test
+</button>
+
+<div id="result"></div>
+
+</div>
+
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   ACADEMIC TASK 1
+===================================================== */
+
+const academicTests = [
+
+{
+title: "Test 1 — Teen Activities",
+type: "Chart",
+question: `
+The table below shows the percentage of teenagers who participated
+in four different activities in 2015, 2020 and 2025.
+
+Sports: 45%, 52%, 61%
+
+Reading: 38%, 41%, 48%
+
+Music: 31%, 37%, 44%
+
+Gaming: 42%, 55%, 67%
+
+Summarise the information by selecting and reporting the main
+features, and make comparisons where relevant.
+`
+},
+
+{
+title: "Test 2 — Library Visitors",
+type: "Chart",
+question: `
+The chart below shows the number of people who visited a public
+library on weekdays during one week.
+
+Monday: 120 visitors
+
+Tuesday: 150 visitors
+
+Wednesday: 180 visitors
+
+Thursday: 160 visitors
+
+Friday: 210 visitors
+
+Summarise the information by selecting and reporting the main
+features, and make comparisons where relevant.
+`
+},
+
+{
+title: "Test 3 — School Subjects",
+type: "Table",
+question: `
+The table shows the average amount of time students spent studying
+four school subjects each week.
+
+English: 5 hours
+
+Mathematics: 6 hours
+
+Science: 4 hours
+
+History: 3 hours
+
+Describe the main features and make relevant comparisons.
+`
+},
+
+{
+title: "Test 4 — Transport",
+type: "Chart",
+question: `
+The chart shows the percentage of students who used different forms
+of transport to travel to school.
+
+Bus: 42%
+
+Car: 25%
+
+Walking: 18%
+
+Bicycle: 10%
+
+Other: 5%
+
+Summarise the main features and make comparisons where relevant.
+`
+},
+
+{
+title: "Test 5 — Internet Use",
+type: "Table",
+question: `
+The table shows the average daily time teenagers spent using the
+internet for different purposes.
+
+Education: 2 hours
+
+Entertainment: 3 hours
+
+Social media: 2.5 hours
+
+News: 0.5 hours
+
+Other: 1 hour
+
+Summarise the information and make comparisons where relevant.
+`
+},
+
+{
+title: "Test 6 — School Clubs",
+type: "Chart",
+question: `
+The chart shows the number of students who joined five school clubs
+in 2024 and 2025.
+
+Sports:
+2024 — 80
+2025 — 105
+
+Music:
+2024 — 55
+2025 — 70
+
+Art:
+2024 — 40
+2025 — 60
+
+Drama:
+2024 — 35
+2025 — 50
+
+Technology:
+2024 — 65
+2025 — 95
+
+Summarise the main features and make comparisons.
+`
+},
+
+{
+title: "Test 7 — Daily Activities",
+type: "Chart",
+question: `
+The chart shows how teenagers spent an average weekday.
+
+School: 7 hours
+
+Homework: 2 hours
+
+Sleep: 8 hours
+
+Exercise: 1 hour
+
+Entertainment: 4 hours
+
+Other activities: 2 hours
+
+Summarise the information by selecting and reporting the main
+features.
+`
+},
+
+{
+title: "Test 8 — Favourite Foods",
+type: "Table",
+question: `
+The table shows the percentage of teenagers who selected different
+foods as their favourite.
+
+Pizza: 35%
+
+Burgers: 25%
+
+Pasta: 18%
+
+Rice dishes: 12%
+
+Salads: 10%
+
+Summarise the main features and make comparisons where relevant.
+`
+},
+
+{
+title: "Test 9 — Online Learning",
+type: "Chart",
+question: `
+The chart shows the percentage of students who used different online
+learning resources in 2020 and 2025.
+
+Educational videos:
+2020 — 45%
+2025 — 70%
+
+Online courses:
+2020 — 25%
+2025 — 55%
+
+Language apps:
+2020 — 30%
+2025 — 65%
+
+Online libraries:
+2020 — 20%
+2025 — 40%
+
+Summarise the main features and make comparisons.
+`
+},
+
+{
+title: "Test 10 — Exercise",
+type: "Table",
+question: `
+The table shows the average number of hours teenagers spent exercising
+per week in three age groups.
+
+Ages 13–14:
+4 hours
+
+Ages 15–16:
+3.5 hours
+
+Ages 17–18:
+2.5 hours
+
+Describe the information and make comparisons where appropriate.
+`
+}
+
+];
+
+
+/* =====================================================
+   GENERAL TRAINING TASK 1
+===================================================== */
+
+const generalTests = [
+
+{
+title: "Test 1 — New Neighbourhood",
+question: `
+You recently moved to a new neighbourhood.
+
+Write a letter to your friend. In your letter:
+
+• describe your new home
+• explain what you like about the neighbourhood
+• invite your friend to visit you
+
+Write at least 150 words.
+`
+},
+
+{
+title: "Test 2 — School Course",
+question: `
+You have recently completed an English course.
+
+Write a letter to the course organiser. In your letter:
+
+• explain why you chose the course
+• describe what you liked about it
+• suggest one improvement
+
+Write at least 150 words.
+`
+},
+
+{
+title: "Test 3 — Lost Item",
+question: `
+You left an important item on a bus.
+
+Write a letter to the bus company. In your letter:
+
+• describe the item
+• explain where you think you lost it
+• say what you would like the company to do
+
+Write at least 150 words.
+`
+},
+
+{
+title: "Test 4 — Invitation",
+question: `
+A friend from another country is visiting your city.
+
+Write a letter inviting your friend to stay with you. In your letter:
+
+• explain where you live
+• suggest activities you could do together
+• explain why you think they would enjoy the visit
+
+Write at least 150 words.
+`
+},
+
+{
+title: "Test 5 — Local Sports Centre",
+question: `
+You recently joined a sports centre but are unhappy with one aspect
+of the service.
+
+Write a letter to the manager. In your letter:
+
+• explain why you joined
+• describe the problem
+• suggest how it could be improved
+
+Write at least 150 words.
+`
+},
+
+{
+title: "Test 6 — Job Application",
+question: `
+You saw an advertisement for a part-time job suitable for students.
+
+Write a letter to the manager. In your letter:
+
+• explain why you are interested
+• describe your relevant skills
+• say when you are available
+
+Write at least 150 words.
+`
+},
+
+{
+title: "Test 7 — Neighbour Problem",
+question: `
+Your neighbour often makes a lot of noise late at night.
+
+Write a letter to your neighbour. In your letter:
+
+• explain the problem
+• describe how it affects you
+• suggest a solution
+
+Write at least 150 words.
+`
+},
+
+{
+title: "Test 8 — School Trip",
+question: `
+Your school is planning a trip and has asked students for suggestions.
+
+Write a letter to your teacher. In your letter:
+
+• suggest a place to visit
+• explain why students would enjoy it
+• suggest activities for the trip
+
+Write at least 150 words.
+`
+},
+
+{
+title: "Test 9 — Library Membership",
+question: `
+You recently joined a library but have a problem with the service.
+
+Write a letter to the library manager. In your letter:
+
+• explain why you joined
+• describe the problem
+• suggest improvements
+
+Write at least 150 words.
+`
+},
+
+{
+title: "Test 10 — Holiday Accommodation",
+question: `
+You stayed at a hotel during a recent holiday.
+
+Write a letter to the hotel manager. In your letter:
+
+• explain why you stayed there
+• describe something you liked
+• describe a problem you experienced
+
+Write at least 150 words.
+`
+}
+
+];
+
+
+/* =====================================================
+   TASK 2
+===================================================== */
+
+const task2Tests = [
+
+{
+title: "Test 1 — Practical Skills",
+question: `
+Some people believe that schools should spend more time teaching
+practical skills, while others believe that academic subjects are
+more important.
+
+Discuss both views and give your own opinion.
+`
+},
+
+{
+title: "Test 2 — Technology",
+question: `
+Technology has changed the way young people communicate.
+
+Do the advantages of this development outweigh the disadvantages?
+`
+},
+
+{
+title: "Test 3 — Homework",
+question: `
+Some people believe that students should receive homework every day,
+while others think that homework should be limited.
+
+Discuss both views and give your own opinion.
+`
+},
+
+{
+title: "Test 4 — Online Learning",
+question: `
+Online learning is becoming increasingly popular.
+
+Do you think online education is better than traditional classroom
+education?
+
+Give reasons for your answer and include relevant examples.
+`
+},
+
+{
+title: "Test 5 — School Uniforms",
+question: `
+Some people believe that students should wear school uniforms.
+Others believe students should be allowed to choose what they wear.
+
+Discuss both views and give your own opinion.
+`
+},
+
+{
+title: "Test 6 — Sports",
+question: `
+Physical education should be a compulsory subject in all schools.
+
+To what extent do you agree or disagree?
+`
+},
+
+{
+title: "Test 7 — Social Media",
+question: `
+Social media has become an important part of young people's lives.
+
+What are the advantages and disadvantages of this development?
+`
+},
+
+{
+title: "Test 8 — Reading",
+question: `
+Some people think that young people should read books regularly.
+Others believe that watching educational videos is more useful.
+
+Discuss both views and give your own opinion.
+`
+},
+
+{
+title: "Test 9 — Foreign Languages",
+question: `
+All students should learn at least one foreign language at school.
+
+To what extent do you agree or disagree?
+`
+},
+
+{
+title: "Test 10 — School Start Time",
+question: `
+Some people believe schools should start later in the morning.
+
+Do you agree or disagree?
+`
+},
+
+{
+title: "Test 11 — Examinations",
+question: `
+Some people believe examinations are the best way to measure
+students' abilities.
+
+Others believe there are better methods.
+
+Discuss both views and give your own opinion.
+`
+},
+
+{
+title: "Test 12 — Environmental Education",
+question: `
+Schools should teach children how to protect the environment.
+
+To what extent do you agree or disagree?
+`
+},
+
+{
+title: "Test 13 — Public Transport",
+question: `
+Governments should encourage young people to use public transport
+rather than private cars.
+
+Do the advantages outweigh the disadvantages?
+`
+},
+
+{
+title: "Test 14 — Free Time",
+question: `
+Some people believe teenagers spend too much of their free time
+using electronic devices.
+
+Why is this happening?
+
+What can be done to encourage healthier activities?
+`
+},
+
+{
+title: "Test 15 — Teamwork",
+question: `
+Some people believe students should work mainly in groups, while
+others believe individual work is more effective.
+
+Discuss both views and give your own opinion.
+`
+},
+
+{
+title: "Test 16 — Artificial Intelligence",
+question: `
+Artificial intelligence is increasingly being used in education.
+
+What are the benefits and potential problems of this development?
+`
+},
+
+{
+title: "Test 17 — Libraries",
+question: `
+Some people believe public libraries are no longer necessary because
+people can find information online.
+
+To what extent do you agree or disagree?
+`
+},
+
+{
+title: "Test 18 — Healthy Lifestyle",
+question: `
+Schools should be responsible for teaching students how to live a
+healthy lifestyle.
+
+To what extent do you agree or disagree?
+`
+},
+
+{
+title: "Test 19 — Success",
+question: `
+Some people believe that academic results are the most important
+factor in achieving success.
+
+Others believe that other skills are more important.
+
+Discuss both views and give your own opinion.
+`
+},
+
+{
+title: "Test 20 — Future Jobs",
+question: `
+Many jobs that exist today may disappear because of technology.
+
+What problems could this cause?
+
+What can governments and schools do to prepare young people?
+`
+}
+];
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let currentType = "academic1";
+
+let currentTestIndex = 0;
+
+let secondsLeft = 60 * 60;
+
+let timerInterval;
+
+
+/* =====================================================
+   CHANGE TEST TYPE
+===================================================== */
+
+function changeTestType() {
+
+    currentType =
+        document.getElementById("testType").value;
+
+    populateTestNumbers();
+
+    loadTest();
+
+}
+
+
+/* =====================================================
+   POPULATE TEST NUMBERS
+===================================================== */
+
+function populateTestNumbers() {
+
+    const selector =
+        document.getElementById("testNumber");
+
+    selector.innerHTML = "";
+
+    let tests;
+
+    if(currentType === "academic1") {
+
+        tests = academicTests;
+
+    } else if(currentType === "general1") {
+
+        tests = generalTests;
+
+    } else {
+
+        tests = task2Tests;
+
+    }
+
+    tests.forEach(function(test, index) {
+
+        const option =
+            document.createElement("option");
+
+        option.value = index;
+
+        option.textContent = test.title;
+
+        selector.appendChild(option);
+
+    });
+
+}
+
+
+/* =====================================================
+   LOAD TEST
+===================================================== */
+
+function loadTest() {
+
+    currentTestIndex =
+        Number(
+            document.getElementById("testNumber").value
+        );
+
+    let tests;
+
+    if(currentType === "academic1") {
+
+        tests = academicTests;
+
+    } else if(currentType === "general1") {
+
+        tests = generalTests;
+
+    } else {
+
+        tests = task2Tests;
+
+    }
+
+    const test = tests[currentTestIndex];
+
+    if(!test) return;
+
+    let taskTitle = "";
+
+    if(currentType === "academic1") {
+
+        taskTitle = "🎓 Academic Writing Task 1";
+
+    } else if(currentType === "general1") {
+
+        taskTitle = "🌍 General Training Writing Task 1";
+
+    } else {
+
+        taskTitle = "📝 IELTS Writing Task 2";
+
+    }
+
+    document.getElementById("taskArea").innerHTML = `
+
+    <div class="card">
+
+        <span class="topic-badge">
+        ${taskTitle}
+        </span>
+
+        <h2>${test.title}</h2>
+
+        <div class="task-box">
+
+            <h3>Task</h3>
+
+            <p style="white-space:pre-line;">
+            ${test.question}
+            </p>
+
+        </div>
+
+        <div class="tip">
+
+            <strong>⏱️ Recommended time:</strong>
+
+            ${
+                currentType === "task2"
+                ? "40 minutes"
+                : "20 minutes"
+            }
+
+        </div>
+
+        <p>
+        <strong>
+        ${
+            currentType === "task2"
+            ? "Minimum 250 words"
+            : "Minimum 150 words"
+        }
+        </strong>
+        </p>
+
+    </div>
+
+    `;
+
+    const saved =
+        localStorage.getItem(
+            getStorageKey()
+        );
+
+    document.getElementById("answerBox").value =
+        saved || "";
+
+    updateWriting();
+
+    resetTimer();
+
+}
+
+
+/* =====================================================
+   STORAGE KEY
+===================================================== */
+
+function getStorageKey() {
+
+    return (
+        "ielts-writing-" +
+        currentType +
+        "-" +
+        currentTestIndex
+    );
+
+}
+
+
+/* =====================================================
+   WORD COUNT
+===================================================== */
+
+function getWordCount() {
+
+    const text =
+        document.getElementById("answerBox")
+        .value
+        .trim();
+
+    if(text === "") {
+
+        return 0;
+
+    }
+
+    return text
+        .split(/\s+/)
+        .filter(Boolean)
+        .length;
+
+}
+
+
+/* =====================================================
+   UPDATE WRITING
+===================================================== */
+
+function updateWriting() {
+
+    const answer =
+        document.getElementById("answerBox")
+        .value;
+
+    const words =
+        getWordCount();
+
+    document.getElementById("wordCount")
+        .textContent = words;
+
+
+    localStorage.setItem(
+        getStorageKey(),
+        answer
+    );
+
+
+    let minimum;
+
+    if(currentType === "task2") {
+
+        minimum = 250;
+
+    } else {
+
+        minimum = 150;
+
+    }
+
+
+    const warning =
+        document.getElementById("wordWarning");
+
+
+    if(words === 0) {
+
+        warning.textContent =
+            "Start writing your answer.";
+
+        warning.className =
+            "warning";
+
+    }
+
+    else if(words < minimum) {
+
+        warning.textContent =
+            "⚠️ Your answer is below the recommended minimum of "
+            + minimum
+            + " words.";
+
+        warning.className =
+            "warning error";
+
+    }
+
+    else {
+
+        warning.textContent =
+            "✅ Minimum word count reached.";
+
+        warning.className =
+            "warning success";
+
+    }
+
+
+    updateProgress(words, minimum);
+
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+function updateProgress(words, minimum) {
+
+    let percentage =
+        Math.min(
+            (words / minimum) * 100,
+            100
+        );
+
+    document.getElementById("progressFill")
+        .style.width =
+        percentage + "%";
+
+
+    document.getElementById("progressText")
+        .textContent =
+        words +
+        " / " +
+        minimum +
+        " words";
+}
+
+
+/* =====================================================
+   CLEAR ANSWER
+===================================================== */
+
+function clearAnswer() {
+
+    if(!confirm(
+        "Are you sure you want to clear your answer?"
+    )) {
+
+        return;
+
+    }
+
+    document.getElementById("answerBox")
+        .value = "";
+
+    localStorage.removeItem(
+        getStorageKey()
+    );
+
+    document.getElementById("result")
+        .innerHTML = "";
+
+    updateWriting();
+
+}
+
+
+/* =====================================================
+   SUBMIT WRITING
+===================================================== */
+
+function submitWriting() {
+
+    const words =
+        getWordCount();
+
+    const minimum =
+        currentType === "task2"
+        ? 250
+        : 150;
+
+
+    let status;
+
+    if(words >= minimum) {
+
+        status =
+            "✅ Minimum word count reached.";
+
+    } else {
+
+        status =
+            "⚠️ Your answer is below the recommended minimum.";
+
+    }
+
+
+    document.getElementById("result").innerHTML = `
+
+    <div class="result">
+
+        <h2>✍️ Practice Submitted</h2>
+
+        <p>
+        <strong>Test:</strong>
+        ${getCurrentTestName()}
+        </p>
+
+        <p>
+        <strong>Word count:</strong>
+        ${words}
+        </p>
+
+        <p>
+        ${status}
+        </p>
+
+        <hr>
+
+        <h3>IELTS Writing Assessment Areas</h3>
+
+        <ul style="text-align:left;">
+
+            <li>
+            <strong>Task Achievement / Task Response</strong>
+            — Did you fully answer the question?
+            </li>
+
+            <li>
+            <strong>Coherence and Cohesion</strong>
+            — Are your ideas organised clearly?
+            </li>
+
+            <li>
+            <strong>Lexical Resource</strong>
+            — Did you use a good range of vocabulary?
+            </li>
+
+            <li>
+            <strong>Grammatical Range and Accuracy</strong>
+            — Did you use accurate and varied grammar?
+            </li>
+
+        </ul>
+
+        <p>
+        This website provides practice and word-count feedback.
+        An official IELTS Writing band score requires qualified
+        assessment.
+        </p>
+
+    </div>
+
+    `;
+
+}
+
+
+/* =====================================================
+   CURRENT TEST NAME
+===================================================== */
+
+function getCurrentTestName() {
+
+    let tests;
+
+    if(currentType === "academic1") {
+
+        tests = academicTests;
+
+    } else if(currentType === "general1") {
+
+        tests = generalTests;
+
+    } else {
+
+        tests = task2Tests;
+
+    }
+
+    return tests[currentTestIndex].title;
+
+}
+
+
+/* =====================================================
+   RANDOM TEST
+===================================================== */
+
+function newTest() {
+
+    let tests;
+
+    if(currentType === "academic1") {
+
+        tests = academicTests;
+
+    } else if(currentType === "general1") {
+
+        tests = generalTests;
+
+    } else {
+
+        tests = task2Tests;
+
+    }
+
+    let randomIndex =
+        Math.floor(
+            Math.random() * tests.length
+        );
+
+    document.getElementById("testNumber")
+        .value = randomIndex;
+
+    loadTest();
+
+}
+
+
+/* =====================================================
+   TIMER
+===================================================== */
+
+function resetTimer() {
+
+    clearInterval(timerInterval);
+
+    secondsLeft = 60 * 60;
+
+    updateTimerDisplay();
+
+
+    timerInterval =
+        setInterval(function() {
+
+            secondsLeft--;
+
+            updateTimerDisplay();
+
+            if(secondsLeft <= 0) {
+
+                clearInterval(timerInterval);
+
+                alert(
+                    "⏰ Your 60-minute Writing time is finished."
+                );
+
+            }
+
+        }, 1000);
+
+}
+
+
+/* =====================================================
+   TIMER DISPLAY
+===================================================== */
+
+function updateTimerDisplay() {
+
+    let minutes =
+        Math.floor(secondsLeft / 60);
+
+    let seconds =
+        secondsLeft % 60;
+
+
+    seconds =
+        seconds < 10
+        ? "0" + seconds
+        : seconds;
+
+
+    const timer =
+        document.getElementById("timer");
+
+
+    timer.textContent =
+        "⏱️ Writing Time: "
+        + minutes
+        + ":"
+        + seconds;
+
+
+    timer.classList.remove(
+        "warning",
+        "danger"
+    );
+
+
+    if(secondsLeft <= 10 * 60) {
+
+        timer.classList.add(
+            "warning"
+        );
+
+    }
+
+
+    if(secondsLeft <= 5 * 60) {
+
+        timer.classList.remove(
+            "warning"
+        );
+
+        timer.classList.add(
+            "danger"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   START
+===================================================== */
+
+populateTestNumbers();
+
+loadTest();
+
+</script>
+
+</body>
+</html>

@@ -3,237 +3,495 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Teen IELTS Complete Mock Test</title>
+
+<title>Teen IELTS Complete English Practice</title>
 
 <style>
-* {
-    box-sizing: border-box;
+
+*{
+    box-sizing:border-box;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f7fb;
-    color: #222;
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f4f7fb;
+    color:#222;
+    line-height:1.6;
 }
 
-.container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 20px;
+.container{
+    width:min(1100px,94%);
+    margin:auto;
 }
 
-header {
-    background: #17365d;
-    color: white;
-    padding: 35px 20px;
-    border-radius: 15px;
-    text-align: center;
-    margin-bottom: 20px;
+header{
+    background:#17365d;
+    color:white;
+    padding:35px 20px;
+    text-align:center;
+    border-radius:0 0 18px 18px;
 }
 
-header h1 {
-    margin: 0 0 10px;
-    font-size: 38px;
+header h1{
+    margin:0;
+    font-size:36px;
 }
 
-.card {
-    background: white;
-    padding: 25px;
-    margin-bottom: 20px;
-    border-radius: 14px;
-    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+header p{
+    margin:7px 0 0;
 }
 
-h2 {
-    color: #17365d;
+.card{
+    background:white;
+    padding:24px;
+    margin:20px 0;
+    border-radius:15px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
 }
 
-.section {
-    display: none;
+.section{
+    display:none;
 }
 
-.section.active {
-    display: block;
+.section.active{
+    display:block;
 }
 
-button {
-    padding: 14px 22px;
-    border: none;
-    border-radius: 8px;
-    background: #17365d;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    margin: 5px;
+.hidden{
+    display:none!important;
 }
 
-button:hover {
-    background: #0f2744;
+.center{
+    text-align:center;
 }
 
-.option {
-    display: block;
-    background: #f4f7fb;
-    padding: 12px;
-    margin: 8px 0;
-    border-radius: 8px;
-    cursor: pointer;
+h2{
+    color:#17365d;
 }
 
-input[type="text"],
+h3{
+    color:#263f5d;
+}
+
+button{
+    border:0;
+    border-radius:9px;
+    padding:13px 18px;
+    margin:5px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    background:#17365d;
+    color:white;
+}
+
+button:hover{
+    opacity:.9;
+}
+
+.secondary{
+    background:#64748b;
+}
+
+.success{
+    background:#166534;
+}
+
+.danger{
+    background:#b91c1c;
+}
+
+.warning{
+    background:#d97706;
+}
+
+.nav{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin:18px 0;
+}
+
+.nav button{
+    flex:1;
+    min-width:150px;
+}
+
+.instructions{
+    background:#eef5ff;
+    border-left:5px solid #17365d;
+    padding:15px;
+    border-radius:8px;
+}
+
+.timer{
+    position:sticky;
+    top:8px;
+    z-index:100;
+    background:white;
+    border:2px solid #17365d;
+    padding:12px;
+    text-align:center;
+    font-size:23px;
+    font-weight:bold;
+    border-radius:10px;
+    margin:15px 0;
+}
+
+.timer.warning{
+    border-color:#d97706;
+    background:#fff7ed;
+}
+
+.timer.danger{
+    border-color:#b91c1c;
+    background:#fef2f2;
+    color:#b91c1c;
+}
+
+.progress{
+    height:12px;
+    background:#ddd;
+    border-radius:20px;
+    overflow:hidden;
+    margin:12px 0;
+}
+
+.progress-fill{
+    height:100%;
+    width:0;
+    background:#17365d;
+    transition:.3s;
+}
+
+.question{
+    background:#fafafa;
+    border:1px solid #ddd;
+    padding:18px;
+    margin:15px 0;
+    border-radius:12px;
+}
+
+.option{
+    display:block;
+    padding:11px;
+    margin:8px 0;
+    background:#eef2f7;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.option:hover{
+    background:#e2e8f0;
+}
+
+input[type=text],
+input[type=number],
 textarea,
-select {
-    width: 100%;
-    max-width: 700px;
-    padding: 11px;
-    margin-top: 8px;
-    border: 1px solid #aaa;
-    border-radius: 7px;
-    font-size: 16px;
+select{
+    width:100%;
+    max-width:750px;
+    padding:11px;
+    border:1px solid #aaa;
+    border-radius:7px;
+    font-size:16px;
 }
 
-textarea {
-    min-height: 250px;
-    resize: vertical;
+textarea{
+    min-height:260px;
+    resize:vertical;
 }
 
-.timer {
-    position: sticky;
-    top: 10px;
-    z-index: 100;
-    background: white;
-    padding: 12px;
-    text-align: center;
-    font-size: 21px;
-    font-weight: bold;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+.audio-box{
+    background:#eef5ff;
+    padding:20px;
+    border-radius:12px;
+    text-align:center;
+    margin:20px 0;
 }
 
-.progress {
-    height: 12px;
-    background: #ddd;
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 10px 0 20px;
+.audio-status{
+    font-weight:bold;
+    margin-top:10px;
 }
 
-.progress-fill {
-    height: 100%;
-    width: 0%;
-    background: #17365d;
-    transition: width .3s;
+.word-count{
+    font-weight:bold;
+    margin-top:8px;
 }
 
-.result {
-    background: #e8f5e9;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
+.result{
+    background:#eef5ff;
+    padding:20px;
+    border-radius:12px;
+    margin-top:20px;
 }
 
-.hidden {
-    display: none;
+.score-big{
+    font-size:42px;
+    font-weight:bold;
+    color:#17365d;
 }
 
-.center {
-    text-align: center;
+.result-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
 }
 
-.word-count {
-    font-weight: bold;
-    margin-top: 8px;
+.result-box{
+    background:#f8fafc;
+    padding:20px;
+    text-align:center;
+    border-radius:12px;
 }
 
-.nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    margin-bottom: 15px;
+.result-box strong{
+    display:block;
+    font-size:28px;
+    color:#17365d;
 }
 
-.small {
-    font-size: 14px;
-    color: #666;
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
 }
 
-@media(max-width:600px) {
-    .container {
-        padding: 10px;
+.feature{
+    background:#f8fafc;
+    padding:18px;
+    border-radius:12px;
+    text-align:center;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    border:1px solid #ccc;
+    padding:10px;
+    text-align:left;
+}
+
+.badge{
+    display:inline-block;
+    padding:5px 10px;
+    background:#e2e8f0;
+    border-radius:20px;
+    margin:3px;
+    font-size:14px;
+}
+
+.correct{
+    border-left:5px solid #166534;
+}
+
+.incorrect{
+    border-left:5px solid #b91c1c;
+}
+
+footer{
+    text-align:center;
+    color:#64748b;
+    padding:30px;
+}
+
+@media(max-width:750px){
+
+    header h1{
+        font-size:28px;
     }
 
-    header h1 {
-        font-size: 28px;
+    .result-grid,
+    .feature-grid{
+        grid-template-columns:1fr;
     }
 
-    .card {
-        padding: 17px;
+    .nav button{
+        min-width:100%;
+    }
+
+    .card{
+        padding:17px;
     }
 }
+
 </style>
 </head>
 
 <body>
 
+<header>
+
 <div class="container">
 
-<header>
-    <h1>🎓 Teen IELTS Complete Mock Test</h1>
-    <p>Listening • Reading • Writing • Speaking</p>
+<h1>🎓 Teen IELTS Complete English Practice</h1>
+
+<p>
+Listening • Reading • Writing • Speaking • Grammar • Vocabulary
+</p>
+
+<p>
+Idioms • Phrasal Verbs • Collocations • Spelling • Pronunciation
+</p>
+
+</div>
+
 </header>
 
-<!-- HOME -->
 
-<div id="home" class="section active">
+<div class="container">
+
+
+<!-- ======================================================
+HOME
+====================================================== -->
+
+<section id="home" class="section active">
 
 <div class="card center">
 
-<h2>Choose Your Test</h2>
+<h2>🚀 Welcome to Teen IELTS</h2>
 
-<p>Select the IELTS version you want to practise.</p>
+<p>
+A complete IELTS-style English practice platform for students.
+</p>
 
-<button onclick="startTest('Academic')">
-🎓 IELTS Academic
+<button onclick="showSection('testChoice')">
+🎓 Start IELTS Practice
 </button>
 
-<button onclick="startTest('General')">
-🌍 IELTS General Training
+<button onclick="showSection('skills')">
+📚 English Skills
 </button>
 
 </div>
+
 
 <div class="card">
 
-<h2>📋 Full Test Structure</h2>
+<h2>📋 IELTS Practice</h2>
 
-<p>🎧 Listening — 40 questions</p>
-<p>📖 Reading — 40 questions</p>
-<p>✍️ Writing — 2 tasks</p>
-<p>🗣️ Speaking — 3 parts</p>
+<div class="feature-grid">
 
+<div class="feature">
+<h3>🎧 Listening</h3>
+<p>40 questions</p>
+</div>
+
+<div class="feature">
+<h3>📖 Reading</h3>
+<p>Academic & General</p>
+</div>
+
+<div class="feature">
+<h3>✍️ Writing</h3>
+<p>Task 1 & Task 2</p>
+</div>
+
+<div class="feature">
+<h3>🗣️ Speaking</h3>
+<p>Parts 1, 2 & 3</p>
+</div>
+
+<div class="feature">
+<h3>🔤 Grammar</h3>
+<p>Practice questions</p>
+</div>
+
+<div class="feature">
+<h3>📚 Vocabulary</h3>
+<p>IELTS vocabulary</p>
 </div>
 
 </div>
 
+</div>
 
-<!-- MENU -->
 
-<div id="menu" class="section">
+<div class="card">
+
+<h2>🌟 Extra English Skills</h2>
+
+<p>
+<span class="badge">💬 Idioms</span>
+<span class="badge">🔗 Phrasal Verbs</span>
+<span class="badge">🧠 Collocations</span>
+<span class="badge">✏️ Spelling</span>
+<span class="badge">🔄 Paraphrasing</span>
+<span class="badge">🗣️ Pronunciation</span>
+<span class="badge">📝 Sentence Completion</span>
+<span class="badge">📖 Academic Words</span>
+</p>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+TEST CHOICE
+====================================================== -->
+
+<section id="testChoice" class="section">
 
 <div class="card center">
 
-<h2 id="testTitle"></h2>
+<h2>🎓 Choose IELTS Version</h2>
 
-<p>Choose a section.</p>
+<p>Select the type of IELTS practice you want.</p>
+
+<button onclick="selectIELTS('Academic')">
+🎓 IELTS Academic
+</button>
+
+<button onclick="selectIELTS('General Training')">
+🌍 IELTS General Training
+</button>
+
+<br>
+
+<button class="secondary" onclick="showSection('home')">
+🏠 Home
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+IELTS MENU
+====================================================== -->
+
+<section id="ieltsMenu" class="section">
+
+<div class="card center">
+
+<h2 id="ieltsTitle">
+IELTS Practice
+</h2>
+
+<p>
+Choose an independent section.
+</p>
+
+<div class="nav">
 
 <button onclick="showSection('listening')">
 🎧 Listening
 </button>
 
-<button onclick="showSection('reading')">
-📖 Reading
+<button onclick="showSection('academicReading')">
+📖 Academic Reading
+</button>
+
+<button onclick="showSection('generalReading')">
+🌍 General Reading
 </button>
 
 <button onclick="showSection('writing')">
@@ -244,37 +502,78 @@ textarea {
 🗣️ Speaking
 </button>
 
-<br>
+</div>
 
-<button onclick="showSection('home')">
+<button class="secondary" onclick="showSection('skills')">
+📚 English Skills
+</button>
+
+<button class="secondary" onclick="showSection('home')">
 🏠 Home
 </button>
 
 </div>
 
-</div>
+</section>
 
 
-<!-- LISTENING -->
+<!-- ======================================================
+LISTENING
+====================================================== -->
 
-<div id="listening" class="section">
+<section id="listening" class="section">
 
 <div class="timer" id="listeningTimer">
-⏱️ Listening Time: 30:00
+🎧 Listening: 30:00
 </div>
 
 <div class="card">
 
 <h2>🎧 IELTS Listening</h2>
 
+<div class="instructions">
+
 <p>
-40 questions • Approximately 30 minutes
+This is an original IELTS-style listening practice.
 </p>
 
 <p>
-<strong>Practice instructions:</strong>
-Read each question carefully and select the best answer.
+Press Play and listen to the recording. Try not to read the
+transcript while answering.
 </p>
+
+<p>
+There are 40 questions.
+</p>
+
+</div>
+
+
+<div class="audio-box">
+
+<h3>🔊 Built-in Listening Audio</h3>
+
+<button onclick="playListening()">
+▶ Play
+</button>
+
+<button class="warning" onclick="pauseListening()">
+⏸ Pause
+</button>
+
+<button class="success" onclick="resumeListening()">
+▶ Resume
+</button>
+
+<button class="danger" onclick="stopListening()">
+⏹ Stop
+</button>
+
+<p id="audioStatus" class="audio-status">
+Ready to play.
+</p>
+
+</div>
 
 <div class="progress">
 <div id="listeningProgress" class="progress-fill"></div>
@@ -287,786 +586,4480 @@ Read each question carefully and select the best answer.
 <div class="card center">
 
 <button onclick="submitListening()">
-Submit Listening Test
+📊 Submit Listening
 </button>
 
-<button onclick="showSection('menu')">
-Back to Sections
+<button class="secondary" onclick="showSection('ieltsMenu')">
+← Sections
 </button>
 
 <div id="listeningResult"></div>
 
 </div>
 
-</div>
+</section>
 
 
-<!-- READING -->
+<!-- ======================================================
+ACADEMIC READING
+====================================================== -->
 
-<div id="reading" class="section">
+<section id="academicReading" class="section">
 
-<div class="timer" id="readingTimer">
-⏱️ Reading Time: 60:00
+<div class="timer" id="academicReadingTimer">
+📖 Academic Reading: 60:00
 </div>
 
 <div class="card">
 
-<h2>📖 IELTS Reading</h2>
+<h2>📖 IELTS Academic Reading</h2>
+
+<div class="instructions">
 
 <p>
-40 questions • 60 minutes
-</p>
-
-<h3>Passage: Learning a New Language</h3>
-
-<p>
-Learning a new language can provide many benefits. It can improve
-communication, help people understand different cultures, and create
-new opportunities for education and employment.
+Read the passage carefully and answer the questions.
 </p>
 
 <p>
-People who speak several languages can communicate with a wider range
-of people. This can be particularly useful when travelling or working
-with people from different countries.
-</p>
-
-<p>
-Learning a language can also help people understand traditions,
-customs, ideas and different ways of thinking. This can encourage
-respect and understanding between people.
-</p>
-
-<p>
-Regular practice is essential. Reading, writing, listening and speaking
-regularly can help learners remember vocabulary and become more
-confident.
-</p>
-
-<p>
-Technology can also support language learning. Educational websites,
-mobile applications, videos and online conversations provide
-opportunities to practise outside the classroom.
+This is original IELTS-style practice material.
 </p>
 
 </div>
 
-<div class="progress">
-<div id="readingProgress" class="progress-fill"></div>
+<h3>The Changing Way We Learn</h3>
+
+<p>
+Education has changed significantly as technology has become more
+widely available. In the past, students often depended mainly on
+printed textbooks and classroom instruction. Today, learners can
+access information through computers, tablets and mobile phones.
+</p>
+
+<p>
+Digital resources can make education more flexible. Students may
+watch lectures, complete exercises and communicate with teachers
+without being in the same physical location. This can be particularly
+useful for learners who live far from educational institutions.
+</p>
+
+<p>
+However, technology does not automatically improve learning.
+Students can easily become distracted by entertainment, social media
+and notifications. Effective learners therefore need to manage their
+time carefully and use digital devices with a clear purpose.
+</p>
+
+<p>
+Teachers continue to play an important role. They can explain
+difficult concepts, provide feedback and encourage students when
+learning becomes challenging. Technology may provide information,
+but teachers can help students understand and apply it.
+</p>
+
+<p>
+Another important development is the increasing availability of
+collaborative learning. Students can work together online, exchange
+ideas and complete projects even when they live in different places.
+Such activities can help learners develop communication and teamwork
+skills.
+</p>
+
 </div>
 
-<div id="readingQuestions"></div>
+<div id="academicReadingQuestions"></div>
 
 <div class="card center">
 
-<button onclick="submitReading()">
-Submit Reading Test
+<button onclick="submitAcademicReading()">
+📊 Submit Academic Reading
 </button>
 
-<button onclick="showSection('menu')">
-Back to Sections
+<button class="secondary" onclick="showSection('ieltsMenu')">
+← Sections
 </button>
 
-<div id="readingResult"></div>
+<div id="academicReadingResult"></div>
 
 </div>
 
+</section>
+
+
+<!-- ======================================================
+GENERAL READING
+====================================================== -->
+
+<section id="generalReading" class="section">
+
+<div class="timer" id="generalReadingTimer">
+🌍 General Reading: 60:00
 </div>
 
+<div class="card">
 
-<!-- WRITING -->
+<h2>🌍 IELTS General Training Reading</h2>
 
-<div id="writing" class="section">
+<div class="instructions">
+
+<p>
+Read the information and answer the questions.
+</p>
+
+</div>
+
+<h3>Community Learning Centre</h3>
+
+<p>
+The Greenfield Community Learning Centre offers a range of activities
+for local residents. Classes include computer skills, English,
+photography, cooking and basic financial planning.
+</p>
+
+<p>
+Most courses take place during the evening. Some weekend courses are
+also available. Students must register before attending a course.
+Registration can be completed online or at the centre reception.
+</p>
+
+<p>
+The centre provides computers for students who do not have suitable
+equipment at home. However, students attending photography courses
+must bring their own camera when possible.
+</p>
+
+<p>
+The centre is closed on public holidays. During normal opening hours,
+staff members are available to answer questions and help visitors
+choose an appropriate course.
+</p>
+
+</div>
+
+<div id="generalReadingQuestions"></div>
+
+<div class="card center">
+
+<button onclick="submitGeneralReading()">
+📊 Submit General Reading
+</button>
+
+<button class="secondary" onclick="showSection('ieltsMenu')">
+← Sections
+</button>
+
+<div id="generalReadingResult"></div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+WRITING
+====================================================== -->
+
+<section id="writing" class="section">
 
 <div class="timer" id="writingTimer">
-⏱️ Writing Time: 60:00
+✍️ Writing: 60:00
 </div>
 
 <div class="card">
 
 <h2>✍️ IELTS Writing</h2>
 
-<h3>Task 1</h3>
+<div class="instructions">
 
 <p>
-Spend about 20 minutes on this task.
+Select the appropriate task according to your IELTS version.
 </p>
 
 <p>
-<strong>
-Describe the advantages and disadvantages of learning a new language.
-</strong>
+Academic Task 1 normally requires a report based on visual
+information. General Training Task 1 normally requires a letter.
 </p>
 
-<textarea id="writing1"
-oninput="countWords('writing1','count1')"></textarea>
-
-<div class="word-count">
-Word count: <span id="count1">0</span>
 </div>
 
 </div>
+
 
 <div class="card">
 
-<h3>Task 2</h3>
+<h3>Academic Writing Task 1</h3>
 
 <p>
-Spend about 40 minutes on this task.
+The table below shows the average number of hours teenagers spend
+on different activities during a typical week.
+</p>
+
+<table>
+
+<tr>
+<th>Activity</th>
+<th>Hours</th>
+</tr>
+
+<tr>
+<td>School study</td>
+<td>30</td>
+</tr>
+
+<tr>
+<td>Homework</td>
+<td>10</td>
+</tr>
+
+<tr>
+<td>Sports</td>
+<td>6</td>
+</tr>
+
+<tr>
+<td>Entertainment</td>
+<td>12</td>
+</tr>
+
+<tr>
+<td>Reading</td>
+<td>4</td>
+</tr>
+
+</table>
+
+<p>
+Summarise the information by selecting and reporting the main
+features, and make comparisons where relevant.
+</p>
+
+<textarea id="academicWriting1"
+oninput="countWords('academicWriting1','academicCount1')"></textarea>
+
+<div class="word-count">
+Words: <span id="academicCount1">0</span>
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>General Training Writing Task 1</h3>
+
+<p>
+You recently joined an English course, but you are unhappy with one
+aspect of the course.
 </p>
 
 <p>
-<strong>
-Some people believe that young people should learn another language
-at school. Others believe students should focus only on their first
-language. Discuss both views and give your own opinion.
-</strong>
+Write a letter to the course manager. In your letter:
+</p>
+
+<ul>
+<li>explain why you are unhappy</li>
+<li>describe the problem</li>
+<li>suggest what you would like the manager to do</li>
+</ul>
+
+<textarea id="generalWriting1"
+oninput="countWords('generalWriting1','generalCount1')"></textarea>
+
+<div class="word-count">
+Words: <span id="generalCount1">0</span>
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>Writing Task 2</h3>
+
+<p>
+Some people believe schools should spend more time teaching practical
+life skills, while others believe academic subjects should remain the
+main priority.
+</p>
+
+<p>
+Discuss both views and give your own opinion.
 </p>
 
 <textarea id="writing2"
-oninput="countWords('writing2','count2')"></textarea>
+oninput="countWords('writing2','writingCount2')"></textarea>
 
 <div class="word-count">
-Word count: <span id="count2">0</span>
+Words: <span id="writingCount2">0</span>
 </div>
 
 </div>
+
 
 <div class="card center">
 
 <button onclick="submitWriting()">
-Submit Writing
+📊 Submit Writing
 </button>
 
-<button onclick="showSection('menu')">
-Back to Sections
+<button class="secondary" onclick="showSection('ieltsMenu')">
+← Sections
 </button>
 
 <div id="writingResult"></div>
 
 </div>
 
-</div>
+</section>
 
 
-<!-- SPEAKING -->
+<!-- ======================================================
+SPEAKING
+====================================================== -->
 
-<div id="speaking" class="section">
+<section id="speaking" class="section">
 
 <div class="timer" id="speakingTimer">
-⏱️ Speaking Practice
+🗣️ Speaking Practice
 </div>
 
 <div class="card">
 
 <h2>🗣️ IELTS Speaking</h2>
 
-<h3>Part 1 — Introduction</h3>
+<h3>Part 1 — Introduction and Interview</h3>
 
-<p>Answer these questions aloud.</p>
+<p>Answer naturally and give more than one-word answers.</p>
 
-<p>1. What is your name?</p>
-<p>2. Where do you live?</p>
-<p>3. What do you like about your school?</p>
-<p>4. What do you do in your free time?</p>
-<p>5. Do you enjoy learning English?</p>
+<ol>
+
+<li>What is your full name?</li>
+
+<li>Where do you live?</li>
+
+<li>What do you enjoy about your school?</li>
+
+<li>What is your favourite subject?</li>
+
+<li>What do you usually do after school?</li>
+
+<li>Do you enjoy reading?</li>
+
+<li>What kind of music do you like?</li>
+
+<li>Do you use technology for learning?</li>
+
+</ol>
 
 </div>
 
+
 <div class="card">
 
-<h3>Part 2 — Individual Long Turn</h3>
+<h3>Part 2 — Long Turn</h3>
 
 <p>
-<strong>
 Describe a skill you would like to learn.
-</strong>
 </p>
 
 <p>You should say:</p>
 
 <ul>
-<li>What the skill is</li>
-<li>Why you want to learn it</li>
-<li>How you would learn it</li>
-<li>And explain why it would be useful</li>
+<li>what the skill is</li>
+<li>why you want to learn it</li>
+<li>how you would learn it</li>
+<li>and explain why it would be useful</li>
 </ul>
 
 <p>
 Speak for 1–2 minutes.
 </p>
 
+<button onclick="startSpeakingTimer()">
+⏱️ Start 2-Minute Speaking Timer
+</button>
+
+<button class="danger" onclick="stopSpeakingTimer()">
+⏹ Stop Timer
+</button>
+
+<div id="speakingCountdown">
+Ready
 </div>
+
+</div>
+
 
 <div class="card">
 
 <h3>Part 3 — Discussion</h3>
 
-<p>1. Why do people learn new skills?</p>
-<p>2. Should schools teach more practical skills?</p>
-<p>3. How has technology changed learning?</p>
-<p>4. Is online learning better than classroom learning?</p>
-<p>5. What skills will be important in the future?</p>
+<ol>
+
+<li>Why do people learn new skills?</li>
+
+<li>Should schools teach more practical skills?</li>
+
+<li>How has technology changed education?</li>
+
+<li>Is online learning better than classroom learning?</li>
+
+<li>What skills will young people need in future jobs?</li>
+
+<li>Do you think technology will replace teachers?</li>
+
+</ol>
 
 </div>
+
+
+<div class="card">
+
+<h3>🎙️ Speaking Recording</h3>
+
+<p>
+You can record your answer directly in the browser if your browser
+allows microphone access.
+</p>
+
+<button onclick="startRecording()">
+🎙️ Start Recording
+</button>
+
+<button class="danger" onclick="stopRecording()">
+⏹ Stop Recording
+</button>
+
+<p id="recordingStatus">
+Not recording.
+</p>
+
+<audio id="recordingPlayback" controls class="hidden"></audio>
+
+</div>
+
+
+<div class="card">
+
+<h3>🧠 Speaking Self-Assessment</h3>
+
+<label>
+Fluency:
+<select id="fluency">
+<option>Needs practice</option>
+<option>Developing</option>
+<option>Good</option>
+<option>Very good</option>
+</select>
+</label>
+
+<label>
+Vocabulary:
+<select id="speakingVocabulary">
+<option>Needs practice</option>
+<option>Developing</option>
+<option>Good</option>
+<option>Very good</option>
+</select>
+</label>
+
+<label>
+Grammar:
+<select id="speakingGrammar">
+<option>Needs practice</option>
+<option>Developing</option>
+<option>Good</option>
+<option>Very good</option>
+</select>
+</label>
+
+<label>
+Pronunciation:
+<select id="pronunciation">
+<option>Needs practice</option>
+<option>Developing</option>
+<option>Good</option>
+<option>Very good</option>
+</select>
+</label>
+
+</div>
+
 
 <div class="card center">
 
 <button onclick="finishSpeaking()">
-Finish Speaking Test
+📊 Finish Speaking
 </button>
 
-<button onclick="showSection('menu')">
-Back to Sections
+<button class="secondary" onclick="showSection('ieltsMenu')">
+← Sections
 </button>
 
 <div id="speakingResult"></div>
 
 </div>
 
+</section>
+
+
+<!-- ======================================================
+SKILLS MENU
+====================================================== -->
+
+<section id="skills" class="section">
+
+<div class="card center">
+
+<h2>📚 English Skills Centre</h2>
+
+<p>
+Practise the language skills that support IELTS performance.
+</p>
+
+<div class="nav">
+
+<button onclick="showSection('grammar')">
+🔤 Grammar
+</button>
+
+<button onclick="showSection('vocabulary')">
+📚 Vocabulary
+</button>
+
+<button onclick="showSection('idioms')">
+💬 Idioms
+</button>
+
+<button onclick="showSection('phrasal')">
+🔗 Phrasal Verbs
+</button>
+
+<button onclick="showSection('collocations')">
+🧠 Collocations
+</button>
+
+<button onclick="showSection('spelling')">
+✏️ Spelling
+</button>
+
+<button onclick="showSection('paraphrase')">
+🔄 Paraphrasing
+</button>
+
+<button onclick="showSection('pronunciationPractice')">
+🗣️ Pronunciation
+</button>
+
 </div>
+
+<button class="secondary" onclick="showSection('home')">
+🏠 Home
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+GRAMMAR
+====================================================== -->
+
+<section id="grammar" class="section">
+
+<div class="card">
+
+<h2>🔤 IELTS Grammar Practice</h2>
+
+<p>
+Choose the best answer.
+</p>
+
+</div>
+
+<div id="grammarQuestions"></div>
+
+<div class="card center">
+
+<button onclick="submitSkillTest('grammar')">
+📊 Submit Grammar
+</button>
+
+<button class="secondary" onclick="showSection('skills')">
+← Skills
+</button>
+
+<div id="grammarResult"></div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+VOCABULARY
+====================================================== -->
+
+<section id="vocabulary" class="section">
+
+<div class="card">
+
+<h2>📚 IELTS Vocabulary</h2>
+
+<p>
+Choose the word closest in meaning.
+</p>
+
+</div>
+
+<div id="vocabularyQuestions"></div>
+
+<div class="card center">
+
+<button onclick="submitSkillTest('vocabulary')">
+📊 Submit Vocabulary
+</button>
+
+<button class="secondary" onclick="showSection('skills')">
+← Skills
+</button>
+
+<div id="vocabularyResult"></div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+IDIOMS
+====================================================== -->
+
+<section id="idioms" class="section">
+
+<div class="card">
+
+<h2>💬 English Idioms</h2>
+
+<p>
+Choose the correct meaning.
+</p>
+
+</div>
+
+<div id="idiomQuestions"></div>
+
+<div class="card center">
+
+<button onclick="submitSkillTest('idioms')">
+📊 Submit Idioms
+</button>
+
+<button class="secondary" onclick="showSection('skills')">
+← Skills
+</button>
+
+<div id="idiomsResult"></div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+PHRASAL VERBS
+====================================================== -->
+
+<section id="phrasal" class="section">
+
+<div class="card">
+
+<h2>🔗 Phrasal Verbs</h2>
+
+<p>
+Choose the correct meaning.
+</p>
+
+</div>
+
+<div id="phrasalQuestions"></div>
+
+<div class="card center">
+
+<button onclick="submitSkillTest('phrasal')">
+📊 Submit Phrasal Verbs
+</button>
+
+<button class="secondary" onclick="showSection('skills')">
+← Skills
+</button>
+
+<div id="phrasalResult"></div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+COLLOCATIONS
+====================================================== -->
+
+<section id="collocations" class="section">
+
+<div class="card">
+
+<h2>🧠 IELTS Collocations</h2>
+
+<p>
+Choose the word that correctly completes the collocation.
+</p>
+
+</div>
+
+<div id="collocationQuestions"></div>
+
+<div class="card center">
+
+<button onclick="submitSkillTest('collocations')">
+📊 Submit Collocations
+</button>
+
+<button class="secondary" onclick="showSection('skills')">
+← Skills
+</button>
+
+<div id="collocationsResult"></div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+SPELLING
+====================================================== -->
+
+<section id="spelling" class="section">
+
+<div class="card">
+
+<h2>✏️ Spelling Practice</h2>
+
+<p>
+Choose the correctly spelled word.
+</p>
+
+</div>
+
+<div id="spellingQuestions"></div>
+
+<div class="card center">
+
+<button onclick="submitSkillTest('spelling')">
+📊 Submit Spelling
+</button>
+
+<button class="secondary" onclick="showSection('skills')">
+← Skills
+</button>
+
+<div id="spellingResult"></div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+PARAPHRASING
+====================================================== -->
+
+<section id="paraphrase" class="section">
+
+<div class="card">
+
+<h2>🔄 IELTS Paraphrasing</h2>
+
+<p>
+Choose the sentence with the closest meaning.
+</p>
+
+</div>
+
+<div id="paraphraseQuestions"></div>
+
+<div class="card center">
+
+<button onclick="submitSkillTest('paraphrase')">
+📊 Submit Paraphrasing
+</button>
+
+<button class="secondary" onclick="showSection('skills')">
+← Skills
+</button>
+
+<div id="paraphraseResult"></div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+PRONUNCIATION
+====================================================== -->
+
+<section id="pronunciationPractice" class="section">
+
+<div class="card">
+
+<h2>🗣️ Pronunciation Practice</h2>
+
+<p>
+Listen to the browser pronounce the word or sentence, then repeat it
+aloud.
+</p>
+
+</div>
+
+<div id="pronunciationWords"></div>
+
+<div class="card center">
+
+<button class="secondary" onclick="showSection('skills')">
+← Skills
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+FINAL DASHBOARD
+====================================================== -->
+
+<section id="dashboard" class="section">
+
+<div class="card">
+
+<h2>📊 Practice Dashboard</h2>
+
+<div class="result-grid">
+
+<div class="result-box">
+Listening
+<strong id="dashListening">—</strong>
+</div>
+
+<div class="result-box">
+Academic Reading
+<strong id="dashAcademicReading">—</strong>
+</div>
+
+<div class="result-box">
+General Reading
+<strong id="dashGeneralReading">—</strong>
+</div>
+
+<div class="result-box">
+Grammar
+<strong id="dashGrammar">—</strong>
+</div>
+
+<div class="result-box">
+Vocabulary
+<strong id="dashVocabulary">—</strong>
+</div>
+
+<div class="result-box">
+Idioms
+<strong id="dashIdioms">—</strong>
+</div>
+
+</div>
+
+</div>
+
+<div class="card center">
+
+<button onclick="showSection('home')">
+🏠 Home
+</button>
+
+<button onclick="clearProgress()">
+🗑️ Clear Saved Progress
+</button>
+
+</div>
+
+</section>
 
 
 </div>
+
+
+<footer>
+
+Teen IELTS © 2026 • Original IELTS-style English Practice
+
+</footer>
 
 
 <script>
 
-/* =========================
-   GENERAL SETTINGS
-========================= */
+/* ======================================================
+GENERAL
+====================================================== */
 
-let currentTest = "";
+let currentIELTS = "Academic";
 
-function startTest(type) {
+let timers = {};
 
-    currentTest = type;
+function showSection(id){
 
-    document.getElementById("testTitle").textContent =
-        "🎓 " + type + " IELTS Mock Test";
+    document.querySelectorAll(".section").forEach(function(section){
 
-    showSection("menu");
-}
-
-
-function showSection(id) {
-
-    document.querySelectorAll(".section").forEach(function(section) {
         section.classList.remove("active");
+
     });
 
-    document.getElementById(id).classList.add("active");
+    const section = document.getElementById(id);
+
+    if(section){
+        section.classList.add("active");
+    }
 
     window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+        top:0,
+        behavior:"smooth"
     });
+
+    if(id === "listening"){
+        startIndependentTimer("listeningTimer",30,"listening");
+    }
+
+    if(id === "academicReading"){
+        startIndependentTimer("academicReadingTimer",60,"academicReading");
+    }
+
+    if(id === "generalReading"){
+        startIndependentTimer("generalReadingTimer",60,"generalReading");
+    }
+
+    if(id === "writing"){
+        startIndependentTimer("writingTimer",60,"writing");
+    }
+
 }
 
 
-/* =========================
-   LISTENING QUESTIONS
-========================= */
+function selectIELTS(type){
 
-const listeningAnswers = {
+    currentIELTS = type;
 
-q1:"A",
-q2:"B",
-q3:"C",
-q4:"A",
-q5:"B",
-q6:"C",
-q7:"A",
-q8:"B",
-q9:"C",
-q10:"A",
-q11:"B",
-q12:"C",
-q13:"A",
-q14:"B",
-q15:"C",
-q16:"A",
-q17:"B",
-q18:"C",
-q19:"A",
-q20:"B",
-q21:"C",
-q22:"A",
-q23:"B",
-q24:"C",
-q25:"A",
-q26:"B",
-q27:"C",
-q28:"A",
-q29:"B",
-q30:"C",
-q31:"A",
-q32:"B",
-q33:"C",
-q34:"A",
-q35:"B",
-q36:"C",
-q37:"A",
-q38:"B",
-q39:"C",
-q40:"A"
+    document.getElementById("ieltsTitle").textContent =
+        "🎓 " + type + " IELTS Practice";
 
-};
+    showSection("ieltsMenu");
+}
 
 
-function createListeningQuestions() {
+/* ======================================================
+TIMERS
+====================================================== */
+
+function startIndependentTimer(elementId,minutes,key){
+
+    if(timers[key]){
+        return;
+    }
+
+    let seconds = minutes * 60;
+
+    timers[key] = setInterval(function(){
+
+        const element = document.getElementById(elementId);
+
+        if(!element){
+
+            clearInterval(timers[key]);
+            delete timers[key];
+            return;
+
+        }
+
+        const mins = Math.floor(seconds / 60);
+
+        const secs = seconds % 60;
+
+        element.textContent =
+            "⏱️ Time Remaining: " +
+            String(mins).padStart(2,"0") +
+            ":" +
+            String(secs).padStart(2,"0");
+
+        element.classList.remove("warning","danger");
+
+        if(seconds <= 300){
+            element.classList.add("warning");
+        }
+
+        if(seconds <= 60){
+            element.classList.add("danger");
+        }
+
+        if(seconds <= 0){
+
+            clearInterval(timers[key]);
+            delete timers[key];
+
+            alert("⏰ Time is up for this section.");
+
+            return;
+
+        }
+
+        seconds--;
+
+    },1000);
+
+}
+
+
+/* ======================================================
+LISTENING AUDIO
+====================================================== */
+
+const listeningScript = `
+
+Hello and welcome to the Teen IELTS listening practice.
+
+First, you will hear a conversation about an English course.
+
+The student's name is Maya. She lives in Edmonton and she is
+interested in an English course.
+
+The course begins on Monday and classes start at four p.m.
+
+The course lasts for eight weeks and takes place in Room Twelve.
+
+Students should bring a notebook to every class.
+
+The course fee is eighty dollars.
+
+If students have questions, they should contact Ms Brown.
+
+Now we will hear information about a community programme.
+
+The main purpose of the programme is to provide activities for
+local residents.
+
+The information desk is near the entrance.
+
+The programme begins on Wednesday.
+
+Local residents can join and membership is free.
+
+Visitors can park behind the building.
+
+They should bring identification.
+
+The programme is held every week and is organized by the city council.
+
+People should register online before joining.
+
+Now we will hear two students discussing a school project.
+
+Their project is about recycling.
+
+They discovered that plastic waste was an important problem.
+
+They used information from the library and interviewed a teacher.
+
+The most useful information they found was statistics.
+
+The project is due on Friday.
+
+Their presentation will last ten minutes.
+
+They will use a poster.
+
+Sam will give the introduction.
+
+They will practise in the library.
+
+Finally, we will hear a short lecture about climate change.
+
+The lecture is mainly about climate change.
+
+One important cause discussed is transport.
+
+The speaker gives traffic as an example.
+
+First, temperatures rise.
+
+Later, ice melts.
+
+One suggested solution is greater use of public transport.
+
+However, the speaker mentions the difficulty of cost.
+
+More long-term research is needed.
+
+The conclusion is that action is needed.
+
+Students should remember that small actions can matter.
+
+This is the end of the listening practice.
+
+`;
+
+let listeningSpeech = null;
+
+
+function playListening(){
+
+    if(!("speechSynthesis" in window)){
+
+        document.getElementById("audioStatus").textContent =
+            "Your browser does not support speech audio.";
+
+        return;
+
+    }
+
+    speechSynthesis.cancel();
+
+    listeningSpeech =
+        new SpeechSynthesisUtterance(listeningScript);
+
+    listeningSpeech.rate = 0.88;
+
+    listeningSpeech.pitch = 1;
+
+    listeningSpeech.onstart = function(){
+
+        document.getElementById("audioStatus").textContent =
+            "🔊 Listening is playing...";
+
+    };
+
+    listeningSpeech.onend = function(){
+
+        document.getElementById("audioStatus").textContent =
+            "✅ Listening finished.";
+
+    };
+
+    speechSynthesis.speak(listeningSpeech);
+
+}
+
+
+function pauseListening(){
+
+    if("speechSynthesis" in window){
+
+        speechSynthesis.pause();
+
+        document.getElementById("audioStatus").textContent =
+            "⏸ Listening paused.";
+
+    }
+
+}
+
+
+function resumeListening(){
+
+    if("speechSynthesis" in window){
+
+        speechSynthesis.resume();
+
+        document.getElementById("audioStatus").textContent =
+            "▶ Listening resumed.";
+
+    }
+
+}
+
+
+function stopListening(){
+
+    if("speechSynthesis" in window){
+
+        speechSynthesis.cancel();
+
+        document.getElementById("audioStatus").textContent =
+            "⏹ Listening stopped.";
+
+    }
+
+}
+
+
+/* ======================================================
+LISTENING QUESTIONS
+====================================================== */
+
+const listeningData = [
+
+{
+q:1,
+question:"What is the student's first name?",
+options:["Maya","Maria","Mina","Mary"],
+answer:"Maya"
+},
+
+{
+q:2,
+question:"Which city does Maya live in?",
+options:["Calgary","Edmonton","Toronto","Vancouver"],
+answer:"Edmonton"
+},
+
+{
+q:3,
+question:"Which course is Maya interested in?",
+options:["French","Science","English","History"],
+answer:"English"
+},
+
+{
+q:4,
+question:"When does the course begin?",
+options:["Monday","Tuesday","Wednesday","Friday"],
+answer:"Monday"
+},
+
+{
+q:5,
+question:"What time does the class begin?",
+options:["3 p.m.","4 p.m.","5 p.m.","6 p.m."],
+answer:"4 p.m."
+},
+
+{
+q:6,
+question:"How long is the course?",
+options:["4 weeks","6 weeks","8 weeks","10 weeks"],
+answer:"8 weeks"
+},
+
+{
+q:7,
+question:"Which room is used?",
+options:["Room 10","Room 11","Room 12","Room 20"],
+answer:"Room 12"
+},
+
+{
+q:8,
+question:"What should students bring?",
+options:["A dictionary","A notebook","A laptop","A camera"],
+answer:"A notebook"
+},
+
+{
+q:9,
+question:"What is the course fee?",
+options:["$60","$70","$80","$90"],
+answer:"$80"
+},
+
+{
+q:10,
+question:"Who should students contact?",
+options:["Ms Brown","Mr Green","Ms Smith","Mr Jones"],
+answer:"Ms Brown"
+},
+
+{
+q:11,
+question:"What is the purpose of the community programme?",
+options:[
+"To provide activities for local residents",
+"To sell books",
+"To organize travel",
+"To teach driving"
+],
+answer:"To provide activities for local residents"
+},
+
+{
+q:12,
+question:"Where is the information desk?",
+options:[
+"Near the entrance",
+"Near the café",
+"Near the library",
+"Near the parking area"
+],
+answer:"Near the entrance"
+},
+
+{
+q:13,
+question:"When does the programme begin?",
+options:[
+"Monday",
+"Tuesday",
+"Wednesday",
+"Friday"
+],
+answer:"Wednesday"
+},
+
+{
+q:14,
+question:"Who can join the programme?",
+options:[
+"Teachers only",
+"University students",
+"Local residents",
+"Visitors only"
+],
+answer:"Local residents"
+},
+
+{
+q:15,
+question:"What is free?",
+options:[
+"Membership",
+"Food",
+"Transport",
+"Books"
+],
+answer:"Membership"
+},
+
+{
+q:16,
+question:"Where can visitors park?",
+options:[
+"Behind the building",
+"On the main road",
+"Beside the library",
+"At the school"
+],
+answer:"Behind the building"
+},
+
+{
+q:17,
+question:"What should visitors bring?",
+options:[
+"Identification",
+"Food",
+"Sports equipment",
+"A laptop"
+],
+answer:"Identification"
+},
+
+{
+q:18,
+question:"How often is the programme held?",
+options:[
+"Every day",
+"Every week",
+"Every month",
+"Twice a year"
+],
+answer:"Every week"
+},
+
+{
+q:19,
+question:"Who organizes the programme?",
+options:[
+"The city council",
+"A university",
+"A private company",
+"A school"
+],
+answer:"The city council"
+},
+
+{
+q:20,
+question:"What should people do first?",
+options:[
+"Register online",
+"Call the office",
+"Visit the library",
+"Send a letter"
+],
+answer:"Register online"
+},
+
+{
+q:21,
+question:"What is the students' project about?",
+options:[
+"Recycling",
+"Transport",
+"Sports",
+"Food"
+],
+answer:"Recycling"
+},
+
+{
+q:22,
+question:"What material was an important problem?",
+options:[
+"Glass",
+"Plastic",
+"Wood",
+"Paper"
+],
+answer:"Plastic"
+},
+
+{
+q:23,
+question:"Where did the students find information?",
+options:[
+"The library",
+"The museum",
+"The school office",
+"The internet café"
+],
+answer:"The library"
+},
+
+{
+q:24,
+question:"Who did they interview?",
+options:[
+"A student",
+"A parent",
+"A teacher",
+"A librarian"
+],
+answer:"A teacher"
+},
+
+{
+q:25,
+question:"What information was most useful?",
+options:[
+"Statistics",
+"Photographs",
+"Maps",
+"Stories"
+],
+answer:"Statistics"
+},
+
+{
+q:26,
+question:"When is the project due?",
+options:[
+"Monday",
+"Wednesday",
+"Friday",
+"Saturday"
+],
+answer:"Friday"
+},
+
+{
+q:27,
+question:"How long will the presentation be?",
+options:[
+"5 minutes",
+"10 minutes",
+"15 minutes",
+"20 minutes"
+],
+answer:"10 minutes"
+},
+
+{
+q:28,
+question:"What visual aid will they use?",
+options:[
+"A poster",
+"A video",
+"A map",
+"A model"
+],
+answer:"A poster"
+},
+
+{
+q:29,
+question:"Who will give the introduction?",
+options:[
+"Sam",
+"Maya",
+"John",
+"Alex"
+],
+answer:"Sam"
+},
+
+{
+q:30,
+question:"Where will they practise?",
+options:[
+"The classroom",
+"The library",
+"The sports hall",
+"The café"
+],
+answer:"The library"
+},
+
+{
+q:31,
+question:"What is the lecture mainly about?",
+options:[
+"Climate change",
+"Healthy food",
+"School sports",
+"Travel"
+],
+answer:"Climate change"
+},
+
+{
+q:32,
+question:"What is one important cause?",
+options:[
+"Transport",
+"Tourism",
+"Education",
+"Farming"
+],
+answer:"Transport"
+},
+
+{
+q:33,
+question:"What example does the speaker give?",
+options:[
+"Traffic",
+"Rain",
+"Farming",
+"Factories"
+],
+answer:"Traffic"
+},
+
+{
+q:34,
+question:"What happens first?",
+options:[
+"Temperature rises",
+"Ice melts",
+"Rain stops",
+"Traffic decreases"
+],
+answer:"Temperature rises"
+},
+
+{
+q:35,
+question:"What happens later?",
+options:[
+"Ice melts",
+"Temperature falls",
+"Traffic stops",
+"Rain increases"
+],
+answer:"Ice melts"
+},
+
+{
+q:36,
+question:"What solution is suggested?",
+options:[
+"Public transport",
+"More cars",
+"More roads",
+"Longer holidays"
+],
+answer:"Public transport"
+},
+
+{
+q:37,
+question:"What difficulty is mentioned?",
+options:[
+"Cost",
+"Weather",
+"Distance",
+"Language"
+],
+answer:"Cost"
+},
+
+{
+q:38,
+question:"What research is needed?",
+options:[
+"Long-term research",
+"Sports research",
+"Historical research",
+"Travel research"
+],
+answer:"Long-term research"
+},
+
+{
+q:39,
+question:"What is the speaker's conclusion?",
+options:[
+"Action is needed",
+"Nothing should change",
+"Transport is unnecessary",
+"Research should stop"
+],
+answer:"Action is needed"
+},
+
+{
+q:40,
+question:"What should students remember?",
+options:[
+"Small actions can matter",
+"Climate change is impossible",
+"Transport is unimportant",
+"Research is unnecessary"
+],
+answer:"Small actions can matter"
+}
+
+];
+
+
+function createListeningQuestions(){
 
     const container =
         document.getElementById("listeningQuestions");
 
     let html = "";
 
-    for(let i=1;i<=40;i++) {
-
-        let correct = listeningAnswers["q"+i];
-
-        let optionB =
-            correct === "B" ? "Correct option" : "Option B";
+    listeningData.forEach(function(item){
 
         html += `
-        <div class="card">
+        <div class="question">
 
-        <h3>Question ${i}</h3>
+        <h3>Question ${item.q}</h3>
 
-        <p>
-        Listen carefully and choose the best answer.
-        </p>
-
-        <label class="option">
-        <input type="radio"
-        name="lq${i}"
-        value="A"
-        onchange="updateListeningProgress()">
-        A. Option A
-        </label>
-
-        <label class="option">
-        <input type="radio"
-        name="lq${i}"
-        value="B"
-        onchange="updateListeningProgress()">
-        B. ${optionB}
-        </label>
-
-        <label class="option">
-        <input type="radio"
-        name="lq${i}"
-        value="C"
-        onchange="updateListeningProgress()">
-        C. Option C
-        </label>
-
-        </div>
+        <p>${item.question}</p>
         `;
-    }
+
+        item.options.forEach(function(option){
+
+            html += `
+            <label class="option">
+
+            <input
+            type="radio"
+            name="listen${item.q}"
+            value="${option}"
+            onchange="updateListeningProgress()">
+
+            ${option}
+
+            </label>
+            `;
+
+        });
+
+        html += `</div>`;
+
+    });
 
     container.innerHTML = html;
+
 }
 
 
-function updateListeningProgress() {
+function updateListeningProgress(){
 
     let completed = 0;
 
-    for(let i=1;i<=40;i++) {
+    listeningData.forEach(function(item){
 
         if(document.querySelector(
-            'input[name="lq'+i+'"]:checked'
-        )) {
+            `input[name="listen${item.q}"]:checked`
+        )){
             completed++;
         }
-    }
+
+    });
 
     document.getElementById("listeningProgress").style.width =
-        (completed/40*100)+"%";
+        (completed / 40 * 100) + "%";
+
 }
 
 
-function submitListening() {
+function submitListening(){
 
     let score = 0;
 
-    for(let i=1;i<=40;i++) {
+    listeningData.forEach(function(item){
 
         const selected =
             document.querySelector(
-                'input[name="lq'+i+'"]:checked'
+                `input[name="listen${item.q}"]:checked`
             );
 
-        if(selected &&
-           selected.value === listeningAnswers["q"+i]) {
+        if(selected && selected.value === item.answer){
 
             score++;
+
         }
-    }
+
+    });
+
+    saveScore("listening",score,40);
 
     document.getElementById("listeningResult").innerHTML = `
     <div class="result">
+
     <h2>🎧 Listening Result</h2>
-    <h3>Score: ${score} / 40</h3>
-    <p>Your Listening test has been submitted.</p>
+
+    <div class="score-big">
+    ${score} / 40
+    </div>
+
+    <p>
+    Estimated IELTS-style band:
+    <strong>${getBand(score)}</strong>
+    </p>
+
     </div>
     `;
+
 }
 
 
-/* =========================
-   READING QUESTIONS
-========================= */
+/* ======================================================
+ACADEMIC READING QUESTIONS
+====================================================== */
 
-const readingAnswers = {
+const academicReadingData = [
 
-q1:"A",
-q2:"B",
-q3:"A",
-q4:"B",
-q5:"C",
-q6:"TRUE",
-q7:"FALSE",
-q8:"TRUE",
-q9:"TRUE",
-q10:"FALSE",
-q11:"communication",
-q12:"culture",
-q13:"colleagues",
-q14:"vocabulary",
-q15:"mistakes",
-q16:"A",
-q17:"A",
-q18:"A",
-q19:"C",
-q20:"A",
-q21:"B",
-q22:"A",
-q23:"C",
-q24:"B",
-q25:"A",
-q26:"C",
-q27:"B",
-q28:"A",
-q29:"C",
-q30:"B",
-q31:"A",
-q32:"C",
-q33:"B",
-q34:"A",
-q35:"C",
-q36:"B",
-q37:"A",
-q38:"C",
-q39:"B",
-q40:"A"
+{
+q:1,
+question:"What was education often based on in the past?",
+options:[
+"Printed textbooks and classroom instruction",
+"Online videos",
+"Mobile phones",
+"Social media"
+],
+answer:"Printed textbooks and classroom instruction"
+},
 
-};
+{
+q:2,
+question:"What can digital resources make education?",
+options:[
+"More expensive",
+"More flexible",
+"More difficult",
+"Less useful"
+],
+answer:"More flexible"
+},
+
+{
+q:3,
+question:"What can distract students?",
+options:[
+"Teachers",
+"Entertainment and notifications",
+"Textbooks",
+"Classrooms"
+],
+answer:"Entertainment and notifications"
+},
+
+{
+q:4,
+question:"What can teachers provide?",
+options:[
+"Feedback",
+"Mobile phones",
+"Transport",
+"Accommodation"
+],
+answer:"Feedback"
+},
+
+{
+q:5,
+question:"What skills can collaborative learning help develop?",
+options:[
+"Communication and teamwork",
+"Driving and cooking",
+"Swimming and running",
+"Painting and dancing"
+],
+answer:"Communication and teamwork"
+},
+
+{
+q:6,
+question:"Technology automatically guarantees successful learning.",
+type:"tf",
+answer:"FALSE"
+},
+
+{
+q:7,
+question:"Students can access information through mobile phones.",
+type:"tf",
+answer:"TRUE"
+},
+
+{
+q:8,
+question:"Digital learning can help students who live far from institutions.",
+type:"tf",
+answer:"TRUE"
+},
+
+{
+q:9,
+question:"Teachers are no longer important.",
+type:"tf",
+answer:"FALSE"
+},
+
+{
+q:10,
+question:"Students can become distracted by notifications.",
+type:"tf",
+answer:"TRUE"
+},
+
+{
+q:11,
+question:"Digital resources can make learning more ______.",
+answer:"flexible"
+},
+
+{
+q:12,
+question:"Students need to manage their ______ carefully.",
+answer:"time"
+},
+
+{
+q:13,
+question:"Teachers can provide useful ______.",
+answer:"feedback"
+},
+
+{
+q:14,
+question:"Students can exchange ______ online.",
+answer:"ideas"
+},
+
+{
+q:15,
+question:"Collaborative activities can develop ______ skills.",
+answer:"teamwork"
+},
+
+{
+q:16,
+question:"Which devices are mentioned?",
+options:[
+"Computers, tablets and mobile phones",
+"Televisions and radios",
+"Cameras and printers",
+"Cars and buses"
+],
+answer:"Computers, tablets and mobile phones"
+},
+
+{
+q:17,
+question:"What can students watch?",
+options:[
+"Lectures",
+"Films only",
+"Sports",
+"News only"
+],
+answer:"Lectures"
+},
+
+{
+q:18,
+question:"What should effective learners do with digital devices?",
+options:[
+"Use them with a clear purpose",
+"Use them all day",
+"Never use them",
+"Use them only for entertainment"
+],
+answer:"Use them with a clear purpose"
+},
+
+{
+q:19,
+question:"Why do teachers remain important?",
+options:[
+"They help students understand and apply information",
+"They provide computers",
+"They sell textbooks",
+"They organize transport"
+],
+answer:"They help students understand and apply information"
+},
+
+{
+q:20,
+question:"What can students complete together online?",
+options:[
+"Projects",
+"Driving lessons",
+"Medical tests",
+"Travel bookings"
+],
+answer:"Projects"
+},
+
+{
+q:21,
+question:"Collaborative learning can occur even when students live in different places.",
+type:"tf",
+answer:"TRUE"
+},
+
+{
+q:22,
+question:"Students must always be physically together to collaborate.",
+type:"tf",
+answer:"FALSE"
+},
+
+{
+q:23,
+question:"Teachers can encourage students.",
+type:"tf",
+answer:"TRUE"
+},
+
+{
+q:24,
+question:"Technology provides no information.",
+type:"tf",
+answer:"FALSE"
+},
+
+{
+q:25,
+question:"Time management can help students use technology effectively.",
+type:"tf",
+answer:"TRUE"
+},
+
+{
+q:26,
+question:"Education has remained exactly the same.",
+type:"tf",
+answer:"FALSE"
+},
+
+{
+q:27,
+question:"Online communication can support learning.",
+type:"tf",
+answer:"TRUE"
+},
+
+{
+q:28,
+question:"Entertainment can sometimes distract learners.",
+type:"tf",
+answer:"TRUE"
+},
+
+{
+q:29,
+question:"The passage says teachers should be completely replaced.",
+type:"tf",
+answer:"FALSE"
+},
+
+{
+q:30,
+question:"Teamwork is mentioned as a useful skill.",
+type:"tf",
+answer:"TRUE"
+},
+
+{
+q:31,
+question:"What is the main idea of the passage?",
+options:[
+"Technology can support education but effective learning still requires students and teachers",
+"Technology should replace schools",
+"Teachers are no longer needed",
+"Students should never use technology"
+],
+answer:"Technology can support education but effective learning still requires students and teachers"
+},
+
+{
+q:32,
+question:"What is an advantage of online collaboration?",
+options:[
+"Students can work from different locations",
+"Students never communicate",
+"Students stop studying",
+"Students avoid teamwork"
+],
+answer:"Students can work from different locations"
+},
+
+{
+q:33,
+question:"What can teachers explain?",
+options:[
+"Difficult concepts",
+"Bus routes",
+"Sports results",
+"Travel schedules"
+],
+answer:"Difficult concepts"
+},
+
+{
+q:34,
+question:"What can students exchange?",
+options:[
+"Ideas",
+"Money",
+"Cars",
+"Tickets"
+],
+answer:"Ideas"
+},
+
+{
+q:35,
+question:"What should students avoid?",
+options:[
+"Distractions",
+"Feedback",
+"Teamwork",
+"Learning"
+],
+answer:"Distractions"
+},
+
+{
+q:36,
+question:"Which is NOT mentioned as a digital resource?",
+options:[
+"Computers",
+"Tablets",
+"Mobile phones",
+"Musical instruments"
+],
+answer:"Musical instruments"
+},
+
+{
+q:37,
+question:"What can feedback help students do?",
+options:[
+"Understand their progress",
+"Drive cars",
+"Buy food",
+"Book hotels"
+],
+answer:"Understand their progress"
+},
+
+{
+q:38,
+question:"What does technology provide?",
+options:[
+"Access to information",
+"Guaranteed success",
+"Free accommodation",
+"Employment for everyone"
+],
+answer:"Access to information"
+},
+
+{
+q:39,
+question:"What is needed for effective technology use?",
+options:[
+"Purpose and time management",
+"More entertainment",
+"No teachers",
+"No practice"
+],
+answer:"Purpose and time management"
+},
+
+{
+q:40,
+question:"What is one important skill developed through collaboration?",
+options:[
+"Teamwork",
+"Driving",
+"Cooking",
+"Swimming"
+],
+answer:"Teamwork"
+}
+
+];
 
 
-function createReadingQuestions() {
+function createReading(containerId,data,prefix){
 
     const container =
-        document.getElementById("readingQuestions");
+        document.getElementById(containerId);
 
     let html = "";
 
-    for(let i=1;i<=40;i++) {
+    data.forEach(function(item){
 
-        if(i <= 5 || i >= 16) {
+        html += `
+        <div class="question">
 
-            html += `
-            <div class="card">
+        <h3>Question ${item.q}</h3>
 
-            <h3>${i}. Choose the correct answer.</h3>
+        <p>${item.question || ""}</p>
+        `;
 
-            <label class="option">
-            <input type="radio"
-            name="rq${i}"
-            value="A"
-            onchange="updateReadingProgress()">
-            A. First option
-            </label>
-
-            <label class="option">
-            <input type="radio"
-            name="rq${i}"
-            value="B"
-            onchange="updateReadingProgress()">
-            B. Second option
-            </label>
-
-            <label class="option">
-            <input type="radio"
-            name="rq${i}"
-            value="C"
-            onchange="updateReadingProgress()">
-            C. Third option
-            </label>
-
-            </div>
-            `;
-
-        } else if(i <= 10) {
+        if(item.type === "tf"){
 
             html += `
-            <div class="card">
 
-            <h3>${i}. True / False / Not Given</h3>
+            <select id="${prefix}${item.q}"
+            onchange="updateGenericProgress('${prefix}',${data.length},'${containerId}')">
 
-            <select id="rq${i}"
-            onchange="updateReadingProgress()">
-
-            <option value="">Choose an answer</option>
+            <option value="">Choose answer</option>
             <option value="TRUE">TRUE</option>
             <option value="FALSE">FALSE</option>
             <option value="NG">NOT GIVEN</option>
 
             </select>
 
-            </div>
             `;
 
-        } else {
+        }
+        else if(item.options){
+
+            item.options.forEach(function(option){
+
+                html += `
+                <label class="option">
+
+                <input
+                type="radio"
+                name="${prefix}${item.q}"
+                value="${option}"
+                onchange="updateGenericProgress('${prefix}',${data.length},'${containerId}')">
+
+                ${option}
+
+                </label>
+                `;
+
+            });
+
+        }
+        else{
 
             html += `
-            <div class="card">
-
-            <h3>${i}. Complete the answer.</h3>
-
             <input
             type="text"
-            id="rq${i}"
-            oninput="updateReadingProgress()"
+            id="${prefix}${item.q}"
+            oninput="updateGenericProgress('${prefix}',${data.length},'${containerId}')"
             placeholder="Type your answer">
-
-            </div>
             `;
+
         }
-    }
+
+        html += `</div>`;
+
+    });
 
     container.innerHTML = html;
+
 }
 
 
-function updateReadingProgress() {
+function updateGenericProgress(prefix,total,containerId){
 
     let completed = 0;
 
-    for(let i=1;i<=40;i++) {
+    for(let i=1;i<=total;i++){
 
-        let element =
-            document.getElementById("rq"+i);
+        const element =
+            document.getElementById(prefix+i);
 
-        if(!element) {
+        if(element){
 
-            const selected =
-                document.querySelector(
-                    'input[name="rq'+i+'"]:checked'
-                );
+            if(element.value.trim() !== ""){
+                completed++;
+            }
 
-            if(selected) completed++;
-
-        } else if(element.value.trim() !== "") {
-
-            completed++;
         }
+        else{
+
+            if(document.querySelector(
+                `input[name="${prefix}${i}"]:checked`
+            )){
+                completed++;
+            }
+
+        }
+
     }
 
-    document.getElementById("readingProgress").style.width =
-        (completed/40*100)+"%";
 }
 
 
-function submitReading() {
+function getGenericAnswer(prefix,item){
+
+    const element =
+        document.getElementById(prefix+item.q);
+
+    if(element){
+
+        return element.value.trim();
+
+    }
+
+    const selected =
+        document.querySelector(
+            `input[name="${prefix}${item.q}"]:checked`
+        );
+
+    return selected ? selected.value : "";
+
+}
+
+
+function scoreReading(data,prefix){
 
     let score = 0;
 
-    for(let i=1;i<=40;i++) {
+    data.forEach(function(item){
 
-        const correct =
-            readingAnswers["q"+i];
+        let user =
+            getGenericAnswer(prefix,item);
 
-        let userAnswer = "";
-
-        const element =
-            document.getElementById("rq"+i);
-
-        if(element) {
-
-            userAnswer =
-                element.value.trim().toLowerCase();
-
-        } else {
-
-            const selected =
-                document.querySelector(
-                    'input[name="rq'+i+'"]:checked'
-                );
-
-            if(selected) {
-                userAnswer = selected.value;
-            }
-        }
-
-        if(userAnswer === correct) {
+        if(
+            user.toLowerCase().trim() ===
+            item.answer.toLowerCase().trim()
+        ){
             score++;
         }
-    }
 
-    document.getElementById("readingResult").innerHTML = `
-    <div class="result">
-    <h2>📖 Reading Result</h2>
-    <h3>Score: ${score} / 40</h3>
-    <p>Your Reading test has been submitted.</p>
-    </div>
-    `;
+    });
+
+    return score;
+
 }
 
 
-/* =========================
-   WRITING
-========================= */
+function submitAcademicReading(){
 
-function countWords(inputId, outputId) {
+    const score =
+        scoreReading(academicReadingData,"ar");
+
+    saveScore("academicReading",score,40);
+
+    document.getElementById("academicReadingResult").innerHTML = `
+
+    <div class="result">
+
+    <h2>📖 Academic Reading Result</h2>
+
+    <div class="score-big">
+    ${score} / 40
+    </div>
+
+    <p>
+    Estimated IELTS-style band:
+    <strong>${getBand(score)}</strong>
+    </p>
+
+    </div>
+
+    `;
+
+}
+
+
+const generalReadingData = [
+
+{
+q:1,
+question:"What does the centre offer?",
+options:[
+"Community learning activities",
+"Airport services",
+"Hotel rooms",
+"Driving licences"
+],
+answer:"Community learning activities"
+},
+
+{
+q:2,
+question:"Which course is offered?",
+options:[
+"Computer skills",
+"Flying",
+"Car repair",
+"Medicine"
+],
+answer:"Computer skills"
+},
+
+{
+q:3,
+question:"When do most courses take place?",
+options:[
+"In the morning",
+"During the evening",
+"At midnight",
+"Only at weekends"
+],
+answer:"During the evening"
+},
+
+{
+q:4,
+question:"How must students register?",
+options:[
+"Before attending",
+"After finishing",
+"Only by telephone",
+"Only by post"
+],
+answer:"Before attending"
+},
+
+{
+q:5,
+question:"Where can registration be completed?",
+options:[
+"Online or at reception",
+"At a hotel",
+"At a school",
+"At an airport"
+],
+answer:"Online or at reception"
+},
+
+{
+q:6,
+question:"The centre provides computers for some students.",
+type:"tf",
+answer:"TRUE"
+},
+
+{
+q:7,
+question:"All courses take place at weekends.",
+type:"tf",
+answer:"FALSE"
+},
+
+{
+q:8,
+question:"Photography students should bring a camera when possible.",
+type:"tf",
+answer:"TRUE"
+},
+
+{
+q:9,
+question:"The centre is open on public holidays.",
+type:"tf",
+answer:"FALSE"
+},
+
+{
+q:10,
+question:"Staff can help visitors choose courses.",
+type:"tf",
+answer:"TRUE"
+},
+
+{
+q:11,
+question:"The centre offers photography classes.",
+type:"tf",
+answer:"TRUE"
+},
+
+{
+q:12,
+question:"Students can register at reception.",
+type:"tf",
+answer:"TRUE"
+},
+
+{
+q:13,
+question:"The centre only provides computer courses.",
+type:"tf",
+answer:"FALSE"
+},
+
+{
+q:14,
+question:"Weekend courses are available.",
+type:"tf",
+answer:"TRUE"
+},
+
+{
+q:15,
+question:"The centre closes on public holidays.",
+type:"tf",
+answer:"TRUE"
+},
+
+{
+q:16,
+question:"What must photography students bring?",
+options:[
+"A camera when possible",
+"A computer",
+"A textbook",
+"A calculator"
+],
+answer:"A camera when possible"
+},
+
+{
+q:17,
+question:"Who can answer questions?",
+options:[
+"Staff members",
+"Taxi drivers",
+"Teachers from another school",
+"Tourists"
+],
+answer:"Staff members"
+},
+
+{
+q:18,
+question:"What does the centre help visitors choose?",
+options:[
+"An appropriate course",
+"A hotel",
+"A restaurant",
+"A flight"
+],
+answer:"An appropriate course"
+},
+
+{
+q:19,
+question:"Which course is NOT mentioned?",
+options:[
+"English",
+"Cooking",
+"Photography",
+"Financial planning"
+],
+answer:"English"
+},
+
+{
+q:20,
+question:"What is the main purpose of the passage?",
+options:[
+"To provide information about a community learning centre",
+"To advertise a hotel",
+"To explain public transport",
+"To describe a school holiday"
+],
+answer:"To provide information about a community learning centre"
+},
+
+{
+q:21,
+question:"The centre provides information about balanced meals.",
+type:"tf",
+answer:"NG"
+},
+
+{
+q:22,
+question:"Students must register before attending.",
+type:"tf",
+answer:"TRUE"
+},
+
+{
+q:23,
+question:"The centre offers cooking classes.",
+type:"tf",
+answer:"TRUE"
+},
+
+{
+q:24,
+question:"The centre is located inside an airport.",
+type:"tf",
+answer:"NG"
+},
+
+{
+q:25,
+question:"The centre provides computers.",
+type:"tf",
+answer:"TRUE"
+},
+
+{
+q:26,
+question:"All students must own a computer.",
+type:"tf",
+answer:"FALSE"
+},
+
+{
+q:27,
+question:"The centre is closed on public holidays.",
+type:"tf",
+answer:"TRUE"
+},
+
+{
+q:28,
+question:"Staff members can answer questions.",
+type:"tf",
+answer:"TRUE"
+},
+
+{
+q:29,
+question:"All classes are held in the morning.",
+type:"tf",
+answer:"FALSE"
+},
+
+{
+q:30,
+question:"Weekend courses exist.",
+type:"tf",
+answer:"TRUE"
+},
+
+{
+q:31,
+question:"What can students study?",
+options:[
+"Basic financial planning",
+"Aircraft engineering",
+"Law",
+"Dentistry"
+],
+answer:"Basic financial planning"
+},
+
+{
+q:32,
+question:"How can students register?",
+options:[
+"Online",
+"Only by fax",
+"Only by letter",
+"Only through a teacher"
+],
+answer:"Online"
+},
+
+{
+q:33,
+question:"Where else can people register?",
+options:[
+"Reception",
+"Library",
+"Airport",
+"Hotel"
+],
+answer:"Reception"
+},
+
+{
+q:34,
+question:"When are most courses held?",
+options:[
+"Evening",
+"Early morning",
+"Midnight",
+"Afternoon only"
+],
+answer:"Evening"
+},
+
+{
+q:35,
+question:"What does the centre provide for some learners?",
+options:[
+"Computers",
+"Cars",
+"Food",
+"Uniforms"
+],
+answer:"Computers"
+},
+
+{
+q:36,
+question:"What should photography students bring?",
+options:[
+"A camera",
+"A dictionary",
+"A notebook only",
+"A sports bag"
+],
+answer:"A camera"
+},
+
+{
+q:37,
+question:"Who can help visitors?",
+options:[
+"Staff",
+"Drivers",
+"Doctors",
+"Tourists"
+],
+answer:"Staff"
+},
+
+{
+q:38,
+question:"What happens on public holidays?",
+options:[
+"The centre closes",
+"The centre opens longer",
+"All classes move online",
+"Only photography continues"
+],
+answer:"The centre closes"
+},
+
+{
+q:39,
+question:"What type of centre is described?",
+options:[
+"Community learning centre",
+"Shopping centre",
+"Medical centre",
+"Sports stadium"
+],
+answer:"Community learning centre"
+},
+
+{
+q:40,
+question:"What is a key message?",
+options:[
+"Residents can access several learning opportunities",
+"Only teachers can attend",
+"The centre is only for tourists",
+"Registration is unnecessary"
+],
+answer:"Residents can access several learning opportunities"
+}
+
+];
+
+
+function submitGeneralReading(){
+
+    const score =
+        scoreReading(generalReadingData,"gr");
+
+    saveScore("generalReading",score,40);
+
+    document.getElementById("generalReadingResult").innerHTML = `
+
+    <div class="result">
+
+    <h2>🌍 General Reading Result</h2>
+
+    <div class="score-big">
+    ${score} / 40
+    </div>
+
+    <p>
+    Estimated IELTS-style band:
+    <strong>${getBand(score)}</strong>
+    </p>
+
+    </div>
+
+    `;
+
+}
+
+
+/* ======================================================
+WRITING
+====================================================== */
+
+function countWords(inputId,outputId){
 
     const text =
         document.getElementById(inputId).value.trim();
 
-    if(text === "") {
-
-        document.getElementById(outputId).textContent = "0";
-        return;
-    }
-
-    const words =
-        text.split(/\s+/).length;
+    const count =
+        text === ""
+        ? 0
+        : text.split(/\s+/).length;
 
     document.getElementById(outputId).textContent =
-        words;
+        count;
+
 }
 
 
-function submitWriting() {
+function submitWriting(){
 
-    const words1 =
-        document.getElementById("writing1")
-        .value.trim()
-        .split(/\s+/)
-        .filter(Boolean).length;
+    const a1 =
+        getWordCount("academicWriting1");
 
-    const words2 =
-        document.getElementById("writing2")
-        .value.trim()
-        .split(/\s+/)
-        .filter(Boolean).length;
+    const g1 =
+        getWordCount("generalWriting1");
+
+    const t2 =
+        getWordCount("writing2");
 
     document.getElementById("writingResult").innerHTML = `
+
     <div class="result">
 
     <h2>✍️ Writing Submitted</h2>
 
-    <p>Task 1: ${words1} words</p>
-
-    <p>Task 2: ${words2} words</p>
+    <p>
+    Academic Task 1:
+    <strong>${a1} words</strong>
+    </p>
 
     <p>
-    Writing requires human/examiner-style assessment.
+    General Training Task 1:
+    <strong>${g1} words</strong>
+    </p>
+
+    <p>
+    Task 2:
+    <strong>${t2} words</strong>
+    </p>
+
+    <hr>
+
+    <p>
+    Writing should be assessed using IELTS criteria:
+    Task Achievement/Response, Coherence and Cohesion,
+    Lexical Resource, and Grammatical Range and Accuracy.
     </p>
 
     </div>
+
     `;
+
 }
 
 
-/* =========================
-   SPEAKING
-========================= */
+function getWordCount(id){
 
-function finishSpeaking() {
+    const text =
+        document.getElementById(id).value.trim();
+
+    if(text === ""){
+        return 0;
+    }
+
+    return text.split(/\s+/).length;
+
+}
+
+
+/* ======================================================
+SPEAKING
+====================================================== */
+
+let speakingInterval = null;
+
+function startSpeakingTimer(){
+
+    clearInterval(speakingInterval);
+
+    let seconds = 120;
+
+    const display =
+        document.getElementById("speakingCountdown");
+
+    speakingInterval =
+        setInterval(function(){
+
+            const min =
+                Math.floor(seconds / 60);
+
+            const sec =
+                seconds % 60;
+
+            display.textContent =
+                "⏱️ " +
+                min +
+                ":" +
+                String(sec).padStart(2,"0");
+
+            if(seconds <= 0){
+
+                clearInterval(speakingInterval);
+
+                alert("⏰ Your 2-minute speaking time is finished.");
+
+            }
+
+            seconds--;
+
+        },1000);
+
+}
+
+
+function stopSpeakingTimer(){
+
+    clearInterval(speakingInterval);
+
+    document.getElementById("speakingCountdown").textContent =
+        "Timer stopped.";
+
+}
+
+
+let mediaRecorder = null;
+
+let recordedChunks = [];
+
+
+async function startRecording(){
+
+    if(!navigator.mediaDevices ||
+       !navigator.mediaDevices.getUserMedia){
+
+        document.getElementById("recordingStatus").textContent =
+            "Microphone recording is not supported by this browser.";
+
+        return;
+
+    }
+
+    try{
+
+        const stream =
+            await navigator.mediaDevices.getUserMedia({
+                audio:true
+            });
+
+        recordedChunks = [];
+
+        mediaRecorder =
+            new MediaRecorder(stream);
+
+        mediaRecorder.ondataavailable =
+            function(event){
+
+                if(event.data.size > 0){
+                    recordedChunks.push(event.data);
+                }
+
+            };
+
+        mediaRecorder.onstop =
+            function(){
+
+                const blob =
+                    new Blob(
+                        recordedChunks,
+                        {type:"audio/webm"}
+                    );
+
+                const url =
+                    URL.createObjectURL(blob);
+
+                const audio =
+                    document.getElementById("recordingPlayback");
+
+                audio.src = url;
+
+                audio.classList.remove("hidden");
+
+                document.getElementById("recordingStatus").textContent =
+                    "✅ Recording complete. You can play it below.";
+
+                stream.getTracks().forEach(
+                    track => track.stop()
+                );
+
+            };
+
+        mediaRecorder.start();
+
+        document.getElementById("recordingStatus").textContent =
+            "🎙️ Recording...";
+
+    }
+    catch(error){
+
+        document.getElementById("recordingStatus").textContent =
+            "Microphone permission was not granted.";
+
+    }
+
+}
+
+
+function stopRecording(){
+
+    if(mediaRecorder &&
+       mediaRecorder.state !== "inactive"){
+
+        mediaRecorder.stop();
+
+    }
+
+}
+
+
+function finishSpeaking(){
+
+    clearInterval(speakingInterval);
 
     document.getElementById("speakingResult").innerHTML = `
+
     <div class="result">
 
-    <h2>🗣️ Speaking Complete</h2>
+    <h2>🗣️ Speaking Practice Complete</h2>
 
     <p>
-    Speaking practice completed.
+    Your speaking practice has been completed.
     </p>
 
     <p>
-    In a real IELTS test, an examiner assesses
-    fluency, vocabulary, grammar and pronunciation.
+    In official IELTS assessment, speaking is judged on:
+    </p>
+
+    <ul>
+    <li>Fluency and coherence</li>
+    <li>Lexical resource</li>
+    <li>Grammatical range and accuracy</li>
+    <li>Pronunciation</li>
+    </ul>
+
+    </div>
+
+    `;
+
+}
+
+
+/* ======================================================
+SKILL QUESTION DATA
+====================================================== */
+
+const skillData = {
+
+
+grammar:[
+
+{
+q:1,
+question:"If I _____ enough time, I would learn another language.",
+options:["have","had","will have","having"],
+answer:"had"
+},
+
+{
+q:2,
+question:"She _____ English for five years.",
+options:["studies","has studied","study","studying"],
+answer:"has studied"
+},
+
+{
+q:3,
+question:"They _____ to school every day.",
+options:["go","goes","going","gone"],
+answer:"go"
+},
+
+{
+q:4,
+question:"By next year, he _____ the course.",
+options:["will complete","will have completed","completed","completes"],
+answer:"will have completed"
+},
+
+{
+q:5,
+question:"English _____ in many countries.",
+options:["speaks","is spoken","spoken","speak"],
+answer:"is spoken"
+},
+
+{
+q:6,
+question:"I enjoy _____ books in English.",
+options:["read","reading","to read","reads"],
+answer:"reading"
+},
+
+{
+q:7,
+question:"She is interested _____ learning French.",
+options:["in","on","at","for"],
+answer:"in"
+},
+
+{
+q:8,
+question:"There _____ many advantages to learning languages.",
+options:["is","are","was","be"],
+answer:"are"
+},
+
+{
+q:9,
+question:"He is _____ student in the class.",
+options:["tall","taller","the tallest","more tall"],
+answer:"the tallest"
+},
+
+{
+q:10,
+question:"I have lived here _____ 2020.",
+options:["for","since","during","from"],
+answer:"since"
+},
+
+{
+q:11,
+question:"We have been studying _____ three hours.",
+options:["since","for","at","on"],
+answer:"for"
+},
+
+{
+q:12,
+question:"If it rains, we _____ at home.",
+options:["stay","will stay","stayed","would stayed"],
+answer:"will stay"
+},
+
+{
+q:13,
+question:"She asked me where I _____.",
+options:["live","lived","living","am live"],
+answer:"lived"
+},
+
+{
+q:14,
+question:"The homework _____ yesterday.",
+options:["completed","was completed","is complete","completes"],
+answer:"was completed"
+},
+
+{
+q:15,
+question:"He speaks English very _____.",
+options:["good","well","betterly","best"],
+answer:"well"
+},
+
+{
+q:16,
+question:"There isn't _____ information available.",
+options:["many","much","few","several"],
+answer:"much"
+},
+
+{
+q:17,
+question:"I need _____ advice.",
+options:["an","some","many","a few"],
+answer:"some"
+},
+
+{
+q:18,
+question:"Neither student _____ finished the task.",
+options:["have","has","are","were"],
+answer:"has"
+},
+
+{
+q:19,
+question:"She can _____ three languages.",
+options:["speaks","speaking","speak","spoke"],
+answer:"speak"
+},
+
+{
+q:20,
+question:"Learning languages _____ patience.",
+options:["require","requires","requiring","required"],
+answer:"requires"
+}
+
+],
+
+
+vocabulary:[
+
+{
+q:1,
+question:"What does 'significant' mean?",
+options:["important","tiny","unusual","temporary"],
+answer:"important"
+},
+
+{
+q:2,
+question:"What does 'beneficial' mean?",
+options:["harmful","helpful","expensive","difficult"],
+answer:"helpful"
+},
+
+{
+q:3,
+question:"What does 'essential' mean?",
+options:["unnecessary","necessary","rare","optional"],
+answer:"necessary"
+},
+
+{
+q:4,
+question:"What does 'approximately' mean?",
+options:["exactly","about","never","completely"],
+answer:"about"
+},
+
+{
+q:5,
+question:"What does 'maintain' mean?",
+options:["keep","destroy","forget","change"],
+answer:"keep"
+},
+
+{
+q:6,
+question:"What does 'decline' mean?",
+options:["increase","decrease","remain","start"],
+answer:"decrease"
+},
+
+{
+q:7,
+question:"What does 'purchase' mean?",
+options:["sell","buy","borrow","repair"],
+answer:"buy"
+},
+
+{
+q:8,
+question:"What does 'reliable' mean?",
+options:["trustworthy","dangerous","weak","uncertain"],
+answer:"trustworthy"
+},
+
+{
+q:9,
+question:"What does 'rapid' mean?",
+options:["slow","fast","small","quiet"],
+answer:"fast"
+},
+
+{
+q:10,
+question:"What does 'alternative' mean?",
+options:["another choice","problem","answer","mistake"],
+answer:"another choice"
+},
+
+{
+q:11,
+question:"What does 'challenge' mean?",
+options:["difficulty","success","holiday","reward"],
+answer:"difficulty"
+},
+
+{
+q:12,
+question:"What does 'improve' mean?",
+options:["make better","make worse","remove","hide"],
+answer:"make better"
+},
+
+{
+q:13,
+question:"What does 'consume' mean?",
+options:["use or eat","produce","repair","avoid"],
+answer:"use or eat"
+},
+
+{
+q:14,
+question:"What does 'impact' mean?",
+options:["effect","colour","price","distance"],
+answer:"effect"
+},
+
+{
+q:15,
+question:"What does 'require' mean?",
+options:["need","avoid","offer","forget"],
+answer:"need"
+},
+
+{
+q:16,
+question:"What does 'accurate' mean?",
+options:["correct","large","quick","interesting"],
+answer:"correct"
+},
+
+{
+q:17,
+question:"What does 'emphasise' mean?",
+options:["give special importance to","remove","reduce","ignore"],
+answer:"give special importance to"
+},
+
+{
+q:18,
+question:"What does 'environment' mean?",
+options:["surroundings","equipment","language","building"],
+answer:"surroundings"
+},
+
+{
+q:19,
+question:"What does 'considerable' mean?",
+options:["large or substantial","tiny","temporary","simple"],
+answer:"large or substantial"
+},
+
+{
+q:20,
+question:"What does 'encourage' mean?",
+options:["support","prevent","criticise","delay"],
+answer:"support"
+}
+
+],
+
+
+idioms:[
+
+{
+q:1,
+question:"What does 'break the ice' mean?",
+options:[
+"start a friendly conversation",
+"break something",
+"become angry",
+"leave quickly"
+],
+answer:"start a friendly conversation"
+},
+
+{
+q:2,
+question:"What does 'piece of cake' mean?",
+options:[
+"very easy",
+"very expensive",
+"very difficult",
+"very sweet"
+],
+answer:"very easy"
+},
+
+{
+q:3,
+question:"What does 'once in a blue moon' mean?",
+options:[
+"very rarely",
+"every day",
+"at night",
+"very quickly"
+],
+answer:"very rarely"
+},
+
+{
+q:4,
+question:"What does 'hit the books' mean?",
+options:[
+"study",
+"destroy books",
+"buy books",
+"sell books"
+],
+answer:"study"
+},
+
+{
+q:5,
+question:"What does 'under the weather' mean?",
+options:[
+"feeling ill",
+"outside",
+"feeling happy",
+"travelling"
+],
+answer:"feeling ill"
+},
+
+{
+q:6,
+question:"What does 'cost an arm and a leg' mean?",
+options:[
+"be very expensive",
+"be free",
+"be dangerous",
+"be easy"
+],
+answer:"be very expensive"
+},
+
+{
+q:7,
+question:"What does 'get the ball rolling' mean?",
+options:[
+"start something",
+"play football",
+"stop working",
+"lose something"
+],
+answer:"start something"
+},
+
+{
+q:8,
+question:"What does 'on cloud nine' mean?",
+options:[
+"very happy",
+"very tired",
+"very angry",
+"very confused"
+],
+answer:"very happy"
+},
+
+{
+q:9,
+question:"What does 'a blessing in disguise' mean?",
+options:[
+"something good that seemed bad at first",
+"a religious ceremony",
+"a hidden person",
+"a difficult exam"
+],
+answer:"something good that seemed bad at first"
+},
+
+{
+q:10,
+question:"What does 'keep an eye on' mean?",
+options:[
+"watch carefully",
+"close your eyes",
+"ignore",
+"hide"
+],
+answer:"watch carefully"
+},
+
+{
+q:11,
+question:"What does 'call it a day' mean?",
+options:[
+"stop working",
+"start work",
+"make a phone call",
+"choose a date"
+],
+answer:"stop working"
+},
+
+{
+q:12,
+question:"What does 'in hot water' mean?",
+options:[
+"in trouble",
+"in a swimming pool",
+"feeling hot",
+"on holiday"
+],
+answer:"in trouble"
+},
+
+{
+q:13,
+question:"What does 'go the extra mile' mean?",
+options:[
+"make an additional effort",
+"travel far",
+"walk slowly",
+"stop working"
+],
+answer:"make an additional effort"
+},
+
+{
+q:14,
+question:"What does 'a fresh start' mean?",
+options:[
+"a new beginning",
+"a new meal",
+"a new colour",
+"a new language"
+],
+answer:"a new beginning"
+},
+
+{
+q:15,
+question:"What does 'learn the ropes' mean?",
+options:[
+"learn how something works",
+"learn sailing only",
+"tie a rope",
+"avoid work"
+],
+answer:"learn how something works"
+}
+
+],
+
+
+phrasal:[
+
+{
+q:1,
+question:"What does 'give up' mean?",
+options:["quit","continue","start","increase"],
+answer:"quit"
+},
+
+{
+q:2,
+question:"What does 'look after' mean?",
+options:["take care of","ignore","watch television","find"],
+answer:"take care of"
+},
+
+{
+q:3,
+question:"What does 'find out' mean?",
+options:["discover","lose","forget","hide"],
+answer:"discover"
+},
+
+{
+q:4,
+question:"What does 'carry on' mean?",
+options:["continue","stop","carry something","return"],
+answer:"continue"
+},
+
+{
+q:5,
+question:"What does 'put off' mean?",
+options:["delay","start","finish","remove"],
+answer:"delay"
+},
+
+{
+q:6,
+question:"What does 'look forward to' mean?",
+options:["be excited about the future","look backwards","avoid something","forget"],
+answer:"be excited about the future"
+},
+
+{
+q:7,
+question:"What does 'work out' mean?",
+options:["exercise or solve","sleep","leave","forget"],
+answer:"exercise or solve"
+},
+
+{
+q:8,
+question:"What does 'turn down' mean?",
+options:["reject or reduce","accept","increase","start"],
+answer:"reject or reduce"
+},
+
+{
+q:9,
+question:"What does 'bring up' mean?",
+options:["mention or raise","lower","forget","remove"],
+answer:"mention or raise"
+},
+
+{
+q:10,
+question:"What does 'run out of' mean?",
+options:["have no more","find more","buy more","save"],
+answer:"have no more"
+},
+
+{
+q:11,
+question:"What does 'set up' mean?",
+options:["arrange or establish","destroy","delay","avoid"],
+answer:"arrange or establish"
+},
+
+{
+q:12,
+question:"What does 'take part in' mean?",
+options:["participate","leave","refuse","watch"],
+answer:"participate"
+},
+
+{
+q:13,
+question:"What does 'get along with' mean?",
+options:["have a good relationship with","argue with","avoid","forget"],
+answer:"have a good relationship with"
+},
+
+{
+q:14,
+question:"What does 'come across' mean?",
+options:["find unexpectedly","leave","destroy","repeat"],
+answer:"find unexpectedly"
+},
+
+{
+q:15,
+question:"What does 'make up' mean?",
+options:["invent or reconcile","destroy","lose","delay"],
+answer:"invent or reconcile"
+}
+
+],
+
+
+collocations:[
+
+{
+q:1,
+question:"_____ a decision",
+options:["make","do","take","put"],
+answer:"make"
+},
+
+{
+q:2,
+question:"_____ attention",
+options:["pay","do","make","take"],
+answer:"pay"
+},
+
+{
+q:3,
+question:"_____ an opportunity",
+options:["take","make","do","pay"],
+answer:"take"
+},
+
+{
+q:4,
+question:"_____ a mistake",
+options:["make","do","pay","take"],
+answer:"make"
+},
+
+{
+q:5,
+question:"_____ research",
+options:["conduct","make","pay","take"],
+answer:"conduct"
+},
+
+{
+q:6,
+question:"_____ progress",
+options:["make","do","take","pay"],
+answer:"make"
+},
+
+{
+q:7,
+question:"_____ responsibility",
+options:["take","make","do","pay"],
+answer:"take"
+},
+
+{
+q:8,
+question:"_____ experience",
+options:["gain","make","pay","do"],
+answer:"gain"
+},
+
+{
+q:9,
+question:"_____ a problem",
+options:["solve","make up","pay","take"],
+answer:"solve"
+},
+
+{
+q:10,
+question:"_____ knowledge",
+options:["acquire","pay","make","take"],
+answer:"acquire"
+},
+
+{
+q:11,
+question:"_____ a goal",
+options:["achieve","pay","do","make up"],
+answer:"achieve"
+},
+
+{
+q:12,
+question:"_____ a benefit",
+options:["provide","do","pay","take"],
+answer:"provide"
+},
+
+{
+q:13,
+question:"_____ a risk",
+options:["take","make","do","pay"],
+answer:"take"
+},
+
+{
+q:14,
+question:"_____ a conclusion",
+options:["reach","do","pay","make up"],
+answer:"reach"
+},
+
+{
+q:15,
+question:"_____ a strong argument",
+options:["present","pay","take","do"],
+answer:"present"
+}
+
+],
+
+
+spelling:[
+
+{
+q:1,
+question:"Choose the correct spelling.",
+options:["accomodation","accommodation","acommodation","accommadation"],
+answer:"accommodation"
+},
+
+{
+q:2,
+question:"Choose the correct spelling.",
+options:["environment","enviroment","envirenment","enviornment"],
+answer:"environment"
+},
+
+{
+q:3,
+question:"Choose the correct spelling.",
+options:["necessary","neccessary","necessery","neccesary"],
+answer:"necessary"
+},
+
+{
+q:4,
+question:"Choose the correct spelling.",
+options:["separate","seperate","seperete","separete"],
+answer:"separate"
+},
+
+{
+q:5,
+question:"Choose the correct spelling.",
+options:["government","goverment","govenment","governement"],
+answer:"government"
+},
+
+{
+q:6,
+question:"Choose the correct spelling.",
+options:["experience","experiance","expereince","experiense"],
+answer:"experience"
+},
+
+{
+q:7,
+question:"Choose the correct spelling.",
+options:["education","edacation","educasion","educetion"],
+answer:"education"
+},
+
+{
+q:8,
+question:"Choose the correct spelling.",
+options:["development","developement","develpment","developmant"],
+answer:"development"
+},
+
+{
+q:9,
+question:"Choose the correct spelling.",
+options:["opportunity","oportunity","oppurtunity","opportinity"],
+answer:"opportunity"
+},
+
+{
+q:10,
+question:"Choose the correct spelling.",
+options:["communication","comunication","communicaton","communicashun"],
+answer:"communication"
+},
+
+{
+q:11,
+question:"Choose the correct spelling.",
+options:["achievement","acheivement","achievment","achivement"],
+answer:"achievement"
+},
+
+{
+q:12,
+question:"Choose the correct spelling.",
+options:["independent","independant","indepedent","independint"],
+answer:"independent"
+},
+
+{
+q:13,
+question:"Choose the correct spelling.",
+options:["successful","succesful","successfull","succeful"],
+answer:"successful"
+},
+
+{
+q:14,
+question:"Choose the correct spelling.",
+options:["beginning","begining","beggining","begininng"],
+answer:"beginning"
+},
+
+{
+q:15,
+question:"Choose the correct spelling.",
+options:["pronunciation","pronounciation","pronunciationn","pronuncation"],
+answer:"pronunciation"
+}
+
+],
+
+
+paraphrase:[
+
+{
+q:1,
+question:"Choose the closest meaning: 'Technology has changed education.'",
+options:[
+"Education has been affected by technology.",
+"Technology has disappeared from education.",
+"Education has stopped.",
+"Technology cannot affect education."
+],
+answer:"Education has been affected by technology."
+},
+
+{
+q:2,
+question:"Choose the closest meaning: 'Many students find English difficult.'",
+options:[
+"English is considered difficult by many students.",
+"No students find English difficult.",
+"English is easy for everyone.",
+"Students do not study English."
+],
+answer:"English is considered difficult by many students."
+},
+
+{
+q:3,
+question:"Choose the closest meaning: 'Regular practice improves language skills.'",
+options:[
+"Language skills can become better through regular practice.",
+"Practice makes language worse.",
+"Language skills never change.",
+"Students should avoid practice."
+],
+answer:"Language skills can become better through regular practice."
+},
+
+{
+q:4,
+question:"Choose the closest meaning: 'Teachers provide useful feedback.'",
+options:[
+"Teachers give helpful comments.",
+"Teachers stop students learning.",
+"Teachers avoid students.",
+"Teachers give students money."
+],
+answer:"Teachers give helpful comments."
+},
+
+{
+q:5,
+question:"Choose the closest meaning: 'Technology provides access to information.'",
+options:[
+"Technology allows people to obtain information.",
+"Technology removes information.",
+"Technology hides information.",
+"Technology prevents learning."
+],
+answer:"Technology allows people to obtain information."
+},
+
+{
+q:6,
+question:"Choose the closest meaning: 'Students need to manage their time.'",
+options:[
+"Students need to organise their time.",
+"Students need to waste time.",
+"Students need to lose time.",
+"Students need to avoid studying."
+],
+answer:"Students need to organise their time."
+},
+
+{
+q:7,
+question:"Choose the closest meaning: 'Learning a language requires patience.'",
+options:[
+"Language learning needs patience.",
+"Language learning requires no effort.",
+"Language learning is always quick.",
+"Language learning should be avoided."
+],
+answer:"Language learning needs patience."
+},
+
+{
+q:8,
+question:"Choose the closest meaning: 'Online learning is becoming more popular.'",
+options:[
+"More people are choosing online learning.",
+"Nobody uses online learning.",
+"Online learning is disappearing.",
+"Online learning is becoming illegal."
+],
+answer:"More people are choosing online learning."
+},
+
+{
+q:9,
+question:"Choose the closest meaning: 'Exercise can improve concentration.'",
+options:[
+"Exercise can help people concentrate better.",
+"Exercise prevents concentration.",
+"Exercise makes people forget.",
+"Exercise has no effect."
+],
+answer:"Exercise can help people concentrate better."
+},
+
+{
+q:10,
+question:"Choose the closest meaning: 'Employers value communication skills.'",
+options:[
+"Employers consider communication skills important.",
+"Employers dislike communication.",
+"Employers ignore all skills.",
+"Employers only value sports."
+],
+answer:"Employers consider communication skills important."
+},
+
+{
+q:11,
+question:"Choose the closest meaning: 'Young people should develop practical skills.'",
+options:[
+"Young people should build useful everyday abilities.",
+"Young people should avoid learning.",
+"Young people should stop school.",
+"Young people should only play games."
+],
+answer:"Young people should build useful everyday abilities."
+},
+
+{
+q:12,
+question:"Choose the closest meaning: 'The number of students increased.'",
+options:[
+"The number of students went up.",
+"The number went down.",
+"The number stayed the same.",
+"Students disappeared."
+],
+answer:"The number of students went up."
+},
+
+{
+q:13,
+question:"Choose the closest meaning: 'The project was completed successfully.'",
+options:[
+"The project was finished successfully.",
+"The project was cancelled.",
+"The project failed.",
+"The project was delayed forever."
+],
+answer:"The project was finished successfully."
+},
+
+{
+q:14,
+question:"Choose the closest meaning: 'Students can benefit from teamwork.'",
+options:[
+"Teamwork can be useful for students.",
+"Teamwork always causes problems.",
+"Students should avoid teamwork.",
+"Teamwork is unnecessary."
+],
+answer:"Teamwork can be useful for students."
+},
+
+{
+q:15,
+question:"Choose the closest meaning: 'There are several advantages.'",
+options:[
+"There are a number of benefits.",
+"There are no benefits.",
+"There is one disadvantage.",
+"There are no opportunities."
+],
+answer:"There are a number of benefits."
+}
+
+]
+
+};
+
+
+/* ======================================================
+CREATE SKILL QUESTIONS
+====================================================== */
+
+function createSkillQuestions(type,containerId){
+
+    const data = skillData[type];
+
+    const container =
+        document.getElementById(containerId);
+
+    let html = "";
+
+    data.forEach(function(item){
+
+        html += `
+        <div class="question">
+
+        <h3>Question ${item.q}</h3>
+
+        <p>${item.question}</p>
+        `;
+
+        item.options.forEach(function(option){
+
+            html += `
+
+            <label class="option">
+
+            <input
+            type="radio"
+            name="${type}${item.q}"
+            value="${option}">
+
+            ${option}
+
+            </label>
+
+            `;
+
+        });
+
+        html += `</div>`;
+
+    });
+
+    container.innerHTML = html;
+
+}
+
+
+function submitSkillTest(type){
+
+    const data = skillData[type];
+
+    let score = 0;
+
+    data.forEach(function(item){
+
+        const selected =
+            document.querySelector(
+                `input[name="${type}${item.q}"]:checked`
+            );
+
+        if(selected &&
+           selected.value === item.answer){
+
+            score++;
+
+        }
+
+    });
+
+    saveScore(type,score,data.length);
+
+    const resultId =
+        type === "phrasal"
+        ? "phrasalResult"
+        : type === "collocations"
+        ? "collocationsResult"
+        : type === "paraphrase"
+        ? "paraphraseResult"
+        : type + "Result";
+
+    document.getElementById(resultId).innerHTML = `
+
+    <div class="result">
+
+    <h2>📊 ${capitalize(type)} Result</h2>
+
+    <div class="score-big">
+    ${score} / ${data.length}
+    </div>
+
+    <p>
+    Percentage:
+    <strong>
+    ${Math.round(score/data.length*100)}%
+    </strong>
     </p>
 
     </div>
+
     `;
+
 }
 
 
-/* =========================
-   TIMERS
-========================= */
+function capitalize(text){
 
-function createTimer(elementId, minutes) {
+    return text.charAt(0).toUpperCase() + text.slice(1);
 
-    let secondsLeft = minutes * 60;
+}
 
-    const interval = setInterval(function() {
+
+/* ======================================================
+PRONUNCIATION
+====================================================== */
+
+const pronunciationList = [
+
+"communication",
+
+"environment",
+
+"education",
+
+"opportunity",
+
+"development",
+
+"achievement",
+
+"comfortable",
+
+"vegetable",
+
+"important",
+
+"particularly",
+
+"technology",
+
+"responsibility",
+
+"international",
+
+"pronunciation",
+
+"approximately",
+
+"successful",
+
+"necessary",
+
+"experience",
+
+"independent",
+
+"understanding"
+
+];
+
+
+function createPronunciationPractice(){
+
+    const container =
+        document.getElementById("pronunciationWords");
+
+    let html = "";
+
+    pronunciationList.forEach(function(word,index){
+
+        html += `
+
+        <div class="question">
+
+        <h3>${index+1}. ${word}</h3>
+
+        <button onclick="speakWord('${word}')">
+        🔊 Listen
+        </button>
+
+        <button class="secondary"
+        onclick="showPronunciationTip('${word}')">
+        💡 Tip
+        </button>
+
+        <p id="tip${index}"></p>
+
+        </div>
+
+        `;
+
+    });
+
+    container.innerHTML = html;
+
+}
+
+
+function speakWord(word){
+
+    if(!("speechSynthesis" in window)){
+        alert("Speech synthesis is not supported.");
+        return;
+    }
+
+    speechSynthesis.cancel();
+
+    const speech =
+        new SpeechSynthesisUtterance(word);
+
+    speech.rate = .75;
+
+    speechSynthesis.speak(speech);
+
+}
+
+
+function showPronunciationTip(word){
+
+    const tips = {
+
+        communication:
+        "Break it into parts: com-mu-ni-ca-tion.",
+
+        environment:
+        "Say: en-VY-run-ment.",
+
+        education:
+        "Stress the first part: ed-u-CA-tion is commonly heard in natural speech.",
+
+        opportunity:
+        "Break it into syllables: op-por-TU-ni-ty.",
+
+        development:
+        "Stress the second syllable: de-VEL-op-ment.",
+
+        achievement:
+        "Say: a-CHIEVE-ment.",
+
+        comfortable:
+        "In natural speech it may sound like COMF-ter-bul.",
+
+        vegetable:
+        "The middle sounds may be reduced in natural speech.",
+
+        important:
+        "Stress the second syllable: im-POR-tant.",
+
+        particularly:
+        "Break it into: par-TIC-u-lar-ly.",
+
+        technology:
+        "Stress the second syllable: tech-NOL-o-gy.",
+
+        responsibility:
+        "Stress the main middle section: respon-si-BIL-i-ty.",
+
+        international:
+        "Break it into: in-ter-NASH-un-al.",
+
+        pronunciation:
+        "Stress the middle: pro-nun-ci-A-tion.",
+
+        approximately:
+        "Break it into several small parts rather than saying it quickly.",
+
+        successful:
+        "Stress the second syllable: suc-CESS-ful.",
+
+        necessary:
+        "Remember the spelling: one c and two s letters.",
+
+        experience:
+        "Stress the second syllable: ex-PE-ri-ence.",
+
+        independent:
+        "Stress the third syllable: in-de-PEN-dent.",
+
+        understanding:
+        "Stress the main middle section: under-STAND-ing."
+
+    };
+
+    const index =
+        pronunciationList.indexOf(word);
+
+    const tip =
+        tips[word] || "Listen carefully and repeat slowly.";
+
+    document.getElementById("tip"+index).textContent =
+        tip;
+
+}
+
+
+/* ======================================================
+BAND ESTIMATE
+====================================================== */
+
+function getBand(score){
+
+    if(score >= 39) return "9.0";
+    if(score >= 37) return "8.5";
+    if(score >= 35) return "8.0";
+    if(score >= 33) return "7.5";
+    if(score >= 30) return "7.0";
+    if(score >= 27) return "6.5";
+    if(score >= 23) return "6.0";
+    if(score >= 19) return "5.5";
+    if(score >= 15) return "5.0";
+    if(score >= 13) return "4.5";
+    if(score >= 10) return "4.0";
+
+    return "Below 4.0";
+
+}
+
+
+/* ======================================================
+LOCAL STORAGE
+====================================================== */
+
+function saveScore(section,score,total){
+
+    localStorage.setItem(
+        "teenIELTS_"+section,
+        JSON.stringify({
+            score:score,
+            total:total,
+            date:new Date().toLocaleString()
+        })
+    );
+
+}
+
+
+function getSavedScore(section){
+
+    const data =
+        localStorage.getItem(
+            "teenIELTS_"+section
+        );
+
+    if(!data){
+        return null;
+    }
+
+    try{
+        return JSON.parse(data);
+    }
+    catch{
+        return null;
+    }
+
+}
+
+
+function updateDashboard(){
+
+    const mapping = {
+
+        listening:"dashListening",
+
+        academicReading:"dashAcademicReading",
+
+        generalReading:"dashGeneralReading",
+
+        grammar:"dashGrammar",
+
+        vocabulary:"dashVocabulary",
+
+        idioms:"dashIdioms"
+
+    };
+
+    Object.keys(mapping).forEach(function(key){
+
+        const saved =
+            getSavedScore(key);
 
         const element =
-            document.getElementById(elementId);
+            document.getElementById(mapping[key]);
 
-        if(!element) {
-            clearInterval(interval);
-            return;
-        }
+        if(saved){
 
-        let minutesLeft =
-            Math.floor(secondsLeft / 60);
-
-        let seconds =
-            secondsLeft % 60;
-
-        seconds =
-            seconds < 10
-            ? "0"+seconds
-            : seconds;
-
-        element.textContent =
-            "⏱️ Time Remaining: "
-            + minutesLeft
-            + ":"
-            + seconds;
-
-        if(secondsLeft <= 0) {
-
-            clearInterval(interval);
-
-            alert("⏰ Time is up!");
+            element.textContent =
+                saved.score + " / " + saved.total;
 
         }
 
-        secondsLeft--;
+    });
 
-    },1000);
 }
 
 
-/* =========================
-   START EVERYTHING
-========================= */
+function clearProgress(){
+
+    if(confirm(
+        "Clear all saved Teen IELTS scores?"
+    )){
+
+        Object.keys(localStorage)
+            .filter(key =>
+                key.startsWith("teenIELTS_")
+            )
+            .forEach(key =>
+                localStorage.removeItem(key)
+            );
+
+        updateDashboard();
+
+        alert("Saved progress cleared.");
+
+    }
+
+}
+
+
+/* ======================================================
+INITIALIZE
+====================================================== */
 
 createListeningQuestions();
 
-createReadingQuestions();
+createReading(
+    "academicReadingQuestions",
+    academicReadingData,
+    "ar"
+);
 
-createTimer("listeningTimer",30);
+createReading(
+    "generalReadingQuestions",
+    generalReadingData,
+    "gr"
+);
 
-createTimer("readingTimer",60);
+createSkillQuestions(
+    "grammar",
+    "grammarQuestions"
+);
 
-createTimer("writingTimer",60);
+createSkillQuestions(
+    "vocabulary",
+    "vocabularyQuestions"
+);
+
+createSkillQuestions(
+    "idioms",
+    "idiomQuestions"
+);
+
+createSkillQuestions(
+    "phrasal",
+    "phrasalQuestions"
+);
+
+createSkillQuestions(
+    "collocations",
+    "collocationQuestions"
+);
+
+createSkillQuestions(
+    "spelling",
+    "spellingQuestions"
+);
+
+createSkillQuestions(
+    "paraphrase",
+    "paraphraseQuestions"
+);
+
+createPronunciationPractice();
+
+updateDashboard();
 
 </script>
 

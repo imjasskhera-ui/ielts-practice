@@ -1,175 +1,602 @@
-```html
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Teen IELTS Complete Practice</title>
+<title>IELTS Free Practice | Complete IELTS Preparation</title>
+
+<meta name="description"
+content="Free IELTS practice for Reading, Listening, Writing and Speaking. Prepare for IELTS Academic and General Training.">
 
 <style>
+
+/* =========================================
+   RESET
+========================================= */
 
 *{
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     margin:0;
     font-family:Arial,Helvetica,sans-serif;
-    background:#f4f7fb;
-    color:#222;
+    background:#f5f7fa;
+    color:#172033;
+    line-height:1.6;
 }
 
-.container{
-    max-width:1100px;
-    margin:auto;
-    padding:20px;
-}
-
-header{
-    background:#17365d;
-    color:white;
-    padding:35px 20px;
-    border-radius:16px;
-    text-align:center;
-    margin-bottom:20px;
-}
-
-header h1{
-    margin:0 0 10px;
-    font-size:38px;
-}
-
-header p{
-    margin:5px;
-    font-size:18px;
-}
-
-.card{
-    background:white;
-    padding:25px;
-    margin-bottom:20px;
-    border-radius:15px;
-    box-shadow:0 2px 10px rgba(0,0,0,.08);
-}
-
-.section{
-    display:none;
-}
-
-.section.active{
-    display:block;
-}
-
-h2{
-    color:#17365d;
-}
-
-h3{
-    color:#17365d;
+a{
+    text-decoration:none;
+    color:inherit;
 }
 
 button{
-    padding:13px 20px;
-    border:none;
-    border-radius:8px;
-    background:#17365d;
-    color:white;
-    font-size:16px;
-    cursor:pointer;
-    margin:5px;
+    font-family:inherit;
 }
 
-button:hover{
+
+/* =========================================
+   HEADER / NAVIGATION
+========================================= */
+
+.topbar{
+    background:#ffffff;
+    border-bottom:1px solid #e5e7eb;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.nav{
+    max-width:1200px;
+    margin:auto;
+    padding:15px 20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:800;
+    color:#17365d;
+}
+
+.logo span{
+    color:#e63946;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.nav-links a{
+    font-size:15px;
+    font-weight:600;
+    color:#39445a;
+}
+
+.nav-links a:hover{
+    color:#17365d;
+}
+
+.menu-btn{
+    display:none;
+    background:#17365d;
+    color:white;
+    border:none;
+    padding:9px 13px;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero{
+    background:
+        linear-gradient(
+            135deg,
+            #17365d,
+            #24548b
+        );
+
+    color:white;
+    padding:75px 20px;
+}
+
+.hero-inner{
+    max-width:1200px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:50px;
+    align-items:center;
+}
+
+.hero h1{
+    font-size:52px;
+    line-height:1.1;
+    margin:0 0 20px;
+}
+
+.hero h1 span{
+    color:#ffd166;
+}
+
+.hero p{
+    font-size:19px;
+    max-width:700px;
+    color:#e9eef6;
+}
+
+.hero-buttons{
+    margin-top:30px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.btn{
+    display:inline-block;
+    border:none;
+    border-radius:8px;
+    padding:14px 22px;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.btn-primary{
+    background:#ffffff;
+    color:#17365d;
+}
+
+.btn-primary:hover{
+    background:#f1f4f8;
+}
+
+.btn-yellow{
+    background:#ffd166;
+    color:#172033;
+}
+
+.btn-yellow:hover{
+    background:#f7c34d;
+}
+
+.btn-outline{
+    border:2px solid rgba(255,255,255,.8);
+    color:white;
+    background:transparent;
+}
+
+.btn-outline:hover{
+    background:white;
+    color:#17365d;
+}
+
+.hero-card{
+    background:white;
+    color:#172033;
+    border-radius:18px;
+    padding:28px;
+    box-shadow:0 15px 40px rgba(0,0,0,.2);
+}
+
+.hero-card h2{
+    margin-top:0;
+    color:#17365d;
+}
+
+.quick-item{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:13px 0;
+    border-bottom:1px solid #eee;
+}
+
+.quick-item:last-child{
+    border-bottom:none;
+}
+
+.quick-icon{
+    width:42px;
+    height:42px;
+    border-radius:10px;
+    background:#eef4fb;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+}
+
+
+/* =========================================
+   GENERAL
+========================================= */
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:0 20px;
+}
+
+.section{
+    padding:70px 0;
+}
+
+.section-light{
+    background:white;
+}
+
+.section-title{
+    text-align:center;
+    max-width:750px;
+    margin:0 auto 40px;
+}
+
+.section-title h2{
+    color:#17365d;
+    font-size:34px;
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#687386;
+}
+
+
+/* =========================================
+   TEST TYPE
+========================================= */
+
+.type-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.type-card{
+    background:white;
+    border-radius:16px;
+    padding:30px;
+    border:1px solid #e2e6ec;
+    box-shadow:0 5px 20px rgba(0,0,0,.05);
+}
+
+.type-card h3{
+    color:#17365d;
+    font-size:25px;
+    margin-top:0;
+}
+
+.type-card ul{
+    padding-left:20px;
+    color:#596579;
+}
+
+.type-card li{
+    margin:8px 0;
+}
+
+.type-card .btn{
+    background:#17365d;
+    color:white;
+}
+
+.type-card .btn:hover{
     background:#0f2744;
 }
 
-button.reading{
-    background:#287a3e;
-}
 
-button.reading:hover{
-    background:#1e5d30;
-}
+/* =========================================
+   SKILLS
+========================================= */
 
-button.secondary{
-    background:#666;
-}
-
-button.success{
-    background:#287a3e;
-}
-
-button.danger{
-    background:#a83232;
-}
-
-.center{
-    text-align:center;
-}
-
-.test-selector{
+.skill-grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
-    margin:20px 0;
+    grid-template-columns:
+        repeat(4,1fr);
+    gap:20px;
 }
 
-.test-box{
-    background:#f4f7fb;
-    padding:20px;
-    border-radius:12px;
-    text-align:center;
-    border:2px solid transparent;
-}
-
-.test-box:hover{
-    border-color:#17365d;
-}
-
-.timer{
-    position:sticky;
-    top:10px;
-    z-index:100;
+.skill-card{
     background:white;
-    padding:15px;
+    border-radius:15px;
+    padding:28px 20px;
     text-align:center;
-    font-size:23px;
-    font-weight:bold;
-    border-radius:10px;
-    margin-bottom:20px;
-    box-shadow:0 2px 10px rgba(0,0,0,.15);
+    border:1px solid #e2e6ec;
+    transition:.2s;
 }
 
-.small{
+.skill-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.skill-icon{
+    font-size:42px;
+}
+
+.skill-card h3{
+    color:#17365d;
+    margin:12px 0 5px;
+}
+
+.skill-card p{
+    color:#687386;
     font-size:14px;
-    color:#666;
 }
 
-ul{
-    line-height:1.8;
+.skill-card a{
+    display:inline-block;
+    margin-top:10px;
+    color:#17365d;
+    font-weight:bold;
+}
+
+
+/* =========================================
+   PRACTICE TESTS
+========================================= */
+
+.test-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(3,1fr);
+    gap:20px;
+}
+
+.test-card{
+    background:#ffffff;
+    border-radius:15px;
+    padding:25px;
+    border:1px solid #e2e6ec;
+}
+
+.test-card h3{
+    color:#17365d;
+}
+
+.test-card p{
+    color:#687386;
+}
+
+.test-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:15px 0;
+}
+
+.tag{
+    background:#eef4fb;
+    color:#17365d;
+    border-radius:20px;
+    padding:5px 10px;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.test-card .btn{
+    background:#17365d;
+    color:white;
+}
+
+
+/* =========================================
+   QUESTION TYPES
+========================================= */
+
+.question-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(3,1fr);
+    gap:15px;
+}
+
+.question-type{
+    background:#f7f9fc;
+    border:1px solid #e1e5eb;
+    padding:18px;
+    border-radius:10px;
+    font-weight:600;
+    color:#34415a;
+}
+
+.question-type:hover{
+    border-color:#17365d;
+    color:#17365d;
+}
+
+
+/* =========================================
+   FEATURES
+========================================= */
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(3,1fr);
+    gap:20px;
+}
+
+.feature{
+    background:#f7f9fc;
+    padding:25px;
+    border-radius:14px;
+}
+
+.feature-icon{
+    font-size:30px;
+}
+
+.feature h3{
+    color:#17365d;
+}
+
+
+/* =========================================
+   CTA
+========================================= */
+
+.cta{
+    background:#17365d;
+    color:white;
+    padding:65px 20px;
+    text-align:center;
+}
+
+.cta h2{
+    font-size:36px;
+    margin-top:0;
+}
+
+.cta p{
+    color:#dce6f2;
+    max-width:700px;
+    margin:0 auto 25px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer{
+    background:#101a2a;
+    color:#d5dbe5;
+    padding:45px 20px 25px;
+}
+
+.footer-grid{
+    max-width:1200px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:
+        2fr 1fr 1fr 1fr;
+
+    gap:30px;
+}
+
+footer h3{
+    color:white;
+}
+
+footer a{
+    display:block;
+    margin:7px 0;
+    color:#bfc8d6;
+}
+
+footer a:hover{
+    color:white;
+}
+
+.copyright{
+    max-width:1200px;
+    margin:35px auto 0;
+    padding-top:20px;
+    border-top:1px solid #2c3748;
+    font-size:13px;
+    color:#9fa9b8;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:900px){
+
+    .hero-inner{
+        grid-template-columns:1fr;
+    }
+
+    .skill-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .test-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .feature-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
 }
 
 @media(max-width:700px){
 
-    .container{
-        padding:10px;
+    .nav{
+        flex-wrap:wrap;
     }
 
-    header h1{
-        font-size:28px;
+    .menu-btn{
+        display:block;
     }
 
-    .card{
-        padding:17px;
+    .nav-links{
+        display:none;
+        width:100%;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:12px;
+        padding:10px 0;
     }
 
-    .test-selector{
+    .nav-links.open{
+        display:flex;
+    }
+
+    .hero{
+        padding:50px 15px;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+
+    .type-grid,
+    .skill-grid,
+    .test-grid,
+    .question-grid,
+    .feature-grid,
+    .footer-grid{
         grid-template-columns:1fr;
+    }
+
+    .section{
+        padding:50px 0;
     }
 
 }
@@ -178,483 +605,1019 @@ ul{
 
 </head>
 
-
 <body>
 
+<!-- =========================================
+     NAVIGATION
+========================================= -->
 
-<div class="container">
+<nav class="topbar">
 
+<div class="nav">
 
-<header>
-
-<h1>🎓 Teen IELTS Complete Practice</h1>
-
-<p>
-Listening • Reading • Writing • Speaking • Grammar • Vocabulary
-</p>
-
-</header>
-
-
-<!-- =========================
-HOME
-========================= -->
-
-<div id="home" class="section active">
-
-
-<div class="card center">
-
-<h2>Welcome to IELTS Practice</h2>
-
-<p>
-Choose the practice section you want to use.
-</p>
-
-
-<!-- WRITING -->
-
-<button onclick="openWriting('Academic')">
-
-🎓 Academic Writing
-
-</button>
-
-
-<button onclick="openWriting('General')">
-
-🌍 General Training Writing
-
-</button>
-
-
-<!-- READING -->
+<a href="index.html" class="logo">
+IELTS<span>Free</span>Practice
+</a>
 
 <button
-class="reading"
-onclick="openReading()">
+class="menu-btn"
+onclick="toggleMenu()">
+☰ </button>
 
-📖 IELTS Reading — 25 Practice Tests
+<div id="navLinks" class="nav-links">
 
-</button>
+<a href="#home">Home</a>
 
+<a href="#practice">Practice</a>
+
+<a href="#skills">Skills</a>
+
+<a href="#questionTypes">Question Types</a>
+
+<a href="#resources">Resources</a>
+
+<a href="#about">About</a>
 
 </div>
 
+</div>
 
+</nav>
 
-<!-- =========================
-PRACTICE SECTIONS
-========================= -->
+<!-- =========================================
+     HERO
+========================================= -->
 
-<div class="card">
+<section id="home" class="hero">
 
-<h2>📚 Practice Sections</h2>
+<div class="hero-inner">
 
+<div>
 
 <p>
-Choose a section to practise:
+FREE IELTS PREPARATION
 </p>
 
-
-<ul>
-
-<li>
-🎧 Listening — Coming Soon
-</li>
-
-<li>
-📖 Reading — 25 Practice Tests
-</li>
-
-<li>
-✍️ Writing — Academic & General Training
-</li>
-
-<li>
-🗣️ Speaking — Coming Soon
-</li>
-
-<li>
-📘 Grammar — Coming Soon
-</li>
-
-<li>
-🧠 Vocabulary — Coming Soon
-</li>
-
-<li>
-💬 Idioms — Coming Soon
-</li>
-
-<li>
-🔤 Phrasal Verbs — Coming Soon
-</li>
-
-</ul>
-
-</div>
-
-
-<!-- =========================
-WRITING INFORMATION
-========================= -->
-
-<div class="card">
-
-<h2>✍️ Writing Practice</h2>
+<h1>
+Prepare smarter.
+<br>
+Practice with <span>confidence.</span>
+</h1>
 
 <p>
-The IELTS Writing section contains two tasks.
+Free IELTS-style practice for Academic and
+General Training. Improve your Reading,
+Listening, Writing and Speaking skills with
+timed practice and detailed review.
 </p>
 
-<ul>
+<div class="hero-buttons">
 
-<li>
-<strong>Task 1:</strong> approximately 20 minutes
-</li>
+<a
+href="#practice"
+class="btn btn-yellow">
+Start Practising </a>
 
-<li>
-<strong>Task 2:</strong> approximately 40 minutes
-</li>
-
-<li>
-<strong>Total:</strong> 60 minutes
-</li>
-
-<li>
-Task 2 receives greater weight in IELTS scoring.
-</li>
-
-<li>
-Task 1 minimum: 150 words
-</li>
-
-<li>
-Task 2 minimum: 250 words
-</li>
-
-</ul>
-
-</div>
-
-
-<!-- =========================
-READING INFORMATION
-========================= -->
-
-<div class="card">
-
-<h2>📖 Reading Practice</h2>
-
-<p>
-Our Reading practice will contain:
-</p>
-
-<ul>
-
-<li>25 complete practice tests</li>
-
-<li>40 questions per test</li>
-
-<li>Reading passages</li>
-
-<li>Multiple Choice questions</li>
-
-<li>True / False / Not Given</li>
-
-<li>Matching questions</li>
-
-<li>Sentence completion</li>
-
-<li>Summary completion</li>
-
-<li>Reading timer</li>
-
-<li>Automatic scoring</li>
-
-<li>IELTS-style band estimate</li>
-
-</ul>
-
-
-<div class="center">
-
-<button
-class="reading"
-onclick="openReading()">
-
-📖 Start Reading Practice
-
-</button>
+<a
+href="#skills"
+class="btn btn-outline">
+Explore IELTS Skills </a>
 
 </div>
 
 </div>
 
+<div class="hero-card">
 
-</div>
-
-
-
-<!-- =========================
-WRITING MENU
-========================= -->
-
-<div id="writingMenu" class="section">
-
-
-<div class="card center">
-
-
-<h2 id="writingTitle">
-IELTS Writing
+<h2>
+🚀 Start Your IELTS Preparation
 </h2>
 
+<div class="quick-item">
 
-<p>
-Choose a writing practice test.
-</p>
-
-
-<div class="test-selector">
-
-
-<div class="test-box">
-
-<h3>🎲 Random Test</h3>
-
-<p>
-Automatically select a practice test.
-</p>
-
-<button onclick="startRandomWriting()">
-
-Start Random Test
-
-</button>
-
+<div class="quick-icon">
+📖
 </div>
 
+<div>
 
-
-<div class="test-box">
-
-<h3>📋 Choose Test</h3>
-
-<p>
-Select a specific practice test.
-</p>
-
-
-<select id="testNumber">
-
-<option value="1">
-Practice Test 1
-</option>
-
-<option value="2">
-Practice Test 2
-</option>
-
-<option value="3">
-Practice Test 3
-</option>
-
-<option value="4">
-Practice Test 4
-</option>
-
-<option value="5">
-Practice Test 5
-</option>
-
-</select>
-
+<strong>Reading</strong>
 
 <br>
 
-
-<button onclick="startSelectedWriting()">
-
-Start Selected Test
-
-</button>
+<span class="small">
+40 questions • 60 minutes
+</span>
 
 </div>
 
+</div>
+
+<div class="quick-item">
+
+<div class="quick-icon">
+🎧
+</div>
+
+<div>
+
+<strong>Listening</strong>
+
+<br>
+
+<span class="small">
+4 sections • 40 questions
+</span>
 
 </div>
 
+</div>
 
-<button
-onclick="showSection('home')">
+<div class="quick-item">
 
-🏠 Home
+<div class="quick-icon">
+✍️
+</div>
 
-</button>
+<div>
 
+<strong>Writing</strong>
+
+<br>
+
+<span class="small">
+Task 1 + Task 2
+</span>
 
 </div>
 
+</div>
 
-<div class="card">
+<div class="quick-item">
 
+<div class="quick-icon">
+🗣️
+</div>
 
-<h2>⏱️ Writing Timing</h2>
+<div>
+
+<strong>Speaking</strong>
+
+<br>
+
+<span class="small">
+Parts 1, 2 and 3
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================
+     ACADEMIC / GENERAL
+========================================= -->
+
+<section class="section section-light">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Choose Your IELTS Test
+</h2>
 
 <p>
-<strong>Task 1:</strong> approximately 20 minutes
+Start with the test type that matches your goal.
+</p>
+
+</div>
+
+<div class="type-grid">
+
+<div class="type-card">
+
+<h3>
+🎓 IELTS Academic
+</h3>
+
+<p>
+Prepare for IELTS Academic with practice
+designed for study and professional registration.
+</p>
+
+<ul>
+
+<li>Academic Reading</li>
+
+<li>Academic Writing</li>
+
+<li>Listening</li>
+
+<li>Speaking</li>
+
+</ul>
+
+<a
+href="Reading.html"
+class="btn">
+Explore Academic Practice </a>
+
+</div>
+
+<div class="type-card">
+
+<h3>
+🌍 IELTS General Training
+</h3>
+
+<p>
+Practise the English skills used in everyday,
+work and social contexts.
+</p>
+
+<ul>
+
+<li>General Training Reading</li>
+
+<li>General Training Writing</li>
+
+<li>Listening</li>
+
+<li>Speaking</li>
+
+</ul>
+
+<a
+href="Reading.html"
+class="btn">
+Explore General Practice </a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================
+     FOUR SKILLS
+========================================= -->
+
+<section
+id="skills"
+class="section">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Prepare for All Four IELTS Skills
+</h2>
+
+<p>
+Build your skills with practice, feedback and
+realistic test-style activities.
+</p>
+
+</div>
+
+<div class="skill-grid">
+
+<div class="skill-card">
+
+<div class="skill-icon">
+📖
+</div>
+
+<h3>
+Reading
+</h3>
+
+<p>
+Practice passages, question types,
+timed tests and answer review.
+</p>
+
+<a href="Reading.html">
+Start Reading →
+</a>
+
+</div>
+
+<div class="skill-card">
+
+<div class="skill-icon">
+🎧
+</div>
+
+<h3>
+Listening
+</h3>
+
+<p>
+Practise listening sections, questions,
+transcripts and answer review.
+</p>
+
+<a href="Listening.html">
+Start Listening →
+</a>
+
+</div>
+
+<div class="skill-card">
+
+<div class="skill-icon">
+✍️
+</div>
+
+<h3>
+Writing
+</h3>
+
+<p>
+Practise Academic and General Training
+Task 1 and Task 2.
+</p>
+
+<a href="Writing.html">
+Start Writing →
+</a>
+
+</div>
+
+<div class="skill-card">
+
+<div class="skill-icon">
+🗣️
+</div>
+
+<h3>
+Speaking
+</h3>
+
+<p>
+Practise Parts 1, 2 and 3 with
+questions and sample responses.
+</p>
+
+<a href="Speaking.html">
+Start Speaking →
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================
+     PRACTICE TESTS
+========================================= -->
+
+<section
+id="practice"
+class="section section-light">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Free IELTS Practice Tests
+</h2>
+
+<p>
+Build confidence with full-length practice
+and individual skill tests.
+</p>
+
+</div>
+
+<div class="test-grid">
+
+<div class="test-card">
+
+<h3>
+📖 Reading Practice
+</h3>
+
+<p>
+Full Reading practice with passages,
+40 questions and timed testing.
+</p>
+
+<div class="test-meta">
+
+<span class="tag">
+40 Questions
+</span>
+
+<span class="tag">
+60 Minutes
+</span>
+
+<span class="tag">
+Auto Marking
+</span>
+
+</div>
+
+<a
+href="Reading.html"
+class="btn">
+Start Reading </a>
+
+</div>
+
+<div class="test-card">
+
+<h3>
+🎧 Listening Practice
+</h3>
+
+<p>
+Practise four listening sections and
+review your answers.
+</p>
+
+<div class="test-meta">
+
+<span class="tag">
+40 Questions
+</span>
+
+<span class="tag">
+4 Sections
+</span>
+
+</div>
+
+<a
+href="Listening.html"
+class="btn">
+Start Listening </a>
+
+</div>
+
+<div class="test-card">
+
+<h3>
+✍️ Writing Practice
+</h3>
+
+<p>
+Practise Task 1 and Task 2 with
+word counts and timing.
+</p>
+
+<div class="test-meta">
+
+<span class="tag">
+Task 1
+</span>
+
+<span class="tag">
+Task 2
+</span>
+
+<span class="tag">
+60 Minutes
+</span>
+
+</div>
+
+<a
+href="Writing.html"
+class="btn">
+Start Writing </a>
+
+</div>
+
+<div class="test-card">
+
+<h3>
+🗣️ Speaking Practice
+</h3>
+
+<p>
+Prepare for all three parts of the
+IELTS Speaking test.
+</p>
+
+<div class="test-meta">
+
+<span class="tag">
+Part 1
+</span>
+
+<span class="tag">
+Part 2
+</span>
+
+<span class="tag">
+Part 3
+</span>
+
+</div>
+
+<a
+href="Speaking.html"
+class="btn">
+Start Speaking </a>
+
+</div>
+
+<div class="test-card">
+
+<h3>
+🎯 Full IELTS Practice
+</h3>
+
+<p>
+Complete a full practice journey across
+all four IELTS skills.
+</p>
+
+<div class="test-meta">
+
+<span class="tag">
+4 Skills
+</span>
+
+<span class="tag">
+Practice
+</span>
+
+</div>
+
+<a
+href="#skills"
+class="btn">
+Begin Preparation </a>
+
+</div>
+
+<div class="test-card">
+
+<h3>
+📊 Check Your Progress
+</h3>
+
+<p>
+Review your practice results and identify
+the areas that need more work.
+</p>
+
+<div class="test-meta">
+
+<span class="tag">
+Scores
+</span>
+
+<span class="tag">
+Review
+</span>
+
+</div>
+
+<a
+href="#resources"
+class="btn">
+View Resources </a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================
+     QUESTION TYPES
+========================================= -->
+
+<section
+id="questionTypes"
+class="section">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+IELTS Question Types
+</h2>
+
+<p>
+Practise individual question types before
+moving to complete tests.
+</p>
+
+</div>
+
+<div class="question-grid">
+
+<div class="question-type">
+Multiple Choice
+</div>
+
+<div class="question-type">
+True / False / Not Given
+</div>
+
+<div class="question-type">
+Yes / No / Not Given
+</div>
+
+<div class="question-type">
+Matching Headings
+</div>
+
+<div class="question-type">
+Matching Information
+</div>
+
+<div class="question-type">
+Matching Features
+</div>
+
+<div class="question-type">
+Sentence Completion
+</div>
+
+<div class="question-type">
+Summary Completion
+</div>
+
+<div class="question-type">
+Table Completion
+</div>
+
+<div class="question-type">
+Flow-chart Completion
+</div>
+
+<div class="question-type">
+Short Answer Questions
+</div>
+
+<div class="question-type">
+Diagram Labelling
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================
+     FEATURES
+========================================= -->
+
+<section
+id="resources"
+class="section section-light">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Your IELTS Preparation Toolkit
+</h2>
+
+<p>
+More than just practice tests.
+</p>
+
+</div>
+
+<div class="feature-grid">
+
+<div class="feature">
+
+<div class="feature-icon">
+⏱️
+</div>
+
+<h3>
+Timed Practice
+</h3>
+
+<p>
+Get comfortable working within the
+time limits used in the real IELTS test.
+</p>
+
+</div>
+
+<div class="feature">
+
+<div class="feature-icon">
+📊
+</div>
+
+<h3>
+Score & Band Estimates
+</h3>
+
+<p>
+See your practice score and an
+estimated band for objective sections.
+</p>
+
+</div>
+
+<div class="feature">
+
+<div class="feature-icon">
+🔍
+</div>
+
+<h3>
+Answer Review
+</h3>
+
+<p>
+Review your answers after completing
+a practice test.
+</p>
+
+</div>
+
+<div class="feature">
+
+<div class="feature-icon">
+📚
+</div>
+
+<h3>
+IELTS Resources
+</h3>
+
+<p>
+Learn about IELTS formats, strategies,
+question types and preparation.
+</p>
+
+</div>
+
+<div class="feature">
+
+<div class="feature-icon">
+📱
+</div>
+
+<h3>
+Mobile Friendly
+</h3>
+
+<p>
+Practise from your computer, tablet
+or phone.
+</p>
+
+</div>
+
+<div class="feature">
+
+<div class="feature-icon">
+🆓
+</div>
+
+<h3>
+Free Practice
+</h3>
+
+<p>
+Build your preparation library without
+requiring a paid subscription.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================
+     CTA
+========================================= -->
+
+<section class="cta">
+
+<div class="container">
+
+<h2>
+Ready to start practising?
+</h2>
+
+<p>
+Choose a skill, take a practice test and
+build your IELTS confidence step by step.
+</p>
+
+<a
+href="Reading.html"
+class="btn btn-yellow">
+Start Free Practice </a>
+
+</div>
+
+</section>
+
+<!-- =========================================
+     ABOUT
+========================================= -->
+
+<section
+id="about"
+class="section">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+About This Website
+</h2>
+
+<p>
+A free independent IELTS practice project.
+</p>
+
+</div>
+
+<div class="type-card">
+
+<p>
+This website is an independent IELTS practice
+resource designed to help learners prepare
+for the IELTS test through original practice
+activities and test-style exercises.
 </p>
 
 <p>
-<strong>Task 2:</strong> approximately 40 minutes
+It is not affiliated with or endorsed by
+IELTS, IDP, British Council or Cambridge
+Assessment English.
 </p>
 
 <p>
-<strong>Total:</strong> 60 minutes
+Practice scores shown on this website are
+estimates and should not be treated as
+official IELTS results.
 </p>
 
+</div>
 
 </div>
 
+</section>
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+<div class="footer-grid">
+
+<div>
+
+<h3>
+IELTS Free Practice
+</h3>
+
+<p>
+Free IELTS-style preparation for Reading,
+Listening, Writing and Speaking.
+</p>
 
 </div>
 
+<div>
 
+<h3>
+Practice</h3>
 
-<!-- =========================
-JAVASCRIPT
-========================= -->
+<a href="Reading.html">
+Reading
+</a>
+
+<a href="Listening.html">
+Listening
+</a>
+
+<a href="Writing.html">
+Writing
+</a>
+
+<a href="Speaking.html">
+Speaking
+</a>
+
+</div>
+
+<div>
+
+<h3>
+IELTS</h3>
+
+<a href="#practice">
+Practice Tests
+</a>
+
+<a href="#questionTypes">
+Question Types
+</a>
+
+<a href="#resources">
+Resources
+</a>
+
+</div>
+
+<div>
+
+<h3>
+Information
+</h3>
+
+<a href="#about">
+About
+</a>
+
+<a href="#">
+Privacy
+</a>
+
+<a href="#">
+Contact
+</a>
+
+</div>
+
+</div>
+
+<div class="copyright">
+
+© 2026 IELTS Free Practice.
+Independent practice resource.
+
+</div>
+
+</footer>
 
 <script>
 
+function toggleMenu(){
 
-/* =====================================
-NAVIGATION
-===================================== */
+    const menu =
+        document.getElementById("navLinks");
 
-function showSection(id){
+    menu.classList.toggle("open");
 
-    document
-    .querySelectorAll(".section")
-    .forEach(function(section){
+}
 
-        section.classList.remove("active");
+
+/* Close mobile menu after clicking */
+
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(function(link){
+
+        link.addEventListener(
+            "click",
+            function(){
+
+                document
+                    .getElementById("navLinks")
+                    .classList.remove("open");
+
+            }
+        );
 
     });
-
-
-    const section =
-        document.getElementById(id);
-
-
-    if(section){
-
-        section.classList.add("active");
-
-    }
-
-
-    window.scrollTo({
-
-        top:0,
-
-        behavior:"smooth"
-
-    });
-
-}
-
-
-/* =====================================
-OPEN READING
-===================================== */
-
-function openReading(){
-
-    window.location.href =
-        "Reading.html";
-
-}
-
-
-/* =====================================
-OPEN WRITING
-===================================== */
-
-function openWriting(type){
-
-    localStorage.setItem(
-        "ieltsWritingType",
-        type
-    );
-
-    alert(
-        type +
-        " Writing will open from the Writing page."
-    );
-
-}
-
-
-/* =====================================
-WRITING TEST
-===================================== */
-
-function startSelectedWriting(){
-
-    const number =
-        document.getElementById(
-            "testNumber"
-        ).value;
-
-
-    localStorage.setItem(
-        "ieltsWritingTest",
-        number
-    );
-
-
-    alert(
-        "Writing Practice Test " +
-        number +
-        " selected."
-    );
-
-}
-
-
-/* =====================================
-RANDOM WRITING
-===================================== */
-
-function startRandomWriting(){
-
-    const number =
-        Math.floor(
-            Math.random() * 5
-        ) + 1;
-
-
-    localStorage.setItem(
-        "ieltsWritingTest",
-        number
-    );
-
-
-    alert(
-        "Random Writing Test " +
-        number +
-        " selected."
-    );
-
-}
 
 </script>
-
 
 </body>
 
 </html>
-```

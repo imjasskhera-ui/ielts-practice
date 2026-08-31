@@ -26,3 +26,1575 @@ function showSection(id) {
     }
 
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Teen IELTS Complete Practice</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f4f7fb;
+    color:#222;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
+}
+
+header{
+    background:#17365d;
+    color:white;
+    padding:35px 20px;
+    border-radius:16px;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+header h1{
+    margin:0 0 10px;
+    font-size:38px;
+}
+
+header p{
+    margin:5px;
+    font-size:18px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    margin-bottom:20px;
+    border-radius:15px;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.section{
+    display:none;
+}
+
+.section.active{
+    display:block;
+}
+
+h2{
+    color:#17365d;
+}
+
+h3{
+    color:#17365d;
+}
+
+button{
+    padding:13px 20px;
+    border:none;
+    border-radius:8px;
+    background:#17365d;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    margin:5px;
+}
+
+button:hover{
+    background:#0f2744;
+}
+
+button.secondary{
+    background:#666;
+}
+
+button.success{
+    background:#287a3e;
+}
+
+button.danger{
+    background:#a83232;
+}
+
+.center{
+    text-align:center;
+}
+
+select,
+input[type="text"],
+textarea{
+    width:100%;
+    max-width:850px;
+    padding:13px;
+    border:1px solid #aaa;
+    border-radius:8px;
+    font-size:16px;
+    font-family:Arial,sans-serif;
+}
+
+textarea{
+    min-height:350px;
+    resize:vertical;
+    line-height:1.6;
+}
+
+.timer{
+    position:sticky;
+    top:10px;
+    z-index:100;
+    background:white;
+    padding:15px;
+    text-align:center;
+    font-size:23px;
+    font-weight:bold;
+    border-radius:10px;
+    margin-bottom:20px;
+    box-shadow:0 2px 10px rgba(0,0,0,.15);
+}
+
+.timer.warning{
+    background:#fff3cd;
+    color:#856404;
+}
+
+.timer.danger{
+    background:#f8d7da;
+    color:#842029;
+}
+
+.test-selector{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin:20px 0;
+}
+
+.test-box{
+    background:#f4f7fb;
+    padding:20px;
+    border-radius:12px;
+    text-align:center;
+    border:2px solid transparent;
+}
+
+.test-box:hover{
+    border-color:#17365d;
+}
+
+.task-box{
+    border-left:5px solid #17365d;
+    background:#f8fafc;
+    padding:20px;
+    margin:20px 0;
+    border-radius:10px;
+}
+
+.prompt{
+    background:#eef4fb;
+    padding:20px;
+    border-radius:10px;
+    margin:15px 0;
+    line-height:1.7;
+}
+
+.instructions{
+    background:#fff8e6;
+    border-left:5px solid #d99a00;
+    padding:18px;
+    border-radius:8px;
+    margin:15px 0;
+}
+
+.word-count{
+    font-size:17px;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+.word-count.good{
+    color:#287a3e;
+}
+
+.word-count.bad{
+    color:#a83232;
+}
+
+.word-count.warning{
+    color:#b06b00;
+}
+
+.progress{
+    height:12px;
+    background:#ddd;
+    border-radius:10px;
+    overflow:hidden;
+    margin:15px 0;
+}
+
+.progress-fill{
+    height:100%;
+    width:0%;
+    background:#17365d;
+    transition:.3s;
+}
+
+.result{
+    background:#e8f5e9;
+    padding:20px;
+    border-radius:10px;
+    margin-top:20px;
+}
+
+.warning-box{
+    background:#fff3cd;
+    padding:15px;
+    border-radius:8px;
+    margin-top:15px;
+}
+
+.band-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+}
+
+.band{
+    background:#f4f7fb;
+    padding:15px;
+    border-radius:8px;
+    text-align:center;
+}
+
+.saved{
+    color:#287a3e;
+    font-weight:bold;
+}
+
+.hidden{
+    display:none;
+}
+
+.small{
+    font-size:14px;
+    color:#666;
+}
+
+ul{
+    line-height:1.8;
+}
+
+@media(max-width:700px){
+
+    .container{
+        padding:10px;
+    }
+
+    header h1{
+        font-size:28px;
+    }
+
+    .card{
+        padding:17px;
+    }
+
+    .test-selector{
+        grid-template-columns:1fr;
+    }
+
+    .band-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+
+<h1>🎓 Teen IELTS Complete Practice</h1>
+
+<p>Listening • Reading • Writing • Speaking • Grammar • Vocabulary</p>
+
+</header>
+
+
+<!-- =========================
+HOME
+========================= -->
+
+<div id="home" class="section active">
+
+<div class="card center">
+
+<h2>Welcome to IELTS Practice</h2>
+
+<p>
+Choose the IELTS version you want to practise.
+</p>
+
+<button onclick="openWriting('Academic')">
+🎓 Academic Writing
+</button>
+
+<button onclick="openWriting('General')">
+🌍 General Training Writing
+</button>
+
+</div>
+
+
+<div class="card">
+
+<h2>✍️ Writing Practice</h2>
+
+<p>
+The Writing section contains two tasks.
+</p>
+
+<ul>
+
+<li><strong>Task 1:</strong> 20 minutes</li>
+
+<li><strong>Task 2:</strong> 40 minutes</li>
+
+<li><strong>Total:</strong> 60 minutes</li>
+
+<li>Task 2 receives greater weight in IELTS scoring.</li>
+
+<li>Minimum recommended length: 150 words for Task 1 and 250 words for Task 2.</li>
+
+</ul>
+
+</div>
+
+
+<div class="card">
+
+<h2>📚 Other Practice</h2>
+
+<p>
+You can later add separate practice banks for:
+</p>
+
+<ul>
+
+<li>🎧 Listening</li>
+
+<li>📖 Reading</li>
+
+<li>🗣️ Speaking</li>
+
+<li>📘 Grammar</li>
+
+<li>🧠 Vocabulary</li>
+
+<li>💬 Idioms</li>
+
+<li>🔤 Phrasal verbs</li>
+
+<li>✏️ Sentence correction</li>
+
+<li>🎯 IELTS Band practice</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+WRITING MENU
+========================= -->
+
+<div id="writingMenu" class="section">
+
+<div class="card center">
+
+<h2 id="writingTitle">
+IELTS Writing
+</h2>
+
+<p>
+Choose a practice test.
+</p>
+
+
+<div class="test-selector">
+
+<div class="test-box">
+
+<h3>🎲 Random Test</h3>
+
+<p>
+Automatically choose a different Task 1 and Task 2.
+</p>
+
+<button onclick="startRandomWriting()">
+Start Random Test
+</button>
+
+</div>
+
+
+<div class="test-box">
+
+<h3>📋 Choose Test</h3>
+
+<p>
+Select the exact practice set.
+</p>
+
+<select id="testNumber">
+
+<option value="1">Practice Test 1</option>
+
+<option value="2">Practice Test 2</option>
+
+<option value="3">Practice Test 3</option>
+
+<option value="4">Practice Test 4</option>
+
+<option value="5">Practice Test 5</option>
+
+</select>
+
+<br>
+
+<button onclick="startSelectedWriting()">
+Start Selected Test
+</button>
+
+</div>
+
+</div>
+
+
+<button onclick="showSection('home')">
+🏠 Home
+</button>
+
+</div>
+
+
+<div class="card">
+
+<h2>⏱️ Writing Timing</h2>
+
+<p>
+<strong>Task 1:</strong> approximately 20 minutes
+</p>
+
+<p>
+<strong>Task 2:</strong> approximately 40 minutes
+</p>
+
+<p>
+<strong>Total:</strong> 60 minutes
+</p>
+
+<p class="small">
+For practice, you can also write without the timer.
+</p>
+
+<button onclick="startWritingTimer()">
+▶ Start 60-Minute Timer
+</button>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+WRITING TEST
+========================= -->
+
+<div id="writingTest" class="section">
+
+<div class="timer" id="writingTimer">
+⏱️ Writing Time: 60:00
+</div>
+
+
+<div class="card">
+
+<h2 id="activeTestTitle">
+IELTS Writing Practice
+</h2>
+
+<p id="testDescription"></p>
+
+<div class="progress">
+
+<div
+id="writingProgress"
+class="progress-fill">
+</div>
+
+</div>
+
+</div>
+
+
+<!-- TASK 1 -->
+
+<div class="card">
+
+<h2>📝 Writing Task 1</h2>
+
+<div class="instructions">
+
+<strong>Recommended time: 20 minutes</strong>
+
+<br><br>
+
+Write at least <strong>150 words</strong>.
+
+</div>
+
+
+<div class="prompt">
+
+<h3 id="task1Title"></h3>
+
+<p id="task1Prompt"></p>
+
+</div>
+
+
+<textarea
+id="writingTask1"
+placeholder="Write your Task 1 answer here..."
+oninput="updateWriting()">
+</textarea>
+
+
+<div
+id="countTask1"
+class="word-count">
+Word count: 0
+</div>
+
+
+<div
+id="task1Warning"
+class="warning-box">
+You need at least 150 words.
+</div>
+
+
+</div>
+
+
+<!-- TASK 2 -->
+
+<div class="card">
+
+<h2>📝 Writing Task 2</h2>
+
+<div class="instructions">
+
+<strong>Recommended time: 40 minutes</strong>
+
+<br><br>
+
+Write at least <strong>250 words</strong>.
+
+</div>
+
+
+<div class="prompt">
+
+<h3 id="task2Title"></h3>
+
+<p id="task2Prompt"></p>
+
+</div>
+
+
+<textarea
+id="writingTask2"
+placeholder="Write your Task 2 essay here..."
+oninput="updateWriting()">
+</textarea>
+
+
+<div
+id="countTask2"
+class="word-count">
+Word count: 0
+</div>
+
+
+<div
+id="task2Warning"
+class="warning-box">
+You need at least 250 words.
+</div>
+
+
+</div>
+
+
+<!-- BUTTONS -->
+
+<div class="card center">
+
+<button onclick="saveWriting()">
+💾 Save Draft
+</button>
+
+<button onclick="loadWriting()">
+📂 Load Draft
+</button>
+
+<button onclick="clearWriting()" class="danger">
+🧹 Clear
+</button>
+
+<button onclick="submitWriting()" class="success">
+✅ Submit Writing
+</button>
+
+<br>
+
+<button onclick="showSection('writingMenu')">
+⬅ Back to Writing Tests
+</button>
+
+</div>
+
+
+<div
+id="writingResult"
+class="card hidden">
+</div>
+
+
+<!-- SELF ASSESSMENT -->
+
+<div class="card">
+
+<h2>📊 Self-Assessment</h2>
+
+<p>
+Before finishing, think about these four IELTS areas:
+</p>
+
+<div class="band-grid">
+
+<div class="band">
+
+<strong>Task Response</strong>
+
+<br><br>
+
+Did I answer the question fully?
+
+</div>
+
+<div class="band">
+
+<strong>Coherence</strong>
+
+<br><br>
+
+Are my ideas organised clearly?
+
+</div>
+
+<div class="band">
+
+<strong>Vocabulary</strong>
+
+<br><br>
+
+Did I use varied vocabulary?
+
+</div>
+
+<div class="band">
+
+<strong>Grammar</strong>
+
+<br><br>
+
+Did I use accurate sentence structures?
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<script>
+
+
+/* ==========================================
+WRITING QUESTION BANK
+========================================== */
+
+
+const academicTests = [
+
+{
+
+task1Title:"Academic Task 1 — Chart",
+
+task1Prompt:
+
+"The chart below shows the percentage of teenagers who participated in different after-school activities in one year. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+
+task2Title:"Academic Task 2 — Education",
+
+task2Prompt:
+
+"Some people believe that schools should focus mainly on academic subjects. Others believe that schools should give equal importance to practical skills. Discuss both views and give your own opinion."
+
+},
+
+{
+
+task1Title:"Academic Task 1 — Graph",
+
+task1Prompt:
+
+"The graph below shows changes in the number of students learning three foreign languages at a secondary school between 2010 and 2020. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+
+task2Title:"Academic Task 2 — Technology",
+
+task2Prompt:
+
+"Technology has changed the way young people study and communicate. Do the advantages of this development outweigh the disadvantages? Give reasons for your answer and include relevant examples."
+
+},
+
+{
+
+task1Title:"Academic Task 1 — Process",
+
+task1Prompt:
+
+"The diagram shows the stages involved in producing recycled paper from used paper. Summarise the information by selecting and reporting the main features.",
+
+task2Title:"Academic Task 2 — Environment",
+
+task2Prompt:
+
+"Some people think that individuals can do little to improve the environment and that governments and large companies must take responsibility. To what extent do you agree or disagree?"
+
+},
+
+{
+
+task1Title:"Academic Task 1 — Table",
+
+task1Prompt:
+
+"The table shows the amount of time teenagers in four countries spent studying, exercising and using electronic devices each week. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+
+task2Title:"Academic Task 2 — Online Learning",
+
+task2Prompt:
+
+"Online education is becoming increasingly popular. Some people believe that it will eventually replace traditional classroom education. To what extent do you agree or disagree?"
+
+},
+
+{
+
+task1Title:"Academic Task 1 — Two Charts",
+
+task1Prompt:
+
+"The charts show how students in a secondary school travelled to school in 2010 and 2025. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+
+task2Title:"Academic Task 2 — Languages",
+
+task2Prompt:
+
+"Learning another language is becoming increasingly important for young people. Some people think every student should learn a foreign language at school. Discuss the advantages and disadvantages."
+
+}
+
+];
+
+
+const generalTests = [
+
+{
+
+task1Title:"General Training Task 1 — Letter",
+
+task1Prompt:
+
+"You recently bought a product online, but it arrived damaged. Write a letter to the company. In your letter, explain what happened, describe the problem with the product, and say what you would like the company to do.",
+
+task2Title:"General Training Task 2 — Children",
+
+task2Prompt:
+
+"Some people believe that parents should teach children how to behave well. Others believe schools should be responsible for this. Discuss both views and give your own opinion."
+
+},
+
+{
+
+task1Title:"General Training Task 1 — Letter",
+
+task1Prompt:
+
+"You have recently moved to a new neighbourhood and want to meet some people in your area. Write a letter to a community centre. In your letter, explain why you are writing, describe the activities you are interested in, and ask for information about joining.",
+
+task2Title:"General Training Task 2 — Free Time",
+
+task2Prompt:
+
+"Some people believe that young people spend too much of their free time using phones and computers. Do you agree or disagree? Give reasons and examples."
+
+},
+
+{
+
+task1Title:"General Training Task 1 — Complaint Letter",
+
+task1Prompt:
+
+"You stayed at a hotel recently and were unhappy with the service. Write a letter to the hotel manager. In your letter, describe the problems, explain how they affected your stay, and say what you would like the manager to do.",
+
+task2Title:"General Training Task 2 — Public Transport",
+
+task2Prompt:
+
+"Some people think governments should spend more money on public transport, while others believe improving roads is more important. Discuss both views and give your own opinion."
+
+},
+
+{
+
+task1Title:"General Training Task 1 — Advice Letter",
+
+task1Prompt:
+
+"A friend is planning to move to your town or city. Write a letter giving your friend advice about the best area to live, transport and things to do.",
+
+task2Title:"General Training Task 2 — Work",
+
+task2Prompt:
+
+"Some people believe that teenagers should have part-time jobs while they are studying. Others believe this may negatively affect their education. Discuss both views and give your own opinion."
+
+},
+
+{
+
+task1Title:"General Training Task 1 — Formal Letter",
+
+task1Prompt:
+
+"You would like to join a local sports club. Write a letter to the club manager. In your letter, explain why you want to join, ask about the facilities and activities, and ask about membership fees.",
+
+task2Title:"General Training Task 2 — Social Media",
+
+task2Prompt:
+
+"Social media has become an important part of modern life. Some people believe it brings people closer together, while others believe it can damage relationships. Discuss both views and give your own opinion."
+
+}
+
+];
+
+
+let currentType = "";
+
+let currentTestNumber = 0;
+
+let currentQuestions = null;
+
+let writingTimerInterval = null;
+
+let writingSeconds = 3600;
+
+
+/* ==========================================
+GENERAL NAVIGATION
+========================================== */
+
+
+function showSection(id){
+
+    document.querySelectorAll(".section").forEach(function(section){
+
+        section.classList.remove("active");
+
+    });
+
+    const section = document.getElementById(id);
+
+    if(section){
+
+        section.classList.add("active");
+
+    }
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* ==========================================
+OPEN WRITING
+========================================== */
+
+
+function openWriting(type){
+
+    currentType = type;
+
+    document.getElementById("writingTitle").textContent =
+        type === "Academic"
+        ? "🎓 IELTS Academic Writing"
+        : "🌍 IELTS General Training Writing";
+
+    showSection("writingMenu");
+
+}
+
+
+/* ==========================================
+START SELECTED TEST
+========================================== */
+
+
+function startSelectedWriting(){
+
+    const number =
+        parseInt(
+            document.getElementById("testNumber").value
+        );
+
+    currentTestNumber = number - 1;
+
+    loadWritingTest();
+
+}
+
+
+/* ==========================================
+RANDOM TEST
+========================================== */
+
+
+function startRandomWriting(){
+
+    const bank =
+        currentType === "Academic"
+        ? academicTests
+        : generalTests;
+
+    currentTestNumber =
+        Math.floor(Math.random() * bank.length);
+
+    loadWritingTest();
+
+}
+
+
+/* ==========================================
+LOAD TEST
+========================================== */
+
+
+function loadWritingTest(){
+
+    const bank =
+        currentType === "Academic"
+        ? academicTests
+        : generalTests;
+
+    currentQuestions =
+        bank[currentTestNumber];
+
+    document.getElementById("activeTestTitle").textContent =
+
+        (currentType === "Academic"
+        ? "🎓 IELTS Academic Writing"
+        : "🌍 IELTS General Training Writing")
+
+        + " — Practice Test "
+        + (currentTestNumber + 1);
+
+
+    document.getElementById("testDescription").textContent =
+
+        currentType === "Academic"
+
+        ? "Academic Writing practice. Complete Task 1 and Task 2."
+
+        : "General Training Writing practice. Complete Task 1 and Task 2.";
+
+
+    document.getElementById("task1Title").textContent =
+        currentQuestions.task1Title;
+
+    document.getElementById("task1Prompt").textContent =
+        currentQuestions.task1Prompt;
+
+    document.getElementById("task2Title").textContent =
+        currentQuestions.task2Title;
+
+    document.getElementById("task2Prompt").textContent =
+        currentQuestions.task2Prompt;
+
+
+    document.getElementById("writingTask1").value = "";
+
+    document.getElementById("writingTask2").value = "";
+
+
+    updateWriting();
+
+
+    document.getElementById("writingResult").classList.add("hidden");
+
+
+    resetWritingTimer();
+
+
+    showSection("writingTest");
+
+}
+
+
+/* ==========================================
+WORD COUNT
+========================================== */
+
+
+function getWordCount(text){
+
+    text = text.trim();
+
+    if(!text){
+
+        return 0;
+
+    }
+
+    return text.split(/\s+/).filter(Boolean).length;
+
+}
+
+
+/* ==========================================
+UPDATE WRITING
+========================================== */
+
+
+function updateWriting(){
+
+    const task1 =
+        document.getElementById("writingTask1").value;
+
+    const task2 =
+        document.getElementById("writingTask2").value;
+
+
+    const words1 = getWordCount(task1);
+
+    const words2 = getWordCount(task2);
+
+
+    const count1 =
+        document.getElementById("countTask1");
+
+    const count2 =
+        document.getElementById("countTask2");
+
+
+    count1.textContent =
+        "Word count: " + words1;
+
+
+    count2.textContent =
+        "Word count: " + words2;
+
+
+    count1.className = "word-count";
+
+    count2.className = "word-count";
+
+
+    if(words1 >= 150){
+
+        count1.classList.add("good");
+
+    }
+
+    else if(words1 >= 120){
+
+        count1.classList.add("warning");
+
+    }
+
+    else{
+
+        count1.classList.add("bad");
+
+    }
+
+
+    if(words2 >= 250){
+
+        count2.classList.add("good");
+
+    }
+
+    else if(words2 >= 200){
+
+        count2.classList.add("warning");
+
+    }
+
+    else{
+
+        count2.classList.add("bad");
+
+    }
+
+
+    document.getElementById("task1Warning").textContent =
+
+        words1 >= 150
+
+        ? "✅ Task 1 has reached the recommended minimum of 150 words."
+
+        : "⚠️ Task 1 needs at least 150 words.";
+
+
+    document.getElementById("task2Warning").textContent =
+
+        words2 >= 250
+
+        ? "✅ Task 2 has reached the recommended minimum of 250 words."
+
+        : "⚠️ Task 2 needs at least 250 words.";
+
+
+    const totalProgress =
+        Math.min(words1 / 150, 1) * 50
+        +
+        Math.min(words2 / 250, 1) * 50;
+
+
+    document.getElementById("writingProgress")
+        .style.width = totalProgress + "%";
+
+}
+
+
+/* ==========================================
+SAVE DRAFT
+========================================== */
+
+
+function saveWriting(){
+
+    const data = {
+
+        type: currentType,
+
+        test: currentTestNumber,
+
+        task1:
+            document.getElementById("writingTask1").value,
+
+        task2:
+            document.getElementById("writingTask2").value
+
+    };
+
+
+    localStorage.setItem(
+        "ieltsWritingDraft",
+        JSON.stringify(data)
+    );
+
+
+    alert("✅ Your writing draft has been saved in this browser.");
+
+}
+
+
+/* ==========================================
+LOAD DRAFT
+========================================== */
+
+
+function loadWriting(){
+
+    const saved =
+        localStorage.getItem("ieltsWritingDraft");
+
+
+    if(!saved){
+
+        alert("No saved writing draft was found.");
+
+        return;
+
+    }
+
+
+    const data =
+        JSON.parse(saved);
+
+
+    currentType =
+        data.type || currentType;
+
+
+    currentTestNumber =
+        data.test || 0;
+
+
+    loadWritingTest();
+
+
+    document.getElementById("writingTask1").value =
+        data.task1 || "";
+
+
+    document.getElementById("writingTask2").value =
+        data.task2 || "";
+
+
+    updateWriting();
+
+
+    alert("📂 Your saved draft has been loaded.");
+
+}
+
+
+/* ==========================================
+CLEAR
+========================================== */
+
+
+function clearWriting(){
+
+    const confirmClear =
+        confirm(
+            "Are you sure you want to clear both writing tasks?"
+        );
+
+
+    if(!confirmClear){
+
+        return;
+
+    }
+
+
+    document.getElementById("writingTask1").value = "";
+
+    document.getElementById("writingTask2").value = "";
+
+
+    updateWriting();
+
+}
+
+
+/* ==========================================
+SUBMIT WRITING
+========================================== */
+
+
+function submitWriting(){
+
+    const task1 =
+        document.getElementById("writingTask1").value.trim();
+
+    const task2 =
+        document.getElementById("writingTask2").value.trim();
+
+
+    const words1 =
+        getWordCount(task1);
+
+    const words2 =
+        getWordCount(task2);
+
+
+    let messages = "";
+
+
+    if(words1 < 150){
+
+        messages +=
+            "<p>⚠️ Task 1 is below 150 words.</p>";
+
+    }
+
+    else{
+
+        messages +=
+            "<p>✅ Task 1 meets the 150-word minimum.</p>";
+
+    }
+
+
+    if(words2 < 250){
+
+        messages +=
+            "<p>⚠️ Task 2 is below 250 words.</p>";
+
+    }
+
+    else{
+
+        messages +=
+            "<p>✅ Task 2 meets the 250-word minimum.</p>";
+
+    }
+
+
+    document.getElementById("writingResult").innerHTML = `
+
+        <h2>📊 Writing Submission</h2>
+
+        <p>
+        <strong>Test:</strong>
+        ${currentType} Practice Test ${currentTestNumber + 1}
+        </p>
+
+        <p>
+        <strong>Task 1:</strong>
+        ${words1} words
+        </p>
+
+        <p>
+        <strong>Task 2:</strong>
+        ${words2} words
+        </p>
+
+        ${messages}
+
+        <hr>
+
+        <h3>IELTS Writing Assessment Areas</h3>
+
+        <ul>
+
+        <li>
+        <strong>Task Achievement / Task Response</strong>
+        — Did you answer all parts of the question?
+        </li>
+
+        <li>
+        <strong>Coherence and Cohesion</strong>
+        — Are your ideas organised clearly?
+        </li>
+
+        <li>
+        <strong>Lexical Resource</strong>
+        — Did you use a good range of vocabulary?
+        </li>
+
+        <li>
+        <strong>Grammatical Range and Accuracy</strong>
+        — Are your sentences varied and accurate?
+        </li>
+
+        </ul>
+
+        <p>
+        ℹ️ This practice page does not assign an official IELTS band score.
+        A real IELTS Writing score requires examiner-style assessment.
+        </p>
+
+    `;
+
+
+    document.getElementById("writingResult")
+        .classList.remove("hidden");
+
+
+    window.scrollTo({
+        top:document.body.scrollHeight,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* ==========================================
+WRITING TIMER
+========================================== */
+
+
+function startWritingTimer(){
+
+    if(writingTimerInterval){
+
+        return;
+
+    }
+
+
+    writingTimerInterval =
+        setInterval(function(){
+
+            writingSeconds--;
+
+
+            updateTimerDisplay();
+
+
+            if(writingSeconds <= 0){
+
+                clearInterval(writingTimerInterval);
+
+                writingTimerInterval = null;
+
+                alert(
+                    "⏰ Writing time is finished!"
+                );
+
+            }
+
+        },1000);
+
+}
+
+
+/* ==========================================
+RESET TIMER
+========================================== */
+
+
+function resetWritingTimer(){
+
+    if(writingTimerInterval){
+
+        clearInterval(writingTimerInterval);
+
+        writingTimerInterval = null;
+
+    }
+
+
+    writingSeconds = 3600;
+
+    updateTimerDisplay();
+
+}
+
+
+/* ==========================================
+TIMER DISPLAY
+========================================== */
+
+
+function updateTimerDisplay(){
+
+    const element =
+        document.getElementById("writingTimer");
+
+
+    const minutes =
+        Math.floor(writingSeconds / 60);
+
+
+    const seconds =
+        writingSeconds % 60;
+
+
+    element.textContent =
+
+        "⏱️ Time Remaining: "
+        +
+        String(minutes).padStart(2,"0")
+        +
+        ":"
+        +
+        String(seconds).padStart(2,"0");
+
+
+    element.classList.remove(
+        "warning",
+        "danger"
+    );
+
+
+    if(writingSeconds <= 600){
+
+        element.classList.add("danger");
+
+    }
+
+    else if(writingSeconds <= 1200){
+
+        element.classList.add("warning");
+
+    }
+
+}
+
+
+/* ==========================================
+KEYBOARD SHORTCUT
+========================================== */
+
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.ctrlKey && event.key === "s"){
+
+            event.preventDefault();
+
+            saveWriting();
+
+        }
+
+    }
+);
+
+
+/* ==========================================
+INITIAL SETTINGS
+========================================== */
+
+
+updateTimerDisplay();
+
+</script>
+
+</body>
+</html>

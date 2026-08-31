@@ -1,279 +1,377 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Teen IELTS - Reading Practice</title>
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+   content="width=device-width, initial-scale=1.0">
+
+<title>Teen IELTS Reading Practice</title>
 
 <style>
-* {
-    box-sizing: border-box;
+
+/* =========================
+   BASIC
+========================= */
+
+*{
+    box-sizing:border-box;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f7fb;
-    color: #222;
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f4f7fb;
+    color:#222;
 }
 
-.container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
 }
 
-header {
-    background: #17365d;
-    color: white;
-    padding: 30px 20px;
-    border-radius: 15px;
-    text-align: center;
-    margin-bottom: 20px;
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    background:#17365d;
+    color:white;
+    padding:35px 20px;
+    border-radius:16px;
+    text-align:center;
+    margin-bottom:20px;
 }
 
-header h1 {
-    margin: 0 0 10px;
-    font-size: 36px;
+header h1{
+    margin:0 0 10px;
+    font-size:38px;
 }
 
-.card {
-    background: white;
-    padding: 25px;
-    margin-bottom: 20px;
-    border-radius: 14px;
-    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+header p{
+    margin:5px;
+    font-size:18px;
 }
 
-h2 {
-    color: #17365d;
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section{
+    display:none;
 }
 
-h3 {
-    color: #17365d;
+.section.active{
+    display:block;
 }
 
-button {
-    padding: 13px 20px;
-    border: none;
-    border-radius: 8px;
-    background: #17365d;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    margin: 5px;
+
+/* =========================
+   CARDS
+========================= */
+
+.card{
+    background:white;
+    padding:25px;
+    margin-bottom:20px;
+    border-radius:15px;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
 }
 
-button:hover {
-    background: #0f2744;
+
+/* =========================
+   BUTTONS
+========================= */
+
+button{
+    padding:13px 20px;
+    border:none;
+    border-radius:8px;
+    background:#17365d;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    margin:5px;
 }
 
-.secondary {
-    background: #667085;
+button:hover{
+    background:#0f2744;
 }
 
-.danger {
-    background: #b42318;
+button.success{
+    background:#287a3e;
 }
 
-.section {
-    display: none;
+button.success:hover{
+    background:#1f6030;
 }
 
-.section.active {
-    display: block;
+button.danger{
+    background:#a83232;
 }
 
-.test-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 15px;
+button.secondary{
+    background:#666;
 }
 
-.test-card {
-    border: 2px solid #d9e2f0;
-    border-radius: 12px;
-    padding: 20px;
-    cursor: pointer;
-    transition: .2s;
+
+/* =========================
+   TEST SELECTOR
+========================= */
+
+.test-selector{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    margin:20px 0;
 }
 
-.test-card:hover {
-    border-color: #17365d;
-    transform: translateY(-2px);
+.test-box{
+    background:#f4f7fb;
+    padding:25px;
+    border-radius:12px;
+    text-align:center;
+    border:2px solid transparent;
 }
 
-.timer {
-    position: sticky;
-    top: 10px;
-    z-index: 100;
-    background: white;
-    padding: 15px;
-    text-align: center;
-    font-size: 22px;
-    font-weight: bold;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+.test-box:hover{
+    border-color:#17365d;
 }
 
-.timer.warning {
-    background: #fff3cd;
-    color: #856404;
+
+/* =========================
+   SELECT
+========================= */
+
+select{
+    width:100%;
+    max-width:400px;
+    padding:13px;
+    border:1px solid #aaa;
+    border-radius:8px;
+    font-size:16px;
 }
 
-.timer.danger-time {
-    background: #f8d7da;
-    color: #842029;
+
+/* =========================
+   TIMER
+========================= */
+
+.timer{
+    position:sticky;
+    top:10px;
+    z-index:100;
+    background:white;
+    padding:15px;
+    text-align:center;
+    font-size:24px;
+    font-weight:bold;
+    border-radius:10px;
+    margin-bottom:20px;
+    box-shadow:0 2px 10px rgba(0,0,0,.15);
 }
 
-.progress {
-    height: 12px;
-    background: #ddd;
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 15px 0;
+.timer.warning{
+    background:#fff3cd;
+    color:#856404;
 }
 
-.progress-fill {
-    height: 100%;
-    width: 0%;
-    background: #17365d;
-    transition: width .3s;
+.timer.danger{
+    background:#f8d7da;
+    color:#842029;
 }
 
-.reading-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    align-items: start;
+
+/* =========================
+   PASSAGE
+========================= */
+
+.passage{
+    background:#fff;
+    border-left:5px solid #17365d;
+    padding:25px;
+    line-height:1.8;
+    margin-bottom:25px;
 }
 
-.passage {
-    line-height: 1.8;
-    font-size: 17px;
+.passage h2{
+    color:#17365d;
 }
 
-.passage p {
-    margin-bottom: 18px;
+.paragraph{
+    margin-bottom:18px;
 }
 
-.questions {
-    line-height: 1.6;
+.paragraph strong{
+    color:#17365d;
 }
 
-.question {
-    background: #f8fafc;
-    border: 1px solid #e1e7ef;
-    border-radius: 10px;
-    padding: 18px;
-    margin-bottom: 15px;
+
+/* =========================
+   QUESTIONS
+========================= */
+
+.question{
+    background:#f8fafc;
+    padding:20px;
+    border-radius:10px;
+    margin-bottom:18px;
+    border:1px solid #e0e0e0;
 }
 
-.question-number {
-    font-weight: bold;
-    color: #17365d;
-    font-size: 18px;
+.question h3{
+    margin-top:0;
+    color:#17365d;
 }
 
-.option {
-    display: block;
-    background: white;
-    padding: 11px;
-    margin: 8px 0;
-    border-radius: 7px;
-    border: 1px solid #ddd;
-    cursor: pointer;
+.option{
+    display:block;
+    padding:8px;
+    margin:5px 0;
 }
 
-.option:hover {
-    background: #eef4fb;
+.option input{
+    margin-right:8px;
 }
 
-input[type="text"],
-select {
-    width: 100%;
-    padding: 11px;
-    margin-top: 8px;
-    border: 1px solid #aaa;
-    border-radius: 7px;
-    font-size: 16px;
+.question input[type="text"]{
+    width:100%;
+    max-width:500px;
+    padding:11px;
+    border:1px solid #aaa;
+    border-radius:7px;
+    font-size:16px;
 }
 
-.nav-buttons {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-top: 20px;
+
+/* =========================
+   RESULTS
+========================= */
+
+.result{
+    background:#e8f5e9;
+    padding:25px;
+    border-radius:12px;
+    margin-top:20px;
 }
 
-.result {
-    background: #e8f5e9;
-    padding: 25px;
-    border-radius: 12px;
-    margin-top: 20px;
+.score{
+    font-size:30px;
+    font-weight:bold;
+    color:#17365d;
 }
 
-.score-big {
-    font-size: 42px;
-    font-weight: bold;
-    color: #17365d;
+.band{
+    font-size:25px;
+    font-weight:bold;
+    color:#287a3e;
 }
 
-.center {
-    text-align: center;
+
+/* =========================
+   REVIEW
+========================= */
+
+.review-item{
+    padding:15px;
+    margin:10px 0;
+    border-radius:8px;
 }
 
-.instructions {
-    background: #eef4fb;
-    border-left: 5px solid #17365d;
-    padding: 15px;
-    border-radius: 7px;
-    margin-bottom: 20px;
+.review-correct{
+    background:#e8f5e9;
 }
 
-.badge {
-    display: inline-block;
-    padding: 5px 10px;
-    border-radius: 20px;
-    background: #e5edf8;
-    color: #17365d;
-    font-size: 13px;
-    font-weight: bold;
+.review-wrong{
+    background:#f8d7da;
 }
 
-.question-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 20px;
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress{
+    height:12px;
+    background:#ddd;
+    border-radius:10px;
+    overflow:hidden;
+    margin:15px 0;
 }
 
-.question-nav button {
-    padding: 8px 12px;
-    margin: 0;
-    font-size: 13px;
+.progress-fill{
+    height:100%;
+    width:0%;
+    background:#17365d;
+    transition:.3s;
 }
 
-@media(max-width:800px) {
-    .reading-layout {
-        grid-template-columns: 1fr;
+
+/* =========================
+   OTHER
+========================= */
+
+.center{
+    text-align:center;
+}
+
+.small{
+    font-size:14px;
+    color:#666;
+}
+
+.hidden{
+    display:none;
+}
+
+.instructions{
+    background:#fff8e6;
+    border-left:5px solid #d99a00;
+    padding:18px;
+    border-radius:8px;
+    margin-bottom:20px;
+}
+
+ul{
+    line-height:1.8;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    .container{
+        padding:10px;
     }
 
-    header h1 {
-        font-size: 28px;
+    header h1{
+        font-size:28px;
     }
 
-    .container {
-        padding: 10px;
+    .card{
+        padding:17px;
     }
 
-    .card {
-        padding: 17px;
+    .test-selector{
+        grid-template-columns:1fr;
     }
+
+    button{
+        width:100%;
+        margin:5px 0;
+    }
+
 }
+
 </style>
 
 </head>
@@ -282,158 +380,288 @@ select {
 
 <div class="container">
 
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
-    <h1>📖 Teen IELTS Reading Practice</h1>
-    <p>Passages • Questions • Timer • Progress • Score</p>
+
+<h1>📖 Teen IELTS Reading Practice</h1>
+
+<p>
+40 Questions • 3 Passages • 60 Minutes
+</p>
+
 </header>
 
-<!-- TEST SELECTION -->
+<!-- =========================
+     HOME
+========================= -->
 
-<div id="testSelection" class="section active">
+<div id="readingHome"
+     class="section active">
+
+<div class="card center">
+
+<h2>
+📖 IELTS Reading Practice
+</h2>
+
+<p>
+Choose a Reading Practice Test.
+</p>
+
+<div class="test-selector">
+
+<div class="test-box">
+
+<h3>
+🎲 Random Test
+</h3>
+
+<p>
+The system will randomly select a Reading test.
+</p>
+
+<button
+onclick="startRandomTest()"
+class="success">
+
+Start Random Test
+
+</button>
+
+</div>
+
+<div class="test-box">
+
+<h3>
+📋 Choose Test
+</h3>
+
+<p>
+Select a specific practice test.
+</p>
+
+<select id="testNumber">
+
+<option value="0">
+Practice Test 1
+</option>
+
+<option value="1">
+Practice Test 2
+</option>
+
+<option value="2">
+Practice Test 3
+</option>
+
+<option value="3">
+Practice Test 4
+</option>
+
+<option value="4">
+Practice Test 5
+</option>
+
+</select>
+
+<br>
+
+<button
+onclick="startSelectedTest()">
+
+Start Selected Test
+
+</button>
+
+</div>
+
+</div>
+
+</div>
 
 <div class="card">
 
-<h2>📚 Choose a Reading Test</h2>
+<h2>
+📚 Reading Test Information
+</h2>
 
-<p>
-Select a practice test. Each test contains three passages and
-40 questions.
-</p>
+<ul>
 
-<div class="test-grid">
+<li>
+<strong>3 reading passages</strong>
+</li>
 
-<div class="test-card" onclick="startReadingTest(0)">
-<span class="badge">TEST 1</span>
-<h3>Learning a New Language</h3>
-<p>Languages, communication and education.</p>
-</div>
+<li>
+<strong>40 questions</strong>
+</li>
 
-<div class="test-card" onclick="startReadingTest(1)">
-<span class="badge">TEST 2</span>
-<h3>The History of Libraries</h3>
-<p>How libraries developed through history.</p>
-</div>
+<li>
+<strong>60 minutes</strong>
+</li>
 
-<div class="test-card" onclick="startReadingTest(2)">
-<span class="badge">TEST 3</span>
-<h3>Teenagers and Sleep</h3>
-<p>Sleep, health and school performance.</p>
-</div>
+<li>
+Different question types
+</li>
 
-<div class="test-card" onclick="startReadingTest(3)">
-<span class="badge">TEST 4</span>
-<h3>Technology and Education</h3>
-<p>Technology and modern learning.</p>
-</div>
+<li>
+Automatic marking
+</li>
 
-<div class="test-card" onclick="startReadingTest(4)">
-<span class="badge">TEST 5</span>
-<h3>Climate and Cities</h3>
-<p>Cities adapting to environmental change.</p>
-</div>
+<li>
+Score out of 40
+</li>
+
+<li>
+Estimated IELTS Reading band
+</li>
+
+</ul>
 
 </div>
 
 </div>
 
-<div class="card">
+<!-- =========================
+     READING TEST
+========================= -->
 
-<h2>⏱️ IELTS Reading Timing</h2>
+<div id="readingTest"
+     class="section">
 
-<p><strong>Time:</strong> 60 minutes</p>
-<p><strong>Questions:</strong> 40</p>
-<p><strong>Passages:</strong> 3</p>
+<!-- TIMER -->
 
-<p>
-Try to manage your time carefully. A useful strategy is approximately
-20 minutes per passage.
-</p>
+<div id="readingTimer"
+     class="timer">
 
-</div>
-
-</div>
-
-<!-- READING TEST -->
-
-<div id="readingTest" class="section">
-
-<div class="timer" id="readingTimer">
 ⏱️ Time Remaining: 60:00
-</div>
-
-<div class="card">
-
-<h2 id="testName"></h2>
-
-<div class="instructions">
-
-<strong>Instructions:</strong>
-
-<p>
-Read each passage carefully and answer all 40 questions.
-You have 60 minutes.
-</p>
-
-<p>
-Questions may include multiple choice, True/False/Not Given,
-and sentence completion.
-</p>
-
-</div>
-
-<div class="progress">
-<div id="progressFill" class="progress-fill"></div>
-</div>
-
-<p id="progressText">
-0 / 40 questions answered
-</p>
-
-<div class="question-nav" id="questionNav"></div>
-
-</div>
-
-<!-- PASSAGE + QUESTIONS -->
-
-<div class="reading-layout">
-
-<div>
-
-<div class="card">
-
-<h2 id="passageTitle"></h2>
-
-<div id="passageText" class="passage"></div>
-
-</div>
-
-</div>
-
-<div>
-
-<div class="card">
-
-<h2>📝 Questions</h2>
-
-<div id="questionsContainer" class="questions"></div>
-
-</div>
-
-</div>
 
 </div>
 
 <div class="card center">
 
-<button onclick="submitReadingTest()">
+<button
+onclick="startTimer()"
+class="success">
+
+▶ Start Timer
+
+</button>
+
+<button
+onclick="pauseTimer()"
+class="secondary">
+
+⏸ Pause
+
+</button>
+
+<button
+onclick="resetTimer()"
+class="secondary">
+
+🔄 Reset
+
+</button>
+
+</div>
+
+<!-- TEST TITLE -->
+
+<div class="card">
+
+<h2 id="testTitle">
+Reading Practice Test
+</h2>
+
+<p id="testDescription"></p>
+
+<div class="progress">
+
+<div id="readingProgress"
+     class="progress-fill">
+</div>
+
+</div>
+
+</div>
+
+<!-- PASSAGE 1 -->
+
+<div class="card">
+
+<div id="passage1"
+     class="passage">
+</div>
+
+<h2>
+Questions 1–13
+</h2>
+
+<div id="questions1"></div>
+
+</div>
+
+<!-- PASSAGE 2 -->
+
+<div class="card">
+
+<div id="passage2"
+     class="passage">
+</div>
+
+<h2>
+Questions 14–26
+</h2>
+
+<div id="questions2"></div>
+
+</div>
+
+<!-- PASSAGE 3 -->
+
+<div class="card">
+
+<div id="passage3"
+     class="passage">
+</div>
+
+<h2>
+Questions 27–40
+</h2>
+
+<div id="questions3"></div>
+
+</div>
+
+<!-- SUBMIT -->
+
+<div class="card center">
+
+<button
+onclick="submitReading()"
+class="success">
+
 ✅ Submit Reading Test
+
 </button>
 
-<button class="secondary" onclick="backToTests()">
-← Choose Another Test
+<button
+onclick="showSection('readingHome')"
+class="secondary">
+
+⬅ Back to Tests
+
 </button>
 
-<div id="readingResult"></div>
+</div>
+
+<!-- RESULT -->
+
+<div id="readingResult"
+     class="card hidden">
 
 </div>
 
@@ -443,1481 +671,2022 @@ and sentence completion.
 
 <script>
 
-/* =====================================================
-   READING TEST DATA
-===================================================== */
+
+/* ==================================================
+   READING QUESTION BANK
+
+   5 TESTS
+   3 PASSAGES
+   40 QUESTIONS EACH
+================================================== */
+
 
 const readingTests = [
 
-/* ================= TEST 1 ================= */
+/* ==================================================
+   TEST 1
+================================================== */
 
 {
-title: "Reading Test 1 — Learning a New Language",
 
-passages: [
+title:
+"IELTS Reading Practice Test 1",
+
+description:
+"Complete all three passages and answer Questions 1–40.",
+
+
+passages:[
 
 {
-title: "Passage 1 — Why People Learn Languages",
 
-text: `
-<p>
-Learning a new language is one of the most useful skills a person can
-develop. People learn languages for many different reasons. Some want
-to communicate with relatives or friends, while others need another
-language for education, travel or employment.
-</p>
+title:
+"Passage 1 — The Benefits of Learning a New Language",
 
-<p>
-Knowing another language can make communication easier when people
-visit other countries. Instead of depending completely on translation,
-travellers can ask questions, understand directions and communicate
-with local people.
-</p>
+text:`
 
-<p>
-Language learning can also introduce people to different cultures.
-Languages are closely connected with traditions, customs and ways of
-thinking. When learners study a language, they may discover ideas and
-expressions that do not have exactly the same meaning in their first
-language.
-</p>
+<div class="paragraph">
+<strong>Paragraph A</strong><br>
+Learning a new language can provide many benefits for young people.
+It can improve communication skills and allow learners to communicate
+with people from different countries. Language learning can also create
+new opportunities in education and employment.
+</div>
 
-<p>
-Regular practice is important. Reading, writing, listening and speaking
-help learners develop confidence. Technology has also made practice
-easier because students can use websites, mobile applications, videos
-and online conversations.
-</p>
+<div class="paragraph">
+<strong>Paragraph B</strong><br>
+Regular practice is important when learning a language.
+Students who practise frequently are more likely to remember new
+words and expressions. Language skills usually develop gradually,
+rather than becoming fluent immediately.
+</div>
 
-<p>
-Learning a language is not always easy. Students may forget vocabulary
-or make grammatical mistakes. However, mistakes are a normal part of
-learning. Patience and regular practice can gradually improve language
-skills.
-</p>
+<div class="paragraph">
+<strong>Paragraph C</strong><br>
+Another important benefit is a better understanding of other cultures.
+Language and culture are closely connected. By learning another
+language, students may learn about traditions, customs and different
+ways of thinking.
+</div>
+
+<div class="paragraph">
+<strong>Paragraph D</strong><br>
+Language skills can also be useful when travelling.
+A traveller who can communicate in another language may find it easier
+to ask for directions, order food and communicate with local people.
+</div>
+
+<div class="paragraph">
+<strong>Paragraph E</strong><br>
+Employers may also value workers who can communicate with international
+customers and colleagues. For this reason, language skills may provide
+advantages in the workplace.
+</div>
+
+<div class="paragraph">
+<strong>Paragraph F</strong><br>
+Technology has made language learning easier. Websites, mobile
+applications, videos and online conversations can provide additional
+practice. However, learners still need patience because making mistakes
+is a normal part of learning.
+</div>
+
 `
+
 },
 
 {
-title: "Passage 2 — Language and Education",
 
-text: `
-<p>
-Schools around the world increasingly encourage students to study
-foreign languages. Supporters believe that language learning can
-provide educational benefits as well as communication skills.
-</p>
+title:
+"Passage 2 — Technology and Teenagers",
 
-<p>
-Students who learn another language may become more aware of how
-languages work. They may compare sentence structures, vocabulary and
-pronunciation with their first language. This comparison can make them
-more conscious of grammar.
-</p>
+text:`
 
-<p>
-Another advantage is access to information. Many books, websites,
-films and educational resources are produced in languages other than
-English. Knowing another language can therefore allow students to
-explore information directly.
-</p>
+<div class="paragraph">
+<strong>Paragraph A</strong><br>
+Technology is now an important part of everyday life for many teenagers.
+Students use computers, tablets and smartphones for education,
+communication and entertainment.
+</div>
 
-<p>
-Language classes can also encourage cooperation. Students often work
-in pairs or groups to practise conversations. These activities can
-help learners become more comfortable speaking in front of others.
-</p>
+<div class="paragraph">
+<strong>Paragraph B</strong><br>
+One advantage of technology is that students can find information
+quickly. Online libraries, educational websites and digital textbooks
+can give learners access to a large amount of information.
+</div>
 
-<p>
-Teachers generally agree that progress takes time. Students who
-practise regularly are more likely to remember new vocabulary and
-develop stronger communication skills than students who study only
-occasionally.
-</p>
+<div class="paragraph">
+<strong>Paragraph C</strong><br>
+Technology can also support communication. Students can communicate
+with teachers and classmates through email, video calls and educational
+platforms.
+</div>
+
+<div class="paragraph">
+<strong>Paragraph D</strong><br>
+However, technology can sometimes distract students. Social media,
+games and entertainment websites may take attention away from school
+work.
+</div>
+
+<div class="paragraph">
+<strong>Paragraph E</strong><br>
+Another concern is the amount of time young people spend looking at
+screens. Long periods of screen use may reduce the amount of time
+available for exercise, outdoor activities and face-to-face conversations.
+</div>
+
+<div class="paragraph">
+<strong>Paragraph F</strong><br>
+For these reasons, many educators believe that teenagers should learn
+to use technology responsibly. Technology can be useful when it is
+balanced with other activities.
+</div>
+
 `
+
 },
 
 {
-title: "Passage 3 — Languages and Employment",
 
-text: `
-<p>
-Modern workplaces are increasingly international. Companies may have
-customers, employees and business partners in several countries.
-Because of this, workers who can communicate in more than one language
-may have additional opportunities.
-</p>
+title:
+"Passage 3 — Green Cities of the Future",
 
-<p>
-Language skills can be particularly useful in tourism, international
-business, customer service, education and healthcare. An employee who
-can communicate directly with international customers may be able to
-provide better service.
-</p>
+text:`
 
-<p>
-However, knowing another language is not enough by itself. Employers
-usually look for several skills, including communication, teamwork,
-problem-solving and technical knowledge.
-</p>
+<div class="paragraph">
+<strong>Paragraph A</strong><br>
+Cities around the world are growing rapidly. As populations increase,
+governments need to consider how cities can remain comfortable,
+healthy and environmentally friendly.
+</div>
 
-<p>
-Young people can therefore benefit from developing language skills
-alongside other abilities. Regular practice, real conversations and
-exposure to different cultures can help learners become more confident.
-</p>
+<div class="paragraph">
+<strong>Paragraph B</strong><br>
+Public transportation can reduce the number of private cars on roads.
+Buses, trains and cycling routes can help people travel while reducing
+traffic and pollution.
+</div>
+
+<div class="paragraph">
+<strong>Paragraph C</strong><br>
+Green spaces are also important. Parks and gardens can provide places
+for exercise and relaxation. Trees can also provide shade and help
+improve the quality of urban environments.
+</div>
+
+<div class="paragraph">
+<strong>Paragraph D</strong><br>
+Some cities are experimenting with renewable energy. Solar panels can
+be installed on buildings, while energy-efficient systems can reduce
+electricity consumption.
+</div>
+
+<div class="paragraph">
+<strong>Paragraph E</strong><br>
+Future cities may therefore combine technology, public transportation,
+green spaces and renewable energy. The goal is to create places that
+are efficient while also supporting people's quality of life.
+</div>
+
 `
+
 }
 
 ],
 
-questions: [
+
+questions:[
+
+
+/* 1 */
 
 {
 number:1,
 type:"mc",
-text:"What is one reason people learn another language?",
+question:
+"What is one benefit of learning another language?",
 options:[
-"To avoid travelling",
-"To communicate with others",
-"To stop studying",
-"To reduce employment"
+"Better communication",
+"Less exercise",
+"More television",
+"Fewer opportunities"
 ],
-answer:"B"
+answer:"Better communication"
 },
+
+
+/* 2 */
 
 {
 number:2,
 type:"mc",
-text:"What can language learners do more easily when travelling?",
+question:
+"How do language skills usually develop?",
 options:[
-"Understand directions",
-"Avoid local people",
-"Change the weather",
-"Stop using maps"
+"Immediately",
+"Gradually",
+"Without practice",
+"Only through travel"
 ],
-answer:"A"
+answer:"Gradually"
 },
+
+
+/* 3 */
 
 {
 number:3,
-type:"tfng",
-text:"Languages are connected with traditions and customs.",
+type:"tf",
+question:
+"Language and culture are closely connected.",
 answer:"TRUE"
 },
+
+
+/* 4 */
 
 {
 number:4,
-type:"tfng",
-text:"The passage says language learning is always easy.",
+type:"tf",
+question:
+"Learning another language is always easy.",
 answer:"FALSE"
 },
 
+
+/* 5 */
+
 {
 number:5,
-type:"text",
-text:"Regular practice can gradually improve language ______.",
-answer:"skills"
+type:"mc",
+question:
+"What may employers value?",
+options:[
+"Workers who can communicate internationally",
+"Workers who never travel",
+"Workers who avoid colleagues",
+"Workers who dislike technology"
+],
+answer:"Workers who can communicate internationally"
 },
+
+
+/* 6 */
 
 {
 number:6,
-type:"mc",
-text:"Which four skills are mentioned?",
-options:[
-"Reading, writing, listening and speaking",
-"Running, swimming, reading and drawing",
-"Driving, cooking, singing and dancing",
-"Only reading and writing"
-],
-answer:"A"
+type:"text",
+question:
+"Regular practice can help learners remember new ______.",
+answer:"words"
 },
+
+
+/* 7 */
 
 {
 number:7,
-type:"tfng",
-text:"Technology can provide opportunities to practise a language.",
-answer:"TRUE"
+type:"mc",
+question:
+"Which technology is mentioned?",
+options:[
+"Mobile applications",
+"Television only",
+"Radio only",
+"Printed newspapers"
+],
+answer:"Mobile applications"
 },
+
+
+/* 8 */
 
 {
 number:8,
-type:"text",
-text:"Students may compare grammar with their ______ language.",
-answer:"first"
+type:"tf",
+question:
+"Making mistakes is described as a normal part of learning.",
+answer:"TRUE"
 },
+
+
+/* 9 */
 
 {
 number:9,
 type:"mc",
-text:"What can knowing another language provide access to?",
+question:
+"What can language learning help people understand?",
 options:[
-"Only television",
-"Books and educational resources",
-"Only sports",
-"Weather reports"
+"Different cultures",
+"Only mathematics",
+"Weather forecasts",
+"Traffic laws"
 ],
-answer:"B"
+answer:"Different cultures"
 },
+
+
+/* 10 */
 
 {
 number:10,
-type:"tfng",
-text:"The passage says progress happens immediately.",
-answer:"FALSE"
+type:"text",
+question:
+"Employers may value workers who communicate with international customers and ______.",
+answer:"colleagues"
 },
+
+
+/* 11 */
 
 {
 number:11,
-type:"text",
-text:"Students can become more comfortable speaking through pair and ______ activities.",
-answer:"group"
+type:"mc",
+question:
+"Which activity may be easier when travelling with another language?",
+options:[
+"Asking for directions",
+"Flying airplanes",
+"Building houses",
+"Writing computer code"
+],
+answer:"Asking for directions"
 },
+
+
+/* 12 */
 
 {
 number:12,
-type:"mc",
-text:"Why can another language be useful at work?",
-options:[
-"It can help communicate with international customers",
-"It removes all other workplace skills",
-"It guarantees employment",
-"It makes technical knowledge unnecessary"
-],
-answer:"A"
+type:"tf",
+question:
+"Technology can provide additional language practice.",
+answer:"TRUE"
 },
+
+
+/* 13 */
 
 {
 number:13,
-type:"tfng",
-text:"Language skills are the only skills employers consider.",
-answer:"FALSE"
+type:"mc",
+question:
+"What is the main idea of Passage 1?",
+options:[
+"Language learning has benefits but requires practice",
+"Languages are impossible to learn",
+"Technology should never be used",
+"Travel is unnecessary"
+],
+answer:"Language learning has benefits but requires practice"
 },
+
+
+/* 14 */
 
 {
 number:14,
 type:"mc",
-text:"Which area is mentioned as benefiting from language skills?",
+question:
+"What do teenagers use technology for?",
 options:[
-"Tourism",
-"Gardening only",
-"Professional sports only",
-"Construction only"
+"Education, communication and entertainment",
+"Only cooking",
+"Only exercise",
+"Only travelling"
 ],
-answer:"A"
+answer:"Education, communication and entertainment"
 },
+
+
+/* 15 */
 
 {
 number:15,
-type:"text",
-text:"Employers may also look for teamwork and ______-solving skills.",
-answer:"problem"
+type:"mc",
+question:
+"What can online libraries provide?",
+options:[
+"Access to information",
+"Free transportation",
+"Sports equipment",
+"Food"
+],
+answer:"Access to information"
 },
+
+
+/* 16 */
 
 {
 number:16,
-type:"mc",
-text:"What is the main idea of Passage 1?",
-options:[
-"Language learning has several benefits",
-"Languages are unnecessary",
-"Technology should be avoided",
-"Travel is impossible"
-],
-answer:"A"
+type:"tf",
+question:
+"Technology can support communication between students and teachers.",
+answer:"TRUE"
 },
+
+
+/* 17 */
 
 {
 number:17,
-type:"tfng",
-text:"Learning another language can introduce people to different cultures.",
+type:"tf",
+question:
+"Social media can distract students from school work.",
 answer:"TRUE"
 },
+
+
+/* 18 */
 
 {
 number:18,
 type:"mc",
-text:"What does regular practice help learners develop?",
+question:
+"What may long periods of screen use reduce?",
 options:[
-"Confidence",
-"Weather knowledge",
-"Driving ability",
-"Musical talent"
+"Time for exercise",
+"Internet speed",
+"School buildings",
+"Number of teachers"
 ],
-answer:"A"
+answer:"Time for exercise"
 },
+
+
+/* 19 */
 
 {
 number:19,
 type:"text",
-text:"Workers may communicate with customers, employees and business ______.",
-answer:"partners"
+question:
+"Teenagers should learn to use technology ______.",
+answer:"responsibly"
 },
+
+
+/* 20 */
 
 {
 number:20,
 type:"mc",
-text:"Which statement best describes language learning?",
+question:
+"Which is an example of educational technology?",
 options:[
-"It requires patience and practice",
-"It is completed in one day",
-"It requires no mistakes",
-"It is useful only for travel"
+"Digital textbooks",
+"Traffic lights",
+"Cooking ovens",
+"Garden tools"
 ],
-answer:"A"
+answer:"Digital textbooks"
 },
+
+
+/* 21 */
 
 {
 number:21,
-type:"tfng",
-text:"Some people learn languages to communicate with relatives.",
-answer:"TRUE"
+type:"tf",
+question:
+"Technology should completely replace outdoor activities.",
+answer:"FALSE"
 },
+
+
+/* 22 */
 
 {
 number:22,
 type:"mc",
-text:"Which technology is mentioned?",
+question:
+"What can entertainment websites do?",
 options:[
-"Mobile applications",
-"Television antennas",
-"Calculators",
-"Printers only"
+"Distract students",
+"Improve roads",
+"Plant trees",
+"Build schools"
 ],
-answer:"A"
+answer:"Distract students"
 },
+
+
+/* 23 */
 
 {
 number:23,
-type:"text",
-text:"Students can practise conversations with other ______.",
-answer:"students"
+type:"mc",
+question:
+"What should technology be balanced with?",
+options:[
+"Other activities",
+"More screen time",
+"Less communication",
+"No education"
+],
+answer:"Other activities"
 },
+
+
+/* 24 */
 
 {
 number:24,
-type:"tfng",
-text:"The passage says mistakes are a normal part of learning.",
+type:"tf",
+question:
+"Teenagers use smartphones for communication.",
 answer:"TRUE"
 },
+
+
+/* 25 */
 
 {
 number:25,
 type:"mc",
-text:"What can comparing languages make students more aware of?",
+question:
+"What is one concern about screen use?",
 options:[
-"Grammar",
-"Weather",
-"Sports",
-"Cooking"
+"Too much time looking at screens",
+"Too many books",
+"Too much outdoor exercise",
+"Too much public transport"
 ],
-answer:"A"
+answer:"Too much time looking at screens"
 },
+
+
+/* 26 */
 
 {
 number:26,
-type:"text",
-text:"Many books and educational resources are produced in different ______.",
-answer:"languages"
+type:"mc",
+question:
+"What is the main idea of Passage 2?",
+options:[
+"Technology has benefits but should be used responsibly",
+"Technology is always harmful",
+"Teenagers should never use computers",
+"Social media is the only technology"
+],
+answer:"Technology has benefits but should be used responsibly"
 },
+
+
+/* 27 */
 
 {
 number:27,
-type:"tfng",
-text:"Students who practise occasionally are always more successful.",
-answer:"FALSE"
+type:"mc",
+question:
+"Why do cities need new plans?",
+options:[
+"Populations are increasing",
+"People are leaving all cities",
+"Cars no longer exist",
+"Technology has disappeared"
+],
+answer:"Populations are increasing"
 },
+
+
+/* 28 */
 
 {
 number:28,
 type:"mc",
-text:"Which workplace area is mentioned?",
+question:
+"What can public transportation reduce?",
 options:[
-"Customer service",
-"Professional racing",
-"Fishing",
-"Architecture only"
+"Traffic and pollution",
+"Education",
+"Green spaces",
+"Exercise"
 ],
-answer:"A"
+answer:"Traffic and pollution"
 },
+
+
+/* 29 */
 
 {
 number:29,
-type:"text",
-text:"An international employee may provide better ______.",
-answer:"service"
+type:"tf",
+question:
+"Parks can provide places for exercise and relaxation.",
+answer:"TRUE"
 },
+
+
+/* 30 */
 
 {
 number:30,
-type:"tfng",
-text:"Modern workplaces can have customers from several countries.",
-answer:"TRUE"
+type:"text",
+question:
+"Trees can provide ______ in cities.",
+answer:"shade"
 },
+
+
+/* 31 */
 
 {
 number:31,
 type:"mc",
-text:"What should young people develop alongside language skills?",
+question:
+"What renewable energy source is mentioned?",
 options:[
-"Other abilities",
-"Nothing else",
-"Only pronunciation",
-"Only vocabulary"
+"Solar energy",
+"Coal only",
+"Petrol",
+"Wood fires"
 ],
-answer:"A"
+answer:"Solar energy"
 },
+
+
+/* 32 */
 
 {
 number:32,
-type:"text",
-text:"Real ______ can help learners become more confident.",
-answer:"conversations"
+type:"tf",
+question:
+"Energy-efficient systems can reduce electricity consumption.",
+answer:"TRUE"
 },
+
+
+/* 33 */
 
 {
 number:33,
 type:"mc",
-text:"Which is NOT listed as a workplace skill?",
+question:
+"What can cycling routes help reduce?",
 options:[
-"Problem-solving",
-"Teamwork",
-"Communication",
-"Weather forecasting"
+"Traffic",
+"Education",
+"Trees",
+"Rain"
 ],
-answer:"D"
+answer:"Traffic"
 },
+
+
+/* 34 */
 
 {
 number:34,
-type:"tfng",
-text:"Language skills can be useful in healthcare.",
-answer:"TRUE"
+type:"text",
+question:
+"Green spaces can support people's quality of ______.",
+answer:"life"
 },
+
+
+/* 35 */
 
 {
 number:35,
-type:"text",
-text:"Students who practise regularly are more likely to remember new ______.",
-answer:"vocabulary"
+type:"mc",
+question:
+"Which feature can provide shade?",
+options:[
+"Trees",
+"Cars",
+"Trains",
+"Solar panels"
+],
+answer:"Trees"
 },
+
+
+/* 36 */
 
 {
 number:36,
-type:"mc",
-text:"What is needed for language improvement?",
-options:[
-"Patience and regular practice",
-"One lesson only",
-"No speaking",
-"No reading"
-],
-answer:"A"
-},
-
-{
-number:37,
-type:"tfng",
-text:"The passage says technology has made language practice easier.",
+type:"tf",
+question:
+"Future cities may combine technology and green spaces.",
 answer:"TRUE"
 },
 
+
+/* 37 */
+
+{
+number:37,
+type:"mc",
+question:
+"What can solar panels be installed on?",
+options:[
+"Buildings",
+"Road signs only",
+"Bicycles only",
+"Cars only"
+],
+answer:"Buildings"
+},
+
+
+/* 38 */
+
 {
 number:38,
-type:"mc",
-text:"Which is a benefit of learning about cultures?",
-options:[
-"Greater understanding",
-"Less communication",
-"More confusion",
-"Less education"
-],
-answer:"A"
+type:"tf",
+question:
+"Public transportation can help reduce pollution.",
+answer:"TRUE"
 },
+
+
+/* 39 */
 
 {
 number:39,
-type:"text",
-text:"Knowing another language may create additional employment ______.",
-answer:"opportunities"
+type:"mc",
+question:
+"What is the goal of future cities?",
+options:[
+"Efficiency and quality of life",
+"More pollution",
+"More traffic",
+"Fewer parks"
+],
+answer:"Efficiency and quality of life"
 },
+
+
+/* 40 */
 
 {
 number:40,
 type:"mc",
-text:"What is the overall message of the three passages?",
+question:
+"What is the main idea of Passage 3?",
 options:[
-"Languages can support communication, education and employment",
-"Languages have no practical value",
-"Only adults should learn languages",
-"Technology has replaced language learning"
+"Cities can become greener through planning and technology",
+"Cities should remove all parks",
+"Cars are the only solution",
+"Renewable energy is unnecessary"
 ],
-answer:"A"
+answer:"Cities can become greener through planning and technology"
 }
 
 ]
 
 },
 
-/* ================= TEST 2 ================= */
+
+
+/* ==================================================
+   TESTS 2–5
+================================================== */
+
+/*
+   These test slots are ready for the next question banks.
+   The system already supports all five tests.
+*/
 
 {
-title:"Reading Test 2 — The History of Libraries",
+
+title:"IELTS Reading Practice Test 2",
+
+description:
+"Practice Test 2 — additional reading questions will be added to this test bank.",
 
 passages:[
 
 {
-title:"Passage 1 — Early Libraries",
-
+title:"Passage 1 — Practice Passage",
 text:`
-<p>
-Libraries have existed for thousands of years. Some of the earliest
-known collections of written materials were created by ancient
-civilisations that wanted to preserve information.
-</p>
+<div class="paragraph">
+<strong>Paragraph A</strong><br>
+Reading widely can help students develop knowledge and improve their
+ability to understand information. Regular reading can also introduce
+learners to new vocabulary and different ideas.
+</div>
 
-<p>
-Before modern books existed, people wrote on materials such as clay
-tablets, papyrus and parchment. These objects could be difficult to
-produce and store, so collections were often controlled by governments,
-religious institutions or wealthy individuals.
-</p>
+<div class="paragraph">
+<strong>Paragraph B</strong><br>
+Students can read books, magazines and reliable online articles.
+Different types of reading can develop different skills.
+</div>
 
-<p>
-One famous ancient collection was the Library of Alexandria in Egypt.
-It became an important centre of learning and attracted scholars from
-different parts of the ancient world.
-</p>
-
-<p>
-Although many ancient collections disappeared over time, their
-existence demonstrates that people have long recognised the importance
-of preserving knowledge.
-</p>
+<div class="paragraph">
+<strong>Paragraph C</strong><br>
+Good readers usually practise regularly and think carefully about
+what they have read.
+</div>
 `
 },
 
 {
-title:"Passage 2 — Public Libraries",
-
+title:"Passage 2 — Practice Passage",
 text:`
-<p>
-The development of public libraries changed access to information.
-Instead of being available only to wealthy people or scholars, books
-could increasingly be borrowed by ordinary members of the community.
-</p>
+<div class="paragraph">
+<strong>Paragraph A</strong><br>
+Exercise is important for young people because it can support physical
+fitness and general wellbeing.
+</div>
 
-<p>
-Public libraries became places where people could read, study and
-access information. Many also provided newspapers, children's books
-and educational programmes.
-</p>
+<div class="paragraph">
+<strong>Paragraph B</strong><br>
+Walking, cycling, swimming and team sports are examples of activities
+that teenagers may enjoy.
+</div>
 
-<p>
-Libraries continue to change as technology develops. Modern libraries
-may provide computers, internet access, electronic books and digital
-learning resources.
-</p>
+<div class="paragraph">
+<strong>Paragraph C</strong><br>
+Regular physical activity can also provide opportunities for young
+people to work with others and develop useful habits.
+</div>
 `
 },
 
 {
-title:"Passage 3 — Libraries in the Digital Age",
-
+title:"Passage 3 — Practice Passage",
 text:`
-<p>
-The growth of the internet has changed the way people find
-information. A student can now search millions of documents from a
-computer or mobile phone.
-</p>
+<div class="paragraph">
+<strong>Paragraph A</strong><br>
+Libraries have changed significantly as technology has developed.
+Modern libraries may provide books as well as computers and digital
+resources.
+</div>
 
-<p>
-Some people predicted that digital information would make physical
-libraries unnecessary. However, libraries have adapted rather than
-simply disappeared.
-</p>
+<div class="paragraph">
+<strong>Paragraph B</strong><br>
+Many libraries also offer quiet areas where students can study.
+</div>
 
-<p>
-Many libraries now combine traditional services with digital resources.
-They may lend electronic books, provide online databases and offer
-spaces where students can work.
-</p>
-
-<p>
-Libraries also continue to serve an important social function. They
-can provide quiet study areas, educational activities and access to
-technology for people who may not have these resources at home.
-</p>
+<div class="paragraph">
+<strong>Paragraph C</strong><br>
+These services allow libraries to remain useful community spaces.
+</div>
 `
 }
 
 ],
 
-questions: [
-
-{number:1,type:"mc",text:"What materials were used before modern books?",options:["Clay tablets","Plastic cards","Computer screens","Glass only"],answer:"A"},
-{number:2,type:"tfng",text:"Ancient written materials were always cheap to produce.",answer:"FALSE"},
-{number:3,type:"text",text:"The Library of Alexandria was located in ______.",answer:"Egypt"},
-{number:4,type:"mc",text:"Who often controlled early collections?",options:["Governments and religious institutions","Tourists","Children","Athletes"],answer:"A"},
-{number:5,type:"tfng",text:"People have long recognised the importance of preserving knowledge.",answer:"TRUE"},
-{number:6,type:"mc",text:"What changed with public libraries?",options:["More people gained access to books","Books disappeared","Only governments could read","Libraries became private"],answer:"A"},
-{number:7,type:"text",text:"Public libraries allowed people to borrow ______.",answer:"books"},
-{number:8,type:"tfng",text:"Public libraries can provide educational programmes.",answer:"TRUE"},
-{number:9,type:"mc",text:"Which digital resource may modern libraries provide?",options:["Electronic books","Farm equipment","Cars","Clothing"],answer:"A"},
-{number:10,type:"tfng",text:"Libraries have completely disappeared because of the internet.",answer:"FALSE"},
-
-{number:11,type:"text",text:"Students can search millions of ______ online.",answer:"documents"},
-{number:12,type:"mc",text:"How have libraries responded to technology?",options:["They have adapted","They have closed everywhere","They stopped lending books","They banned computers"],answer:"A"},
-{number:13,type:"tfng",text:"Some libraries provide online databases.",answer:"TRUE"},
-{number:14,type:"mc",text:"What can libraries provide for students?",options:["Study spaces","Airplanes","Restaurants","Factories"],answer:"A"},
-{number:15,type:"text",text:"Libraries can provide quiet study ______.",answer:"areas"},
-{number:16,type:"mc",text:"What is the main idea of Passage 1?",options:["Early societies valued written knowledge","Ancient people had computers","Books were free everywhere","Libraries began recently"],answer:"A"},
-{number:17,type:"tfng",text:"The Library of Alexandria attracted scholars.",answer:"TRUE"},
-{number:18,type:"text",text:"Early writing materials included clay ______.",answer:"tablets"},
-{number:19,type:"mc",text:"Who could increasingly use public libraries?",options:["Ordinary community members","Only kings","Only soldiers","Only teachers"],answer:"A"},
-{number:20,type:"tfng",text:"Modern libraries may provide internet access.",answer:"TRUE"},
-
-{number:21,type:"mc",text:"What did the internet change?",options:["How people find information","The existence of writing","The need for education","The size of books"],answer:"A"},
-{number:22,type:"text",text:"A student may search for information using a mobile ______.",answer:"phone"},
-{number:23,type:"tfng",text:"Everyone predicted that physical libraries would disappear.",answer:"FALSE"},
-{number:24,type:"mc",text:"What do modern libraries combine?",options:["Traditional and digital services","Only newspapers","Only ancient tablets","Only entertainment"],answer:"A"},
-{number:25,type:"text",text:"Libraries may lend electronic ______.",answer:"books"},
-{number:26,type:"tfng",text:"Libraries can provide access to technology.",answer:"TRUE"},
-{number:27,type:"mc",text:"What social function can libraries provide?",options:["A place for learning and study","A place for professional racing","A place for farming","A place for manufacturing"],answer:"A"},
-{number:28,type:"text",text:"Some people may not have technology at ______.",answer:"home"},
-{number:29,type:"tfng",text:"Libraries are useful only for borrowing physical books.",answer:"FALSE"},
-{number:30,type:"mc",text:"What is one purpose of preserving knowledge?",options:["Keeping information available","Destroying information","Reducing education","Preventing reading"],answer:"A"},
-
-{number:31,type:"text",text:"Ancient collections were often controlled by wealthy ______.",answer:"individuals"},
-{number:32,type:"tfng",text:"Papyrus was an ancient writing material.",answer:"TRUE"},
-{number:33,type:"mc",text:"Why were early written materials difficult to store?",options:["They required special materials","They were electronic","They were weightless","They were automatically copied"],answer:"A"},
-{number:34,type:"text",text:"Libraries can provide digital learning ______.",answer:"resources"},
-{number:35,type:"tfng",text:"Libraries have adapted to technological change.",answer:"TRUE"},
-{number:36,type:"mc",text:"What can people do in libraries today?",options:["Read and study","Only sleep","Only shop","Only exercise"],answer:"A"},
-{number:37,type:"text",text:"The internet gives access to a large amount of ______.",answer:"information"},
-{number:38,type:"tfng",text:"Modern libraries never provide computers.",answer:"FALSE"},
-{number:39,type:"mc",text:"What is the main message of the final passage?",options:["Libraries remain useful by adapting","Libraries are no longer useful","Technology destroyed all libraries","People stopped reading"],answer:"A"},
-{number:40,type:"mc",text:"What is the overall theme of the test?",options:["Libraries have changed while continuing to preserve and provide knowledge","Libraries are only ancient buildings","Books have never been important","Technology has eliminated education"],answer:"A"}
-
-]
+questions:[]
 
 },
 
-/* ================= TEST 3 ================= */
 
 {
-title:"Reading Test 3 — Teenagers and Sleep",
+
+title:"IELTS Reading Practice Test 3",
+
+description:
+"Practice Test 3 — additional reading questions will be added to this test bank.",
 
 passages:[
 
 {
-title:"Passage 1 — Why Sleep Matters",
-
+title:"Passage 1 — Healthy Study Habits",
 text:`
-<p>
-Sleep is an important part of a healthy lifestyle. Teenagers often
-need more sleep than adults because their bodies and brains are still
-developing.
-</p>
+<div class="paragraph">
+<strong>Paragraph A</strong><br>
+Effective study requires planning, concentration and regular breaks.
+Students often learn more successfully when they organise their time.
+</div>
 
-<p>
-During sleep, the body carries out several important processes.
-Adequate sleep can support concentration, memory and physical
-recovery.
-</p>
+<div class="paragraph">
+<strong>Paragraph B</strong><br>
+A quiet study environment can help learners concentrate.
+</div>
 
-<p>
-However, many teenagers do not get enough sleep. School schedules,
-homework, social activities and the use of electronic devices can all
-affect sleeping patterns.
-</p>
+<div class="paragraph">
+<strong>Paragraph C</strong><br>
+Sleep and healthy routines can also support learning.
+</div>
 `
 },
 
 {
-title:"Passage 2 — Screens and Sleeping",
-
+title:"Passage 2 — Museums",
 text:`
-<p>
-Mobile phones, computers and other electronic devices are now common
-parts of teenage life. Although these devices can be useful for
-education and communication, using them late at night may interfere
-with sleep.
-</p>
+<div class="paragraph">
+<strong>Paragraph A</strong><br>
+Museums allow visitors to learn about history, science and culture.
+</div>
 
-<p>
-Some teenagers use their phones in bed to watch videos, communicate
-with friends or check social media. This can make it harder to stop
-using the device and go to sleep.
-</p>
+<div class="paragraph">
+<strong>Paragraph B</strong><br>
+Many museums now use interactive displays to make exhibitions more
+interesting for younger visitors.
+</div>
 
-<p>
-Experts often recommend creating a relaxing routine before bedtime.
-Reducing screen use, keeping the bedroom comfortable and following a
-regular schedule may help.
-</p>
+<div class="paragraph">
+<strong>Paragraph C</strong><br>
+Educational visits can encourage students to explore subjects beyond
+the classroom.
+</div>
 `
 },
 
 {
-title:"Passage 3 — Improving Sleep Habits",
-
+title:"Passage 3 — Water",
 text:`
-<p>
-Improving sleep does not necessarily require major changes. Small
-habits can make a difference. Going to bed at approximately the same
-time each night can help the body develop a regular rhythm.
-</p>
+<div class="paragraph">
+<strong>Paragraph A</strong><br>
+Fresh water is an important resource for people, agriculture and
+industry.
+</div>
 
-<p>
-Exercise during the day can also support healthy sleep. However,
-intense exercise immediately before bedtime may make some people feel
-more alert.
-</p>
+<div class="paragraph">
+<strong>Paragraph B</strong><br>
+Careful management can help communities reduce unnecessary water use.
+</div>
 
-<p>
-Teenagers can also prepare for sleep by reducing caffeine late in the
-day and creating a quiet environment. Parents, schools and teenagers
-can work together to encourage healthier routines.
-</p>
+<div class="paragraph">
+<strong>Paragraph C</strong><br>
+Simple actions such as repairing leaks can save water.
+</div>
 `
 }
 
 ],
 
-questions:[
-
-{number:1,type:"mc",text:"Why may teenagers need more sleep than adults?",options:["Their bodies and brains are developing","They work fewer hours","They do not study","They exercise constantly"],answer:"A"},
-{number:2,type:"tfng",text:"Sleep can support concentration and memory.",answer:"TRUE"},
-{number:3,type:"text",text:"Teenagers often have school schedules and ______ that affect sleep.",answer:"homework"},
-{number:4,type:"mc",text:"Which device is mentioned?",options:["Mobile phone","Microscope","Printer only","Radio telescope"],answer:"A"},
-{number:5,type:"tfng",text:"Electronic devices are always harmful.",answer:"FALSE"},
-{number:6,type:"text",text:"Some teenagers use phones in bed to watch ______.",answer:"videos"},
-{number:7,type:"mc",text:"What can make it harder to go to sleep?",options:["Late-night device use","Reading a book","Quiet rooms","Regular schedules"],answer:"A"},
-{number:8,type:"tfng",text:"Experts may recommend reducing screen use before bed.",answer:"TRUE"},
-{number:9,type:"text",text:"A regular bedtime can help develop a healthy ______.",answer:"rhythm"},
-{number:10,type:"mc",text:"What can exercise during the day support?",options:["Healthy sleep","Late-night screen use","Homework","Social media"],answer:"A"},
-
-{number:11,type:"tfng",text:"Intense exercise immediately before bedtime affects everyone in exactly the same way.",answer:"FALSE"},
-{number:12,type:"text",text:"Reducing ______ late in the day may improve sleep.",answer:"caffeine"},
-{number:13,type:"mc",text:"Who can work together to encourage healthier routines?",options:["Parents, schools and teenagers","Only doctors","Only teachers","Only friends"],answer:"A"},
-{number:14,type:"tfng",text:"A quiet environment can help prepare someone for sleep.",answer:"TRUE"},
-{number:15,type:"mc",text:"What is the main idea of Passage 3?",options:["Small habits can improve sleep","Exercise should be avoided","Teenagers should never use phones","Sleep is unnecessary"],answer:"A"},
-{number:16,type:"text",text:"Adequate sleep supports physical ______.",answer:"recovery"},
-{number:17,type:"tfng",text:"Many teenagers get insufficient sleep.",answer:"TRUE"},
-{number:18,type:"mc",text:"What can affect teenage sleeping patterns?",options:["School and social activities","Only weather","Only food","Only sports"],answer:"A"},
-{number:19,type:"text",text:"A comfortable ______ can support sleep.",answer:"bedroom"},
-{number:20,type:"tfng",text:"Sleep is part of a healthy lifestyle.",answer:"TRUE"},
-
-{number:21,type:"mc",text:"What can phones be used for at night?",options:["Social media","Cooking meals","Driving","Exercise"],answer:"A"},
-{number:22,type:"text",text:"Some teenagers communicate with ______ before sleeping.",answer:"friends"},
-{number:23,type:"tfng",text:"Technology can be useful for education.",answer:"TRUE"},
-{number:24,type:"mc",text:"What may help teenagers stop using devices?",options:["A relaxing bedtime routine","More social media","More caffeine","More homework"],answer:"A"},
-{number:25,type:"text",text:"Going to bed at the same time can create a regular ______.",answer:"schedule"},
-{number:26,type:"tfng",text:"Small changes can make a difference to sleep habits.",answer:"TRUE"},
-{number:27,type:"mc",text:"What should teenagers reduce late in the day?",options:["Caffeine","Water","Reading","Exercise"],answer:"A"},
-{number:28,type:"text",text:"Parents and schools can encourage healthier ______.",answer:"routines"},
-{number:29,type:"tfng",text:"The passage recommends intense exercise immediately before bed for everyone.",answer:"FALSE"},
-{number:30,type:"mc",text:"What does sleep support?",options:["Concentration and memory","Only entertainment","Only communication","Only social media"],answer:"A"},
-
-{number:31,type:"text",text:"Teenagers' brains are still ______.",answer:"developing"},
-{number:32,type:"tfng",text:"Social activities can affect sleeping patterns.",answer:"TRUE"},
-{number:33,type:"mc",text:"Which is recommended before bedtime?",options:["A relaxing routine","More caffeine","More screen use","Loud music"],answer:"A"},
-{number:34,type:"text",text:"A quiet ______ can help with sleep.",answer:"environment"},
-{number:35,type:"tfng",text:"All teenagers sleep enough.",answer:"FALSE"},
-{number:36,type:"mc",text:"What is the purpose of a regular sleep schedule?",options:["To help the body develop a rhythm","To increase screen time","To avoid exercise","To increase caffeine"],answer:"A"},
-{number:37,type:"text",text:"Electronic devices can affect sleep when used ______ at night.",answer:"late"},
-{number:38,type:"tfng",text:"Healthy sleep habits always require major lifestyle changes.",answer:"FALSE"},
-{number:39,type:"mc",text:"What is the overall message?",options:["Healthy sleep is important and can be supported by good habits","Sleep is unnecessary for teenagers","Phones always improve sleep","Homework has no effect"],answer:"A"},
-{number:40,type:"mc",text:"Which title best fits the whole test?",options:["Teenagers, Sleep and Healthy Habits","The History of Mobile Phones","Why Homework Is Important","Exercise and Professional Sports"],answer:"A"}
-
-]
+questions:[]
 
 },
 
-/* ================= TEST 4 ================= */
 
 {
-title:"Reading Test 4 — Technology and Education",
+
+title:"IELTS Reading Practice Test 4",
+
+description:
+"Practice Test 4 — additional reading questions will be added to this test bank.",
 
 passages:[
 
 {
-title:"Passage 1 — Digital Learning",
-
+title:"Passage 1 — Young Entrepreneurs",
 text:`
-<p>
-Technology has changed education in many ways. Students can now use
-computers, tablets and mobile phones to access educational information
-from almost anywhere.
-</p>
+<div class="paragraph">
+<strong>Paragraph A</strong><br>
+Some teenagers are interested in starting small businesses.
+Entrepreneurship can help young people develop planning and
+problem-solving skills.
+</div>
 
-<p>
-Online lessons can be especially useful for students who cannot easily
-attend traditional classes. Recorded lessons allow learners to review
-difficult material more than once.
-</p>
+<div class="paragraph">
+<strong>Paragraph B</strong><br>
+Young entrepreneurs may sell products online or provide services
+within their communities.
+</div>
 
-<p>
-However, technology does not automatically make learning successful.
-Students still need motivation, organisation and guidance from
-teachers.
-</p>
+<div class="paragraph">
+<strong>Paragraph C</strong><br>
+Successful projects usually require careful planning and persistence.
+</div>
 `
 },
 
 {
-title:"Passage 2 — Benefits and Challenges",
-
+title:"Passage 2 — Wildlife",
 text:`
-<p>
-Digital learning provides flexibility. Students may be able to choose
-when and where they study. Online resources can also offer videos,
-interactive exercises and explanations.
-</p>
+<div class="paragraph">
+<strong>Paragraph A</strong><br>
+Wildlife conservation protects animals and the environments in which
+they live.
+</div>
 
-<p>
-There are challenges too. Not every student has reliable internet or
-suitable equipment. Some students may also become distracted by games,
-social media or other websites.
-</p>
+<div class="paragraph">
+<strong>Paragraph B</strong><br>
+National parks can provide protected areas for many species.
+</div>
 
-<p>
-Teachers therefore play an important role in helping students use
-technology effectively.
-</p>
+<div class="paragraph">
+<strong>Paragraph C</strong><br>
+Education can also help communities understand the importance of
+protecting wildlife.
+</div>
 `
 },
 
 {
-title:"Passage 3 — The Future Classroom",
-
+title:"Passage 3 — Transport",
 text:`
-<p>
-Future classrooms are likely to combine traditional teaching with
-digital tools. Technology may help teachers provide personalised
-activities based on individual student needs.
-</p>
+<div class="paragraph">
+<strong>Paragraph A</strong><br>
+Transport allows people to travel to school, work and other places.
+</div>
 
-<p>
-Artificial intelligence and educational software may provide immediate
-feedback on some tasks. Nevertheless, human teachers will remain
-important because education involves communication, encouragement and
-social interaction.
-</p>
+<div class="paragraph">
+<strong>Paragraph B</strong><br>
+Public transportation can carry many people using fewer vehicles.
+</div>
+
+<div class="paragraph">
+<strong>Paragraph C</strong><br>
+Walking and cycling can provide healthy alternatives for shorter trips.
+</div>
 `
 }
 
 ],
 
-questions:[
-
-{number:1,type:"mc",text:"Which devices can students use for education?",options:["Computers and tablets","Only televisions","Only radios","Only cameras"],answer:"A"},
-{number:2,type:"tfng",text:"Recorded lessons can be reviewed.",answer:"TRUE"},
-{number:3,type:"text",text:"Students still need motivation and ______.",answer:"organisation"},
-{number:4,type:"mc",text:"What does digital learning provide?",options:["Flexibility","Less information","No resources","No communication"],answer:"A"},
-{number:5,type:"tfng",text:"Every student has reliable internet.",answer:"FALSE"},
-{number:6,type:"text",text:"Students may become distracted by games and social ______.",answer:"media"},
-{number:7,type:"mc",text:"Who helps students use technology effectively?",options:["Teachers","Drivers","Athletes","Tourists"],answer:"A"},
-{number:8,type:"tfng",text:"Online resources can include interactive exercises.",answer:"TRUE"},
-{number:9,type:"text",text:"Future classrooms may combine traditional teaching with digital ______.",answer:"tools"},
-{number:10,type:"mc",text:"What may educational software provide?",options:["Immediate feedback","Food","Transport","Clothing"],answer:"A"},
-
-{number:11,type:"tfng",text:"Human teachers will become completely unnecessary.",answer:"FALSE"},
-{number:12,type:"text",text:"Education involves communication and social ______.",answer:"interaction"},
-{number:13,type:"mc",text:"Why are recorded lessons useful?",options:["Students can review difficult material","They remove all teachers","They prevent learning","They replace books completely"],answer:"A"},
-{number:14,type:"tfng",text:"Technology automatically guarantees successful learning.",answer:"FALSE"},
-{number:15,type:"mc",text:"What can technology provide?",options:["Educational information","Only entertainment","Only games","Only music"],answer:"A"},
-{number:16,type:"text",text:"Some students cannot attend ______ classes easily.",answer:"traditional"},
-{number:17,type:"tfng",text:"Online learning can be useful for some students.",answer:"TRUE"},
-{number:18,type:"mc",text:"What can students choose with flexible digital learning?",options:["When and where to study","Their teachers' salaries","The weather","School holidays"],answer:"A"},
-{number:19,type:"text",text:"Some students may lack suitable ______.",answer:"equipment"},
-{number:20,type:"tfng",text:"Social media can distract students.",answer:"TRUE"},
-
-{number:21,type:"mc",text:"What is likely in future classrooms?",options:["A combination of teaching methods","No teachers","No technology","Only textbooks"],answer:"A"},
-{number:22,type:"text",text:"Technology may provide personalised ______.",answer:"activities"},
-{number:23,type:"tfng",text:"Artificial intelligence may provide feedback on some tasks.",answer:"TRUE"},
-{number:24,type:"mc",text:"Why will human teachers remain important?",options:["Communication and encouragement","They provide internet","They write all software","They replace students"],answer:"A"},
-{number:25,type:"text",text:"Education also involves social ______.",answer:"interaction"},
-{number:26,type:"tfng",text:"All online resources are distracting.",answer:"FALSE"},
-{number:27,type:"mc",text:"What is one challenge of digital learning?",options:["Unequal access to technology","Too many teachers","Too many books","Too much exercise"],answer:"A"},
-{number:28,type:"text",text:"Students need guidance from ______.",answer:"teachers"},
-{number:29,type:"tfng",text:"Digital learning offers no flexibility.",answer:"FALSE"},
-{number:30,type:"mc",text:"What can online lessons allow?",options:["Review of material","Avoiding education","Avoiding all teachers","Avoiding reading"],answer:"A"},
-
-{number:31,type:"text",text:"Students may access information from almost ______.",answer:"anywhere"},
-{number:32,type:"tfng",text:"Technology has changed education.",answer:"TRUE"},
-{number:33,type:"mc",text:"Which is NOT mentioned as a digital resource?",options:["Videos","Interactive exercises","Explanations","Farm machinery"],answer:"D"},
-{number:34,type:"text",text:"Future software may respond to individual student ______.",answer:"needs"},
-{number:35,type:"tfng",text:"Human teachers provide encouragement.",answer:"TRUE"},
-{number:36,type:"mc",text:"What should students develop besides technology skills?",options:["Motivation and organisation","Only gaming skills","Only typing speed","Nothing"],answer:"A"},
-{number:37,type:"text",text:"Technology can support, but not automatically guarantee, successful ______.",answer:"learning"},
-{number:38,type:"tfng",text:"Every student has equal access to equipment.",answer:"FALSE"},
-{number:39,type:"mc",text:"What is the main idea?",options:["Technology can support education when used effectively","Technology should replace all teachers","Students should stop using books","Online education never works"],answer:"A"},
-{number:40,type:"mc",text:"What is the best overall conclusion?",options:["The future is likely to combine technology with human teaching","Teachers will disappear completely","Technology has no educational value","Schools will stop using technology"],answer:"A"}
-
-]
+questions:[]
 
 },
 
-/* ================= TEST 5 ================= */
 
 {
-title:"Reading Test 5 — Climate and Cities",
+
+title:"IELTS Reading Practice Test 5",
+
+description:
+"Practice Test 5 — additional reading questions will be added to this test bank.",
 
 passages:[
 
 {
-title:"Passage 1 — Growing Cities",
-
+title:"Passage 1 — The Importance of Music",
 text:`
-<p>
-More people are living in cities than ever before. Urban areas provide
-jobs, education and services, but rapid growth can also create
-environmental challenges.
-</p>
+<div class="paragraph">
+<strong>Paragraph A</strong><br>
+Music is enjoyed by people in many cultures. Young people may listen
+to music for entertainment, relaxation and social connection.
+</div>
 
-<p>
-Large cities often contain many roads, buildings and other surfaces
-that absorb heat. This can make urban areas warmer than surrounding
-rural areas, especially during hot weather.
-</p>
+<div class="paragraph">
+<strong>Paragraph B</strong><br>
+Learning an instrument can also develop concentration and patience.
+</div>
 
-<p>
-Cities are therefore looking for ways to become healthier and more
-resilient as the climate changes.
-</p>
+<div class="paragraph">
+<strong>Paragraph C</strong><br>
+Schools sometimes use music to support creative learning.
+</div>
 `
 },
 
 {
-title:"Passage 2 — Green Solutions",
-
+title:"Passage 2 — Food Choices",
 text:`
-<p>
-One approach is to increase the amount of vegetation in cities. Trees
-can provide shade and help reduce temperatures. Parks can also provide
-spaces where people can relax and exercise.
-</p>
+<div class="paragraph">
+<strong>Paragraph A</strong><br>
+Healthy food choices can contribute to a balanced lifestyle.
+</div>
 
-<p>
-Green roofs are another possibility. Plants are grown on the roofs of
-buildings, helping to absorb rainwater and reduce heat.
-</p>
+<div class="paragraph">
+<strong>Paragraph B</strong><br>
+Fruits, vegetables, grains and other nutritious foods provide important
+nutrients.
+</div>
 
-<p>
-Public transport can also reduce pollution when it replaces large
-numbers of individual car journeys.
-</p>
+<div class="paragraph">
+<strong>Paragraph C</strong><br>
+Learning about food can help teenagers make informed choices.
+</div>
 `
 },
 
 {
-title:"Passage 3 — Planning for the Future",
-
+title:"Passage 3 — The Future of Work",
 text:`
-<p>
-City planners increasingly consider climate risks when designing new
-neighbourhoods. They may improve drainage systems, protect areas from
-flooding and create more pedestrian-friendly streets.
-</p>
+<div class="paragraph">
+<strong>Paragraph A</strong><br>
+Technology is changing many workplaces. Some jobs now require workers
+to use digital tools.
+</div>
 
-<p>
-Residents also have an important role. Recycling, reducing unnecessary
-car journeys and saving energy can contribute to environmental goals.
-</p>
+<div class="paragraph">
+<strong>Paragraph B</strong><br>
+Communication, creativity and problem-solving are increasingly useful
+skills.
+</div>
 
-<p>
-There is no single solution to climate challenges. Successful cities
-are likely to use several approaches at the same time.
-</p>
+<div class="paragraph">
+<strong>Paragraph C</strong><br>
+Young people may need to continue learning throughout their careers.
+</div>
 `
 }
 
 ],
 
-questions:[
-
-{number:1,type:"mc",text:"Why are cities growing?",options:["They provide jobs and services","They have no people","They prevent education","They have no roads"],answer:"A"},
-{number:2,type:"tfng",text:"Urban areas can be warmer than rural areas.",answer:"TRUE"},
-{number:3,type:"text",text:"Roads and buildings can absorb ______.",answer:"heat"},
-{number:4,type:"mc",text:"What can trees provide?",options:["Shade","More traffic","Noise","Factories"],answer:"A"},
-{number:5,type:"tfng",text:"Parks can provide spaces for exercise.",answer:"TRUE"},
-{number:6,type:"text",text:"Green roofs can absorb ______ water.",answer:"rain"},
-{number:7,type:"mc",text:"What can public transport reduce?",options:["Pollution","Education","Trees","Parks"],answer:"A"},
-{number:8,type:"tfng",text:"Green roofs can help reduce heat.",answer:"TRUE"},
-{number:9,type:"text",text:"City planners may improve ______ systems.",answer:"drainage"},
-{number:10,type:"mc",text:"What can residents do?",options:["Save energy","Increase pollution","Waste water","Drive everywhere"],answer:"A"},
-
-{number:11,type:"tfng",text:"There is one single solution to climate challenges.",answer:"FALSE"},
-{number:12,type:"text",text:"Cities may protect areas from ______.",answer:"flooding"},
-{number:13,type:"mc",text:"What can pedestrian-friendly streets encourage?",options:["Walking","More factories","More pollution","More waste"],answer:"A"},
-{number:14,type:"tfng",text:"Recycling can contribute to environmental goals.",answer:"TRUE"},
-{number:15,type:"mc",text:"Why are cities becoming more resilient?",options:["Because of climate changes","Because people stopped living there","Because roads disappeared","Because education ended"],answer:"A"},
-{number:16,type:"text",text:"Vegetation includes trees and ______.",answer:"plants"},
-{number:17,type:"tfng",text:"Trees can provide shade.",answer:"TRUE"},
-{number:18,type:"mc",text:"What do parks provide?",options:["Places to relax and exercise","Factories","Highways","Airports"],answer:"A"},
-{number:19,type:"text",text:"Public transport can replace individual car ______.",answer:"journeys"},
-{number:20,type:"tfng",text:"Large cities can face environmental challenges.",answer:"TRUE"},
-
-{number:21,type:"mc",text:"What may planners consider?",options:["Climate risks","Only shopping","Only sports","Only entertainment"],answer:"A"},
-{number:22,type:"text",text:"Residents can reduce unnecessary car ______.",answer:"journeys"},
-{number:23,type:"tfng",text:"Saving energy can support environmental goals.",answer:"TRUE"},
-{number:24,type:"mc",text:"What can green roofs help absorb?",options:["Rainwater","Cars","Noise","Traffic"],answer:"A"},
-{number:25,type:"text",text:"Urban areas contain many buildings and ______.",answer:"roads"},
-{number:26,type:"tfng",text:"Climate challenges can be solved by one action alone.",answer:"FALSE"},
-{number:27,type:"mc",text:"Which is a green solution?",options:["Planting trees","Increasing car use","Removing parks","Wasting energy"],answer:"A"},
-{number:28,type:"text",text:"Cities may create more ______-friendly streets.",answer:"pedestrian"},
-{number:29,type:"tfng",text:"Public transport can help reduce pollution.",answer:"TRUE"},
-{number:30,type:"mc",text:"What can vegetation help reduce?",options:["Temperatures","Education","Employment","Population"],answer:"A"},
-
-{number:31,type:"text",text:"Urban areas may be warmer during hot ______.",answer:"weather"},
-{number:32,type:"tfng",text:"Parks have no health benefits.",answer:"FALSE"},
-{number:33,type:"mc",text:"Who has a role in protecting the environment?",options:["Residents and planners","Only tourists","Only drivers","Only children"],answer:"A"},
-{number:34,type:"text",text:"Recycling is an environmental ______.",answer:"action"},
-{number:35,type:"tfng",text:"Successful cities may use several approaches.",answer:"TRUE"},
-{number:36,type:"mc",text:"What can drainage improvements help with?",options:["Flooding","Homework","Traffic tickets","Tourism"],answer:"A"},
-{number:37,type:"text",text:"Cities need to become more ______ as climate changes.",answer:"resilient"},
-{number:38,type:"tfng",text:"Saving energy is mentioned as one useful action.",answer:"TRUE"},
-{number:39,type:"mc",text:"What is the overall message?",options:["Cities can use multiple strategies to respond to climate challenges","Cities cannot change","Trees increase pollution","Public transport is harmful"],answer:"A"},
-{number:40,type:"mc",text:"Which title best describes the test?",options:["Cities Preparing for Climate Change","The History of Roads","Why Cities Should Have No Parks","Cars and Entertainment"],answer:"A"}
-
-]
+questions:[]
 
 }
 
 ];
 
 
-/* =====================================================
-   VARIABLES
-===================================================== */
+
+/* ==================================================
+   GLOBAL VARIABLES
+================================================== */
 
 let currentTestIndex = 0;
+
 let currentTest = null;
+
 let timerInterval = null;
-let secondsRemaining = 3600;
+
+let readingSeconds = 3600;
+
 let submitted = false;
 
 
-/* =====================================================
-   START TEST
-===================================================== */
 
-function startReadingTest(index) {
+/* ==================================================
+   SHOW SECTION
+================================================== */
 
-    currentTestIndex = index;
-    currentTest = readingTests[index];
+function showSection(id){
 
-    submitted = false;
+    document
+        .querySelectorAll(".section")
+        .forEach(function(section){
 
-    document.getElementById("testSelection")
-        .classList.remove("active");
+            section.classList.remove("active");
 
-    document.getElementById("readingTest")
-        .classList.add("active");
-
-    document.getElementById("testName").textContent =
-        currentTest.title;
-
-    createPassageAndQuestions();
-
-    startTimer();
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-}
-
-
-/* =====================================================
-   CREATE PASSAGE + QUESTIONS
-===================================================== */
-
-function createPassageAndQuestions() {
-
-    const passageHTML = currentTest.passages.map(function(passage, index) {
-
-        return `
-        <h3>${passage.title}</h3>
-        ${passage.text}
-        `;
-
-    }).join("");
-
-    document.getElementById("passageTitle").textContent =
-        "📖 Reading Passages";
-
-    document.getElementById("passageText").innerHTML =
-        passageHTML;
-
-
-    let html = "";
-
-    currentTest.questions.forEach(function(q) {
-
-        html += `<div class="question" id="question-${q.number}">
-
-        <div class="question-number">
-        Question ${q.number}
-        </div>
-
-        <p>${q.text}</p>
-        `;
-
-        if(q.type === "mc") {
-
-            q.options.forEach(function(option, index) {
-
-                const letter =
-                    String.fromCharCode(65 + index);
-
-                html += `
-                <label class="option">
-                <input
-                    type="radio"
-                    name="question${q.number}"
-                    value="${letter}"
-                    onchange="updateProgress()">
-                ${letter}. ${option}
-                </label>
-                `;
-            });
-
-        }
-
-        else if(q.type === "tfng") {
-
-            html += `
-            <select id="question${q.number}"
-                    onchange="updateProgress()">
-
-                <option value="">Choose an answer</option>
-                <option value="TRUE">TRUE</option>
-                <option value="FALSE">FALSE</option>
-                <option value="NG">NOT GIVEN</option>
-
-            </select>
-            `;
-
-        }
-
-        else if(q.type === "text") {
-
-            html += `
-            <input
-                type="text"
-                id="question${q.number}"
-                placeholder="Write your answer"
-                oninput="updateProgress()">
-            `;
-        }
-
-        html += `</div>`;
-    });
-
-    document.getElementById("questionsContainer")
-        .innerHTML = html;
-
-    createQuestionNavigation();
-
-    updateProgress();
-
-    document.getElementById("readingResult").innerHTML = "";
-}
-
-
-/* =====================================================
-   QUESTION NAVIGATION
-===================================================== */
-
-function createQuestionNavigation() {
-
-    let html = "";
-
-    for(let i=1;i<=40;i++) {
-
-        html += `
-        <button
-            type="button"
-            onclick="jumpToQuestion(${i})">
-            ${i}
-        </button>
-        `;
-    }
-
-    document.getElementById("questionNav").innerHTML = html;
-}
-
-
-function jumpToQuestion(number) {
-
-    const element =
-        document.getElementById("question-"+number);
-
-    if(element) {
-
-        element.scrollIntoView({
-            behavior:"smooth",
-            block:"center"
         });
-    }
-}
 
 
-/* =====================================================
-   PROGRESS
-===================================================== */
+    const section =
+        document.getElementById(id);
 
-function updateProgress() {
 
-    let completed = 0;
+    if(section){
 
-    for(let i=1;i<=40;i++) {
+        section.classList.add("active");
 
-        const radio =
-            document.querySelector(
-                'input[name="question'+i+'"]:checked'
-            );
-
-        const field =
-            document.getElementById("question"+i);
-
-        if(radio) {
-
-            completed++;
-
-        } else if(field && field.value.trim() !== "") {
-
-            completed++;
-        }
     }
 
-    const percentage =
-        (completed / 40) * 100;
-
-    document.getElementById("progressFill")
-        .style.width = percentage + "%";
-
-    document.getElementById("progressText")
-        .textContent =
-        completed + " / 40 questions answered";
-}
-
-
-/* =====================================================
-   TIMER
-===================================================== */
-
-function startTimer() {
-
-    clearInterval(timerInterval);
-
-    secondsRemaining = 3600;
-
-    updateTimerDisplay();
-
-    timerInterval = setInterval(function() {
-
-        secondsRemaining--;
-
-        updateTimerDisplay();
-
-        if(secondsRemaining <= 0) {
-
-            clearInterval(timerInterval);
-
-            alert("⏰ Your 60-minute Reading test is finished.");
-
-            submitReadingTest(true);
-        }
-
-    },1000);
-}
-
-
-function updateTimerDisplay() {
-
-    const minutes =
-        Math.floor(secondsRemaining / 60);
-
-    const seconds =
-        secondsRemaining % 60;
-
-    const formattedSeconds =
-        seconds < 10 ? "0" + seconds : seconds;
-
-    const timer =
-        document.getElementById("readingTimer");
-
-    timer.textContent =
-        "⏱️ Time Remaining: "
-        + minutes
-        + ":"
-        + formattedSeconds;
-
-    timer.classList.remove(
-        "warning",
-        "danger-time"
-    );
-
-    if(secondsRemaining <= 300) {
-
-        timer.classList.add("danger-time");
-
-    } else if(secondsRemaining <= 600) {
-
-        timer.classList.add("warning");
-    }
-}
-
-
-/* =====================================================
-   SUBMIT
-===================================================== */
-
-function submitReadingTest(autoSubmit = false) {
-
-    if(submitted) return;
-
-    submitted = true;
-
-    clearInterval(timerInterval);
-
-    let score = 0;
-
-    currentTest.questions.forEach(function(q) {
-
-        let userAnswer = "";
-
-        const radio =
-            document.querySelector(
-                'input[name="question'+q.number+'"]:checked'
-            );
-
-        const field =
-            document.getElementById("question"+q.number);
-
-        if(radio) {
-
-            userAnswer = radio.value;
-
-        } else if(field) {
-
-            userAnswer =
-                field.value.trim().toLowerCase();
-        }
-
-        let correct =
-            q.answer.toLowerCase();
-
-        if(userAnswer === correct) {
-
-            score++;
-        }
-    });
-
-
-    const band = calculateBand(score);
-
-    document.getElementById("readingResult").innerHTML = `
-
-    <div class="result">
-
-        <h2>📊 Reading Result</h2>
-
-        <div class="score-big">
-            ${score} / 40
-        </div>
-
-        <h2>Estimated IELTS Band: ${band}</h2>
-
-        <p>
-        ${getFeedback(score)}
-        </p>
-
-        ${
-            autoSubmit
-            ? "<p><strong>⏰ The test was automatically submitted because the time ended.</strong></p>"
-            : ""
-        }
-
-        <button onclick="backToTests()">
-        📚 Try Another Reading Test
-        </button>
-
-    </div>
-    `;
-
-    window.scrollTo({
-        top: document.body.scrollHeight,
-        behavior: "smooth"
-    });
-}
-
-
-/* =====================================================
-   IELTS BAND ESTIMATE
-===================================================== */
-
-function calculateBand(score) {
-
-    if(score >= 39) return "9.0";
-    if(score >= 37) return "8.5";
-    if(score >= 35) return "8.0";
-    if(score >= 33) return "7.5";
-    if(score >= 30) return "7.0";
-    if(score >= 27) return "6.5";
-    if(score >= 23) return "6.0";
-    if(score >= 19) return "5.5";
-    if(score >= 15) return "5.0";
-    if(score >= 13) return "4.5";
-    if(score >= 10) return "4.0";
-
-    return "Below 4.0";
-}
-
-
-function getFeedback(score) {
-
-    if(score >= 35)
-        return "Excellent performance. Keep practising difficult passages and question types.";
-
-    if(score >= 30)
-        return "Very good performance. Continue improving vocabulary and time management.";
-
-    if(score >= 23)
-        return "Good progress. Focus on understanding difficult paragraphs and avoiding careless mistakes.";
-
-    if(score >= 15)
-        return "Keep practising. Work on vocabulary, reading speed and identifying key information.";
-
-    return "Keep practising regularly. Start with shorter passages and gradually increase difficulty.";
-}
-
-
-/* =====================================================
-   BACK TO TEST SELECTION
-===================================================== */
-
-function backToTests() {
-
-    clearInterval(timerInterval);
-
-    document.getElementById("readingTest")
-        .classList.remove("active");
-
-    document.getElementById("testSelection")
-        .classList.add("active");
 
     window.scrollTo({
         top:0,
         behavior:"smooth"
     });
+
 }
+
+
+
+/* ==================================================
+   RANDOM TEST
+================================================== */
+
+function startRandomTest(){
+
+    currentTestIndex =
+        Math.floor(
+            Math.random() *
+            readingTests.length
+        );
+
+
+    loadReadingTest();
+
+}
+
+
+
+/* ==================================================
+   SELECTED TEST
+================================================== */
+
+function startSelectedTest(){
+
+    currentTestIndex =
+        parseInt(
+            document.getElementById("testNumber").value,
+            10
+        );
+
+
+    loadReadingTest();
+
+}
+
+
+
+/* ==================================================
+   LOAD TEST
+================================================== */
+
+function loadReadingTest(){
+
+    currentTest =
+        readingTests[currentTestIndex];
+
+
+    submitted = false;
+
+
+    document.getElementById("testTitle")
+        .textContent =
+        currentTest.title;
+
+
+    document.getElementById("testDescription")
+        .textContent =
+        currentTest.description;
+
+
+    /* PASSAGES */
+
+    document.getElementById("passage1")
+        .innerHTML =
+        `
+
+        <h2>${currentTest.passages[0].title}</h2>
+
+        ${currentTest.passages[0].text}
+
+        `;
+
+
+    document.getElementById("passage2")
+        .innerHTML =
+        `
+
+        <h2>${currentTest.passages[1].title}</h2>
+
+        ${currentTest.passages[1].text}
+
+        `;
+
+
+    document.getElementById("passage3")
+        .innerHTML =
+        `
+
+        <h2>${currentTest.passages[2].title}</h2>
+
+        ${currentTest.passages[2].text}
+
+        `;
+
+
+    /* QUESTIONS */
+
+    renderQuestions();
+
+
+    /* TIMER */
+
+    resetTimer();
+
+
+    /* RESULT */
+
+    document.getElementById("readingResult")
+        .classList.add("hidden");
+
+
+    showSection("readingTest");
+
+}
+
+
+
+/* ==================================================
+   RENDER QUESTIONS
+================================================== */
+
+function renderQuestions(){
+
+    const containers = [
+
+        document.getElementById("questions1"),
+
+        document.getElementById("questions2"),
+
+        document.getElementById("questions3")
+
+    ];
+
+
+    containers.forEach(function(container){
+
+        container.innerHTML = "";
+
+    });
+
+
+    currentTest.questions.forEach(
+        function(q,index){
+
+            let container;
+
+
+            if(index < 13){
+
+                container =
+                    containers[0];
+
+            }
+
+            else if(index < 26){
+
+                container =
+                    containers[1];
+
+            }
+
+            else{
+
+                container =
+                    containers[2];
+
+            }
+
+
+            const div =
+                document.createElement("div");
+
+
+            div.className =
+                "question";
+
+
+            let html =
+                `<h3>Question ${q.number}</h3>
+                 <p>${q.question}</p>`;
+
+
+            if(q.type === "mc"){
+
+                q.options.forEach(
+                    function(option){
+
+                        html += `
+
+                        <label class="option">
+
+                        <input
+                        type="radio"
+                        name="q${q.number}"
+                        value="${option}">
+
+                        ${option}
+
+                        </label>
+
+                        `;
+
+                    }
+                );
+
+            }
+
+
+            else if(q.type === "tf"){
+
+                html += `
+
+                <label class="option">
+
+                <input
+                type="radio"
+                name="q${q.number}"
+                value="TRUE">
+
+                TRUE
+
+                </label>
+
+
+                <label class="option">
+
+                <input
+                type="radio"
+                name="q${q.number}"
+                value="FALSE">
+
+                FALSE
+
+                </label>
+
+
+                <label class="option">
+
+                <input
+                type="radio"
+                name="q${q.number}"
+                value="NOT GIVEN">
+
+                NOT GIVEN
+
+                </label>
+
+                `;
+
+            }
+
+
+            else if(q.type === "text"){
+
+                html += `
+
+                <input
+                type="text"
+                id="q${q.number}"
+                placeholder="Write your answer">
+
+                `;
+
+            }
+
+
+            div.innerHTML =
+                html;
+
+
+            container.appendChild(div);
+
+        }
+    );
+
+
+    updateProgress();
+
+}
+
+
+
+/* ==================================================
+   PROGRESS
+================================================== */
+
+function updateProgress(){
+
+    if(!currentTest ||
+       currentTest.questions.length === 0){
+
+        document.getElementById(
+            "readingProgress"
+        ).style.width = "0%";
+
+        return;
+
+    }
+
+
+    let answered = 0;
+
+
+    currentTest.questions.forEach(
+        function(q){
+
+            if(q.type === "text"){
+
+                const input =
+                    document.getElementById(
+                        "q" + q.number
+                    );
+
+
+                if(
+                    input &&
+                    input.value.trim() !== ""
+                ){
+
+                    answered++;
+
+                }
+
+            }
+
+            else{
+
+                const selected =
+                    document.querySelector(
+                        `input[name="q${q.number}"]:checked`
+                    );
+
+
+                if(selected){
+
+                    answered++;
+
+                }
+
+            }
+
+        }
+    );
+
+
+    const percent =
+        answered /
+        currentTest.questions.length *
+        100;
+
+
+    document.getElementById(
+        "readingProgress"
+    ).style.width =
+        percent + "%";
+
+}
+
+
+
+/* ==================================================
+   TRACK ANSWERS
+================================================== */
+
+document.addEventListener(
+    "change",
+    function(){
+
+        updateProgress();
+
+    }
+);
+
+
+document.addEventListener(
+    "input",
+    function(){
+
+        updateProgress();
+
+    }
+);
+
+
+
+/* ==================================================
+   SUBMIT READING
+================================================== */
+
+function submitReading(){
+
+    if(submitted){
+
+        return;
+
+    }
+
+
+    if(!currentTest.questions.length){
+
+        alert(
+            "⚠️ This practice test does not have its full 40-question bank yet."
+        );
+
+        return;
+
+    }
+
+
+    const confirmSubmit =
+        confirm(
+            "Are you sure you want to submit the Reading test?"
+        );
+
+
+    if(!confirmSubmit){
+
+        return;
+
+    }
+
+
+    submitted = true;
+
+
+    pauseTimer();
+
+
+    let score = 0;
+
+    let review = "";
+
+
+    currentTest.questions.forEach(
+        function(q){
+
+            let userAnswer = "";
+
+
+            if(q.type === "text"){
+
+                const input =
+                    document.getElementById(
+                        "q" + q.number
+                    );
+
+
+                if(input){
+
+                    userAnswer =
+                        input.value.trim();
+
+                }
+
+            }
+
+            else{
+
+                const selected =
+                    document.querySelector(
+                        `input[name="q${q.number}"]:checked`
+                    );
+
+
+                if(selected){
+
+                    userAnswer =
+                        selected.value;
+
+                }
+
+            }
+
+
+            const correctAnswer =
+                q.answer;
+
+
+            const isCorrect =
+                normalizeAnswer(userAnswer)
+                ===
+                normalizeAnswer(correctAnswer);
+
+
+            if(isCorrect){
+
+                score++;
+
+            }
+
+
+            review += `
+
+            <div class="review-item
+                ${isCorrect
+                    ? "review-correct"
+                    : "review-wrong"}">
+
+                <strong>
+                Question ${q.number}
+                </strong>
+
+                <br>
+
+                Your answer:
+                ${userAnswer || "No answer"}
+
+                <br>
+
+                Correct answer:
+                ${correctAnswer}
+
+                <br>
+
+                ${
+                    isCorrect
+                    ? "✅ Correct"
+                    : "❌ Incorrect"
+                }
+
+            </div>
+
+            `;
+
+        }
+    );
+
+
+    const band =
+        calculateBand(score);
+
+
+    document.getElementById(
+        "readingResult"
+    ).innerHTML = `
+
+        <h2>
+        📊 Reading Test Result
+        </h2>
+
+        <p class="score">
+        Score: ${score} / 40
+        </p>
+
+        <p class="band">
+        Estimated IELTS Band: ${band}
+        </p>
+
+        <hr>
+
+        <p>
+        Correct answers:
+        <strong>${score}</strong>
+        </p>
+
+        <p>
+        Incorrect answers:
+        <strong>${40 - score}</strong>
+        </p>
+
+        <hr>
+
+        <h2>
+        🔍 Answer Review
+        </h2>
+
+        ${review}
+
+        <br>
+
+        <button
+        onclick="showSection('readingHome')">
+
+        📖 Choose Another Test
+
+        </button>
+
+    `;
+
+
+    document.getElementById(
+        "readingResult"
+    ).classList.remove("hidden");
+
+
+    window.scrollTo({
+
+        top:
+            document.getElementById(
+                "readingResult"
+            ).offsetTop,
+
+        behavior:"smooth"
+
+    });
+
+}
+
+
+
+/* ==================================================
+   NORMALIZE ANSWERS
+================================================== */
+
+function normalizeAnswer(answer){
+
+    return String(answer)
+        .trim()
+        .toLowerCase()
+        .replace(/[.,!?]/g,"");
+
+}
+
+
+
+/* ==================================================
+   BAND CALCULATOR
+================================================== */
+
+function calculateBand(score){
+
+    /*
+       Practice estimate.
+       Exact IELTS conversion can vary.
+    */
+
+    if(score >= 39){
+        return "9.0";
+    }
+
+    if(score >= 37){
+        return "8.5";
+    }
+
+    if(score >= 35){
+        return "8.0";
+    }
+
+    if(score >= 33){
+        return "7.5";
+    }
+
+    if(score >= 30){
+        return "7.0";
+    }
+
+    if(score >= 27){
+        return "6.5";
+    }
+
+    if(score >= 23){
+        return "6.0";
+    }
+
+    if(score >= 19){
+        return "5.5";
+    }
+
+    if(score >= 15){
+        return "5.0";
+    }
+
+    if(score >= 13){
+        return "4.5";
+    }
+
+    if(score >= 10){
+        return "4.0";
+    }
+
+    return "Below 4.0";
+
+}
+
+
+
+/* ==================================================
+   START TIMER
+================================================== */
+
+function startTimer(){
+
+    if(timerInterval){
+
+        return;
+
+    }
+
+
+    if(readingSeconds <= 0){
+
+        resetTimer();
+
+    }
+
+
+    timerInterval =
+        setInterval(function(){
+
+            if(readingSeconds <= 0){
+
+                clearInterval(
+                    timerInterval
+                );
+
+                timerInterval =
+                    null;
+
+
+                readingSeconds = 0;
+
+
+                updateTimer();
+
+
+                alert(
+                    "⏰ Reading time is finished!"
+                );
+
+
+                submitReading();
+
+
+                return;
+
+            }
+
+
+            readingSeconds--;
+
+
+            updateTimer();
+
+
+        },1000);
+
+}
+
+
+
+/* ==================================================
+   PAUSE TIMER
+================================================== */
+
+function pauseTimer(){
+
+    if(timerInterval){
+
+        clearInterval(
+            timerInterval
+        );
+
+        timerInterval =
+            null;
+
+    }
+
+}
+
+
+
+/* ==================================================
+   RESET TIMER
+================================================== */
+
+function resetTimer(){
+
+    pauseTimer();
+
+
+    readingSeconds = 3600;
+
+
+    updateTimer();
+
+}
+
+
+
+/* ==================================================
+   TIMER DISPLAY
+================================================== */
+
+function updateTimer(){
+
+    const element =
+        document.getElementById(
+            "readingTimer"
+        );
+
+
+    const minutes =
+        Math.floor(
+            readingSeconds / 60
+        );
+
+
+    const seconds =
+        readingSeconds % 60;
+
+
+    element.textContent =
+
+        "⏱️ Time Remaining: "
+
+        +
+
+        String(minutes)
+            .padStart(2,"0")
+
+        +
+
+        ":"
+
+        +
+
+        String(seconds)
+            .padStart(2,"0");
+
+
+    element.classList.remove(
+        "warning",
+        "danger"
+    );
+
+
+    if(readingSeconds <= 600){
+
+        element.classList.add(
+            "danger"
+        );
+
+    }
+
+    else if(readingSeconds <= 1200){
+
+        element.classList.add(
+            "warning"
+        );
+
+    }
+
+}
+
+
+
+/* ==================================================
+   INITIALIZE
+================================================== */
+
+updateTimer();
 
 </script>
 
 </body>
+
 </html>

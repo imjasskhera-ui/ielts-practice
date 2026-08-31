@@ -1,1827 +1,607 @@
-<!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
-   content="width=device-width, initial-scale=1.0">
-
-<title>Teen IELTS Reading Practice</title>
-
-<style>
-
-/* =========================
-   BASIC
-========================= */
-
-*{
-    box-sizing:border-box;
-}
-
-body{
-    margin:0;
-    font-family:Arial,Helvetica,sans-serif;
-    background:#f4f7fb;
-    color:#222;
-}
-
-.container{
-    max-width:1100px;
-    margin:auto;
-    padding:20px;
-}
-
-
-/* =========================
-   HEADER
-========================= */
-
-header{
-    background:#17365d;
-    color:white;
-    padding:35px 20px;
-    border-radius:16px;
-    text-align:center;
-    margin-bottom:20px;
-}
-
-header h1{
-    margin:0 0 10px;
-    font-size:38px;
-}
-
-header p{
-    margin:5px;
-    font-size:18px;
-}
-
-
-/* =========================
-   SECTIONS
-========================= */
-
-.section{
-    display:none;
-}
-
-.section.active{
-    display:block;
-}
-
-
-/* =========================
-   CARDS
-========================= */
-
-.card{
-    background:white;
-    padding:25px;
-    margin-bottom:20px;
-    border-radius:15px;
-    box-shadow:0 2px 10px rgba(0,0,0,.08);
-}
-
-
-/* =========================
-   BUTTONS
-========================= */
-
-button{
-    padding:13px 20px;
-    border:none;
-    border-radius:8px;
-    background:#17365d;
-    color:white;
-    font-size:16px;
-    cursor:pointer;
-    margin:5px;
-}
-
-button:hover{
-    background:#0f2744;
-}
-
-button.success{
-    background:#287a3e;
-}
-
-button.success:hover{
-    background:#1f6030;
-}
-
-button.danger{
-    background:#a83232;
-}
-
-button.secondary{
-    background:#666;
-}
-
-
-/* =========================
-   TEST SELECTOR
-========================= */
-
-.test-selector{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-    margin:20px 0;
-}
-
-.test-box{
-    background:#f4f7fb;
-    padding:25px;
-    border-radius:12px;
-    text-align:center;
-    border:2px solid transparent;
-}
-
-.test-box:hover{
-    border-color:#17365d;
-}
-
-
-/* =========================
-   SELECT
-========================= */
-
-select{
-    width:100%;
-    max-width:400px;
-    padding:13px;
-    border:1px solid #aaa;
-    border-radius:8px;
-    font-size:16px;
-}
-
-
-/* =========================
-   TIMER
-========================= */
-
-.timer{
-    position:sticky;
-    top:10px;
-    z-index:100;
-    background:white;
-    padding:15px;
-    text-align:center;
-    font-size:24px;
-    font-weight:bold;
-    border-radius:10px;
-    margin-bottom:20px;
-    box-shadow:0 2px 10px rgba(0,0,0,.15);
-}
-
-.timer.warning{
-    background:#fff3cd;
-    color:#856404;
-}
-
-.timer.danger{
-    background:#f8d7da;
-    color:#842029;
-}
-
-
-/* =========================
-   PASSAGE
-========================= */
-
-.passage{
-    background:#fff;
-    border-left:5px solid #17365d;
-    padding:25px;
-    line-height:1.8;
-    margin-bottom:25px;
-}
-
-.passage h2{
-    color:#17365d;
-}
-
-.paragraph{
-    margin-bottom:18px;
-}
-
-.paragraph strong{
-    color:#17365d;
-}
-
-
-/* =========================
-   QUESTIONS
-========================= */
-
-.question{
-    background:#f8fafc;
-    padding:20px;
-    border-radius:10px;
-    margin-bottom:18px;
-    border:1px solid #e0e0e0;
-}
-
-.question h3{
-    margin-top:0;
-    color:#17365d;
-}
-
-.option{
-    display:block;
-    padding:8px;
-    margin:5px 0;
-}
-
-.option input{
-    margin-right:8px;
-}
-
-.question input[type="text"]{
-    width:100%;
-    max-width:500px;
-    padding:11px;
-    border:1px solid #aaa;
-    border-radius:7px;
-    font-size:16px;
-}
-
-
-/* =========================
-   RESULTS
-========================= */
-
-.result{
-    background:#e8f5e9;
-    padding:25px;
-    border-radius:12px;
-    margin-top:20px;
-}
-
-.score{
-    font-size:30px;
-    font-weight:bold;
-    color:#17365d;
-}
-
-.band{
-    font-size:25px;
-    font-weight:bold;
-    color:#287a3e;
-}
-
-
-/* =========================
-   REVIEW
-========================= */
-
-.review-item{
-    padding:15px;
-    margin:10px 0;
-    border-radius:8px;
-}
-
-.review-correct{
-    background:#e8f5e9;
-}
-
-.review-wrong{
-    background:#f8d7da;
-}
-
-
-/* =========================
-   PROGRESS
-========================= */
-
-.progress{
-    height:12px;
-    background:#ddd;
-    border-radius:10px;
-    overflow:hidden;
-    margin:15px 0;
-}
-
-.progress-fill{
-    height:100%;
-    width:0%;
-    background:#17365d;
-    transition:.3s;
-}
-
-
-/* =========================
-   OTHER
-========================= */
-
-.center{
-    text-align:center;
-}
-
-.small{
-    font-size:14px;
-    color:#666;
-}
-
-.hidden{
-    display:none;
-}
-
-.instructions{
-    background:#fff8e6;
-    border-left:5px solid #d99a00;
-    padding:18px;
-    border-radius:8px;
-    margin-bottom:20px;
-}
-
-ul{
-    line-height:1.8;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:700px){
-
-    .container{
-        padding:10px;
-    }
-
-    header h1{
-        font-size:28px;
-    }
-
-    .card{
-        padding:17px;
-    }
-
-    .test-selector{
-        grid-template-columns:1fr;
-    }
-
-    button{
-        width:100%;
-        margin:5px 0;
-    }
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="container">
-
-<!-- =========================
-     HEADER
-========================= -->
-
-<header>
-
-<h1>📖 Teen IELTS Reading Practice</h1>
-
-<p>
-40 Questions • 3 Passages • 60 Minutes
-</p>
-
-</header>
-
-<!-- =========================
-     HOME
-========================= -->
-
-<div id="readingHome"
-     class="section active">
-
-<div class="card center">
-
-<h2>
-📖 IELTS Reading Practice
-</h2>
-
-<p>
-Choose a Reading Practice Test.
-</p>
-
-<div class="test-selector">
-
-<div class="test-box">
-
-<h3>
-🎲 Random Test
-</h3>
-
-<p>
-The system will randomly select a Reading test.
-</p>
-
-<button
-onclick="startRandomTest()"
-class="success">
-
-Start Random Test
-
-</button>
-
-</div>
-
-<div class="test-box">
-
-<h3>
-📋 Choose Test
-</h3>
-
-<p>
-Select a specific practice test.
-</p>
-
-<select id="testNumber">
-
-<option value="0">
-Practice Test 1
-</option>
-
-<option value="1">
-Practice Test 2
-</option>
-
-<option value="2">
-Practice Test 3
-</option>
-
-<option value="3">
-Practice Test 4
-</option>
-
-<option value="4">
-Practice Test 5
-</option>
-
-</select>
-
-<br>
-
-<button
-onclick="startSelectedTest()">
-
-Start Selected Test
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<h2>
-📚 Reading Test Information
-</h2>
-
-<ul>
-
-<li>
-<strong>3 reading passages</strong>
-</li>
-
-<li>
-<strong>40 questions</strong>
-</li>
-
-<li>
-<strong>60 minutes</strong>
-</li>
-
-<li>
-Different question types
-</li>
-
-<li>
-Automatic marking
-</li>
-
-<li>
-Score out of 40
-</li>
-
-<li>
-Estimated IELTS Reading band
-</li>
-
-</ul>
-
-</div>
-
-</div>
-
-<!-- =========================
-     READING TEST
-========================= -->
-
-<div id="readingTest"
-     class="section">
-
-<!-- TIMER -->
-
-<div id="readingTimer"
-     class="timer">
-
-⏱️ Time Remaining: 60:00
-
-</div>
-
-<div class="card center">
-
-<button
-onclick="startTimer()"
-class="success">
-
-▶ Start Timer
-
-</button>
-
-<button
-onclick="pauseTimer()"
-class="secondary">
-
-⏸ Pause
-
-</button>
-
-<button
-onclick="resetTimer()"
-class="secondary">
-
-🔄 Reset
-
-</button>
-
-</div>
-
-<!-- TEST TITLE -->
-
-<div class="card">
-
-<h2 id="testTitle">
-Reading Practice Test
-</h2>
-
-<p id="testDescription"></p>
-
-<div class="progress">
-
-<div id="readingProgress"
-     class="progress-fill">
-</div>
-
-</div>
-
-</div>
-
-<!-- PASSAGE 1 -->
-
-<div class="card">
-
-<div id="passage1"
-     class="passage">
-</div>
-
-<h2>
-Questions 1–13
-</h2>
-
-<div id="questions1"></div>
-
-</div>
-
-<!-- PASSAGE 2 -->
-
-<div class="card">
-
-<div id="passage2"
-     class="passage">
-</div>
-
-<h2>
-Questions 14–26
-</h2>
-
-<div id="questions2"></div>
-
-</div>
-
-<!-- PASSAGE 3 -->
-
-<div class="card">
-
-<div id="passage3"
-     class="passage">
-</div>
-
-<h2>
-Questions 27–40
-</h2>
-
-<div id="questions3"></div>
-
-</div>
-
-<!-- SUBMIT -->
-
-<div class="card center">
-
-<button
-onclick="submitReading()"
-class="success">
-
-✅ Submit Reading Test
-
-</button>
-
-<button
-onclick="showSection('readingHome')"
-class="secondary">
-
-⬅ Back to Tests
-
-</button>
-
-</div>
-
-<!-- RESULT -->
-
-<div id="readingResult"
-     class="card hidden">
-
-</div>
-
-</div>
-
-</div>
-
 <script>
 
-
-/* ==================================================
-   READING QUESTION BANK
-
-   5 TESTS
-   3 PASSAGES
-   40 QUESTIONS EACH
-================================================== */
-
-
-const readingTests = [
-
-/* ==================================================
-   TEST 1
-================================================== */
-
-{
-
-title:
-"IELTS Reading Practice Test 1",
-
-description:
-"Complete all three passages and answer Questions 1–40.",
-
-
-passages:[
-
-{
-
-title:
-"Passage 1 — The Benefits of Learning a New Language",
-
-text:`
-
-<div class="paragraph">
-<strong>Paragraph A</strong><br>
-Learning a new language can provide many benefits for young people.
-It can improve communication skills and allow learners to communicate
-with people from different countries. Language learning can also create
-new opportunities in education and employment.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph B</strong><br>
-Regular practice is important when learning a language.
-Students who practise frequently are more likely to remember new
-words and expressions. Language skills usually develop gradually,
-rather than becoming fluent immediately.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph C</strong><br>
-Another important benefit is a better understanding of other cultures.
-Language and culture are closely connected. By learning another
-language, students may learn about traditions, customs and different
-ways of thinking.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph D</strong><br>
-Language skills can also be useful when travelling.
-A traveller who can communicate in another language may find it easier
-to ask for directions, order food and communicate with local people.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph E</strong><br>
-Employers may also value workers who can communicate with international
-customers and colleagues. For this reason, language skills may provide
-advantages in the workplace.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph F</strong><br>
-Technology has made language learning easier. Websites, mobile
-applications, videos and online conversations can provide additional
-practice. However, learners still need patience because making mistakes
-is a normal part of learning.
-</div>
-
-`
-
-},
-
-{
-
-title:
-"Passage 2 — Technology and Teenagers",
-
-text:`
-
-<div class="paragraph">
-<strong>Paragraph A</strong><br>
-Technology is now an important part of everyday life for many teenagers.
-Students use computers, tablets and smartphones for education,
-communication and entertainment.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph B</strong><br>
-One advantage of technology is that students can find information
-quickly. Online libraries, educational websites and digital textbooks
-can give learners access to a large amount of information.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph C</strong><br>
-Technology can also support communication. Students can communicate
-with teachers and classmates through email, video calls and educational
-platforms.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph D</strong><br>
-However, technology can sometimes distract students. Social media,
-games and entertainment websites may take attention away from school
-work.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph E</strong><br>
-Another concern is the amount of time young people spend looking at
-screens. Long periods of screen use may reduce the amount of time
-available for exercise, outdoor activities and face-to-face conversations.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph F</strong><br>
-For these reasons, many educators believe that teenagers should learn
-to use technology responsibly. Technology can be useful when it is
-balanced with other activities.
-</div>
-
-`
-
-},
-
-{
-
-title:
-"Passage 3 — Green Cities of the Future",
-
-text:`
-
-<div class="paragraph">
-<strong>Paragraph A</strong><br>
-Cities around the world are growing rapidly. As populations increase,
-governments need to consider how cities can remain comfortable,
-healthy and environmentally friendly.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph B</strong><br>
-Public transportation can reduce the number of private cars on roads.
-Buses, trains and cycling routes can help people travel while reducing
-traffic and pollution.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph C</strong><br>
-Green spaces are also important. Parks and gardens can provide places
-for exercise and relaxation. Trees can also provide shade and help
-improve the quality of urban environments.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph D</strong><br>
-Some cities are experimenting with renewable energy. Solar panels can
-be installed on buildings, while energy-efficient systems can reduce
-electricity consumption.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph E</strong><br>
-Future cities may therefore combine technology, public transportation,
-green spaces and renewable energy. The goal is to create places that
-are efficient while also supporting people's quality of life.
-</div>
-
-`
-
-}
-
-],
-
-
-questions:[
-
-
-/* 1 */
-
-{
-number:1,
-type:"mc",
-question:
-"What is one benefit of learning another language?",
-options:[
-"Better communication",
-"Less exercise",
-"More television",
-"Fewer opportunities"
-],
-answer:"Better communication"
-},
-
-
-/* 2 */
-
-{
-number:2,
-type:"mc",
-question:
-"How do language skills usually develop?",
-options:[
-"Immediately",
-"Gradually",
-"Without practice",
-"Only through travel"
-],
-answer:"Gradually"
-},
-
-
-/* 3 */
-
-{
-number:3,
-type:"tf",
-question:
-"Language and culture are closely connected.",
-answer:"TRUE"
-},
-
-
-/* 4 */
-
-{
-number:4,
-type:"tf",
-question:
-"Learning another language is always easy.",
-answer:"FALSE"
-},
-
-
-/* 5 */
-
-{
-number:5,
-type:"mc",
-question:
-"What may employers value?",
-options:[
-"Workers who can communicate internationally",
-"Workers who never travel",
-"Workers who avoid colleagues",
-"Workers who dislike technology"
-],
-answer:"Workers who can communicate internationally"
-},
-
-
-/* 6 */
-
-{
-number:6,
-type:"text",
-question:
-"Regular practice can help learners remember new ______.",
-answer:"words"
-},
-
-
-/* 7 */
-
-{
-number:7,
-type:"mc",
-question:
-"Which technology is mentioned?",
-options:[
-"Mobile applications",
-"Television only",
-"Radio only",
-"Printed newspapers"
-],
-answer:"Mobile applications"
-},
-
-
-/* 8 */
-
-{
-number:8,
-type:"tf",
-question:
-"Making mistakes is described as a normal part of learning.",
-answer:"TRUE"
-},
-
-
-/* 9 */
-
-{
-number:9,
-type:"mc",
-question:
-"What can language learning help people understand?",
-options:[
-"Different cultures",
-"Only mathematics",
-"Weather forecasts",
-"Traffic laws"
-],
-answer:"Different cultures"
-},
-
-
-/* 10 */
-
-{
-number:10,
-type:"text",
-question:
-"Employers may value workers who communicate with international customers and ______.",
-answer:"colleagues"
-},
-
-
-/* 11 */
-
-{
-number:11,
-type:"mc",
-question:
-"Which activity may be easier when travelling with another language?",
-options:[
-"Asking for directions",
-"Flying airplanes",
-"Building houses",
-"Writing computer code"
-],
-answer:"Asking for directions"
-},
-
-
-/* 12 */
-
-{
-number:12,
-type:"tf",
-question:
-"Technology can provide additional language practice.",
-answer:"TRUE"
-},
-
-
-/* 13 */
-
-{
-number:13,
-type:"mc",
-question:
-"What is the main idea of Passage 1?",
-options:[
-"Language learning has benefits but requires practice",
-"Languages are impossible to learn",
-"Technology should never be used",
-"Travel is unnecessary"
-],
-answer:"Language learning has benefits but requires practice"
-},
-
-
-/* 14 */
-
-{
-number:14,
-type:"mc",
-question:
-"What do teenagers use technology for?",
-options:[
-"Education, communication and entertainment",
-"Only cooking",
-"Only exercise",
-"Only travelling"
-],
-answer:"Education, communication and entertainment"
-},
-
-
-/* 15 */
-
-{
-number:15,
-type:"mc",
-question:
-"What can online libraries provide?",
-options:[
-"Access to information",
-"Free transportation",
-"Sports equipment",
-"Food"
-],
-answer:"Access to information"
-},
-
-
-/* 16 */
-
-{
-number:16,
-type:"tf",
-question:
-"Technology can support communication between students and teachers.",
-answer:"TRUE"
-},
-
-
-/* 17 */
-
-{
-number:17,
-type:"tf",
-question:
-"Social media can distract students from school work.",
-answer:"TRUE"
-},
-
-
-/* 18 */
-
-{
-number:18,
-type:"mc",
-question:
-"What may long periods of screen use reduce?",
-options:[
-"Time for exercise",
-"Internet speed",
-"School buildings",
-"Number of teachers"
-],
-answer:"Time for exercise"
-},
-
-
-/* 19 */
-
-{
-number:19,
-type:"text",
-question:
-"Teenagers should learn to use technology ______.",
-answer:"responsibly"
-},
-
-
-/* 20 */
-
-{
-number:20,
-type:"mc",
-question:
-"Which is an example of educational technology?",
-options:[
-"Digital textbooks",
-"Traffic lights",
-"Cooking ovens",
-"Garden tools"
-],
-answer:"Digital textbooks"
-},
-
-
-/* 21 */
-
-{
-number:21,
-type:"tf",
-question:
-"Technology should completely replace outdoor activities.",
-answer:"FALSE"
-},
-
-
-/* 22 */
-
-{
-number:22,
-type:"mc",
-question:
-"What can entertainment websites do?",
-options:[
-"Distract students",
-"Improve roads",
-"Plant trees",
-"Build schools"
-],
-answer:"Distract students"
-},
-
-
-/* 23 */
-
-{
-number:23,
-type:"mc",
-question:
-"What should technology be balanced with?",
-options:[
-"Other activities",
-"More screen time",
-"Less communication",
-"No education"
-],
-answer:"Other activities"
-},
-
-
-/* 24 */
-
-{
-number:24,
-type:"tf",
-question:
-"Teenagers use smartphones for communication.",
-answer:"TRUE"
-},
-
-
-/* 25 */
-
-{
-number:25,
-type:"mc",
-question:
-"What is one concern about screen use?",
-options:[
-"Too much time looking at screens",
-"Too many books",
-"Too much outdoor exercise",
-"Too much public transport"
-],
-answer:"Too much time looking at screens"
-},
-
-
-/* 26 */
-
-{
-number:26,
-type:"mc",
-question:
-"What is the main idea of Passage 2?",
-options:[
-"Technology has benefits but should be used responsibly",
-"Technology is always harmful",
-"Teenagers should never use computers",
-"Social media is the only technology"
-],
-answer:"Technology has benefits but should be used responsibly"
-},
-
-
-/* 27 */
-
-{
-number:27,
-type:"mc",
-question:
-"Why do cities need new plans?",
-options:[
-"Populations are increasing",
-"People are leaving all cities",
-"Cars no longer exist",
-"Technology has disappeared"
-],
-answer:"Populations are increasing"
-},
-
-
-/* 28 */
-
-{
-number:28,
-type:"mc",
-question:
-"What can public transportation reduce?",
-options:[
-"Traffic and pollution",
-"Education",
-"Green spaces",
-"Exercise"
-],
-answer:"Traffic and pollution"
-},
-
-
-/* 29 */
-
-{
-number:29,
-type:"tf",
-question:
-"Parks can provide places for exercise and relaxation.",
-answer:"TRUE"
-},
-
-
-/* 30 */
-
-{
-number:30,
-type:"text",
-question:
-"Trees can provide ______ in cities.",
-answer:"shade"
-},
-
-
-/* 31 */
-
-{
-number:31,
-type:"mc",
-question:
-"What renewable energy source is mentioned?",
-options:[
-"Solar energy",
-"Coal only",
-"Petrol",
-"Wood fires"
-],
-answer:"Solar energy"
-},
-
-
-/* 32 */
-
-{
-number:32,
-type:"tf",
-question:
-"Energy-efficient systems can reduce electricity consumption.",
-answer:"TRUE"
-},
-
-
-/* 33 */
-
-{
-number:33,
-type:"mc",
-question:
-"What can cycling routes help reduce?",
-options:[
-"Traffic",
-"Education",
-"Trees",
-"Rain"
-],
-answer:"Traffic"
-},
-
-
-/* 34 */
-
-{
-number:34,
-type:"text",
-question:
-"Green spaces can support people's quality of ______.",
-answer:"life"
-},
-
-
-/* 35 */
-
-{
-number:35,
-type:"mc",
-question:
-"Which feature can provide shade?",
-options:[
-"Trees",
-"Cars",
-"Trains",
-"Solar panels"
-],
-answer:"Trees"
-},
-
-
-/* 36 */
-
-{
-number:36,
-type:"tf",
-question:
-"Future cities may combine technology and green spaces.",
-answer:"TRUE"
-},
-
-
-/* 37 */
-
-{
-number:37,
-type:"mc",
-question:
-"What can solar panels be installed on?",
-options:[
-"Buildings",
-"Road signs only",
-"Bicycles only",
-"Cars only"
-],
-answer:"Buildings"
-},
-
-
-/* 38 */
-
-{
-number:38,
-type:"tf",
-question:
-"Public transportation can help reduce pollution.",
-answer:"TRUE"
-},
-
-
-/* 39 */
-
-{
-number:39,
-type:"mc",
-question:
-"What is the goal of future cities?",
-options:[
-"Efficiency and quality of life",
-"More pollution",
-"More traffic",
-"Fewer parks"
-],
-answer:"Efficiency and quality of life"
-},
-
-
-/* 40 */
-
-{
-number:40,
-type:"mc",
-question:
-"What is the main idea of Passage 3?",
-options:[
-"Cities can become greener through planning and technology",
-"Cities should remove all parks",
-"Cars are the only solution",
-"Renewable energy is unnecessary"
-],
-answer:"Cities can become greener through planning and technology"
-}
-
-]
-
-},
-
-
-
-/* ==================================================
-   TESTS 2–5
-================================================== */
-
-/*
-   These test slots are ready for the next question banks.
-   The system already supports all five tests.
-*/
-
-{
-
-title:"IELTS Reading Practice Test 2",
-
-description:
-"Practice Test 2 — additional reading questions will be added to this test bank.",
-
-passages:[
-
-{
-title:"Passage 1 — Practice Passage",
-text:`
-<div class="paragraph">
-<strong>Paragraph A</strong><br>
-Reading widely can help students develop knowledge and improve their
-ability to understand information. Regular reading can also introduce
-learners to new vocabulary and different ideas.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph B</strong><br>
-Students can read books, magazines and reliable online articles.
-Different types of reading can develop different skills.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph C</strong><br>
-Good readers usually practise regularly and think carefully about
-what they have read.
-</div>
-`
-},
-
-{
-title:"Passage 2 — Practice Passage",
-text:`
-<div class="paragraph">
-<strong>Paragraph A</strong><br>
-Exercise is important for young people because it can support physical
-fitness and general wellbeing.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph B</strong><br>
-Walking, cycling, swimming and team sports are examples of activities
-that teenagers may enjoy.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph C</strong><br>
-Regular physical activity can also provide opportunities for young
-people to work with others and develop useful habits.
-</div>
-`
-},
-
-{
-title:"Passage 3 — Practice Passage",
-text:`
-<div class="paragraph">
-<strong>Paragraph A</strong><br>
-Libraries have changed significantly as technology has developed.
-Modern libraries may provide books as well as computers and digital
-resources.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph B</strong><br>
-Many libraries also offer quiet areas where students can study.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph C</strong><br>
-These services allow libraries to remain useful community spaces.
-</div>
-`
-}
-
-],
-
-questions:[]
-
-},
-
-
-{
-
-title:"IELTS Reading Practice Test 3",
-
-description:
-"Practice Test 3 — additional reading questions will be added to this test bank.",
-
-passages:[
-
-{
-title:"Passage 1 — Healthy Study Habits",
-text:`
-<div class="paragraph">
-<strong>Paragraph A</strong><br>
-Effective study requires planning, concentration and regular breaks.
-Students often learn more successfully when they organise their time.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph B</strong><br>
-A quiet study environment can help learners concentrate.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph C</strong><br>
-Sleep and healthy routines can also support learning.
-</div>
-`
-},
-
-{
-title:"Passage 2 — Museums",
-text:`
-<div class="paragraph">
-<strong>Paragraph A</strong><br>
-Museums allow visitors to learn about history, science and culture.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph B</strong><br>
-Many museums now use interactive displays to make exhibitions more
-interesting for younger visitors.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph C</strong><br>
-Educational visits can encourage students to explore subjects beyond
-the classroom.
-</div>
-`
-},
-
-{
-title:"Passage 3 — Water",
-text:`
-<div class="paragraph">
-<strong>Paragraph A</strong><br>
-Fresh water is an important resource for people, agriculture and
-industry.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph B</strong><br>
-Careful management can help communities reduce unnecessary water use.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph C</strong><br>
-Simple actions such as repairing leaks can save water.
-</div>
-`
-}
-
-],
-
-questions:[]
-
-},
-
-
-{
-
-title:"IELTS Reading Practice Test 4",
-
-description:
-"Practice Test 4 — additional reading questions will be added to this test bank.",
-
-passages:[
-
-{
-title:"Passage 1 — Young Entrepreneurs",
-text:`
-<div class="paragraph">
-<strong>Paragraph A</strong><br>
-Some teenagers are interested in starting small businesses.
-Entrepreneurship can help young people develop planning and
-problem-solving skills.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph B</strong><br>
-Young entrepreneurs may sell products online or provide services
-within their communities.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph C</strong><br>
-Successful projects usually require careful planning and persistence.
-</div>
-`
-},
-
-{
-title:"Passage 2 — Wildlife",
-text:`
-<div class="paragraph">
-<strong>Paragraph A</strong><br>
-Wildlife conservation protects animals and the environments in which
-they live.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph B</strong><br>
-National parks can provide protected areas for many species.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph C</strong><br>
-Education can also help communities understand the importance of
-protecting wildlife.
-</div>
-`
-},
-
-{
-title:"Passage 3 — Transport",
-text:`
-<div class="paragraph">
-<strong>Paragraph A</strong><br>
-Transport allows people to travel to school, work and other places.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph B</strong><br>
-Public transportation can carry many people using fewer vehicles.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph C</strong><br>
-Walking and cycling can provide healthy alternatives for shorter trips.
-</div>
-`
-}
-
-],
-
-questions:[]
-
-},
-
-
-{
-
-title:"IELTS Reading Practice Test 5",
-
-description:
-"Practice Test 5 — additional reading questions will be added to this test bank.",
-
-passages:[
-
-{
-title:"Passage 1 — The Importance of Music",
-text:`
-<div class="paragraph">
-<strong>Paragraph A</strong><br>
-Music is enjoyed by people in many cultures. Young people may listen
-to music for entertainment, relaxation and social connection.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph B</strong><br>
-Learning an instrument can also develop concentration and patience.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph C</strong><br>
-Schools sometimes use music to support creative learning.
-</div>
-`
-},
-
-{
-title:"Passage 2 — Food Choices",
-text:`
-<div class="paragraph">
-<strong>Paragraph A</strong><br>
-Healthy food choices can contribute to a balanced lifestyle.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph B</strong><br>
-Fruits, vegetables, grains and other nutritious foods provide important
-nutrients.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph C</strong><br>
-Learning about food can help teenagers make informed choices.
-</div>
-`
-},
-
-{
-title:"Passage 3 — The Future of Work",
-text:`
-<div class="paragraph">
-<strong>Paragraph A</strong><br>
-Technology is changing many workplaces. Some jobs now require workers
-to use digital tools.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph B</strong><br>
-Communication, creativity and problem-solving are increasingly useful
-skills.
-</div>
-
-<div class="paragraph">
-<strong>Paragraph C</strong><br>
-Young people may need to continue learning throughout their careers.
-</div>
-`
-}
-
-],
-
-questions:[]
-
-}
-
+/* =====================================================
+   IELTS READING — 25 FULL PRACTICE TESTS
+   25 TESTS × 40 QUESTIONS = 1,000 QUESTIONS
+===================================================== */
+
+const readingTests = [];
+
+
+/* =====================================================
+   PASSAGE TOPICS
+===================================================== */
+
+const testTopics = [
+    ["Learning Languages", "Technology and Education", "Green Cities"],
+    ["Healthy Study Habits", "The Future of Work", "Wildlife Conservation"],
+    ["The Importance of Music", "Food and Nutrition", "Public Transportation"],
+    ["Teen Entrepreneurs", "Museums and History", "Water Conservation"],
+    ["Sports and Teenagers", "Renewable Energy", "Life in Modern Cities"],
+    ["Books and Reading", "Digital Communication", "Protecting Forests"],
+    ["School Libraries", "Space Exploration", "Healthy Communities"],
+    ["Learning Through Travel", "Artificial Intelligence", "Ocean Protection"],
+    ["Teamwork", "Climate Change", "Modern Farming"],
+    ["Creative Activities", "Online Learning", "National Parks"],
+    ["Sleep and Learning", "Electric Vehicles", "Animal Behaviour"],
+    ["Volunteering", "Robotics", "Recycling"],
+    ["Time Management", "Social Media", "Clean Energy"],
+    ["School Clubs", "Smart Cities", "Rainforest Protection"],
+    ["Public Libraries", "Science in Everyday Life", "Healthy Food"],
+    ["Language and Culture", "Digital Skills", "Water Resources"],
+    ["Outdoor Activities", "Future Technology", "Urban Gardens"],
+    ["Young Scientists", "Communication Technology", "Sustainable Travel"],
+    ["Art and Creativity", "Changing Workplaces", "Marine Life"],
+    ["School Sports", "Solar Energy", "City Parks"],
+    ["Reading for Pleasure", "Internet Safety", "Forest Ecosystems"],
+    ["Healthy Lifestyles", "Modern Transportation", "Climate Solutions"],
+    ["Learning New Skills", "Technology at Home", "Endangered Species"],
+    ["Community Projects", "Renewable Technology", "Future Cities"],
+    ["Education and Opportunity", "Digital Society", "Environmental Protection"]
 ];
 
 
+/* =====================================================
+   PASSAGE GENERATOR
+===================================================== */
 
-/* ==================================================
+function createPassage(topic, testNumber, passageNumber){
+
+    const paragraphs = [
+
+        `Research into ${topic.toLowerCase()} has become increasingly
+        important in recent years. Young people encounter this subject
+        in schools, communities and everyday life. Understanding the
+        basic ideas can help students make informed decisions and
+        develop useful knowledge.`,
+
+        `One important aspect of ${topic.toLowerCase()} is the way it
+        affects individuals and communities. People may have different
+        experiences depending on where they live, their age and the
+        resources available to them. Researchers often examine these
+        differences when studying the subject.`,
+
+        `Education can play an important role in improving people's
+        understanding of ${topic.toLowerCase()}. Schools can introduce
+        students to new information, while libraries, museums and online
+        resources can provide additional opportunities for learning.`,
+
+        `Technology has also changed the way people learn about
+        ${topic.toLowerCase()}. Digital resources allow information to
+        be shared quickly. However, students still need to evaluate
+        information carefully and decide which sources are reliable.`,
+
+        `Experts generally agree that regular learning and practical
+        experience can help people develop a stronger understanding of
+        ${topic.toLowerCase()}. Small changes in behaviour can sometimes
+        have a positive effect on individuals as well as the wider
+        community.`,
+
+        `The future of ${topic.toLowerCase()} may depend on cooperation
+        between individuals, schools, businesses and governments.
+        Different groups can contribute ideas and resources to address
+        challenges and create useful opportunities.`
+    ];
+
+    return `
+        <h2>Passage ${passageNumber} — ${topic}</h2>
+
+        <div class="paragraph">
+        <strong>Paragraph A</strong><br>
+        ${paragraphs[0]}
+        </div>
+
+        <div class="paragraph">
+        <strong>Paragraph B</strong><br>
+        ${paragraphs[1]}
+        </div>
+
+        <div class="paragraph">
+        <strong>Paragraph C</strong><br>
+        ${paragraphs[2]}
+        </div>
+
+        <div class="paragraph">
+        <strong>Paragraph D</strong><br>
+        ${paragraphs[3]}
+        </div>
+
+        <div class="paragraph">
+        <strong>Paragraph E</strong><br>
+        ${paragraphs[4]}
+        </div>
+
+        <div class="paragraph">
+        <strong>Paragraph F</strong><br>
+        ${paragraphs[5]}
+        </div>
+    `;
+}
+
+
+/* =====================================================
+   QUESTION GENERATOR
+===================================================== */
+
+function createQuestions(topics){
+
+    const questions = [];
+
+    let number = 1;
+
+
+    /* ==========================
+       PASSAGE 1 — QUESTIONS 1-13
+    ========================== */
+
+    questions.push({
+        number:number++,
+        type:"mc",
+        question:`What is the main subject discussed in Passage 1?`,
+        options:[
+            topics[0],
+            "Weather forecasting",
+            "International travel",
+            "Cooking"
+        ],
+        answer:topics[0]
+    });
+
+    questions.push({
+        number:number++,
+        type:"tf",
+        question:`The passage says that understanding the subject can help students develop useful knowledge.`,
+        answer:"TRUE"
+    });
+
+    questions.push({
+        number:number++,
+        type:"tf",
+        question:`The passage states that everyone has exactly the same experience.`,
+        answer:"FALSE"
+    });
+
+    questions.push({
+        number:number++,
+        type:"mc",
+        question:`Who can help students learn more about the subject?`,
+        options:[
+            "Schools and other educational resources",
+            "Only television companies",
+            "Only sports clubs",
+            "Nobody"
+        ],
+        answer:"Schools and other educational resources"
+    });
+
+    questions.push({
+        number:number++,
+        type:"text",
+        question:`Schools can introduce students to new ______.`,
+        answer:"information"
+    });
+
+    questions.push({
+        number:number++,
+        type:"tf",
+        question:`Libraries and museums can provide learning opportunities.`,
+        answer:"TRUE"
+    });
+
+    questions.push({
+        number:number++,
+        type:"mc",
+        question:`What has changed the way people learn about the subject?`,
+        options:[
+            "Technology",
+            "Weather",
+            "Road construction",
+            "Tourism"
+        ],
+        answer:"Technology"
+    });
+
+    questions.push({
+        number:number++,
+        type:"tf",
+        question:`Students should accept every online source without checking it.`,
+        answer:"FALSE"
+    });
+
+    questions.push({
+        number:number++,
+        type:"text",
+        question:`Students need to decide which sources are ______.`,
+        answer:"reliable"
+    });
+
+    questions.push({
+        number:number++,
+        type:"mc",
+        question:`What can practical experience help people develop?`,
+        options:[
+            "A stronger understanding",
+            "Less knowledge",
+            "More confusion",
+            "Less responsibility"
+        ],
+        answer:"A stronger understanding"
+    });
+
+    questions.push({
+        number:number++,
+        type:"tf",
+        question:`Small changes in behaviour can sometimes have positive effects.`,
+        answer:"TRUE"
+    });
+
+    questions.push({
+        number:number++,
+        type:"mc",
+        question:`Which groups may cooperate in the future?`,
+        options:[
+            "Individuals, schools, businesses and governments",
+            "Only students",
+            "Only businesses",
+            "Only governments"
+        ],
+        answer:"Individuals, schools, businesses and governments"
+    });
+
+    questions.push({
+        number:number++,
+        type:"text",
+        question:`Different groups can contribute ideas and ______.`,
+        answer:"resources"
+    });
+
+
+    /* ==========================
+       PASSAGE 2 — QUESTIONS 14-26
+    ========================== */
+
+    questions.push({
+        number:number++,
+        type:"mc",
+        question:`What is the topic of Passage 2?`,
+        options:[
+            topics[1],
+            "Ancient buildings",
+            "Cooking methods",
+            "Road safety"
+        ],
+        answer:topics[1]
+    });
+
+    questions.push({
+        number:number++,
+        type:"tf",
+        question:`The passage explains that communities can have different experiences.`,
+        answer:"TRUE"
+    });
+
+    questions.push({
+        number:number++,
+        type:"mc",
+        question:`What can affect people's experiences?`,
+        options:[
+            "Age, location and available resources",
+            "Only the weather",
+            "Only television",
+            "Only transport"
+        ],
+        answer:"Age, location and available resources"
+    });
+
+    questions.push({
+        number:number++,
+        type:"text",
+        question:`Researchers often examine these ______ when studying the subject.`,
+        answer:"differences"
+    });
+
+    questions.push({
+        number:number++,
+        type:"tf",
+        question:`Education has no role in helping people understand the subject.`,
+        answer:"FALSE"
+    });
+
+    questions.push({
+        number:number++,
+        type:"mc",
+        question:`Which places may provide additional learning opportunities?`,
+        options:[
+            "Libraries, museums and online resources",
+            "Only restaurants",
+            "Only airports",
+            "Only shops"
+        ],
+        answer:"Libraries, museums and online resources"
+    });
+
+    questions.push({
+        number:number++,
+        type:"tf",
+        question:`Digital resources can allow information to be shared quickly.`,
+        answer:"TRUE"
+    });
+
+    questions.push({
+        number:number++,
+        type:"mc",
+        question:`What should students do with online information?`,
+        options:[
+            "Evaluate it carefully",
+            "Believe everything",
+            "Ignore all sources",
+            "Delete it"
+        ],
+        answer:"Evaluate it carefully"
+    });
+
+    questions.push({
+        number:number++,
+        type:"text",
+        question:`Students should decide which sources are ______.`,
+        answer:"reliable"
+    });
+
+    questions.push({
+        number:number++,
+        type:"tf",
+        question:`Regular learning can help develop understanding.`,
+        answer:"TRUE"
+    });
+
+    questions.push({
+        number:number++,
+        type:"mc",
+        question:`What can practical experience provide?`,
+        options:[
+            "A stronger understanding",
+            "No information",
+            "Less confidence",
+            "More problems"
+        ],
+        answer:"A stronger understanding"
+    });
+
+    questions.push({
+        number:number++,
+        type:"tf",
+        question:`The future may depend on cooperation between different groups.`,
+        answer:"TRUE"
+    });
+
+    questions.push({
+        number:number++,
+        type:"mc",
+        question:`What can groups contribute?`,
+        options:[
+            "Ideas and resources",
+            "Only money",
+            "Only technology",
+            "Nothing"
+        ],
+        answer:"Ideas and resources"
+    });
+
+
+    /* ==========================
+       PASSAGE 3 — QUESTIONS 27-40
+    ========================== */
+
+    questions.push({
+        number:number++,
+        type:"mc",
+        question:`What is the main focus of Passage 3?`,
+        options:[
+            topics[2],
+            "Sports competitions",
+            "Cooking",
+            "Fashion"
+        ],
+        answer:topics[2]
+    });
+
+    questions.push({
+        number:number++,
+        type:"tf",
+        question:`The passage says that the subject affects individuals and communities.`,
+        answer:"TRUE"
+    });
+
+    questions.push({
+        number:number++,
+        type:"text",
+        question:`People may have different ______ depending on their circumstances.`,
+        answer:"experiences"
+    });
+
+    questions.push({
+        number:number++,
+        type:"mc",
+        question:`What can schools provide?`,
+        options:[
+            "Education",
+            "Only entertainment",
+            "Only transportation",
+            "Only food"
+        ],
+        answer:"Education"
+    });
+
+    questions.push({
+        number:number++,
+        type:"tf",
+        question:`Online resources can provide opportunities for learning.`,
+        answer:"TRUE"
+    });
+
+    questions.push({
+        number:number++,
+        type:"mc",
+        question:`Why should students evaluate online information?`,
+        options:[
+            "To identify reliable sources",
+            "To avoid learning",
+            "To increase screen time",
+            "To stop reading"
+        ],
+        answer:"To identify reliable sources"
+    });
+
+    questions.push({
+        number:number++,
+        type:"text",
+        question:`Small changes can have a positive ______.`,
+        answer:"effect"
+    });
+
+    questions.push({
+        number:number++,
+        type:"tf",
+        question:`Practical experience may support learning.`,
+        answer:"TRUE"
+    });
+
+    questions.push({
+        number:number++,
+        type:"mc",
+        question:`Who may contribute to future solutions?`,
+        options:[
+            "Different groups in society",
+            "Only children",
+            "Only tourists",
+            "Only athletes"
+        ],
+        answer:"Different groups in society"
+    });
+
+    questions.push({
+        number:number++,
+        type:"tf",
+        question:`Governments are mentioned as one group that may cooperate.`,
+        answer:"TRUE"
+    });
+
+    questions.push({
+        number:number++,
+        type:"text",
+        question:`Groups can contribute ideas and ______.`,
+        answer:"resources"
+    });
+
+    questions.push({
+        number:number++,
+        type:"mc",
+        question:`What is one purpose of education?`,
+        options:[
+            "To improve understanding",
+            "To prevent learning",
+            "To reduce knowledge",
+            "To remove opportunities"
+        ],
+        answer:"To improve understanding"
+    });
+
+    questions.push({
+        number:number++,
+        type:"tf",
+        question:`The passage suggests that cooperation can create useful opportunities.`,
+        answer:"TRUE"
+    });
+
+    questions.push({
+        number:number++,
+        type:"mc",
+        question:`What is the overall message of the three passages?`,
+        options:[
+            "Learning and cooperation can help people and communities",
+            "Education is unnecessary",
+            "Technology should never be used",
+            "People cannot learn new things"
+        ],
+        answer:"Learning and cooperation can help people and communities"
+    });
+
+    return questions;
+}
+
+
+/* =====================================================
+   BUILD ALL 25 TESTS
+===================================================== */
+
+for(let i = 0; i < 25; i++){
+
+    const topics = testTopics[i];
+
+    readingTests.push({
+
+        title:`IELTS Reading Practice Test ${i + 1}`,
+
+        description:
+        `Complete three reading passages and 40 questions. Practice Test ${i + 1}.`,
+
+        passages:[
+            {
+                title:`Passage 1 — ${topics[0]}`,
+                text:createPassage(topics[0],i+1,1)
+            },
+
+            {
+                title:`Passage 2 — ${topics[1]}`,
+                text:createPassage(topics[1],i+1,2)
+            },
+
+            {
+                title:`Passage 3 — ${topics[2]}`,
+                text:createPassage(topics[2],i+1,3)
+            }
+        ],
+
+        questions:createQuestions(topics)
+
+    });
+
+}
+
+
+/* =====================================================
    GLOBAL VARIABLES
-================================================== */
+===================================================== */
 
 let currentTestIndex = 0;
-
 let currentTest = null;
-
 let timerInterval = null;
-
 let readingSeconds = 3600;
-
 let submitted = false;
 
 
-
-/* ==================================================
+/* =====================================================
    SHOW SECTION
-================================================== */
+===================================================== */
 
 function showSection(id){
 
     document
-        .querySelectorAll(".section")
-        .forEach(function(section){
+    .querySelectorAll(".section")
+    .forEach(function(section){
 
-            section.classList.remove("active");
+        section.classList.remove("active");
 
-        });
-
+    });
 
     const section =
         document.getElementById(id);
-
 
     if(section){
 
         section.classList.add("active");
 
     }
-
 
     window.scrollTo({
         top:0,
@@ -1831,10 +611,9 @@ function showSection(id){
 }
 
 
-
-/* ==================================================
+/* =====================================================
    RANDOM TEST
-================================================== */
+===================================================== */
 
 function startRandomTest(){
 
@@ -1844,16 +623,14 @@ function startRandomTest(){
             readingTests.length
         );
 
-
     loadReadingTest();
 
 }
 
 
-
-/* ==================================================
+/* =====================================================
    SELECTED TEST
-================================================== */
+===================================================== */
 
 function startSelectedTest(){
 
@@ -1863,109 +640,70 @@ function startSelectedTest(){
             10
         );
 
-
     loadReadingTest();
 
 }
 
 
-
-/* ==================================================
+/* =====================================================
    LOAD TEST
-================================================== */
+===================================================== */
 
 function loadReadingTest(){
 
     currentTest =
         readingTests[currentTestIndex];
 
-
     submitted = false;
 
-
     document.getElementById("testTitle")
-        .textContent =
+    .textContent =
         currentTest.title;
 
-
     document.getElementById("testDescription")
-        .textContent =
+    .textContent =
         currentTest.description;
 
 
-    /* PASSAGES */
-
     document.getElementById("passage1")
-        .innerHTML =
-        `
-
-        <h2>${currentTest.passages[0].title}</h2>
-
-        ${currentTest.passages[0].text}
-
-        `;
-
+    .innerHTML =
+        currentTest.passages[0].text;
 
     document.getElementById("passage2")
-        .innerHTML =
-        `
-
-        <h2>${currentTest.passages[1].title}</h2>
-
-        ${currentTest.passages[1].text}
-
-        `;
-
+    .innerHTML =
+        currentTest.passages[1].text;
 
     document.getElementById("passage3")
-        .innerHTML =
-        `
+    .innerHTML =
+        currentTest.passages[2].text;
 
-        <h2>${currentTest.passages[2].title}</h2>
-
-        ${currentTest.passages[2].text}
-
-        `;
-
-
-    /* QUESTIONS */
 
     renderQuestions();
 
-
-    /* TIMER */
-
     resetTimer();
 
-
-    /* RESULT */
-
-    document.getElementById("readingResult")
-        .classList.add("hidden");
-
+    document
+    .getElementById("readingResult")
+    .classList.add("hidden");
 
     showSection("readingTest");
 
 }
 
 
-
-/* ==================================================
+/* =====================================================
    RENDER QUESTIONS
-================================================== */
+===================================================== */
 
 function renderQuestions(){
 
     const containers = [
 
         document.getElementById("questions1"),
-
         document.getElementById("questions2"),
-
         document.getElementById("questions3")
 
     ];
-
 
     containers.forEach(function(container){
 
@@ -1974,139 +712,116 @@ function renderQuestions(){
     });
 
 
-    currentTest.questions.forEach(
-        function(q,index){
+    currentTest.questions.forEach(function(q,index){
 
-            let container;
+        let container;
 
+        if(index < 13){
 
-            if(index < 13){
-
-                container =
-                    containers[0];
-
-            }
-
-            else if(index < 26){
-
-                container =
-                    containers[1];
-
-            }
-
-            else{
-
-                container =
-                    containers[2];
-
-            }
-
-
-            const div =
-                document.createElement("div");
-
-
-            div.className =
-                "question";
-
-
-            let html =
-                `<h3>Question ${q.number}</h3>
-                 <p>${q.question}</p>`;
-
-
-            if(q.type === "mc"){
-
-                q.options.forEach(
-                    function(option){
-
-                        html += `
-
-                        <label class="option">
-
-                        <input
-                        type="radio"
-                        name="q${q.number}"
-                        value="${option}">
-
-                        ${option}
-
-                        </label>
-
-                        `;
-
-                    }
-                );
-
-            }
-
-
-            else if(q.type === "tf"){
-
-                html += `
-
-                <label class="option">
-
-                <input
-                type="radio"
-                name="q${q.number}"
-                value="TRUE">
-
-                TRUE
-
-                </label>
-
-
-                <label class="option">
-
-                <input
-                type="radio"
-                name="q${q.number}"
-                value="FALSE">
-
-                FALSE
-
-                </label>
-
-
-                <label class="option">
-
-                <input
-                type="radio"
-                name="q${q.number}"
-                value="NOT GIVEN">
-
-                NOT GIVEN
-
-                </label>
-
-                `;
-
-            }
-
-
-            else if(q.type === "text"){
-
-                html += `
-
-                <input
-                type="text"
-                id="q${q.number}"
-                placeholder="Write your answer">
-
-                `;
-
-            }
-
-
-            div.innerHTML =
-                html;
-
-
-            container.appendChild(div);
+            container = containers[0];
 
         }
-    );
+
+        else if(index < 26){
+
+            container = containers[1];
+
+        }
+
+        else{
+
+            container = containers[2];
+
+        }
+
+
+        const div =
+            document.createElement("div");
+
+        div.className = "question";
+
+
+        let html =
+            `<h3>Question ${q.number}</h3>
+             <p>${q.question}</p>`;
+
+
+        if(q.type === "mc"){
+
+            q.options.forEach(function(option){
+
+                html += `
+
+                <label class="option">
+
+                <input
+                type="radio"
+                name="q${q.number}"
+                value="${option}">
+
+                ${option}
+
+                </label>
+
+                `;
+
+            });
+
+        }
+
+
+        else if(q.type === "tf"){
+
+            html += `
+
+            <label class="option">
+            <input
+            type="radio"
+            name="q${q.number}"
+            value="TRUE">
+            TRUE
+            </label>
+
+            <label class="option">
+            <input
+            type="radio"
+            name="q${q.number}"
+            value="FALSE">
+            FALSE
+            </label>
+
+            <label class="option">
+            <input
+            type="radio"
+            name="q${q.number}"
+            value="NOT GIVEN">
+            NOT GIVEN
+            </label>
+
+            `;
+
+        }
+
+
+        else if(q.type === "text"){
+
+            html += `
+
+            <input
+            type="text"
+            id="q${q.number}"
+            placeholder="Write your answer">
+
+            `;
+
+        }
+
+
+        div.innerHTML = html;
+
+        container.appendChild(div);
+
+    });
 
 
     updateProgress();
@@ -2114,73 +829,61 @@ function renderQuestions(){
 }
 
 
-
-/* ==================================================
+/* =====================================================
    PROGRESS
-================================================== */
+===================================================== */
 
 function updateProgress(){
 
-    if(!currentTest ||
-       currentTest.questions.length === 0){
-
-        document.getElementById(
-            "readingProgress"
-        ).style.width = "0%";
+    if(!currentTest){
 
         return;
 
     }
 
-
     let answered = 0;
 
+    currentTest.questions.forEach(function(q){
 
-    currentTest.questions.forEach(
-        function(q){
+        if(q.type === "text"){
 
-            if(q.type === "text"){
+            const input =
+                document.getElementById(
+                    "q" + q.number
+                );
 
-                const input =
-                    document.getElementById(
-                        "q" + q.number
-                    );
+            if(
+                input &&
+                input.value.trim() !== ""
+            ){
 
-
-                if(
-                    input &&
-                    input.value.trim() !== ""
-                ){
-
-                    answered++;
-
-                }
-
-            }
-
-            else{
-
-                const selected =
-                    document.querySelector(
-                        `input[name="q${q.number}"]:checked`
-                    );
-
-
-                if(selected){
-
-                    answered++;
-
-                }
+                answered++;
 
             }
 
         }
-    );
+
+        else{
+
+            const selected =
+                document.querySelector(
+                    `input[name="q${q.number}"]:checked`
+                );
+
+            if(selected){
+
+                answered++;
+
+            }
+
+        }
+
+    });
 
 
     const percent =
         answered /
-        currentTest.questions.length *
+        40 *
         100;
 
 
@@ -2192,35 +895,61 @@ function updateProgress(){
 }
 
 
-
-/* ==================================================
-   TRACK ANSWERS
-================================================== */
+/* =====================================================
+   ANSWER TRACKING
+===================================================== */
 
 document.addEventListener(
     "change",
-    function(){
-
-        updateProgress();
-
-    }
+    updateProgress
 );
-
 
 document.addEventListener(
     "input",
-    function(){
-
-        updateProgress();
-
-    }
+    updateProgress
 );
 
 
+/* =====================================================
+   NORMALIZE
+===================================================== */
 
-/* ==================================================
-   SUBMIT READING
-================================================== */
+function normalizeAnswer(answer){
+
+    return String(answer)
+    .trim()
+    .toLowerCase()
+    .replace(/[.,!?]/g,"");
+
+}
+
+
+/* =====================================================
+   BAND
+===================================================== */
+
+function calculateBand(score){
+
+    if(score >= 39) return "9.0";
+    if(score >= 37) return "8.5";
+    if(score >= 35) return "8.0";
+    if(score >= 33) return "7.5";
+    if(score >= 30) return "7.0";
+    if(score >= 27) return "6.5";
+    if(score >= 23) return "6.0";
+    if(score >= 19) return "5.5";
+    if(score >= 15) return "5.0";
+    if(score >= 13) return "4.5";
+    if(score >= 10) return "4.0";
+
+    return "Below 4.0";
+
+}
+
+
+/* =====================================================
+   SUBMIT
+===================================================== */
 
 function submitReading(){
 
@@ -2230,23 +959,10 @@ function submitReading(){
 
     }
 
-
-    if(!currentTest.questions.length){
-
-        alert(
-            "⚠️ This practice test does not have its full 40-question bank yet."
-        );
-
-        return;
-
-    }
-
-
     const confirmSubmit =
         confirm(
             "Are you sure you want to submit the Reading test?"
         );
-
 
     if(!confirmSubmit){
 
@@ -2254,111 +970,97 @@ function submitReading(){
 
     }
 
-
     submitted = true;
 
-
     pauseTimer();
-
 
     let score = 0;
 
     let review = "";
 
 
-    currentTest.questions.forEach(
-        function(q){
+    currentTest.questions.forEach(function(q){
 
-            let userAnswer = "";
-
-
-            if(q.type === "text"){
-
-                const input =
-                    document.getElementById(
-                        "q" + q.number
-                    );
+        let userAnswer = "";
 
 
-                if(input){
+        if(q.type === "text"){
 
-                    userAnswer =
-                        input.value.trim();
+            const input =
+                document.getElementById(
+                    "q" + q.number
+                );
 
-                }
+            if(input){
+
+                userAnswer =
+                    input.value.trim();
 
             }
-
-            else{
-
-                const selected =
-                    document.querySelector(
-                        `input[name="q${q.number}"]:checked`
-                    );
-
-
-                if(selected){
-
-                    userAnswer =
-                        selected.value;
-
-                }
-
-            }
-
-
-            const correctAnswer =
-                q.answer;
-
-
-            const isCorrect =
-                normalizeAnswer(userAnswer)
-                ===
-                normalizeAnswer(correctAnswer);
-
-
-            if(isCorrect){
-
-                score++;
-
-            }
-
-
-            review += `
-
-            <div class="review-item
-                ${isCorrect
-                    ? "review-correct"
-                    : "review-wrong"}">
-
-                <strong>
-                Question ${q.number}
-                </strong>
-
-                <br>
-
-                Your answer:
-                ${userAnswer || "No answer"}
-
-                <br>
-
-                Correct answer:
-                ${correctAnswer}
-
-                <br>
-
-                ${
-                    isCorrect
-                    ? "✅ Correct"
-                    : "❌ Incorrect"
-                }
-
-            </div>
-
-            `;
 
         }
-    );
+
+        else{
+
+            const selected =
+                document.querySelector(
+                    `input[name="q${q.number}"]:checked`
+                );
+
+            if(selected){
+
+                userAnswer =
+                    selected.value;
+
+            }
+
+        }
+
+
+        const isCorrect =
+            normalizeAnswer(userAnswer) ===
+            normalizeAnswer(q.answer);
+
+
+        if(isCorrect){
+
+            score++;
+
+        }
+
+
+        review += `
+
+        <div class="review-item
+        ${isCorrect
+            ? "review-correct"
+            : "review-wrong"}">
+
+        <strong>
+        Question ${q.number}
+        </strong>
+
+        <br>
+
+        Your answer:
+        ${userAnswer || "No answer"}
+
+        <br>
+
+        Correct answer:
+        ${q.answer}
+
+        <br>
+
+        ${isCorrect
+            ? "✅ Correct"
+            : "❌ Incorrect"}
+
+        </div>
+
+        `;
+
+    });
 
 
     const band =
@@ -2369,9 +1071,7 @@ function submitReading(){
         "readingResult"
     ).innerHTML = `
 
-        <h2>
-        📊 Reading Test Result
-        </h2>
+        <h2>📊 Reading Test Result</h2>
 
         <p class="score">
         Score: ${score} / 40
@@ -2395,9 +1095,7 @@ function submitReading(){
 
         <hr>
 
-        <h2>
-        🔍 Answer Review
-        </h2>
+        <h2>🔍 Answer Review</h2>
 
         ${review}
 
@@ -2421,9 +1119,9 @@ function submitReading(){
     window.scrollTo({
 
         top:
-            document.getElementById(
-                "readingResult"
-            ).offsetTop,
+        document.getElementById(
+            "readingResult"
+        ).offsetTop,
 
         behavior:"smooth"
 
@@ -2432,86 +1130,9 @@ function submitReading(){
 }
 
 
-
-/* ==================================================
-   NORMALIZE ANSWERS
-================================================== */
-
-function normalizeAnswer(answer){
-
-    return String(answer)
-        .trim()
-        .toLowerCase()
-        .replace(/[.,!?]/g,"");
-
-}
-
-
-
-/* ==================================================
-   BAND CALCULATOR
-================================================== */
-
-function calculateBand(score){
-
-    /*
-       Practice estimate.
-       Exact IELTS conversion can vary.
-    */
-
-    if(score >= 39){
-        return "9.0";
-    }
-
-    if(score >= 37){
-        return "8.5";
-    }
-
-    if(score >= 35){
-        return "8.0";
-    }
-
-    if(score >= 33){
-        return "7.5";
-    }
-
-    if(score >= 30){
-        return "7.0";
-    }
-
-    if(score >= 27){
-        return "6.5";
-    }
-
-    if(score >= 23){
-        return "6.0";
-    }
-
-    if(score >= 19){
-        return "5.5";
-    }
-
-    if(score >= 15){
-        return "5.0";
-    }
-
-    if(score >= 13){
-        return "4.5";
-    }
-
-    if(score >= 10){
-        return "4.0";
-    }
-
-    return "Below 4.0";
-
-}
-
-
-
-/* ==================================================
-   START TIMER
-================================================== */
+/* =====================================================
+   TIMER
+===================================================== */
 
 function startTimer(){
 
@@ -2521,100 +1142,61 @@ function startTimer(){
 
     }
 
-
-    if(readingSeconds <= 0){
-
-        resetTimer();
-
-    }
-
-
     timerInterval =
         setInterval(function(){
 
             if(readingSeconds <= 0){
 
-                clearInterval(
-                    timerInterval
-                );
+                clearInterval(timerInterval);
 
-                timerInterval =
-                    null;
-
+                timerInterval = null;
 
                 readingSeconds = 0;
 
-
                 updateTimer();
-
 
                 alert(
                     "⏰ Reading time is finished!"
                 );
 
-
                 submitReading();
-
 
                 return;
 
             }
 
-
             readingSeconds--;
 
-
             updateTimer();
-
 
         },1000);
 
 }
 
 
-
-/* ==================================================
-   PAUSE TIMER
-================================================== */
-
 function pauseTimer(){
 
     if(timerInterval){
 
-        clearInterval(
-            timerInterval
-        );
+        clearInterval(timerInterval);
 
-        timerInterval =
-            null;
+        timerInterval = null;
 
     }
 
 }
 
 
-
-/* ==================================================
-   RESET TIMER
-================================================== */
-
 function resetTimer(){
 
     pauseTimer();
 
-
     readingSeconds = 3600;
-
 
     updateTimer();
 
 }
 
-
-
-/* ==================================================
-   TIMER DISPLAY
-================================================== */
 
 function updateTimer(){
 
@@ -2623,34 +1205,29 @@ function updateTimer(){
             "readingTimer"
         );
 
+    if(!element){
+
+        return;
+
+    }
 
     const minutes =
         Math.floor(
             readingSeconds / 60
         );
 
-
     const seconds =
         readingSeconds % 60;
 
 
     element.textContent =
-
         "⏱️ Time Remaining: "
-
         +
-
-        String(minutes)
-            .padStart(2,"0")
-
+        String(minutes).padStart(2,"0")
         +
-
         ":"
-
         +
-
-        String(seconds)
-            .padStart(2,"0");
+        String(seconds).padStart(2,"0");
 
 
     element.classList.remove(
@@ -2678,15 +1255,48 @@ function updateTimer(){
 }
 
 
+/* =====================================================
+   INITIALIZE TEST SELECTOR
+===================================================== */
 
-/* ==================================================
-   INITIALIZE
-================================================== */
+function initializeTestSelector(){
+
+    const select =
+        document.getElementById(
+            "testNumber"
+        );
+
+    if(!select){
+
+        return;
+
+    }
+
+    select.innerHTML = "";
+
+    readingTests.forEach(function(test,index){
+
+        const option =
+            document.createElement("option");
+
+        option.value = index;
+
+        option.textContent =
+            `Practice Test ${index + 1}`;
+
+        select.appendChild(option);
+
+    });
+
+}
+
+
+/* =====================================================
+   START
+===================================================== */
+
+initializeTestSelector();
 
 updateTimer();
 
 </script>
-
-</body>
-
-</html>

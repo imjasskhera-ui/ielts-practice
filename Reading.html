@@ -9,179 +9,73 @@
 
 <title>Teen IELTS — Reading Practice</title>
 
-<meta name="description"
-content="Teen IELTS free Reading practice tests with passages, questions, timer and results.">
-
 <style>
-
-/* =========================
-   RESET
-========================= */
 
 *{
     box-sizing:border-box;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
     margin:0;
     font-family:Arial,Helvetica,sans-serif;
-    background:#f5f7fa;
-    color:#172033;
-    line-height:1.6;
+    background:#f4f7fb;
+    color:#222;
 }
-
-
-/* =========================
-   NAVIGATION
-========================= */
-
-header{
-    background:white;
-    border-bottom:1px solid #e5e7eb;
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-.navbar{
-    max-width:1200px;
-    margin:auto;
-    padding:14px 20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
-}
-
-.logo{
-    text-decoration:none;
-    font-size:25px;
-    font-weight:bold;
-    color:#17365d;
-}
-
-.logo span{
-    color:#e63946;
-}
-
-nav{
-    display:flex;
-    flex-wrap:wrap;
-    gap:5px;
-}
-
-nav a{
-    text-decoration:none;
-    color:#263449;
-    padding:9px 12px;
-    border-radius:7px;
-    font-size:15px;
-}
-
-nav a:hover{
-    background:#eef3f8;
-    color:#17365d;
-}
-
-
-/* =========================
-   CONTAINER
-========================= */
 
 .container{
-    max-width:1200px;
+    max-width:1100px;
     margin:auto;
-    padding:25px 20px 60px;
+    padding:20px;
 }
 
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
+header{
     background:#17365d;
     color:white;
-    padding:50px 20px;
+    padding:35px 20px;
+    border-radius:16px;
+    text-align:center;
+    margin-bottom:20px;
 }
 
-.hero-content{
-    max-width:1200px;
-    margin:auto;
+header h1{
+    margin:0 0 10px;
+    font-size:38px;
 }
 
-.hero h1{
-    margin:0;
-    font-size:42px;
-}
-
-.hero p{
+header p{
+    margin:5px;
     font-size:18px;
-    max-width:750px;
 }
-
-
-/* =========================
-   CARDS
-========================= */
 
 .card{
     background:white;
-    border-radius:14px;
     padding:25px;
-    margin-bottom:22px;
-    box-shadow:0 3px 15px rgba(0,0,0,.07);
+    margin-bottom:20px;
+    border-radius:15px;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
 }
 
-
-/* =========================
-   TEST SELECTOR
-========================= */
-
-.test-selector{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
+.section{
+    display:none;
 }
 
-.test-box{
-    background:#f5f7fa;
-    padding:25px;
-    border-radius:12px;
-    border:2px solid transparent;
+.section.active{
+    display:block;
 }
 
-.test-box:hover{
-    border-color:#17365d;
+.center{
+    text-align:center;
 }
-
-select{
-    width:100%;
-    max-width:450px;
-    padding:13px;
-    border:1px solid #aaa;
-    border-radius:8px;
-    font-size:16px;
-}
-
-
-/* =========================
-   BUTTONS
-========================= */
 
 button{
-    border:0;
-    border-radius:8px;
     padding:13px 20px;
-    margin:5px;
-    font-size:16px;
-    cursor:pointer;
+    border:none;
+    border-radius:8px;
     background:#17365d;
     color:white;
+    font-size:16px;
+    cursor:pointer;
+    margin:5px;
 }
 
 button:hover{
@@ -200,23 +94,46 @@ button.danger{
     background:#a83232;
 }
 
+select{
+    width:100%;
+    max-width:400px;
+    padding:13px;
+    border:1px solid #aaa;
+    border-radius:8px;
+    font-size:16px;
+}
 
-/* =========================
-   TIMER
-========================= */
+.test-selector{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    margin-top:20px;
+}
+
+.test-box{
+    background:#f4f7fb;
+    padding:25px;
+    border-radius:12px;
+    text-align:center;
+    border:2px solid transparent;
+}
+
+.test-box:hover{
+    border-color:#17365d;
+}
 
 .timer{
     position:sticky;
-    top:75px;
-    z-index:900;
+    top:10px;
+    z-index:100;
     background:white;
     padding:15px;
-    border-radius:10px;
     text-align:center;
-    font-size:25px;
+    font-size:24px;
     font-weight:bold;
+    border-radius:10px;
     margin-bottom:20px;
-    box-shadow:0 3px 12px rgba(0,0,0,.12);
+    box-shadow:0 2px 10px rgba(0,0,0,.15);
 }
 
 .timer.warning{
@@ -229,17 +146,12 @@ button.danger{
     color:#842029;
 }
 
-
-/* =========================
-   PASSAGE
-========================= */
-
 .passage{
     background:#fff;
     border-left:5px solid #17365d;
     padding:25px;
-    border-radius:8px;
-    line-height:1.85;
+    line-height:1.8;
+    margin-bottom:25px;
 }
 
 .passage h2{
@@ -247,51 +159,40 @@ button.danger{
 }
 
 .paragraph{
-    margin-bottom:20px;
-}
-
-
-/* =========================
-   QUESTIONS
-========================= */
-
-.question{
-    background:#f8fafc;
-    border:1px solid #e1e5ea;
-    border-radius:10px;
-    padding:20px;
     margin-bottom:18px;
 }
 
+.question{
+    background:#f8fafc;
+    padding:20px;
+    border-radius:10px;
+    margin-bottom:18px;
+    border:1px solid #e0e0e0;
+}
+
 .question h3{
-    margin-top:0;
     color:#17365d;
+    margin-top:0;
 }
 
 .option{
     display:block;
     padding:8px;
     margin:5px 0;
-    cursor:pointer;
 }
 
 .option input{
     margin-right:8px;
 }
 
-.question input[type="text"]{
+.text-answer{
     width:100%;
-    max-width:550px;
-    padding:12px;
+    max-width:500px;
+    padding:11px;
     border:1px solid #aaa;
     border-radius:7px;
     font-size:16px;
 }
-
-
-/* =========================
-   PROGRESS
-========================= */
 
 .progress{
     height:12px;
@@ -303,38 +204,29 @@ button.danger{
 
 .progress-fill{
     height:100%;
-    width:0;
+    width:0%;
     background:#17365d;
     transition:.3s;
 }
 
-
-/* =========================
-   RESULT
-========================= */
-
 .result{
-    background:#eef7ef;
+    background:#e8f5e9;
     padding:25px;
     border-radius:12px;
+    margin-top:20px;
 }
 
 .score{
-    font-size:32px;
+    font-size:30px;
     font-weight:bold;
     color:#17365d;
 }
 
 .band{
-    font-size:26px;
+    font-size:25px;
     font-weight:bold;
     color:#287a3e;
 }
-
-
-/* =========================
-   REVIEW
-========================= */
 
 .review-item{
     padding:15px;
@@ -350,48 +242,39 @@ button.danger{
     background:#f8d7da;
 }
 
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    background:#101828;
-    color:white;
-    text-align:center;
-    padding:35px 20px;
+.hidden{
+    display:none;
 }
 
-footer a{
-    color:#dbe5f0;
-    text-decoration:none;
+.small{
+    color:#666;
+    font-size:14px;
 }
 
-
-/* =========================
-   MOBILE
-========================= */
+.instructions{
+    background:#fff8e6;
+    border-left:5px solid #d99a00;
+    padding:18px;
+    border-radius:8px;
+    margin-bottom:20px;
+}
 
 @media(max-width:700px){
 
-    .navbar{
-        flex-direction:column;
+    .container{
+        padding:10px;
     }
 
-    nav{
-        justify-content:center;
+    header h1{
+        font-size:28px;
+    }
+
+    .card{
+        padding:17px;
     }
 
     .test-selector{
         grid-template-columns:1fr;
-    }
-
-    .hero h1{
-        font-size:32px;
-    }
-
-    .container{
-        padding:15px 10px 40px;
     }
 
     button{
@@ -407,74 +290,25 @@ footer a{
 
 <body>
 
-<!-- =========================
-     NAVIGATION
-========================= -->
+<div class="container">
 
 <header>
 
-<div class="navbar">
+<h1>📖 Teen IELTS Reading</h1>
 
-<a href="index.html" class="logo">
-Teen <span>IELTS</span>
-</a>
-
-<nav>
-
-<a href="index.html">Home</a>
-
-<a href="reading.html">Reading</a>
-
-<a href="listening.html">Listening</a>
-
-<a href="writing.html">Writing</a>
-
-<a href="speaking.html">Speaking</a>
-
-<a href="grammar.html">Grammar</a>
-
-<a href="vocabulary.html">Vocabulary</a>
-
-</nav>
-
-</div>
+<p>Reading Practice • 40 Questions • 60 Minutes</p>
 
 </header>
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- HOME -->
 
-<section class="hero">
+<div id="readingHome" class="section active">
 
-<div class="hero-content">
+<div class="card center">
 
-<h1>📖 IELTS Reading Practice</h1>
+<h2>📖 IELTS Reading Practice</h2>
 
-<p>
-Practise IELTS Reading with passages, question types,
-a 60-minute timer and instant practice results.
-</p>
-
-</div>
-
-</section>
-
-<div class="container">
-
-<!-- =========================
-     HOME / SELECTOR
-========================= -->
-
-<div id="readingHome">
-
-<div class="card">
-
-<h2>Choose Your Reading Practice</h2>
-
-<p>
-Select a test or let Teen IELTS choose one randomly.
-</p>
+<p>Choose your practice test.</p>
 
 <div class="test-selector">
 
@@ -482,9 +316,7 @@ Select a test or let Teen IELTS choose one randomly.
 
 <h3>🎲 Random Test</h3>
 
-<p>
-Choose a random Reading practice test.
-</p>
+<p>Let Teen IELTS choose a test for you.</p>
 
 <button
 onclick="startRandomTest()"
@@ -498,37 +330,13 @@ Start Random Test
 
 <div class="test-box">
 
-<h3>📋 Select Test</h3>
+<h3>📋 Choose Test</h3>
 
-<p>
-Choose from the available practice tests.
-</p>
+<p>Select a specific Reading test.</p>
 
-<select id="testNumber">
+<select id="testNumber"></select>
 
-<option value="0">
-Practice Test 1
-</option>
-
-<option value="1">
-Practice Test 2
-</option>
-
-<option value="2">
-Practice Test 3
-</option>
-
-<option value="3">
-Practice Test 4
-</option>
-
-<option value="4">
-Practice Test 5
-</option>
-
-</select>
-
-<br>
+<br><br>
 
 <button
 onclick="startSelectedTest()">
@@ -555,15 +363,13 @@ Start Selected Test
 
 <li>60 minutes</li>
 
-<li>Multiple-choice questions</li>
+<li>Automatic marking</li>
 
-<li>True / False / Not Given</li>
+<li>Score out of 40</li>
 
-<li>Sentence completion</li>
+<li>Estimated IELTS Reading band</li>
 
-<li>Automatic answer checking</li>
-
-<li>Estimated practice band</li>
+<li>Answer review after submission</li>
 
 </ul>
 
@@ -571,17 +377,41 @@ Start Selected Test
 
 </div>
 
-<!-- =========================
-     READING TEST
-========================= -->
+<!-- TEST -->
 
-<div id="readingTest"
-style="display:none;">
+<div id="readingTest" class="section">
 
-<div id="readingTimer"
-class="timer">
+<div id="readingTimer" class="timer">
 
 ⏱️ Time Remaining: 60:00
+
+</div>
+
+<div class="card center">
+
+<button
+onclick="startTimer()"
+class="success">
+
+▶ Start Timer
+
+</button>
+
+<button
+onclick="pauseTimer()"
+class="secondary">
+
+⏸ Pause
+
+</button>
+
+<button
+onclick="resetTimer()"
+class="secondary">
+
+🔄 Reset
+
+</button>
 
 </div>
 
@@ -604,113 +434,54 @@ class="progress-fill">
 
 </div>
 
-<!-- =========================
-     PASSAGE 1
-========================= -->
+<!-- PASSAGE 1 -->
 
 <div class="card">
 
-<div
-id="passage1"
-class="passage">
-</div>
+<div id="passage1" class="passage"></div>
 
-<h2>
-Questions 1–13
-</h2>
+<h2>Questions 1–13</h2>
 
 <div id="questions1"></div>
 
 </div>
 
-<!-- =========================
-     PASSAGE 2
-========================= -->
+<!-- PASSAGE 2 -->
 
 <div class="card">
 
-<div
-id="passage2"
-class="passage">
-</div>
+<div id="passage2" class="passage"></div>
 
-<h2>
-Questions 14–26
-</h2>
+<h2>Questions 14–26</h2>
 
 <div id="questions2"></div>
 
 </div>
 
-<!-- =========================
-     PASSAGE 3
-========================= -->
+<!-- PASSAGE 3 -->
 
 <div class="card">
 
-<div
-id="passage3"
-class="passage">
-</div>
+<div id="passage3" class="passage"></div>
 
-<h2>
-Questions 27–40
-</h2>
+<h2>Questions 27–40</h2>
 
 <div id="questions3"></div>
 
 </div>
 
-<!-- =========================
-     CONTROLS
-========================= -->
-
-<div class="card">
-
-<h2>⏱️ Test Controls</h2>
-
-<button
-onclick="startTimer()"
-class="success">
-
-▶ Start Timer
-
-</button>
-
-<button
-onclick="pauseTimer()"
-class="secondary">
-
-⏸ Pause Timer
-
-</button>
-
-<button
-onclick="resetTimer()"
-class="secondary">
-
-🔄 Reset Timer
-
-</button>
-
-</div>
-
-<!-- =========================
-     SUBMIT
-========================= -->
-
-<div class="card">
+<div class="card center">
 
 <button
 onclick="submitReading()"
 class="success">
 
-✅ Submit Test
+✅ Submit Reading Test
 
 </button>
 
 <button
-onclick="backToTests()"
+onclick="showSection('readingHome')"
 class="secondary">
 
 ⬅ Back to Tests
@@ -719,1828 +490,20 @@ class="secondary">
 
 </div>
 
-<!-- =========================
-     RESULT
-========================= -->
-
 <div
 id="readingResult"
-class="card"
-style="display:none;">
-
+class="card hidden">
 </div>
 
 </div>
 
 </div>
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-<strong>Teen IELTS</strong>
-
-<p>
-Free IELTS practice for learners.
-</p>
-
-<p>
-<a href="index.html">Home</a>
-&nbsp; | &nbsp;
-<a href="reading.html">Reading</a>
-</p>
-
-</footer>
 
 <script>
 
-
-/* ==================================================
-   READING TEST DATA
-================================================== */
-
-
-const readingTests = [
-
-/* ==================================================
-   TEST 1
-================================================== */
-
-{
-
-title:"IELTS Reading Practice Test 1",
-
-description:
-"Complete three passages and answer Questions 1–40.",
-
-passages:[
-
-{
-
-title:"Passage 1 — Learning a New Language",
-
-text:`
-
-<div class="paragraph">
-
-<strong>Paragraph A</strong><br>
-
-Learning a new language can provide many benefits for young people.
-It can improve communication skills and allow learners to communicate
-with people from different countries. Language learning can also create
-new opportunities in education and employment.
-
-</div>
-
-
-<div class="paragraph">
-
-<strong>Paragraph B</strong><br>
-
-Regular practice is important when learning a language.
-Students who practise frequently are more likely to remember new
-words and expressions. Language skills usually develop gradually
-rather than becoming fluent immediately.
-
-</div>
-
-
-<div class="paragraph">
-
-<strong>Paragraph C</strong><br>
-
-Another important benefit is a better understanding of other cultures.
-Language and culture are closely connected. By learning another
-language, students may learn about traditions, customs and different
-ways of thinking.
-
-</div>
-
-
-<div class="paragraph">
-
-<strong>Paragraph D</strong><br>
-
-Language skills can also be useful when travelling.
-A traveller who can communicate in another language may find it easier
-to ask for directions, order food and communicate with local people.
-
-</div>
-
-
-<div class="paragraph">
-
-<strong>Paragraph E</strong><br>
-
-Employers may also value workers who can communicate with international
-customers and colleagues. For this reason, language skills may provide
-advantages in the workplace.
-
-</div>
-
-
-<div class="paragraph">
-
-<strong>Paragraph F</strong><br>
-
-Technology has made language learning easier. Websites, mobile
-applications, videos and online conversations can provide additional
-practice. However, learners still need patience because making mistakes
-is a normal part of learning.
-
-</div>
-
-`
-
-},
-
-
-{
-
-title:"Passage 2 — Technology and Teenagers",
-
-text:`
-
-<div class="paragraph">
-
-<strong>Paragraph A</strong><br>
-
-Technology is now an important part of everyday life for many teenagers.
-Students use computers, tablets and smartphones for education,
-communication and entertainment.
-
-</div>
-
-
-<div class="paragraph">
-
-<strong>Paragraph B</strong><br>
-
-One advantage of technology is that students can find information
-quickly. Online libraries, educational websites and digital textbooks
-can give learners access to a large amount of information.
-
-</div>
-
-
-<div class="paragraph">
-
-<strong>Paragraph C</strong><br>
-
-Technology can also support communication. Students can communicate
-with teachers and classmates through email, video calls and educational
-platforms.
-
-</div>
-
-
-<div class="paragraph">
-
-<strong>Paragraph D</strong><br>
-
-However, technology can sometimes distract students. Social media,
-games and entertainment websites may take attention away from school
-work.
-
-</div>
-
-
-<div class="paragraph">
-
-<strong>Paragraph E</strong><br>
-
-Another concern is the amount of time young people spend looking at
-screens. Long periods of screen use may reduce the amount of time
-available for exercise, outdoor activities and face-to-face conversations.
-
-</div>
-
-
-<div class="paragraph">
-
-<strong>Paragraph F</strong><br>
-
-For these reasons, many educators believe that teenagers should learn
-to use technology responsibly. Technology can be useful when it is
-balanced with other activities.
-
-</div>
-
-`
-
-},
-
-
-{
-
-title:"Passage 3 — Green Cities of the Future",
-
-text:`
-
-<div class="paragraph">
-
-<strong>Paragraph A</strong><br>
-
-Cities around the world are growing rapidly. As populations increase,
-governments need to consider how cities can remain comfortable,
-healthy and environmentally friendly.
-
-</div>
-
-
-<div class="paragraph">
-
-<strong>Paragraph B</strong><br>
-
-Public transportation can reduce the number of private cars on roads.
-Buses, trains and cycling routes can help people travel while reducing
-traffic and pollution.
-
-</div>
-
-
-<div class="paragraph">
-
-<strong>Paragraph C</strong><br>
-
-Green spaces are also important. Parks and gardens can provide places
-for exercise and relaxation. Trees can also provide shade and help
-improve the quality of urban environments.
-
-</div>
-
-
-<div class="paragraph">
-
-<strong>Paragraph D</strong><br>
-
-Some cities are experimenting with renewable energy. Solar panels can
-be installed on buildings, while energy-efficient systems can reduce
-electricity consumption.
-
-</div>
-
-
-<div class="paragraph">
-
-<strong>Paragraph E</strong><br>
-
-Future cities may therefore combine technology, public transportation,
-green spaces and renewable energy. The goal is to create places that
-are efficient while also supporting people's quality of life.
-
-</div>
-
-`
-
-}
-
-],
-
-
-questions:generateTest1Questions()
-
-},
-
-
-/* ==================================================
-   TEST 2
-================================================== */
-
-{
-
-title:"IELTS Reading Practice Test 2",
-
-description:
-"Reading practice test covering education, exercise and libraries.",
-
-passages:[
-
-{
-
-title:"Passage 1 — Reading Habits",
-
-text:`
-
-<div class="paragraph">
-
-<strong>Paragraph A</strong><br>
-
-Reading widely can help students develop knowledge and improve their
-ability to understand information. Regular reading can also introduce
-learners to new vocabulary and different ideas.
-
-</div>
-
-<div class="paragraph">
-
-<strong>Paragraph B</strong><br>
-
-Students can read books, magazines and reliable online articles.
-Different types of reading can develop different skills.
-
-</div>
-
-<div class="paragraph">
-
-<strong>Paragraph C</strong><br>
-
-Good readers usually practise regularly and think carefully about
-what they have read.
-
-</div>
-
-`
-
-},
-
-{
-
-title:"Passage 2 — Exercise and Young People",
-
-text:`
-
-<div class="paragraph">
-
-<strong>Paragraph A</strong><br>
-
-Exercise is important for young people because it can support physical
-fitness and general wellbeing.
-
-</div>
-
-<div class="paragraph">
-
-<strong>Paragraph B</strong><br>
-
-Walking, cycling, swimming and team sports are examples of activities
-that teenagers may enjoy.
-
-</div>
-
-<div class="paragraph">
-
-<strong>Paragraph C</strong><br>
-
-Regular physical activity can also provide opportunities for young
-people to work with others and develop useful habits.
-
-</div>
-
-`
-
-},
-
-{
-
-title:"Passage 3 — Modern Libraries",
-
-text:`
-
-<div class="paragraph">
-
-<strong>Paragraph A</strong><br>
-
-Libraries have changed significantly as technology has developed.
-Modern libraries may provide books as well as computers and digital
-resources.
-
-</div>
-
-<div class="paragraph">
-
-<strong>Paragraph B</strong><br>
-
-Many libraries also offer quiet areas where students can study.
-
-</div>
-
-<div class="paragraph">
-
-<strong>Paragraph C</strong><br>
-
-These services allow libraries to remain useful community spaces.
-
-</div>
-
-`
-
-}
-
-],
-
-questions:generateTest2Questions()
-
-},
-
-
-/* ==================================================
-   TEST 3
-================================================== */
-
-{
-
-title:"IELTS Reading Practice Test 3",
-
-description:
-"Reading practice test covering study habits, museums and water.",
-
-passages:[
-
-{
-
-title:"Passage 1 — Healthy Study Habits",
-
-text:`
-
-<div class="paragraph">
-
-<strong>Paragraph A</strong><br>
-
-Effective study requires planning, concentration and regular breaks.
-Students often learn more successfully when they organise their time.
-
-</div>
-
-<div class="paragraph">
-
-<strong>Paragraph B</strong><br>
-
-A quiet study environment can help learners concentrate.
-
-</div>
-
-<div class="paragraph">
-
-<strong>Paragraph C</strong><br>
-
-Sleep and healthy routines can also support learning.
-
-</div>
-
-`
-
-},
-
-{
-
-title:"Passage 2 — Museums and Learning",
-
-text:`
-
-<div class="paragraph">
-
-<strong>Paragraph A</strong><br>
-
-Museums allow visitors to learn about history, science and culture.
-
-</div>
-
-<div class="paragraph">
-
-<strong>Paragraph B</strong><br>
-
-Many museums now use interactive displays to make exhibitions more
-interesting for younger visitors.
-
-</div>
-
-<div class="paragraph">
-
-<strong>Paragraph C</strong><br>
-
-Educational visits can encourage students to explore subjects beyond
-the classroom.
-
-</div>
-
-`
-
-},
-
-{
-
-title:"Passage 3 — Water Resources",
-
-text:`
-
-<div class="paragraph">
-
-<strong>Paragraph A</strong><br>
-
-Fresh water is an important resource for people, agriculture and
-industry.
-
-</div>
-
-<div class="paragraph">
-
-<strong>Paragraph B</strong><br>
-
-Careful management can help communities reduce unnecessary water use.
-
-</div>
-
-<div class="paragraph">
-
-<strong>Paragraph C</strong><br>
-
-Simple actions such as repairing leaks can save water.
-
-</div>
-
-`
-
-}
-
-],
-
-questions:generateTest3Questions()
-
-},
-
-
-/* ==================================================
-   TEST 4
-================================================== */
-
-{
-
-title:"IELTS Reading Practice Test 4",
-
-description:
-"Reading practice test covering entrepreneurship, wildlife and transport.",
-
-passages:[
-
-{
-
-title:"Passage 1 — Young Entrepreneurs",
-
-text:`
-
-<div class="paragraph">
-
-<strong>Paragraph A</strong><br>
-
-Some teenagers are interested in starting small businesses.
-Entrepreneurship can help young people develop planning and
-problem-solving skills.
-
-</div>
-
-<div class="paragraph">
-
-<strong>Paragraph B</strong><br>
-
-Young entrepreneurs may sell products online or provide services
-within their communities.
-
-</div>
-
-<div class="paragraph">
-
-<strong>Paragraph C</strong><br>
-
-Successful projects usually require careful planning and persistence.
-
-</div>
-
-`
-
-},
-
-{
-
-title:"Passage 2 — Wildlife Conservation",
-
-text:`
-
-<div class="paragraph">
-
-<strong>Paragraph A</strong><br>
-
-Wildlife conservation protects animals and the environments in which
-they live.
-
-</div>
-
-<div class="paragraph">
-
-<strong>Paragraph B</strong><br>
-
-National parks can provide protected areas for many species.
-
-</div>
-
-<div class="paragraph">
-
-<strong>Paragraph C</strong><br>
-
-Education can also help communities understand the importance of
-protecting wildlife.
-
-</div>
-
-`
-
-},
-
-{
-
-title:"Passage 3 — Modern Transport",
-
-text:`
-
-<div class="paragraph">
-
-<strong>Paragraph A</strong><br>
-
-Transport allows people to travel to school, work and other places.
-
-</div>
-
-<div class="paragraph">
-
-<strong>Paragraph B</strong><br>
-
-Public transportation can carry many people using fewer vehicles.
-
-</div>
-
-<div class="paragraph">
-
-<strong>Paragraph C</strong><br>
-
-Walking and cycling can provide healthy alternatives for shorter trips.
-
-</div>
-
-`
-
-}
-
-],
-
-questions:generateTest4Questions()
-
-},
-
-
-/* ==================================================
-   TEST 5
-================================================== */
-
-{
-
-title:"IELTS Reading Practice Test 5",
-
-description:
-"Reading practice test covering music, food and the future of work.",
-
-passages:[
-
-{
-
-title:"Passage 1 — The Importance of Music",
-
-text:`
-
-<div class="paragraph">
-
-<strong>Paragraph A</strong><br>
-
-Music is enjoyed by people in many cultures. Young people may listen
-to music for entertainment, relaxation and social connection.
-
-</div>
-
-<div class="paragraph">
-
-<strong>Paragraph B</strong><br>
-
-Learning an instrument can also develop concentration and patience.
-
-</div>
-
-<div class="paragraph">
-
-<strong>Paragraph C</strong><br>
-
-Schools sometimes use music to support creative learning.
-
-</div>
-
-`
-
-},
-
-{
-
-title:"Passage 2 — Food Choices",
-
-text:`
-
-<div class="paragraph">
-
-<strong>Paragraph A</strong><br>
-
-Healthy food choices can contribute to a balanced lifestyle.
-
-</div>
-
-<div class="paragraph">
-
-<strong>Paragraph B</strong><br>
-
-Fruits, vegetables, grains and other nutritious foods provide important
-nutrients.
-
-</div>
-
-<div class="paragraph">
-
-<strong>Paragraph C</strong><br>
-
-Learning about food can help teenagers make informed choices.
-
-</div>
-
-`
-
-},
-
-{
-
-title:"Passage 3 — The Future of Work",
-
-text:`
-
-<div class="paragraph">
-
-<strong>Paragraph A</strong><br>
-
-Technology is changing many workplaces. Some jobs now require workers
-to use digital tools.
-
-</div>
-
-<div class="paragraph">
-
-<strong>Paragraph B</strong><br>
-
-Communication, creativity and problem-solving are increasingly useful
-skills.
-
-</div>
-
-<div class="paragraph">
-
-<strong>Paragraph C</strong><br>
-
-Young people may need to continue learning throughout their careers.
-
-</div>
-
-`
-
-}
-
-],
-
-questions:generateTest5Questions()
-
-}
-
-];
-
-
-/* ==================================================
-   QUESTION GENERATORS
-================================================== */
-
-
-/* ---------- TEST 1 ---------- */
-
-function generateTest1Questions(){
-
-return [
-
-mc(1,"What is one benefit of learning another language?",[
-"Better communication",
-"Less exercise",
-"More television",
-"Fewer opportunities"
-],"Better communication"),
-
-mc(2,"How do language skills usually develop?",[
-"Immediately",
-"Gradually",
-"Without practice",
-"Only through travel"
-],"Gradually"),
-
-tf(3,"Language and culture are closely connected.","TRUE"),
-
-tf(4,"Learning another language is always easy.","FALSE"),
-
-mc(5,"What may employers value?",[
-"Workers who can communicate internationally",
-"Workers who never travel",
-"Workers who avoid colleagues",
-"Workers who dislike technology"
-],"Workers who can communicate internationally"),
-
-text(6,"Regular practice can help learners remember new ______.","words"),
-
-mc(7,"Which technology is mentioned?",[
-"Mobile applications",
-"Television only",
-"Radio only",
-"Printed newspapers"
-],"Mobile applications"),
-
-tf(8,"Making mistakes is described as a normal part of learning.","TRUE"),
-
-mc(9,"What can language learning help people understand?",[
-"Different cultures",
-"Only mathematics",
-"Weather forecasts",
-"Traffic laws"
-],"Different cultures"),
-
-text(10,"Employers may value workers who communicate with international customers and ______.","colleagues"),
-
-mc(11,"Which activity may be easier when travelling with another language?",[
-"Asking for directions",
-"Flying airplanes",
-"Building houses",
-"Writing computer code"
-],"Asking for directions"),
-
-tf(12,"Technology can provide additional language practice.","TRUE"),
-
-mc(13,"What is the main idea of Passage 1?",[
-"Language learning has benefits but requires practice",
-"Languages are impossible to learn",
-"Technology should never be used",
-"Travel is unnecessary"
-],"Language learning has benefits but requires practice"),
-
-mc(14,"What do teenagers use technology for?",[
-"Education, communication and entertainment",
-"Only cooking",
-"Only exercise",
-"Only travelling"
-],"Education, communication and entertainment"),
-
-mc(15,"What can online libraries provide?",[
-"Access to information",
-"Free transportation",
-"Sports equipment",
-"Food"
-],"Access to information"),
-
-tf(16,"Technology can support communication between students and teachers.","TRUE"),
-
-tf(17,"Social media can distract students from school work.","TRUE"),
-
-mc(18,"What may long periods of screen use reduce?",[
-"Time for exercise",
-"Internet speed",
-"School buildings",
-"Number of teachers"
-],"Time for exercise"),
-
-text(19,"Teenagers should learn to use technology ______.","responsibly"),
-
-mc(20,"Which is an example of educational technology?",[
-"Digital textbooks",
-"Traffic lights",
-"Cooking ovens",
-"Garden tools"
-],"Digital textbooks"),
-
-tf(21,"Technology should completely replace outdoor activities.","FALSE"),
-
-mc(22,"What can entertainment websites do?",[
-"Distract students",
-"Improve roads",
-"Plant trees",
-"Build schools"
-],"Distract students"),
-
-mc(23,"What should technology be balanced with?",[
-"Other activities",
-"More screen time",
-"Less communication",
-"No education"
-],"Other activities"),
-
-tf(24,"Teenagers use smartphones for communication.","TRUE"),
-
-mc(25,"What is one concern about screen use?",[
-"Too much time looking at screens",
-"Too many books",
-"Too much outdoor exercise",
-"Too much public transport"
-],"Too much time looking at screens"),
-
-mc(26,"What is the main idea of Passage 2?",[
-"Technology has benefits but should be used responsibly",
-"Technology is always harmful",
-"Teenagers should never use computers",
-"Social media is the only technology"
-],"Technology has benefits but should be used responsibly"),
-
-mc(27,"Why do cities need new plans?",[
-"Populations are increasing",
-"People are leaving all cities",
-"Cars no longer exist",
-"Technology has disappeared"
-],"Populations are increasing"),
-
-mc(28,"What can public transportation reduce?",[
-"Traffic and pollution",
-"Education",
-"Green spaces",
-"Exercise"
-],"Traffic and pollution"),
-
-tf(29,"Parks can provide places for exercise and relaxation.","TRUE"),
-
-text(30,"Trees can provide ______ in cities.","shade"),
-
-mc(31,"What renewable energy source is mentioned?",[
-"Solar energy",
-"Coal only",
-"Petrol",
-"Wood fires"
-],"Solar energy"),
-
-tf(32,"Energy-efficient systems can reduce electricity consumption.","TRUE"),
-
-mc(33,"What can cycling routes help reduce?",[
-"Traffic",
-"Education",
-"Trees",
-"Rain"
-],"Traffic"),
-
-text(34,"Green spaces can support people's quality of ______.","life"),
-
-mc(35,"Which feature can provide shade?",[
-"Trees",
-"Cars",
-"Trains",
-"Solar panels"
-],"Trees"),
-
-tf(36,"Future cities may combine technology and green spaces.","TRUE"),
-
-mc(37,"What can solar panels be installed on?",[
-"Buildings",
-"Road signs only",
-"Bicycles only",
-"Cars only"
-],"Buildings"),
-
-tf(38,"Public transportation can help reduce pollution.","TRUE"),
-
-mc(39,"What is the goal of future cities?",[
-"Efficiency and quality of life",
-"More pollution",
-"More traffic",
-"Fewer parks"
-],"Efficiency and quality of life"),
-
-mc(40,"What is the main idea of Passage 3?",[
-"Cities can become greener through planning and technology",
-"Cities should remove all parks",
-"Cars are the only solution",
-"Renewable energy is unnecessary"
-],"Cities can become greener through planning and technology")
-
-];
-
-}
-
-
-/* ---------- TEST 2 ---------- */
-
-function generateTest2Questions(){
-
-return [
-
-mc(1,"What can reading widely help students develop?",[
-"Knowledge",
-"Traffic",
-"Buildings",
-"Exercise"
-],"Knowledge"),
-
-mc(2,"What can regular reading introduce learners to?",[
-"New vocabulary",
-"New cars",
-"New roads",
-"New sports equipment"
-],"New vocabulary"),
-
-tf(3,"Students can read reliable online articles.","TRUE"),
-
-tf(4,"Different types of reading can develop different skills.","TRUE"),
-
-text(5,"Good readers usually practise ______.","regularly"),
-
-mc(6,"What should readers think about?",[
-"What they have read",
-"Only television",
-"Road traffic",
-"Food prices"
-],"What they have read"),
-
-tf(7,"Reading cannot introduce learners to different ideas.","FALSE"),
-
-mc(8,"Which source is mentioned?",[
-"Magazines",
-"Bus tickets",
-"Sports shoes",
-"Maps"
-],"Magazines"),
-
-text(9,"Reading can improve understanding of ______.","information"),
-
-mc(10,"What is the main idea of Passage 1?",[
-"Regular reading can develop knowledge and skills",
-"Reading is unnecessary",
-"Students should only read magazines",
-"Online articles are always unreliable"
-],"Regular reading can develop knowledge and skills"),
-
-mc(11,"Why is exercise important for young people?",[
-"It supports physical fitness",
-"It replaces education",
-"It removes sleep",
-"It prevents teamwork"
-],"It supports physical fitness"),
-
-mc(12,"Which activity is mentioned?",[
-"Swimming",
-"Driving",
-"Flying",
-"Skiing"
-],"Swimming"),
-
-tf(13,"Walking can be a physical activity.","TRUE"),
-
-mc(14,"What can team sports provide?",[
-"Opportunities to work with others",
-"Less communication",
-"Less activity",
-"Fewer habits"
-],"Opportunities to work with others"),
-
-tf(15,"Regular physical activity can help develop useful habits.","TRUE"),
-
-text(16,"Exercise can support general ______.","wellbeing"),
-
-mc(17,"Which activity can teenagers enjoy?",[
-"Cycling",
-"Sleeping all day",
-"Watching traffic",
-"Building roads"
-],"Cycling"),
-
-tf(18,"Exercise is only useful for professional athletes.","FALSE"),
-
-mc(19,"What is one benefit of physical activity?",[
-"Fitness",
-"Isolation",
-"Less movement",
-"Less cooperation"
-],"Fitness"),
-
-text(20,"Team sports allow young people to work with ______.","others"),
-
-mc(21,"What is the main idea of Passage 2?",[
-"Exercise can support fitness and useful habits",
-"Exercise is harmful",
-"Only swimming is useful",
-"Teenagers should avoid sports"
-],"Exercise can support fitness and useful habits"),
-
-tf(22,"Exercise can support young people's wellbeing.","TRUE"),
-
-mc(23,"Which activity is NOT mentioned?",[
-"Swimming",
-"Cycling",
-"Walking",
-"Team sports"
-],"Walking"),
-
-tf(24,"Physical activity can provide opportunities to work with others.","TRUE"),
-
-text(25,"Regular activity can help young people develop useful ______.","habits"),
-
-mc(26,"What is the main purpose of Passage 2?",[
-"To explain benefits of physical activity",
-"To describe libraries",
-"To explain computers",
-"To discuss transport"
-],"To explain benefits of physical activity"),
-
-mc(27,"What have libraries changed with?",[
-"Technology",
-"Weather",
-"Traffic",
-"Sports"
-],"Technology"),
-
-mc(28,"What can modern libraries provide?",[
-"Books and digital resources",
-"Only food",
-"Only sports",
-"Only transport"
-],"Books and digital resources"),
-
-tf(29,"Libraries may provide computers.","TRUE"),
-
-text(30,"Libraries can provide quiet areas for ______.","study"),
-
-mc(31,"Why are quiet areas useful?",[
-"They allow students to study",
-"They increase traffic",
-"They reduce books",
-"They remove computers"
-],"They allow students to study"),
-
-tf(32,"Modern libraries can contain digital resources.","TRUE"),
-
-mc(33,"What kind of space can libraries remain?",[
-"Community spaces",
-"Factories",
-"Airports",
-"Sports stadiums"
-],"Community spaces"),
-
-text(34,"Technology has changed modern ______.","libraries"),
-
-mc(35,"What can students use quiet areas for?",[
-"Studying",
-"Driving",
-"Shopping",
-"Cooking"
-],"Studying"),
-
-tf(36,"Libraries are no longer useful community spaces.","FALSE"),
-
-mc(37,"What is one resource libraries may offer?",[
-"Computers",
-"Cars",
-"Airplanes",
-"Factories"
-],"Computers"),
-
-tf(38,"Libraries can provide both books and digital resources.","TRUE"),
-
-mc(39,"What is the main idea of Passage 3?",[
-"Libraries remain useful by providing different resources",
-"Libraries should close",
-"Students should avoid libraries",
-"Technology has destroyed libraries"
-],"Libraries remain useful by providing different resources"),
-
-mc(40,"Which service is mentioned?",[
-"Quiet study areas",
-"Free flights",
-"Car repair",
-"Hotel rooms"
-],"Quiet study areas")
-
-];
-
-}
-
-
-/* ---------- TEST 3 ---------- */
-
-function generateTest3Questions(){
-
-return [
-
-mc(1,"What does effective study require?",[
-"Planning and concentration",
-"Only games",
-"Less organisation",
-"No breaks"
-],"Planning and concentration"),
-
-mc(2,"What can regular breaks support?",[
-"Effective study",
-"Traffic",
-"Cooking",
-"Transport"
-],"Effective study"),
-
-tf(3,"Students can benefit from organising their time.","TRUE"),
-
-tf(4,"A quiet environment can help concentration.","TRUE"),
-
-text(5,"Effective study requires regular ______.","breaks"),
-
-mc(6,"What can a quiet environment help students do?",[
-"Concentrate",
-"Travel",
-"Cook",
-"Drive"
-],"Concentrate"),
-
-tf(7,"Sleep and healthy routines can support learning.","TRUE"),
-
-mc(8,"Which is important for study?",[
-"Planning",
-"Distraction",
-"Noise",
-"Lack of sleep"
-],"Planning"),
-
-text(9,"Students often learn more successfully when they organise their ______.","time"),
-
-mc(10,"What is the main idea of Passage 1?",[
-"Good study habits can support learning",
-"Students should never take breaks",
-"Sleep is unnecessary",
-"Planning is harmful"
-],"Good study habits can support learning"),
-
-mc(11,"What can museums teach visitors about?",[
-"History, science and culture",
-"Only sports",
-"Only cooking",
-"Only transport"
-],"History, science and culture"),
-
-tf(12,"Museums can contain interactive displays.","TRUE"),
-
-mc(13,"Who may find interactive displays interesting?",[
-"Young visitors",
-"Drivers only",
-"Farmers only",
-"Pilots only"
-],"Young visitors"),
-
-text(14,"Museums can encourage students to explore subjects beyond the ______.","classroom"),
-
-tf(15,"Museums are only useful for entertainment.","FALSE"),
-
-mc(16,"What can educational visits encourage?",[
-"Exploration",
-"Less learning",
-"Less curiosity",
-"Less knowledge"
-],"Exploration"),
-
-tf(17,"Museums can teach about culture.","TRUE"),
-
-mc(18,"What type of display is mentioned?",[
-"Interactive",
-"Mechanical",
-"Musical only",
-"Outdoor only"
-],"Interactive"),
-
-text(19,"Museums allow visitors to learn about ______.","science"),
-
-mc(20,"What is the main idea of Passage 2?",[
-"Museums can support learning",
-"Museums have no educational value",
-"Young people should avoid museums",
-"Interactive displays are harmful"
-],"Museums can support learning"),
-
-tf(21,"Educational visits can extend learning beyond school.","TRUE"),
-
-mc(22,"Which subject is mentioned?",[
-"History",
-"Driving",
-"Engineering only",
-"Cooking"
-],"History"),
-
-text(23,"Museums can teach visitors about different ______.","cultures"),
-
-tf(24,"Museums cannot use technology.","FALSE"),
-
-mc(25,"What can interactive displays make exhibitions?",[
-"More interesting",
-"Less useful",
-"More expensive only",
-"Smaller"
-],"More interesting"),
-
-mc(26,"Why are museums useful?",[
-"They provide educational experiences",
-"They prevent learning",
-"They remove history",
-"They replace schools"
-],"They provide educational experiences"),
-
-mc(27,"What is fresh water important for?",[
-"People, agriculture and industry",
-"Only cars",
-"Only computers",
-"Only entertainment"
-],"People, agriculture and industry"),
-
-tf(28,"Careful management can reduce unnecessary water use.","TRUE"),
-
-text(29,"Simple actions such as repairing ______ can save water.","leaks"),
-
-mc(30,"What can careful management reduce?",[
-"Unnecessary water use",
-"Education",
-"Rain",
-"Food"
-],"Unnecessary water use"),
-
-tf(31,"Fresh water is an important resource.","TRUE"),
-
-mc(32,"Which problem is mentioned?",[
-"Unnecessary water use",
-"Too many books",
-"Too much traffic",
-"Too many computers"
-],"Unnecessary water use"),
-
-text(33,"Fresh water is important for ______.","agriculture"),
-
-mc(34,"What can repairing leaks do?",[
-"Save water",
-"Increase pollution",
-"Reduce education",
-"Create traffic"
-],"Save water"),
-
-tf(35,"Water management can help communities.","TRUE"),
-
-mc(36,"Who needs fresh water?",[
-"People",
-"Only machines",
-"Only cars",
-"Only buildings"
-],"People"),
-
-text(37,"Communities can reduce unnecessary water ______.","use"),
-
-mc(38,"What is one way to save water?",[
-"Repair leaks",
-"Leave taps open",
-"Waste water",
-"Ignore leaks"
-],"Repair leaks"),
-
-tf(39,"Water is important for industry.","TRUE"),
-
-mc(40,"What is the main idea of Passage 3?",[
-"Water should be carefully managed",
-"Water is unnecessary",
-"Water cannot be saved",
-"Only agriculture needs water"
-],"Water should be carefully managed")
-
-];
-
-}
-
-
-/* ---------- TEST 4 ---------- */
-
-function generateTest4Questions(){
-
-return [
-
-mc(1,"What can entrepreneurship help develop?",[
-"Planning skills",
-"Less responsibility",
-"Poor communication",
-"Traffic"
-],"Planning skills"),
-
-mc(2,"What may young entrepreneurs sell?",[
-"Products",
-"Airplanes",
-"Roads",
-"Weather"
-],"Products"),
-
-tf(3,"Some teenagers are interested in starting businesses.","TRUE"),
-
-text(4,"Entrepreneurship can develop problem-solving ______.","skills"),
-
-mc(5,"Where may young entrepreneurs sell products?",[
-"Online",
-"Only airports",
-"Only schools",
-"Only factories"
-],"Online"),
-
-tf(6,"Successful projects usually require planning.","TRUE"),
-
-mc(7,"What is another quality mentioned?",[
-"Persistence",
-"Carelessness",
-"Silence",
-"Distraction"
-],"Persistence"),
-
-text(8,"Young entrepreneurs may provide ______ within communities.","services"),
-
-tf(9,"Planning is unnecessary for successful projects.","FALSE"),
-
-mc(10,"What is the main idea of Passage 1?",[
-"Entrepreneurship can develop useful skills",
-"Businesses are impossible",
-"Teenagers cannot sell products",
-"Planning is harmful"
-],"Entrepreneurship can develop useful skills"),
-
-mc(11,"What does wildlife conservation protect?",[
-"Animals and their environments",
-"Only buildings",
-"Only roads",
-"Only cars"
-],"Animals and their environments"),
-
-mc(12,"What can national parks provide?",[
-"Protected areas",
-"Factories",
-"Airports",
-"Shopping centres"
-],"Protected areas"),
-
-tf(13,"National parks can protect many species.","TRUE"),
-
-text(14,"Education can help communities understand the importance of protecting ______.","wildlife"),
-
-mc(15,"What is the purpose of conservation?",[
-"Protection",
-"Pollution",
-"Destruction",
-"Isolation"
-],"Protection"),
-
-tf(16,"Wildlife conservation only concerns domestic animals.","FALSE"),
-
-mc(17,"What can education help communities understand?",[
-"The importance of wildlife protection",
-"How to build roads",
-"How to increase pollution",
-"How to remove parks"
-],"The importance of wildlife protection"),
-
-text(18,"National parks can protect many ______.","species"),
-
-tf(19,"Wildlife needs suitable environments.","TRUE"),
-
-mc(20,"What is the main idea of Passage 2?",[
-"Wildlife conservation protects animals and habitats",
-"Wildlife should be ignored",
-"National parks are unnecessary",
-"Education harms conservation"
-],"Wildlife conservation protects animals and habitats"),
-
-mc(21,"What does transport allow people to do?",[
-"Travel",
-"Sleep",
-"Study only",
-"Cook"
-],"Travel"),
-
-tf(22,"Public transportation can carry many people.","TRUE"),
-
-mc(23,"What can walking provide?",[
-"A healthy alternative",
-"More pollution",
-"More traffic",
-"Less exercise"
-],"A healthy alternative"),
-
-text(24,"Cycling can be useful for shorter ______.","trips"),
-
-mc(25,"What can public transport reduce?",[
-"The number of vehicles needed",
-"The number of people",
-"The need for schools",
-"Exercise"
-],"The number of vehicles needed"),
-
-tf(26,"Walking and cycling can be healthy alternatives.","TRUE"),
-
-mc(27,"Who uses transport?",[
-"People travelling to school and work",
-"Only pilots",
-"Only athletes",
-"Only farmers"
-],"People travelling to school and work"),
-
-text(28,"Public transportation can carry many ______.","people"),
-
-tf(29,"Walking is a possible transport option.","TRUE"),
-
-mc(30,"What is the main idea of Passage 3?",[
-"Different transport methods help people travel",
-"Transport is unnecessary",
-"Only cars are useful",
-"Walking is harmful"
-],"Different transport methods help people travel"),
-
-mc(31,"Which is a healthy transport option?",[
-"Cycling",
-"Driving everywhere",
-"Flying",
-"Traffic jams"
-],"Cycling"),
-
-tf(32,"Public transportation uses fewer vehicles to carry many people.","TRUE"),
-
-text(33,"Walking and cycling can be alternatives for shorter ______.","trips"),
-
-mc(34,"What can transport connect people to?",[
-"School and work",
-"Only airports",
-"Only parks",
-"Only hospitals"
-],"School and work"),
-
-tf(35,"Transport has no role in daily life.","FALSE"),
-
-mc(36,"Which method can carry many people?",[
-"Public transportation",
-"One bicycle",
-"Walking alone",
-"One car"
-],"Public transportation"),
-
-text(37,"Walking and cycling can provide healthy ______.","alternatives"),
-
-mc(38,"What is one benefit of cycling?",[
-"Healthy travel",
-"More traffic",
-"More pollution",
-"Less movement"
-],"Healthy travel"),
-
-tf(39,"Transport allows people to travel to different places.","TRUE"),
-
-mc(40,"What is the main message of the three transport paragraphs?",[
-"Transport provides different ways to travel",
-"Cars are the only option",
-"Walking should be banned",
-"Public transport is useless"
-],"Transport provides different ways to travel")
-
-];
-
-}
-
-
-/* ---------- TEST 5 ---------- */
-
-function generateTest5Questions(){
-
-return [
-
-mc(1,"Where is music enjoyed?",[
-"In many cultures",
-"Only one country",
-"Only schools",
-"Only workplaces"
-],"In many cultures"),
-
-mc(2,"Why may young people listen to music?",[
-"Entertainment and relaxation",
-"Only for exams",
-"Only for work",
-"Only for travel"
-],"Entertainment and relaxation"),
-
-tf(3,"Learning an instrument can develop concentration.","TRUE"),
-
-text(4,"Learning an instrument can develop patience and ______.","concentration"),
-
-mc(5,"What can schools use music to support?",[
-"Creative learning",
-"Traffic",
-"Transport",
-"Road construction"
-],"Creative learning"),
-
-tf(6,"Music can provide social connection.","TRUE"),
-
-mc(7,"What skill can learning an instrument develop?",[
-"Patience",
-"Driving",
-"Cooking",
-"Flying"
-],"Patience"),
-
-text(8,"Music can be used for entertainment and ______.","relaxation"),
-
-tf(9,"Music is enjoyed in only one culture.","FALSE"),
-
-mc(10,"What is the main idea of Passage 1?",[
-"Music can provide enjoyment and learning benefits",
-"Music is harmful",
-"Students should avoid music",
-"Music is only for professionals"
-],"Music can provide enjoyment and learning benefits"),
-
-mc(11,"What can healthy food choices contribute to?",[
-"A balanced lifestyle",
-"More pollution",
-"Less nutrition",
-"More traffic"
-],"A balanced lifestyle"),
-
-mc(12,"Which food group is mentioned?",[
-"Fruits",
-"Candy only",
-"Soft drinks only",
-"Chips only"
-],"Fruits"),
-
-tf(13,"Vegetables can provide important nutrients.","TRUE"),
-
-text(14,"Fruits and vegetables provide important ______.","nutrients"),
-
-mc(15,"What can learning about food help teenagers do?",[
-"Make informed choices",
-"Avoid all food",
-"Stop exercising",
-"Ignore nutrition"
-],"Make informed choices"),
-
-tf(16,"Healthy food choices can contribute to a balanced lifestyle.","TRUE"),
-
-mc(17,"Which food is mentioned?",[
-"Grains",
-"Chocolate only",
-"Fast food only",
-"Pizza only"
-],"Grains"),
-
-text(18,"Teenagers can make more ______ choices when they understand food.","informed"),
-
-tf(19,"Nutrition is unrelated to food choices.","FALSE"),
-
-mc(20,"What is the main idea of Passage 2?",[
-"Learning about food can support healthy choices",
-"Food has no nutritional value",
-"Teenagers should avoid vegetables",
-"All food is unhealthy"
-],"Learning about food can support healthy choices"),
-
-mc(21,"What is changing many workplaces?",[
-"Technology",
-"Weather",
-"Sports",
-"Music"
-],"Technology"),
-
-tf(22,"Some jobs require workers to use digital tools.","TRUE"),
-
-mc(23,"Which skill is increasingly useful?",[
-"Communication",
-"Sleeping",
-"Driving only",
-"Cooking only"
-],"Communication"),
-
-text(24,"Problem-solving is an increasingly useful ______.","skill"),
-
-mc(25,"What may young people need to do throughout their careers?",[
-"Continue learning",
-"Stop studying",
-"Avoid technology",
-"Never change skills"
-],"Continue learning"),
-
-tf(26,"Creativity can be useful in the workplace.","TRUE"),
-
-mc(27,"Which digital ability may some jobs require?",[
-"Using digital tools",
-"Building roads",
-"Cooking",
-"Gardening"
-],"Using digital tools"),
-
-text(28,"Technology is changing many ______.","workplaces"),
-
-tf(29,"Young people may need to continue learning.","TRUE"),
-
-mc(30,"What is the main idea of Passage 3?",[
-"Work is changing and useful skills are important",
-"Technology has no effect on work",
-"Young people should avoid learning",
-"Only communication matters"
-],"Work is changing and useful skills are important"),
-
-mc(31,"Which skill is mentioned?",[
-"Creativity",
-"Swimming",
-"Cooking",
-"Driving"
-],"Creativity"),
-
-tf(32,"Problem-solving is useful at work.","TRUE"),
-
-text(33,"Communication and creativity are useful ______.","skills"),
-
-mc(34,"Why might young people continue learning?",[
-"Workplaces are changing",
-"Schools are disappearing",
-"Technology is stopping",
-"Jobs are becoming simpler"
-],"Workplaces are changing"),
-
-tf(35,"Digital tools are used in some workplaces.","TRUE"),
-
-mc(36,"What can technology change?",[
-"Workplaces",
-"Only schools",
-"Only sports",
-"Only music"
-],"Workplaces"),
-
-text(37,"Young people may need to learn throughout their ______.","careers"),
-
-mc(38,"Which combination is mentioned?",[
-"Communication, creativity and problem-solving",
-"Cooking, driving and swimming",
-"Music, art and sports",
-"Travel, cooking and games"
-],"Communication, creativity and problem-solving"),
-
-tf(39,"Learning can continue throughout a career.","TRUE"),
-
-mc(40,"What is the overall message of Passage 3?",[
-"Workers need to adapt to changing technology",
-"Technology should be avoided",
-"Digital skills are useless",
-"Workplaces never change"
-],"Workers need to adapt to changing technology")
-
-];
-
-}
-
-
-/* ==================================================
-   QUESTION HELPER FUNCTIONS
-================================================== */
-
-function mc(number,question,options,answer){
-
-return {
-number:number,
-type:"mc",
-question:question,
-options:options,
-answer:answer
-};
-
-}
-
-
-function tf(number,question,answer){
-
-return {
-number:number,
-type:"tf",
-question:question,
-answer:answer
-};
-
-}
-
-
-function text(number,question,answer){
-
-return {
-number:number,
-type:"text",
-question:question,
-answer:answer
-};
-
-}
-
-
-/* ==================================================
-   GLOBAL VARIABLES
-================================================== */
+/* =========================================
+GLOBAL VARIABLES
+========================================= */
 
 let currentTestIndex = 0;
 
@@ -2553,851 +516,833 @@ let readingSeconds = 3600;
 let submitted = false;
 
 
-/* ==================================================
-   START RANDOM
-================================================== */
+/* =========================================
+NAVIGATION
+========================================= */
+
+function showSection(id){
+
+    document
+    .querySelectorAll(".section")
+    .forEach(function(section){
+
+        section.classList.remove("active");
+
+    });
+
+    const section =
+        document.getElementById(id);
+
+    if(section){
+
+        section.classList.add("active");
+
+    }
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================
+CREATE TEST LIST
+========================================= */
+
+function createTestList(){
+
+    const select =
+        document.getElementById("testNumber");
+
+    select.innerHTML = "";
+
+    if(typeof readingTests === "undefined"){
+
+        select.innerHTML =
+        '<option>No tests loaded</option>';
+
+        return;
+
+    }
+
+    readingTests.forEach(function(test,index){
+
+        const option =
+            document.createElement("option");
+
+        option.value = index;
+
+        option.textContent =
+            "Practice Test " + (index + 1);
+
+        select.appendChild(option);
+
+    });
+
+}
+
+
+/* =========================================
+RANDOM TEST
+========================================= */
 
 function startRandomTest(){
 
-currentTestIndex =
-Math.floor(
-Math.random() * readingTests.length
-);
+    if(typeof readingTests === "undefined"){
 
-loadReadingTest();
+        alert("Reading test bank is not loaded.");
+
+        return;
+
+    }
+
+    currentTestIndex =
+        Math.floor(
+            Math.random() * readingTests.length
+        );
+
+    loadReadingTest();
 
 }
 
 
-/* ==================================================
-   START SELECTED
-================================================== */
+/* =========================================
+SELECTED TEST
+========================================= */
 
 function startSelectedTest(){
 
-currentTestIndex =
-parseInt(
-document.getElementById("testNumber").value,
-10
-);
+    currentTestIndex =
+        parseInt(
+            document.getElementById("testNumber").value,
+            10
+        );
 
-loadReadingTest();
+    loadReadingTest();
 
 }
 
 
-/* ==================================================
-   LOAD TEST
-================================================== */
+/* =========================================
+LOAD TEST
+========================================= */
 
 function loadReadingTest(){
 
-currentTest =
-readingTests[currentTestIndex];
+    if(typeof readingTests === "undefined"){
 
-submitted = false;
+        alert("Reading test bank is not loaded.");
 
-document.getElementById("readingHome")
-.style.display = "none";
+        return;
 
-document.getElementById("readingTest")
-.style.display = "block";
+    }
 
+    currentTest =
+        readingTests[currentTestIndex];
 
-document.getElementById("testTitle")
-.textContent =
-currentTest.title;
+    submitted = false;
 
 
-document.getElementById("testDescription")
-.textContent =
-currentTest.description;
+    document.getElementById("testTitle")
+        .textContent =
+        currentTest.title;
 
 
-document.getElementById("passage1")
-.innerHTML =
-"<h2>" +
-currentTest.passages[0].title +
-"</h2>" +
-currentTest.passages[0].text;
+    document.getElementById("testDescription")
+        .textContent =
+        currentTest.description || "";
 
 
-document.getElementById("passage2")
-.innerHTML =
-"<h2>" +
-currentTest.passages[1].title +
-"</h2>" +
-currentTest.passages[1].text;
+    document.getElementById("passage1")
+        .innerHTML =
+
+        "<h2>" +
+        currentTest.passages[0].title +
+        "</h2>" +
+
+        currentTest.passages[0].text;
 
 
-document.getElementById("passage3")
-.innerHTML =
-"<h2>" +
-currentTest.passages[2].title +
-"</h2>" +
-currentTest.passages[2].text;
+    document.getElementById("passage2")
+        .innerHTML =
+
+        "<h2>" +
+        currentTest.passages[1].title +
+        "</h2>" +
+
+        currentTest.passages[1].text;
 
 
-renderQuestions();
+    document.getElementById("passage3")
+        .innerHTML =
 
-resetTimer();
+        "<h2>" +
+        currentTest.passages[2].title +
+        "</h2>" +
 
-document.getElementById("readingResult")
-.style.display = "none";
+        currentTest.passages[2].text;
 
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+
+    renderQuestions();
+
+    resetTimer();
+
+    document.getElementById("readingResult")
+        .classList.add("hidden");
+
+    showSection("readingTest");
 
 }
 
 
-/* ==================================================
-   RENDER QUESTIONS
-================================================== */
+/* =========================================
+RENDER QUESTIONS
+========================================= */
 
 function renderQuestions(){
 
-const containers = [
+    const containers = [
 
-document.getElementById("questions1"),
+        document.getElementById("questions1"),
 
-document.getElementById("questions2"),
+        document.getElementById("questions2"),
 
-document.getElementById("questions3")
+        document.getElementById("questions3")
 
-];
+    ];
 
 
-containers.forEach(function(container){
+    containers.forEach(function(container){
 
-container.innerHTML = "";
+        container.innerHTML = "";
 
-});
+    });
 
 
-currentTest.questions.forEach(function(q,index){
+    currentTest.questions.forEach(function(q,index){
 
-let container;
+        let container;
 
 
-if(index < 13){
+        if(index < 13){
 
-container = containers[0];
+            container = containers[0];
 
-}
+        }
 
-else if(index < 26){
+        else if(index < 26){
 
-container = containers[1];
+            container = containers[1];
 
-}
+        }
 
-else{
+        else{
 
-container = containers[2];
+            container = containers[2];
 
-}
+        }
 
 
-const div =
-document.createElement("div");
+        const div =
+            document.createElement("div");
 
-div.className =
-"question";
+        div.className = "question";
 
 
-let html =
+        let html =
 
-"<h3>Question " +
-q.number +
-"</h3>" +
+            "<h3>Question " +
+            q.number +
+            "</h3>" +
 
-"<p>" +
-q.question +
-"</p>";
+            "<p>" +
+            q.question +
+            "</p>";
 
 
-if(q.type === "mc"){
+        if(q.type === "mc"){
 
-q.options.forEach(function(option){
+            q.options.forEach(function(option){
 
-html += `
+                html +=
 
-<label class="option">
+                '<label class="option">' +
 
-<input
-type="radio"
-name="q${q.number}"
-value="${option}">
+                '<input type="radio"' +
 
-${option}
+                ' name="q' +
+                q.number +
+                '"' +
 
-</label>
+                ' value="' +
+                option +
+                '">' +
 
-`;
+                option +
 
-});
+                '</label>';
 
-}
+            });
 
+        }
 
-else if(q.type === "tf"){
 
-html += `
+        else if(q.type === "tf"){
 
-<label class="option">
+            html +=
 
-<input
-type="radio"
-name="q${q.number}"
-value="TRUE">
+            '<label class="option">' +
+            '<input type="radio"' +
+            ' name="q' +
+            q.number +
+            '"' +
+            ' value="TRUE">' +
+            ' TRUE' +
+            '</label>' +
 
-TRUE
+            '<label class="option">' +
+            '<input type="radio"' +
+            ' name="q' +
+            q.number +
+            '"' +
+            ' value="FALSE">' +
+            ' FALSE' +
+            '</label>' +
 
-</label>
+            '<label class="option">' +
+            '<input type="radio"' +
+            ' name="q' +
+            q.number +
+            '"' +
+            ' value="NOT GIVEN">' +
+            ' NOT GIVEN' +
+            '</label>';
 
+        }
 
-<label class="option">
 
-<input
-type="radio"
-name="q${q.number}"
-value="FALSE">
+        else if(q.type === "text"){
 
-FALSE
+            html +=
 
-</label>
+            '<input class="text-answer"' +
 
+            ' type="text"' +
 
-<label class="option">
+            ' id="q' +
+            q.number +
+            '"' +
 
-<input
-type="radio"
-name="q${q.number}"
-value="NOT GIVEN">
+            ' placeholder="Write your answer">';
 
-NOT GIVEN
+        }
 
-</label>
 
-`;
+        div.innerHTML = html;
 
-}
+        container.appendChild(div);
 
+    });
 
-else if(q.type === "text"){
 
-html += `
-
-<input
-type="text"
-id="q${q.number}"
-placeholder="Write your answer">
-
-`;
-
-}
-
-
-div.innerHTML = html;
-
-container.appendChild(div);
-
-});
-
-
-updateProgress();
+    updateProgress();
 
 }
 
 
-/* ==================================================
-   PROGRESS
-================================================== */
+/* =========================================
+PROGRESS
+========================================= */
 
 function updateProgress(){
 
-if(!currentTest){
+    if(!currentTest){
 
-return;
+        return;
+
+    }
+
+
+    let answered = 0;
+
+
+    currentTest.questions.forEach(function(q){
+
+        if(q.type === "text"){
+
+            const input =
+                document.getElementById(
+                    "q" + q.number
+                );
+
+            if(input &&
+               input.value.trim() !== ""){
+
+                answered++;
+
+            }
+
+        }
+
+        else{
+
+            const selected =
+                document.querySelector(
+                    'input[name="q' +
+                    q.number +
+                    '"]:checked'
+                );
+
+            if(selected){
+
+                answered++;
+
+            }
+
+        }
+
+    });
+
+
+    const percent =
+        currentTest.questions.length
+        ? answered /
+          currentTest.questions.length *
+          100
+        : 0;
+
+
+    document.getElementById(
+        "readingProgress"
+    ).style.width =
+        percent + "%";
 
 }
 
 
-let answered = 0;
-
-
-currentTest.questions.forEach(function(q){
-
-if(q.type === "text"){
-
-const input =
-document.getElementById(
-"q" + q.number
-);
-
-if(
-input &&
-input.value.trim() !== ""
-){
-
-answered++;
-
-}
-
-}
-
-else{
-
-const selected =
-document.querySelector(
-`input[name="q${q.number}"]:checked`
-);
-
-if(selected){
-
-answered++;
-
-}
-
-}
-
-});
-
-
-const percent =
-answered /
-currentTest.questions.length *
-100;
-
-
-document.getElementById(
-"readingProgress"
-).style.width =
-percent + "%";
-
-}
-
+/* =========================================
+ANSWER TRACKING
+========================================= */
 
 document.addEventListener(
-"change",
-updateProgress
+    "change",
+    updateProgress
 );
 
 document.addEventListener(
-"input",
-updateProgress
+    "input",
+    updateProgress
 );
 
 
-/* ==================================================
-   NORMALIZE
-================================================== */
+/* =========================================
+NORMALIZE
+========================================= */
 
 function normalizeAnswer(answer){
 
-return String(answer)
-.trim()
-.toLowerCase()
-.replace(/[.,!?]/g,"");
+    return String(answer)
+        .trim()
+        .toLowerCase()
+        .replace(/[.,!?]/g,"");
 
 }
 
 
-/* ==================================================
-   SUBMIT
-================================================== */
+/* =========================================
+SUBMIT
+========================================= */
 
 function submitReading(){
 
-if(submitted){
+    if(submitted){
 
-return;
+        return;
+
+    }
+
+
+    if(!currentTest){
+
+        return;
+
+    }
+
+
+    if(!currentTest.questions.length){
+
+        alert(
+            "This test does not have questions yet."
+        );
+
+        return;
+
+    }
+
+
+    if(
+        !confirm(
+            "Are you sure you want to submit?"
+        )
+    ){
+
+        return;
+
+    }
+
+
+    submitted = true;
+
+    pauseTimer();
+
+
+    let score = 0;
+
+    let review = "";
+
+
+    currentTest.questions.forEach(function(q){
+
+        let userAnswer = "";
+
+
+        if(q.type === "text"){
+
+            const input =
+                document.getElementById(
+                    "q" + q.number
+                );
+
+            if(input){
+
+                userAnswer =
+                    input.value.trim();
+
+            }
+
+        }
+
+        else{
+
+            const selected =
+                document.querySelector(
+                    'input[name="q' +
+                    q.number +
+                    '"]:checked'
+                );
+
+            if(selected){
+
+                userAnswer =
+                    selected.value;
+
+            }
+
+        }
+
+
+        const correct =
+            normalizeAnswer(q.answer);
+
+        const user =
+            normalizeAnswer(userAnswer);
+
+
+        const isCorrect =
+            user === correct;
+
+
+        if(isCorrect){
+
+            score++;
+
+        }
+
+
+        review +=
+
+        '<div class="review-item ' +
+
+        (
+            isCorrect
+            ? "review-correct"
+            : "review-wrong"
+        ) +
+
+        '">' +
+
+        "<strong>Question " +
+        q.number +
+        "</strong><br><br>" +
+
+        "Your answer: " +
+        (userAnswer || "No answer") +
+
+        "<br>" +
+
+        "Correct answer: " +
+        q.answer +
+
+        "<br><br>" +
+
+        (
+            isCorrect
+            ? "✅ Correct"
+            : "❌ Incorrect"
+        ) +
+
+        "</div>";
+
+    });
+
+
+    const band =
+        calculateBand(score);
+
+
+    document.getElementById(
+        "readingResult"
+    ).innerHTML =
+
+    "<h2>📊 Reading Result</h2>" +
+
+    '<p class="score">' +
+    "Score: " +
+    score +
+    " / " +
+    currentTest.questions.length +
+    "</p>" +
+
+    '<p class="band">' +
+    "Estimated IELTS Band: " +
+    band +
+    "</p>" +
+
+    "<hr>" +
+
+    "<h2>🔍 Answer Review</h2>" +
+
+    review +
+
+    '<br><button onclick="showSection(\'readingHome\')">' +
+    "📖 Choose Another Test" +
+    "</button>";
+
+
+    document.getElementById(
+        "readingResult"
+    ).classList.remove("hidden");
+
+
+    document.getElementById(
+        "readingResult"
+    ).scrollIntoView({
+        behavior:"smooth"
+    });
 
 }
 
 
-if(!currentTest){
-
-return;
-
-}
-
-
-if(
-!confirm(
-"Are you sure you want to submit this Reading test?"
-)
-){
-
-return;
-
-}
-
-
-submitted = true;
-
-pauseTimer();
-
-
-let score = 0;
-
-let review = "";
-
-
-currentTest.questions.forEach(function(q){
-
-let userAnswer = "";
-
-
-if(q.type === "text"){
-
-const input =
-document.getElementById(
-"q" + q.number
-);
-
-if(input){
-
-userAnswer =
-input.value.trim();
-
-}
-
-}
-
-else{
-
-const selected =
-document.querySelector(
-`input[name="q${q.number}"]:checked`
-);
-
-if(selected){
-
-userAnswer =
-selected.value;
-
-}
-
-}
-
-
-const correct =
-normalizeAnswer(q.answer);
-
-const user =
-normalizeAnswer(userAnswer);
-
-
-const correctAnswer =
-user === correct;
-
-
-if(correctAnswer){
-
-score++;
-
-}
-
-
-review += `
-
-<div class="review-item
-${correctAnswer
-? "review-correct"
-: "review-wrong"}">
-
-<strong>
-Question ${q.number}
-</strong>
-
-<br><br>
-
-Your answer:
-<strong>
-${userAnswer || "No answer"}
-</strong>
-
-<br>
-
-Correct answer:
-<strong>
-${q.answer}
-</strong>
-
-<br><br>
-
-${correctAnswer
-? "✅ Correct"
-: "❌ Incorrect"}
-
-</div>
-
-`;
-
-});
-
-
-const band =
-calculateBand(score);
-
-
-document.getElementById(
-"readingResult"
-).innerHTML = `
-
-<div class="result">
-
-<h2>📊 Your Reading Result</h2>
-
-<p class="score">
-${score} / 40
-</p>
-
-<p class="band">
-Estimated Practice Band: ${band}
-</p>
-
-<hr>
-
-<p>
-Correct answers:
-<strong>${score}</strong>
-</p>
-
-<p>
-Incorrect answers:
-<strong>${40-score}</strong>
-</p>
-
-<p>
-Answered:
-<strong>${countAnswered()} / 40</strong>
-</p>
-
-<hr>
-
-<h2>🔍 Answer Review</h2>
-
-${review}
-
-<br>
-
-<button
-onclick="backToTests()"
-class="success">
-
-📖 Choose Another Test
-
-</button>
-
-</div>
-
-`;
-
-
-document.getElementById(
-"readingResult"
-).style.display = "block";
-
-
-document.getElementById(
-"readingResult"
-).scrollIntoView({
-behavior:"smooth"
-});
-
-}
-
-
-/* ==================================================
-   COUNT ANSWERS
-================================================== */
-
-function countAnswered(){
-
-let count = 0;
-
-
-currentTest.questions.forEach(function(q){
-
-if(q.type === "text"){
-
-const input =
-document.getElementById(
-"q" + q.number
-);
-
-if(
-input &&
-input.value.trim()
-){
-
-count++;
-
-}
-
-}
-
-else{
-
-const selected =
-document.querySelector(
-`input[name="q${q.number}"]:checked`
-);
-
-if(selected){
-
-count++;
-
-}
-
-}
-
-});
-
-
-return count;
-
-}
-
-
-/* ==================================================
-   BAND
-================================================== */
+/* =========================================
+BAND
+========================================= */
 
 function calculateBand(score){
 
-if(score >= 39){
-return "9.0";
-}
+    if(score >= 39) return "9.0";
 
-if(score >= 37){
-return "8.5";
-}
+    if(score >= 37) return "8.5";
 
-if(score >= 35){
-return "8.0";
-}
+    if(score >= 35) return "8.0";
 
-if(score >= 33){
-return "7.5";
-}
+    if(score >= 33) return "7.5";
 
-if(score >= 30){
-return "7.0";
-}
+    if(score >= 30) return "7.0";
 
-if(score >= 27){
-return "6.5";
-}
+    if(score >= 27) return "6.5";
 
-if(score >= 23){
-return "6.0";
-}
+    if(score >= 23) return "6.0";
 
-if(score >= 19){
-return "5.5";
-}
+    if(score >= 19) return "5.5";
 
-if(score >= 15){
-return "5.0";
-}
+    if(score >= 15) return "5.0";
 
-if(score >= 13){
-return "4.5";
-}
+    if(score >= 13) return "4.5";
 
-if(score >= 10){
-return "4.0";
-}
+    if(score >= 10) return "4.0";
 
-return "Below 4.0";
+    return "Below 4.0";
 
 }
 
 
-/* ==================================================
-   TIMER
-================================================== */
+/* =========================================
+START TIMER
+========================================= */
 
 function startTimer(){
 
-if(timerInterval){
+    if(timerInterval){
 
-return;
+        return;
 
-}
-
-
-timerInterval =
-setInterval(function(){
-
-if(readingSeconds <= 0){
-
-clearInterval(timerInterval);
-
-timerInterval = null;
-
-readingSeconds = 0;
-
-updateTimer();
-
-alert(
-"⏰ Reading time has finished."
-);
-
-if(!submitted){
-
-submitReading();
-
-}
-
-return;
-
-}
+    }
 
 
-readingSeconds--;
+    timerInterval =
+        setInterval(function(){
 
-updateTimer();
+            if(readingSeconds <= 0){
 
-},1000);
+                clearInterval(timerInterval);
+
+                timerInterval = null;
+
+                readingSeconds = 0;
+
+                updateTimer();
+
+                alert(
+                    "⏰ Time is finished!"
+                );
+
+                submitReading();
+
+                return;
+
+            }
+
+
+            readingSeconds--;
+
+            updateTimer();
+
+        },1000);
 
 }
 
 
-/* ==================================================
-   PAUSE
-================================================== */
+/* =========================================
+PAUSE
+========================================= */
 
 function pauseTimer(){
 
-if(timerInterval){
+    if(timerInterval){
 
-clearInterval(timerInterval);
+        clearInterval(timerInterval);
 
-timerInterval = null;
+        timerInterval = null;
+
+    }
 
 }
 
-}
 
-
-/* ==================================================
-   RESET
-================================================== */
+/* =========================================
+RESET
+========================================= */
 
 function resetTimer(){
 
-pauseTimer();
+    pauseTimer();
 
-readingSeconds = 3600;
+    readingSeconds = 3600;
 
-updateTimer();
+    updateTimer();
 
 }
 
 
-/* ==================================================
-   TIMER DISPLAY
-================================================== */
+/* =========================================
+TIMER DISPLAY
+========================================= */
 
 function updateTimer(){
 
-const element =
-document.getElementById(
-"readingTimer"
-);
+    const element =
+        document.getElementById(
+            "readingTimer"
+        );
 
 
-const minutes =
-Math.floor(
-readingSeconds / 60
-);
+    const minutes =
+        Math.floor(
+            readingSeconds / 60
+        );
 
 
-const seconds =
-readingSeconds % 60;
+    const seconds =
+        readingSeconds % 60;
 
 
-element.textContent =
+    element.textContent =
 
-"⏱️ Time Remaining: " +
+        "⏱️ Time Remaining: " +
 
-String(minutes)
-.padStart(2,"0") +
+        String(minutes)
+        .padStart(2,"0") +
 
-":" +
+        ":" +
 
-String(seconds)
-.padStart(2,"0");
-
-
-element.classList.remove(
-"warning",
-"danger"
-);
+        String(seconds)
+        .padStart(2,"0");
 
 
-if(readingSeconds <= 600){
-
-element.classList.add(
-"danger"
-);
-
-}
-
-else if(readingSeconds <= 1200){
-
-element.classList.add(
-"warning"
-);
-
-}
-
-}
+    element.classList.remove(
+        "warning",
+        "danger"
+    );
 
 
-/* ==================================================
-   BACK TO TESTS
-================================================== */
+    if(readingSeconds <= 600){
 
-function backToTests(){
+        element.classList.add(
+            "danger"
+        );
 
-pauseTimer();
+    }
 
-document.getElementById(
-"readingTest"
-).style.display = "none";
+    else if(readingSeconds <= 1200){
 
-document.getElementById(
-"readingHome"
-).style.display = "block";
+        element.classList.add(
+            "warning"
+        );
 
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+    }
 
 }
 
 
-/* ==================================================
-   INITIALIZE
-================================================== */
+/* =========================================
+STARTUP
+========================================= */
 
-updateTimer();>
-   
-<script>
-/* your existing Reading JavaScript */
+updateTimer();
+
+createTestList();
+
 </script>
 
+<!-- IMPORTANT:
+     reading-tests.js must be loaded AFTER
+     the main Reading page JavaScript.
+-->
+
 <script src="reading-tests.js"></script>
-   
+
+<script>
+
+/*
+   Create the test list again after
+   reading-tests.js has loaded.
+*/
+
+createTestList();
+
+</script>
 
 </body>
 
